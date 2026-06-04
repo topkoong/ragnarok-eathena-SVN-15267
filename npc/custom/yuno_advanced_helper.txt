@@ -1,0 +1,62 @@
+//============================================================
+// yuno_advanced_helper.txt
+// Note: F_TopBuyItem is now loaded from npc/custom/top_common_functions.txt
+//============================================================
+
+// Yuno Advanced Helper
+// City identity: advanced systems / high-class guidance / travel hub.
+//============================================================
+
+yuno,152,187,4	script	AdvancedHelper#yuno	742,{
+	mes "[ผู้ช่วยระบบขั้นสูง]";
+	mes "ยินดีต้อนรับสู่เมืองยูโน่ เมืองแห่งความรู้และระบบขั้นสูง";
+	mes "ข้าสามารถแนะนำเส้นทาง High-Class และพาท่านไปยังจุดสำคัญได้";
+	next;
+	switch(select("แนะนำ High-Class:ไปหา Valkyrie:ไป Prontera:ไป Morocc:ไป Payon:ไป Geffen:ยกเลิก")) {
+	case 1:
+		mes "เส้นทาง High-Class โดยสรุป:";
+		mes "1. อาชีพ 2nd Class ต้อง Base 99 และ Job 50";
+		mes "2. ไปหา Rebirth NPC เพื่อเกิดใหม่เป็น High Novice";
+		mes "3. เก็บเลเวลแล้วใช้ High-Class Job Changer";
+		mes "4. เปลี่ยนเป็น High 1st แล้วต่อด้วย Transcendent 2nd Class";
+		close;
+	case 2:
+		close2;
+		warp "valkyrie",48,86;
+		end;
+	case 3:
+		close2;
+		warp "prontera",156,86;
+		end;
+	case 4:
+		close2;
+		warp "morocc",102,110;
+		end;
+	case 5:
+		close2;
+		warp "payon",165,100;
+		end;
+	case 6:
+		close2;
+		warp "geffen",122,60;
+		end;
+	case 7:
+		close;
+	}
+}
+
+yuno,156,187,4	script	AdvancedSupply#yuno	837,{
+	mes "[ร้านของขั้นสูง]";
+	mes "ของใช้สำหรับผู้เล่นที่เริ่มเข้าสู่คอนเทนต์ระดับสูง";
+	mes "ราคาถูกกว่าตลาดบางส่วน แต่ยังคงควบคุมไม่ให้กระทบเศรษฐกิจมากเกินไป";
+	next;
+	switch(select("White Potion - 1,200z:Blue Potion - 5,000z:Yggdrasil Leaf - 4,000z:Berserk Potion - 3,000z:Awakening Potion - 1,500z:Concentration Potion - 800z:ยกเลิก")) {
+	case 1: callfunc "F_TopBuyItem",504,"White Potion",1200;
+	case 2: callfunc "F_TopBuyItem",505,"Blue Potion",5000;
+	case 3: callfunc "F_TopBuyItem",610,"Yggdrasil Leaf",4000;
+	case 4: callfunc "F_TopBuyItem",657,"Berserk Potion",3000;
+	case 5: callfunc "F_TopBuyItem",656,"Awakening Potion",1500;
+	case 6: callfunc "F_TopBuyItem",645,"Concentration Potion",800;
+	case 7: close;
+	}
+}

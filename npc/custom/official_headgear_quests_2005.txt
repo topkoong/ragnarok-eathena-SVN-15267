@@ -1,0 +1,447 @@
+//============================================================
+// Official Headgear Quests 2005 - Practical Pack
+// File: npc/custom/official_headgear_quests_2005.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Add useful official-style 2005 headgear quests.
+// - Ported carefully for old eAthena syntax.
+// - Thai dialogue is rewritten to be clearer and friendlier.
+// - Avoids modern rAthena-only commands such as disable_items.
+// - Avoids getnameditem for older compatibility; uses getitem.
+//
+// Source reference:
+// - rAthena npc/quests/newgears/2005_headgears.txt
+//
+// Included:
+// - Crunch Toast
+// - Renown Detective's Cap
+// - Red Bonnet
+// - Baby Pacifier
+// - Winter Hat
+// - Mystic Rose
+// - Zealotus Mask, simplified official-style version
+//
+// Encoding note:
+// - Because Thai dialogue is included, save this file as
+//   Windows-874 / CP874 / TIS-620.
+//============================================================
+
+
+//============================================================
+// Crunch Toast
+// rAthena official location: yuno,222,116
+//============================================================
+yuno,222,116,3	script	Kasis#2005Toast	851,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Kasis]";
+		mes "ช่องเก็บของหรือน้ำหนักของคุณไม่พอค่ะ";
+		mes "กรุณาเก็บของเข้าคลังก่อนนะคะ";
+		close;
+	}
+
+	mes "[Kasis]";
+	mes "สวัสดีค่ะ ฉันกำลังเตรียมอาหารกลางวันให้เพื่อน ๆ ที่โรงงาน";
+	mes "ถ้าคุณช่วยหาวัตถุดิบให้ ฉันจะทำ Crunch Toast สูตรพิเศษให้เป็นการตอบแทนค่ะ";
+	next;
+
+	mes "[Kasis]";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Milk x50";
+	mes "- Old Frying Pan x50";
+	mes "- Cheese x50";
+	mes "- Piece of Cake x50";
+	next;
+
+	if (countitem(519) < 50 || countitem(7031) < 50 || countitem(548) < 50 || countitem(539) < 50) {
+		mes "[Kasis]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		mes "ถ้าหามาครบแล้ว กลับมาหาฉันได้เลยนะคะ";
+		close;
+	}
+
+	menu "ส่งวัตถุดิบและรับ Crunch Toast",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(519) < 50 || countitem(7031) < 50 || countitem(548) < 50 || countitem(539) < 50) {
+		mes "[Kasis]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 519,50;
+	delitem 7031,50;
+	delitem 548,50;
+	delitem 539,50;
+	getitem 5107,1;
+	specialeffect2 248;
+	mes "[Kasis]";
+	mes "เสร็จแล้วค่ะ นี่คือ Crunch Toast ของคุณ";
+	mes "อย่าลืมว่าอาหารเช้าสำคัญที่สุดนะคะ";
+	close;
+
+L_Close:
+	mes "[Kasis]";
+	mes "ขอบคุณที่แวะมาค่ะ";
+	close;
+}
+
+
+//============================================================
+// Renown Detective's Cap
+// rAthena official location: lighthalzen,143,68
+//============================================================
+lighthalzen,143,68,0	script	Morris Poe#2005Detective	47,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Morris Poe]";
+		mes "นักสืบที่ดีต้องมีช่องเก็บของว่างพอ!";
+		mes "ไปจัดกระเป๋าก่อน แล้วค่อยกลับมา";
+		close;
+	}
+
+	mes "[Morris Poe]";
+	mes "หยุดก่อน! จากท่าทางของคุณ ข้ารู้ทันทีว่าคุณคือเหล่านักผจญภัยจาก Rune-Midgarts";
+	mes "ยอดนักสืบ Morris Poe ผู้นี้มองพลาดไม่ได้หรอก!";
+	next;
+
+	mes "[Morris Poe]";
+	mes "ถ้าอยากเข้าชมรมนักสืบรุ่นเยาว์ คุณต้องมี Renown Detective's Cap";
+	mes "แน่นอนว่าข้าสามารถช่วยจัดหาให้ได้... ด้วยวัตถุดิบเล็กน้อย";
+	next;
+
+	mes "[Morris Poe]";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Magnifier x10";
+	mes "- Tassel x1887";
+	mes "- Slotted Bucket Hat x1";
+	mes "- 1,887 Zeny";
+	next;
+
+	mes "[Morris Poe]";
+	mes "^FF0000คำเตือน:^000000 Bucket Hat ที่ตีบวกหรือใส่การ์ดแล้วจะสูญเสียคุณสมบัติเหล่านั้นเมื่อนำมาใช้เป็นวัตถุดิบ";
+	next;
+
+	if (countitem(611) < 10 || countitem(7301) < 1887 || countitem(5120) < 1 || Zeny < 1887) {
+		mes "[Morris Poe]";
+		mes "คุณสมบัติของคุณยังไม่ครบ!";
+		mes "เอ่อ... หมายถึงวัตถุดิบยังไม่ครบน่ะ";
+		close;
+	}
+
+	menu "เข้าชมรมนักสืบและรับหมวก",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(611) < 10 || countitem(7301) < 1887 || countitem(5120) < 1 || Zeny < 1887) {
+		mes "[Morris Poe]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 611,10;
+	delitem 7301,1887;
+	delitem 5120,1;
+	set Zeny,Zeny-1887;
+	getitem 5108,1;
+	specialeffect2 248;
+	mes "[Morris Poe]";
+	mes "ยินดีด้วย! คุณได้เป็นสมาชิกชมรมนักสืบรุ่นเยาว์แล้ว";
+	mes "สวม Renown Detective's Cap ด้วยความภาคภูมิใจเสียเถอะ!";
+	close;
+
+L_Close:
+	mes "[Morris Poe]";
+	mes "ยอดนักสืบไม่มีวันพักผ่อน!";
+	close;
+}
+
+
+//============================================================
+// Red Bonnet
+// rAthena official location: lighthalzen,182,89
+//============================================================
+lighthalzen,182,89,0	script	Achiha#2005Bonnet	91,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Achiha]";
+		mes "ของในตัวคุณเยอะเกินไปแล้วค่ะ";
+		mes "ไปเก็บของก่อนแล้วกลับมานะคะ";
+		close;
+	}
+
+	mes "[Achiha]";
+	mes "อืม... วันนี้อากาศดีจัง";
+	mes "ฉันชอบนั่งพักเงียบ ๆ และบางครั้งก็เย็บหมวกเล่น";
+	next;
+
+	mes "[Achiha]";
+	mes "ถ้าคุณอยากได้ Red Bonnet ฉันช่วยเย็บให้ได้นะ";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Green Lace x1";
+	mes "- Silk Ribbon x1";
+	mes "- Scarlet Dyestuffs x1";
+	mes "- Sunday Hat x1";
+	mes "- 50,000 Zeny";
+	next;
+
+	if (countitem(10015) < 1 || countitem(10007) < 1 || countitem(975) < 1 || countitem(5032) < 1 || Zeny < 50000) {
+		mes "[Achiha]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		mes "ถ้าหาครบแล้วกลับมาใหม่นะคะ";
+		close;
+	}
+
+	menu "ให้ Achiha เย็บ Red Bonnet",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(10015) < 1 || countitem(10007) < 1 || countitem(975) < 1 || countitem(5032) < 1 || Zeny < 50000) {
+		mes "[Achiha]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 10015,1;
+	delitem 10007,1;
+	delitem 975,1;
+	delitem 5032,1;
+	set Zeny,Zeny-50000;
+	getitem 5109,1;
+	specialeffect2 248;
+	mes "[Achiha]";
+	mes "เย็บเสร็จแล้วค่ะ";
+	mes "นี่คือ Red Bonnet ของคุณ หวังว่าจะชอบนะคะ";
+	close;
+
+L_Close:
+	mes "[Achiha]";
+	mes "ฉันขอนั่งพักต่ออีกหน่อยนะคะ";
+	close;
+}
+
+
+//============================================================
+// Baby Pacifier
+// rAthena official location: lighthalzen,360,313
+//============================================================
+lighthalzen,360,313,3	script	Kid#2005Pacifier	706,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Kid]";
+		mes "กระเป๋าของคุณเต็มแล้วครับ";
+		mes "กลับมาใหม่ตอนมีที่ว่างนะครับ";
+		close;
+	}
+
+	mes "[Kid]";
+	mes "พี่ครับ... ช่วยผมหน่อยได้ไหม?";
+	mes "คุณแม่ของผมไม่ค่อยสบาย ผมอยากหา Royal Jelly ให้ท่าน";
+	next;
+
+	mes "[Kid]";
+	mes "ถ้าพี่ช่วย ผมจะทำ Baby Pacifier ให้เป็นของตอบแทน";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Royal Jelly x1";
+	mes "- Nursing Bottle x1";
+	mes "- Nose Ring x1";
+	mes "- Pacifier x1";
+	next;
+
+	if (countitem(526) < 1 || countitem(7270) < 1 || countitem(941) < 1 || countitem(10004) < 1) {
+		mes "[Kid]";
+		mes "ของยังไม่ครบครับ";
+		mes "ผมจะรออยู่ตรงนี้นะครับ";
+		close;
+	}
+
+	menu "ส่งของและรับ Baby Pacifier",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(526) < 1 || countitem(7270) < 1 || countitem(941) < 1 || countitem(10004) < 1) {
+		mes "[Kid]";
+		mes "ของยังไม่ครบครับ";
+		close;
+	}
+	delitem 526,1;
+	delitem 7270,1;
+	delitem 941,1;
+	delitem 10004,1;
+	getitem 5110,1;
+	specialeffect2 248;
+	mes "[Kid]";
+	mes "เสร็จแล้วครับ!";
+	mes "นี่คือ Baby Pacifier ของพี่ ขอบคุณที่ช่วยนะครับ";
+	close;
+
+L_Close:
+	mes "[Kid]";
+	mes "ขอบคุณที่ฟังผมนะครับ";
+	close;
+}
+
+
+//============================================================
+// Winter Hat
+// rAthena official location: einbech,70,222
+//============================================================
+einbech,70,222,5	script	Metelle#2005Winter	91,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Metelle]";
+		mes "คุณถือของเยอะเกินไปค่ะ";
+		mes "ไปเก็บของก่อนแล้วกลับมาใหม่นะคะ";
+		close;
+	}
+
+	mes "[Metelle]";
+	mes "เวลาเห็นท้องฟ้า ฉันมักนึกถึงอิสระของนกที่บินอยู่บนนั้น";
+	mes "ฉันทำ Winter Hat ที่ให้ความรู้สึกแบบนั้นได้ค่ะ";
+	next;
+
+	mes "[Metelle]";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Black Dyestuffs x1";
+	mes "- Tiger Panty x999";
+	mes "- Frozen Rose x1";
+	mes "- 50,000 Zeny";
+	next;
+
+	if (countitem(983) < 1 || countitem(7267) < 999 || countitem(749) < 1 || Zeny < 50000) {
+		mes "[Metelle]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		close;
+	}
+
+	menu "ให้ Metelle ทำ Winter Hat",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(983) < 1 || countitem(7267) < 999 || countitem(749) < 1 || Zeny < 50000) {
+		mes "[Metelle]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 983,1;
+	delitem 7267,999;
+	delitem 749,1;
+	set Zeny,Zeny-50000;
+	getitem 5115,1;
+	specialeffect2 248;
+	mes "[Metelle]";
+	mes "เสร็จแล้วค่ะ นี่คือ Winter Hat ของคุณ";
+	mes "ขอให้มันทำให้คุณรู้สึกเหมือนได้โบยบินนะคะ";
+	close;
+
+L_Close:
+	mes "[Metelle]";
+	mes "ขอให้เดินทางปลอดภัยค่ะ";
+	close;
+}
+
+
+//============================================================
+// Mystic Rose
+// rAthena official location: lhz_in02,91,38
+//============================================================
+lhz_in02,91,38,5	script	Margaret Mary#2005Rose	90,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Margaret Mary]";
+		mes "คุณถือของมากเกินไปค่ะ";
+		mes "กรุณาเก็บของก่อนนะคะ";
+		close;
+	}
+
+	mes "[Margaret Mary]";
+	mes "ดอกกุหลาบสีขาวมีความงดงามที่เรียบง่ายและบริสุทธิ์";
+	mes "ถ้าคุณต้องการ ฉันสามารถทำ Mystic Rose ให้ได้ค่ะ";
+	next;
+
+	mes "[Margaret Mary]";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- 2carat Diamond x10";
+	mes "- Witherless Rose x3";
+	mes "- White Dyestuffs x1";
+	mes "- 50,000 Zeny";
+	next;
+
+	if (countitem(731) < 10 || countitem(748) < 3 || countitem(982) < 1 || Zeny < 50000) {
+		mes "[Margaret Mary]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		close;
+	}
+
+	menu "ให้ Margaret Mary ทำ Mystic Rose",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(731) < 10 || countitem(748) < 3 || countitem(982) < 1 || Zeny < 50000) {
+		mes "[Margaret Mary]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 731,10;
+	delitem 748,3;
+	delitem 982,1;
+	set Zeny,Zeny-50000;
+	getitem 5117,1;
+	specialeffect2 248;
+	mes "[Margaret Mary]";
+	mes "เสร็จแล้วค่ะ";
+	mes "โปรดสวม Mystic Rose อย่างสง่างามนะคะ";
+	close;
+
+L_Close:
+	mes "[Margaret Mary]";
+	mes "ความงามของกุหลาบควรถูกเก็บไว้ให้นานที่สุดค่ะ";
+	close;
+}
+
+
+//============================================================
+// Zealotus Mask
+// rAthena official location: gl_prison1,137,138
+// Simplified official-style version:
+// - Keeps the contract/material concept.
+// - Removes long Phendark state chain for maintainability.
+// - Uses getitem instead of getnameditem for old eAthena safety.
+//============================================================
+gl_prison1,137,138,5	script	Zealotus#2005Mask	1200,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Zealotus]";
+		mes "มนุษย์... เจ้าถือของมากเกินไป";
+		mes "กลับมาใหม่เมื่อเจ้าพร้อมทำสัญญา";
+		close;
+	}
+
+	mes "[Zealotus]";
+	mes "คุกใต้ดินแห่งนี้อยู่ภายใต้อำนาจของข้า";
+	mes "หากเจ้าต้องการส่วนหนึ่งของพลังของข้า จงนำของสำหรับทำสัญญามา";
+	next;
+
+	mes "[Zealotus]";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Cat's Eye x1";
+	mes "- Forbidden Red Candle x1";
+	mes "- Worn-out Magic Scroll x30";
+	next;
+
+	if (countitem(7263) < 1 || countitem(660) < 1 || countitem(7099) < 30) {
+		mes "[Zealotus]";
+		mes "ของยังไม่ครบ มนุษย์";
+		mes "อย่ากลับมาจนกว่าจะพร้อม";
+		close;
+	}
+
+	menu "ทำสัญญากับ Zealotus",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(7263) < 1 || countitem(660) < 1 || countitem(7099) < 30) {
+		mes "[Zealotus]";
+		mes "ของยังไม่ครบ";
+		close;
+	}
+	delitem 7263,1;
+	delitem 660,1;
+	delitem 7099,30;
+	getitem 5121,1;
+	specialeffect2 248;
+	mes "[Zealotus]";
+	mes "สัญญาเสร็จสมบูรณ์แล้ว";
+	mes "รับ Zealotus Mask ไป และจงจำไว้ว่าพลังนี้มีราคาของมัน";
+	close;
+
+L_Close:
+	mes "[Zealotus]";
+	mes "ฮึ... กลับไปเสีย มนุษย์";
+	close;
+}

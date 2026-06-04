@@ -1,0 +1,166 @@
+//============================================================
+// Platinum Skill NPC
+// eAthena SVN 15267 / Pre-Renewal High-Class style
+//
+// Purpose:
+//   Grants classic platinum / quest skills.
+//
+// Notes:
+//   - English/ASCII only. Safe to edit in VS Code.
+//   - Uses numeric skill IDs for old eAthena compatibility.
+//   - Some 2nd job quest skills may depend on your skill_db.txt.
+//   - If a skill does not exist in your DB, it may simply fail at runtime.
+//============================================================
+
+prontera,166,82,4	script	Platinum Skill NPC	743,{
+
+	//========================================================
+	// Config
+	//========================================================
+	set .@Price, 0; // Change to 1000000 if you want to charge 1M zeny.
+
+	mes "[Platinum Skill NPC]";
+	mes "I can teach classic platinum and quest skills.";
+	mes "These skills are useful for Pre-Renewal and High-Class gameplay.";
+	next;
+
+	if (.@Price > 0) {
+		mes "[Platinum Skill NPC]";
+		mes "Service fee: " + .@Price + " Zeny.";
+		next;
+
+		if (Zeny < .@Price) {
+			mes "[Platinum Skill NPC]";
+			mes "You do not have enough Zeny.";
+			close;
+		}
+	}
+
+	switch(select(
+		"Learn First Job Platinum Skills",
+		"Learn Second Job Quest Skills",
+		"Learn All Available Skills",
+		"Cancel"
+	)) {
+		case 1:
+			if (.@Price > 0) set Zeny, Zeny - .@Price;
+			callsub S_FirstJobSkills;
+			mes "[Platinum Skill NPC]";
+			mes "First job platinum skills have been granted.";
+			close;
+
+		case 2:
+			if (.@Price > 0) set Zeny, Zeny - .@Price;
+			callsub S_SecondJobSkills;
+			mes "[Platinum Skill NPC]";
+			mes "Second job quest skills have been granted.";
+			close;
+
+		case 3:
+			if (.@Price > 0) set Zeny, Zeny - .@Price;
+			callsub S_FirstJobSkills;
+			callsub S_SecondJobSkills;
+			mes "[Platinum Skill NPC]";
+			mes "All available platinum and quest skills have been granted.";
+			close;
+
+		default:
+			close;
+	}
+
+
+//============================================================
+// First Job Platinum Skills
+//============================================================
+S_FirstJobSkills:
+
+	// Novice
+	skill 142,1,0; // NV_FIRSTAID
+	skill 143,1,0; // NV_TRICKDEAD
+
+	// Swordman
+	skill 144,1,0; // SM_MOVINGRECOVERY
+	skill 145,1,0; // SM_FATALBLOW
+	skill 146,1,0; // SM_AUTOBERSERK
+
+	// Archer
+	skill 147,1,0; // AC_MAKINGARROW
+	skill 148,1,0; // AC_CHARGEARROW
+
+	// Thief
+	skill 149,1,0; // TF_SPRINKLESAND
+	skill 150,1,0; // TF_BACKSLIDING
+	skill 151,1,0; // TF_PICKSTONE
+	skill 152,1,0; // TF_THROWSTONE
+
+	// Merchant
+	skill 153,1,0; // MC_CARTREVOLUTION
+	skill 154,1,0; // MC_CHANGECART
+	skill 155,1,0; // MC_LOUD
+
+	// Acolyte
+	skill 156,1,0; // AL_HOLYLIGHT
+
+	// Mage
+	skill 157,1,0; // MG_ENERGYCOAT
+
+	return;
+
+
+//============================================================
+// Second Job Quest Skills
+//
+// These IDs are commonly used in old eAthena/rAthena-style servers.
+// If your local skill_db.txt does not include one of them, remove that line.
+//============================================================
+S_SecondJobSkills:
+
+	// Knight
+	skill 1001,1,0; // KN_CHARGEATK
+
+	// Crusader
+	skill 1002,1,0; // CR_SHRINK
+
+	// Assassin
+	skill 1003,1,0; // AS_SONICACCEL
+	skill 1004,1,0; // AS_VENOMKNIFE
+
+	// Rogue
+	skill 1005,1,0; // RG_CLOSECONFINE
+
+	// Wizard
+	skill 1006,1,0; // WZ_SIGHTBLASTER
+
+	// Sage
+	skill 1007,1,0; // SA_CREATECON
+	skill 1008,1,0; // SA_ELEMENTWATER
+	skill 1017,1,0; // SA_ELEMENTGROUND
+	skill 1018,1,0; // SA_ELEMENTFIRE
+	skill 1019,1,0; // SA_ELEMENTWIND
+
+	// Hunter
+	skill 1009,1,0; // HT_PHANTASMIC
+
+	// Bard
+	skill 1010,1,0; // BA_PANGVOICE
+
+	// Dancer
+	skill 1011,1,0; // DC_WINKCHARM
+
+	// Blacksmith
+	skill 1012,1,0; // BS_UNFAIRLYTRICK
+	skill 1013,1,0; // BS_GREED
+
+	// Priest
+	skill 1014,1,0; // PR_REDEMPTIO
+
+	// Monk
+	skill 1015,1,0; // MO_KITRANSLATION
+	skill 1016,1,0; // MO_BALKYOUNG / Ki Explosion
+
+	// Alchemist
+	// Bioethics is needed before Homunculus-related skills become useful.
+	skill 238,1,0; // AM_BIOETHICS
+
+	return;
+}

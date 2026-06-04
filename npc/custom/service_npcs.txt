@@ -1,0 +1,139 @@
+//============================================================
+// Service NPCs
+// eAthena SVN 15267
+//
+// Safe first batch:
+// - Healer
+// - Warper
+// - Reset Girl
+// - Identifier
+// - Repairman
+// - Utility / Battle Supply Sellers
+//
+// Keep this file English/ASCII to avoid Thai encoding issues.
+//============================================================
+
+
+//============================================================
+// Healer
+//============================================================
+prontera,144,196,4	script	Healer#Prt	91,{
+
+	mes "[Healer]";
+	mes "I can fully restore your HP and SP.";
+	next;
+
+	percentheal 100,100;
+
+	// Common negative status cleanup.
+	// If your server complains about a specific SC_ constant,
+	// remove only that line.
+	sc_end SC_POISON;
+	sc_end SC_SILENCE;
+	sc_end SC_BLIND;
+	sc_end SC_CONFUSION;
+	sc_end SC_CURSE;
+	sc_end SC_FREEZE;
+	sc_end SC_STONE;
+	sc_end SC_STEELBODY;
+
+	mes "[Healer]";
+	mes "Done. You are fully recovered.";
+	close;
+}
+
+morocc,144,100,4	duplicate(Healer#Prt)	Healer#Mor	91
+geffen,116,72,4	duplicate(Healer#Prt)	Healer#Gef	91
+payon,166,112,4	duplicate(Healer#Prt)	Healer#Pay	91
+alberta,36,232,4	duplicate(Healer#Prt)	Healer#Alb	91
+aldebaran,136,130,4	duplicate(Healer#Prt)	Healer#Ald	91
+izlude,120,130,4	duplicate(Healer#Prt)	Healer#Iz	91
+yuno,152,198,4	duplicate(Healer#Prt)	Healer#Yun	91
+comodo,188,154,4	duplicate(Healer#Prt)	Healer#Com	91
+
+
+//============================================================
+// Reset Girl
+//============================================================
+prontera,159,208,4	script	Reset Girl	727,{
+
+	mes "[Reset Girl]";
+	mes "I can reset your status points, skill points, or both.";
+	mes "Please choose carefully.";
+	next;
+
+	switch(select(
+		"Reset Status",
+		"Reset Skills",
+		"Reset Both",
+		"Cancel"
+	)) {
+		case 1:
+			resetstatus;
+			mes "[Reset Girl]";
+			mes "Your status points have been reset.";
+			close;
+
+		case 2:
+			resetskill;
+			mes "[Reset Girl]";
+			mes "Your skill points have been reset.";
+			close;
+
+		case 3:
+			resetstatus;
+			resetskill;
+			mes "[Reset Girl]";
+			mes "Your status and skill points have been reset.";
+			close;
+
+		default:
+			close;
+	}
+}
+
+
+//============================================================
+// Identifier
+// Old eAthena does not support identifyall as a script command.
+// Use @identify through atcommand instead.
+//============================================================
+prontera,151,208,4	script	Identifier	731,{
+
+	mes "[Identifier]";
+	mes "I can identify all unidentified items in your inventory.";
+	next;
+
+	if (select("Identify all items", "Cancel") == 2) {
+		close;
+	}
+
+	atcommand "@identify";
+
+	mes "[Identifier]";
+	mes "Done.";
+	close;
+}
+
+
+//============================================================
+// Repairman
+// Old eAthena does not support repairall as a script command.
+// Use @repairall through atcommand instead.
+//============================================================
+prontera,166,208,4	script	Repairman	743,{
+
+	mes "[Repairman]";
+	mes "I can repair all broken equipment.";
+	next;
+
+	if (select("Repair all equipment", "Cancel") == 2) {
+		close;
+	}
+
+	atcommand "@repairall";
+
+	mes "[Repairman]";
+	mes "Done.";
+	close;
+}

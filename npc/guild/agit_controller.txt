@@ -1,0 +1,170 @@
+//===== eAthena Script =======================================
+//= War of Emperium - WoE Auto-Start
+//===== By: ==================================================
+//= kalen (1.0)
+//= 1.1 by Akaru and ho|yAnge|
+//===== Current Version: =====================================
+//= 2.0
+//===== Compatible With: =====================================
+//= eAthena SVN; RO Episode 4+
+//===== Description: =========================================
+//= Auto Start for War of Emperium
+//=============================================
+//= gettime(3): Gets hour (24 hour time)
+//= gettime(4): Gets day of week 1=Monday, 2=Tuesday,
+//= 3=Wednesday, 4=Thursday, etc.
+//===== Additional Comments: =================================
+//= v1.1a changed OnInit to OnAgitInit.[kobra_k88]
+//= v1.2 added gettime checks. removed $AgitStarted var.[kobra_k88]
+//= v1.3 Moved treasure spawn time here.[kobra_k88]
+//= v1.3a Implemented Shadowlady's idea to allow for different
+//= start/stop times on different days.[kobra_k88]
+//= 1.4 Fixed treasure chests spawn! We had to unroll some loops
+//= Now they appear in castles from 00:01 to 00:24. [Lupus]
+//= 1.5 Fixed WOE end messages on non-WOE days, by Avaj
+//= 1.5a missing tabs [KarLaeda]
+//= 1.6 Corrected multiple "WoE has begun" announces [ultramage]
+//= 1.7 Commented out the WoE start and end announces. [L0ne_W0lf]
+//= 1.8 Castle owners displayed when WoE starts and finished. [L0ne_W0lf]
+//= 1.8a Will now report unoccupied castles at start/end. [L0ne_W0lf]
+//= 1.8b Whoops. Fixed a mistake :D [L0ne_W0lf]
+//= 1.9 Rearranged the time-checks so they no longer use goto. [L0ne_W0lf]
+//=	Removed treasure spawning function calls. (No longer needed)
+//= 2.0 Added WoE Battle Log support for broadcasts. [L0ne_W0lf]
+//============================================================
+//| To know how to set up WoE times, go to doc\woe_time_explanation.txt
+// WoE Start/Stop times
+//======================================
+-	script	Agit_Event	-1,{
+	end;
+
+OnClock2000:
+	if($NPC_GVG_GTime$!="ON")end;
+
+
+	if(gettime(4)==2||gettime(4)==4||gettime(4)==6){
+
+
+		AgitStart;
+		announce "[ GuildWar ] : สงคราม Guild War ได้เริ่มต้นขึ้นแล้ว ณ บัดนี้ !!",0;
+		callsub S_DisplayOwners;
+	}
+end;
+
+OnClock2100:
+	if($NPC_GVG_GTime$!="ON")end;
+
+
+	if(gettime(4)==2||gettime(4)==4||gettime(4)==6){
+
+
+		AgitEnd;
+		announce "[ GuildWar ] : สงคราม Guild War ได้จบลงแล้ว !!",0;
+		callfunc("NPC_RANK_OnAgitEnd");
+		callsub S_DisplayOwners;
+	}
+end;
+
+//OnClock2100:if($NPC_GVG_GTime$!="ON")end;
+//	if(gettime(4)==5){announce "[ GuildWar ] : ระบบกิลวอล เบบี้ ได้เริ่มต้นขึ้นแล้ว ณ บัดนี้ !!",0;set $@SYSTEM_Guildwar_Baby$,"ON";set $@SYSTEM_Guildwar_MAIN$,"OFF";AgitStart;}
+//	else if(gettime(4)==3){announce "[ GuildWar ] : ระบบกิลวอล โนวิช ได้เริ่มต้นขึ้นแล้ว ณ บัดนี้ !!",0;set $@SYSTEM_Guildwar_Novice$,"ON";set $@SYSTEM_Guildwar_MAIN$,"OFF";AgitStart;}
+//end;
+//OnClock2200:if($NPC_GVG_GTime$!="ON")end;
+//	if(gettime(4)==5){announce "[ GuildWar ] : ระบบกิลวอล เบบี้ ได้จบลงแล้ว",0;set $@SYSTEM_Guildwar_Baby$,"";set $@SYSTEM_Guildwar_MAIN$,"";AgitEnd;}
+//	else if(gettime(4)==3){announce "[ GuildWar ] : ระบบกิลวอล โนวิช ได้จบลงแล้ว !!",0;set $@SYSTEM_Guildwar_Novice$,"";set $@SYSTEM_Guildwar_MAIN$,"";AgitEnd;}
+//end;
+
+S_DisplayOwners:
+	setarray .@maps$[0],"aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05";
+	setarray .@maps$[5],"gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05";
+	setarray .@maps$[10],"payg_cas01","payg_cas02","payg_cas03","payg_cas04","payg_cas05";
+	setarray .@maps$[15],"prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05";
+	for( set .@i, 0; .@i <= 19; set .@i, .@i+1 ) {
+		if (GetCastleData(.@maps$[.@i],1)) {
+			Announce "บ้าน [" + GetCastleName(.@maps$[.@i]) + "] ถูกครอบครองโดยกิล [" + GetGuildName(GetCastleData(.@maps$[.@i],1)) + "]",bc_all|bc_woe;
+		}	
+	}
+	end;
+}
+
+
+
+-	script	TimeWoe1	-1,{
+end;
+
+OnClock2059:
+	if($NPC_GVG_GTime$!="ON")end;
+	if(gettime(4)==2||gettime(4)==4||gettime(4)==5){
+
+
+		announce "เหลือเวลาการแข่งขัน Guild War อีก 1 นาทีสุดท้าย",bc_all;
+		initnpctimer "TimeWoe2";
+}
+end;
+}
+
+-	script	TimeWoe2	-1,{
+end;
+OnStart:
+OnTimer1000: announce "59 วินาที",bc_all; end;
+OnTimer2000: announce "58 วินาที",bc_all; end;
+OnTimer3000: announce "57 วินาที",bc_all; end;
+OnTimer4000: announce "56 วินาที",bc_all; end;
+OnTimer5000: announce "55 วินาที",bc_all; end;
+OnTimer6000: announce "54 วินาที",bc_all; end;
+OnTimer7000: announce "53 วินาที",bc_all; end;
+OnTimer8000: announce "52 วินาที",bc_all; end;
+OnTimer9000: announce "51 วินาที",bc_all; end;
+OnTimer10000: announce "50 วินาที",bc_all; end;
+OnTimer11000: announce "49 วินาที",bc_all; end;
+OnTimer12000: announce "48 วินาที",bc_all; end;
+OnTimer13000: announce "47 วินาที",bc_all; end;
+OnTimer14000: announce "46 วินาที",bc_all; end;
+OnTimer15000: announce "45 วินาที",bc_all; end;
+OnTimer16000: announce "44 วินาที",bc_all; end;
+OnTimer17000: announce "43 วินาที",bc_all; end;
+OnTimer18000: announce "42 วินาที",bc_all; end;
+OnTimer19000: announce "41 วินาที",bc_all; end;
+OnTimer20000: announce "40 วินาที",bc_all; end;
+OnTimer21000: announce "39 วินาที",bc_all; end;
+OnTimer22000: announce "38 วินาที",bc_all; end;
+OnTimer23000: announce "37 วินาที",bc_all; end;
+OnTimer24000: announce "36 วินาที",bc_all; end;
+OnTimer25000: announce "35 วินาที",bc_all; end;
+OnTimer26000: announce "34 วินาที",bc_all; end;
+OnTimer27000: announce "33 วินาที",bc_all; end;
+OnTimer28000: announce "32 วินาที",bc_all; end;
+OnTimer29000: announce "31 วินาที",bc_all; end;
+OnTimer30000: announce "30 วินาที",bc_all; end;
+OnTimer31000: announce "29 วินาที",bc_all; end;
+OnTimer32000: announce "28 วินาที",bc_all; end;
+OnTimer33000: announce "27 วินาที",bc_all; end;
+OnTimer34000: announce "26 วินาที",bc_all; end;
+OnTimer35000: announce "25 วินาที",bc_all; end;
+OnTimer36000: announce "24 วินาที",bc_all; end;
+OnTimer37000: announce "23 วินาที",bc_all; end;
+OnTimer38000: announce "22 วินาที",bc_all; end;
+OnTimer39000: announce "21 วินาที",bc_all; end;
+OnTimer40000: announce "20 วินาที",bc_all; end;
+OnTimer41000: announce "19 วินาที",bc_all; end;
+OnTimer42000: announce "18 วินาที",bc_all; end;
+OnTimer43000: announce "17 วินาที",bc_all; end;
+OnTimer44000: announce "16 วินาที",bc_all; end;
+OnTimer45000: announce "15 วินาที",bc_all; end;
+OnTimer46000: announce "14 วินาที",bc_all; end;
+OnTimer47000: announce "13 วินาที",bc_all; end;
+OnTimer48000: announce "12 วินาที",bc_all; end;
+OnTimer49000: announce "11 วินาที",bc_all; end;
+OnTimer50000: announce "10 วินาที",bc_all; end;
+OnTimer51000: announce "9 วินาที",bc_all; end;
+OnTimer52000: announce "8 วินาที",bc_all; end;
+OnTimer53000: announce "7 วินาที",bc_all; end;
+OnTimer54000: announce "6 วินาที",bc_all; end;
+OnTimer55000: announce "5 วินาที",bc_all; end;
+OnTimer56000: announce "4 วินาที",bc_all; end;
+OnTimer57000: announce "3 วินาที",bc_all; end;
+OnTimer58000: announce "2 วินาที",bc_all; end;
+OnTimer59000: announce "1 วินาที",bc_all; end;
+stopnpctimer;
+end;
+}

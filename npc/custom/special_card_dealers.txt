@@ -1,0 +1,41 @@
+//============================================================
+// Special Card Dealers
+// eAthena SVN 15267
+//
+// Step 1:
+//   Mini-Boss / Special Card Dealer
+//
+// Location:
+//   Payon special card market
+//============================================================
+
+
+//============================================================
+// Mini-Boss / Special Card Dealer
+//============================================================
+payon,165,100,4	shop	Mini Boss Card Dealer	747,4047:700000000,4054:700000000,4174:800000000,4197:250000000,4198:600000000,4241:500000000
+//============================================================
+// Elemental / Armor Element Card Dealer
+// Useful cards for changing armor element and elemental defense.
+//============================================================
+payon,173,100,4	shop	Element Card Dealer	735,4087:120000000,4088:120000000,4099:120000000,4119:120000000,4141:120000000
+//============================================================
+// Race Card Dealer
+// Cards that increase damage against specific monster races.
+// Useful for PvM farming and MVP builds.
+//============================================================
+payon,177,100,4	shop	Race Card Dealer	725,4007:50000000,4035:80000000,4036:50000000,4037:50000000,4068:50000000,4072:50000000,4086:50000000,4107:50000000
+
+//============================================================
+// Size Card Dealer
+// Cards that increase damage against monster sizes.
+// Useful for MVP / farming weapon builds.
+//============================================================
+payon,181,100,4	shop	Size Card Dealer	731,4082:80000000,4092:100000000,4138:100000000
+
+//============================================================
+// Status / Resistance Card Dealer
+// Cards useful for status resistance, anti-disable, and survivability.
+// Good for PvP, WoE, MVP, and general build testing.
+//============================================================
+payon,185,100,4	shop	Status Card Dealer	727,4053:80000000,4074:80000000,4105:120000000,4107:80000000,4119:120000000,4133:120000000,4141:120000000

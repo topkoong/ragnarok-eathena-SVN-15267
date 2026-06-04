@@ -1,0 +1,601 @@
+//============================================================
+// Official Headgear Quests 2004 - Part 2
+// File: npc/custom/official_headgear_quests_2004_part2.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Add the useful missing 2004 official-style headgear quests.
+// - Ported carefully for old eAthena syntax.
+// - Thai dialogue is rewritten to be clearer and friendlier.
+// - Avoids modern rAthena-only commands such as disable_items.
+//
+// Source reference:
+// - rAthena npc/quests/newgears/2004_headgears.txt
+// - Part 2 covers:
+//      Decorative Golden Bell
+//      Crown of Ancient Queen
+//      Crown of Mistress
+//      Alarm Mask
+//      Drooping Cat
+//      Smokie Leaf
+//      Lazy Smokie
+//      Blue Fish
+//      Kitsune Mask
+//      Orc Hero Helm simplified path
+//
+// Encoding note:
+// - Because Thai dialogue is included, save this file as
+//   Windows-874 / CP874 / TIS-620.
+//============================================================
+
+
+//============================================================
+// Monster Museum
+// Decorative Golden Bell / Crown of Ancient Queen / Crown of Mistress
+// Official location from rAthena: yuno_in03,20,18
+//============================================================
+yuno_in03,20,18,6	script	Nehris#2004b	726,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Nehris]";
+		mes "น้ำหนักหรือช่องเก็บของของคุณไม่พอค่ะ";
+		mes "กรุณาเก็บของเข้าคลัง Kafra ก่อนนะคะ";
+		close;
+	}
+
+	mes "[Nehris]";
+	mes "ยินดีต้อนรับสู่ Monster Museum ค่ะ";
+	mes "เรากำลังจัดกิจกรรมพิเศษ นำเครื่องประดับที่ได้รับแรงบันดาลใจจากมอนสเตอร์มาทำเป็นหมวกสำหรับนักผจญภัย";
+	next;
+
+	mes "[Nehris]";
+	mes "สนใจทำชิ้นไหนคะ?";
+	next;
+	menu "Decorative Golden Bell",L_GoldenBell,"Crown of Ancient Queen",L_QueenCrown,"Crown of Mistress",L_MistressCrown,"ยกเลิก",L_Close;
+
+L_GoldenBell:
+	mes "[Nehris]";
+	mes "Decorative Golden Bell ได้แรงบันดาลใจจากกระดิ่งของ Sohee";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Golden Bell x1";
+	mes "- Emperium x1";
+	mes "- Gold x3";
+	mes "- 20,000 Zeny";
+	next;
+	if (countitem(10016) < 1 || countitem(714) < 1 || countitem(969) < 3 || Zeny < 20000) {
+		mes "[Nehris]";
+		mes "วัตถุดิบของคุณยังไม่ครบค่ะ";
+		close;
+	}
+	menu "สร้าง Decorative Golden Bell",L_MakeGoldenBell,"ยกเลิก",L_Close;
+
+L_MakeGoldenBell:
+	if (countitem(10016) < 1 || countitem(714) < 1 || countitem(969) < 3 || Zeny < 20000) {
+		mes "[Nehris]";
+		mes "วัตถุดิบของคุณยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 10016,1;
+	delitem 714,1;
+	delitem 969,3;
+	set Zeny,Zeny-20000;
+	getitem 5091,1;
+	specialeffect2 248;
+	mes "[Nehris]";
+	mes "เรียบร้อยค่ะ นี่คือ Decorative Golden Bell ของคุณ";
+	close;
+
+L_QueenCrown:
+	mes "[Nehris]";
+	mes "Crown of Ancient Queen ได้แรงบันดาลใจจากเครื่องประดับของ Isis";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Queen's Hair Ornament x1";
+	mes "- Emperium x1";
+	mes "- Gold x3";
+	mes "- 20,000 Zeny";
+	next;
+	if (countitem(10006) < 1 || countitem(714) < 1 || countitem(969) < 3 || Zeny < 20000) {
+		mes "[Nehris]";
+		mes "วัตถุดิบของคุณยังไม่ครบค่ะ";
+		close;
+	}
+	menu "สร้าง Crown of Ancient Queen",L_MakeQueenCrown,"ยกเลิก",L_Close;
+
+L_MakeQueenCrown:
+	if (countitem(10006) < 1 || countitem(714) < 1 || countitem(969) < 3 || Zeny < 20000) {
+		mes "[Nehris]";
+		mes "วัตถุดิบของคุณยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 10006,1;
+	delitem 714,1;
+	delitem 969,3;
+	set Zeny,Zeny-20000;
+	getitem 5080,1;
+	specialeffect2 248;
+	mes "[Nehris]";
+	mes "เรียบร้อยค่ะ นี่คือ Crown of Ancient Queen ของคุณ";
+	close;
+
+L_MistressCrown:
+	mes "[Nehris]";
+	mes "Crown of Mistress เป็นมงกุฎที่ได้รับแรงบันดาลใจจาก Mistress";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Coronet x1";
+	mes "- Emperium x1";
+	mes "- Gold x3";
+	mes "- 40,000 Zeny";
+	next;
+	mes "[Nehris]";
+	mes "^FF0000หมายเหตุ:^000000 ถ้า Coronet มีการตีบวกหรือใส่การ์ด คุณสมบัติเหล่านั้นจะหายไปเมื่อใช้เป็นวัตถุดิบ";
+	next;
+	if (countitem(2249) < 1 || countitem(714) < 1 || countitem(969) < 3 || Zeny < 40000) {
+		mes "[Nehris]";
+		mes "วัตถุดิบของคุณยังไม่ครบค่ะ";
+		close;
+	}
+	menu "สร้าง Crown of Mistress",L_MakeMistressCrown,"ยกเลิก",L_Close;
+
+L_MakeMistressCrown:
+	if (countitem(2249) < 1 || countitem(714) < 1 || countitem(969) < 3 || Zeny < 40000) {
+		mes "[Nehris]";
+		mes "วัตถุดิบของคุณยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 2249,1;
+	delitem 714,1;
+	delitem 969,3;
+	set Zeny,Zeny-40000;
+	getitem 5081,1;
+	specialeffect2 248;
+	mes "[Nehris]";
+	mes "เรียบร้อยค่ะ นี่คือ Crown of Mistress ของคุณ";
+	close;
+
+L_Close:
+	mes "[Nehris]";
+	mes "แล้วกลับมาเยี่ยม Monster Museum อีกนะคะ";
+	close;
+}
+
+
+//============================================================
+// Alarm Mask
+// Official location from rAthena: alde_alche,88,180
+// Simplified: no temporary visual clone NPCs, safer for old eAthena.
+//============================================================
+alde_alche,88,180,0	script	Muscle Man#Alarm2004	748,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Muscle Man]";
+		mes "ของในตัวคุณเยอะเกินไปแล้วนะ!";
+		mes "ไปเก็บของก่อน แล้วค่อยกลับมาใหม่";
+		close;
+	}
+
+	mes "[Muscle Man]";
+	mes "โอ้! นักผจญภัย!";
+	mes "ฉันกำลังวิจัยชิ้นส่วนเครื่องจักรจาก Alarm เพื่อสร้างหน้ากากสุดเท่";
+	next;
+
+	mes "[Muscle Man]";
+	mes "ถ้าช่วยหาอุปกรณ์ให้ ฉันจะทำ Alarm Mask ให้เป็นรางวัล";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Needle of Alarm x3000";
+	mes "- Mr. Scream x1";
+	next;
+
+	if (countitem(1095) < 3000 || countitem(2288) < 1) {
+		mes "[Muscle Man]";
+		mes "วัตถุดิบยังไม่ครบ!";
+		mes "Clock Tower ยังรอความกล้าของเจ้าอยู่!";
+		close;
+	}
+
+	menu "ส่งวัตถุดิบทำ Alarm Mask",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(1095) < 3000 || countitem(2288) < 1) {
+		mes "[Muscle Man]";
+		mes "วัตถุดิบยังไม่ครบ!";
+		close;
+	}
+	delitem 1095,3000;
+	delitem 2288,1;
+	getitem 5086,1;
+	specialeffect2 248;
+	mes "[Muscle Man]";
+	mes "สำเร็จ! นี่คือ Alarm Mask ของเจ้า!";
+	mes "จงสวมมันด้วยความภาคภูมิใจ!";
+	close;
+
+L_Close:
+	mes "[Muscle Man]";
+	mes "กล้ามเนื้อและความพยายามไม่มีวันทรยศใคร!";
+	close;
+}
+
+
+//============================================================
+// Educated Traveller
+// Drooping Cat / Smokie Leaf / Lazy Smokie / Blue Fish
+// Official location from rAthena: morocc,273,79
+//============================================================
+morocc,273,79,4	script	Educated Traveller#2004b	99,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Lee Hester]";
+		mes "คุณถือของมากเกินไป";
+		mes "ไปเก็บของก่อน แล้วค่อยกลับมาคุยกันนะ";
+		close;
+	}
+
+	mes "[Lee Hester]";
+	mes "อากาศในทะเลทราย Morocc ร้อนมากใช่ไหม?";
+	mes "ฉันศึกษาเรื่องสัตว์และวิธีที่พวกมันรับมือกับสภาพแวดล้อม";
+	next;
+
+	mes "[Lee Hester]";
+	mes "ถ้าคุณมี Claw of Desert Wolf ฉันสามารถช่วยทำหมวกพิเศษให้ได้";
+	next;
+
+	menu "Drooping Cat",L_DroopingCat,"Smokie Leaf",L_SmokieLeaf,"Lazy Smokie",L_LazySmokie,"Blue Fish",L_BlueFish,"ยกเลิก",L_Close;
+
+L_DroopingCat:
+	mes "[Lee Hester]";
+	mes "Drooping Cat เป็นหมวกแมวที่ดูขี้เกียจ แต่น่ารักมาก";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Circlet [1] x1";
+	mes "- Black Dyestuffs x1";
+	mes "- Black Cat Doll x300";
+	mes "- Claw of Desert Wolf x1";
+	next;
+	if (countitem(2233) < 1 || countitem(983) < 1 || countitem(7206) < 300 || countitem(7030) < 1) {
+		mes "[Lee Hester]";
+		mes "วัตถุดิบของคุณยังไม่ครบ";
+		close;
+	}
+	menu "สร้าง Drooping Cat",L_MakeDroopingCat,"ยกเลิก",L_Close;
+
+L_MakeDroopingCat:
+	if (countitem(2233) < 1 || countitem(983) < 1 || countitem(7206) < 300 || countitem(7030) < 1) {
+		mes "[Lee Hester]";
+		mes "วัตถุดิบของคุณยังไม่ครบ";
+		close;
+	}
+	delitem 2233,1;
+	delitem 983,1;
+	delitem 7206,300;
+	delitem 7030,1;
+	getitem 5058,1;
+	specialeffect2 248;
+	mes "[Lee Hester]";
+	mes "เสร็จแล้ว นี่คือ Drooping Cat ของคุณ";
+	close;
+
+L_SmokieLeaf:
+	mes "[Lee Hester]";
+	mes "Smokie Leaf เป็นหมวกใบไม้ที่ได้รับแรงบันดาลใจจาก Smokie";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Raccoon Leaf x600";
+	mes "- Claw of Desert Wolf x1";
+	next;
+	if (countitem(945) < 600 || countitem(7030) < 1) {
+		mes "[Lee Hester]";
+		mes "วัตถุดิบของคุณยังไม่ครบ";
+		close;
+	}
+	menu "สร้าง Smokie Leaf",L_MakeSmokieLeaf,"ยกเลิก",L_Close;
+
+L_MakeSmokieLeaf:
+	if (countitem(945) < 600 || countitem(7030) < 1) {
+		mes "[Lee Hester]";
+		mes "วัตถุดิบของคุณยังไม่ครบ";
+		close;
+	}
+	delitem 945,600;
+	delitem 7030,1;
+	getitem 5064,1;
+	specialeffect2 248;
+	mes "[Lee Hester]";
+	mes "เสร็จแล้ว นี่คือ Smokie Leaf ของคุณ";
+	close;
+
+L_LazySmokie:
+	mes "[Lee Hester]";
+	mes "Lazy Smokie เป็นหมวกที่ดูขี้เกียจ แต่มีเอกลักษณ์มาก";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Acorn x1000";
+	mes "- Sea-Otter Fur x100";
+	mes "- Raccoon Leaf x10";
+	mes "- Claw of Desert Wolf x1";
+	next;
+	if (countitem(1026) < 1000 || countitem(7065) < 100 || countitem(945) < 10 || countitem(7030) < 1) {
+		mes "[Lee Hester]";
+		mes "วัตถุดิบของคุณยังไม่ครบ";
+		close;
+	}
+	menu "สร้าง Lazy Smokie",L_MakeLazySmokie,"ยกเลิก",L_Close;
+
+L_MakeLazySmokie:
+	if (countitem(1026) < 1000 || countitem(7065) < 100 || countitem(945) < 10 || countitem(7030) < 1) {
+		mes "[Lee Hester]";
+		mes "วัตถุดิบของคุณยังไม่ครบ";
+		close;
+	}
+	delitem 1026,1000;
+	delitem 7065,100;
+	delitem 945,10;
+	delitem 7030,1;
+	getitem 5084,1;
+	specialeffect2 248;
+	mes "[Lee Hester]";
+	mes "เสร็จแล้ว นี่คือ Lazy Smokie ของคุณ";
+	close;
+
+L_BlueFish:
+	mes "[Lee Hester]";
+	mes "Blue Fish เป็นหมวกปลาที่ดูแปลก แต่โดดเด่นมาก";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Rotten Fish x1";
+	mes "- Stinky Scale x300";
+	mes "- Sushi x50";
+	mes "- Fish Tail x1";
+	mes "- Sticky Mucus x100";
+	mes "- Claw of Desert Wolf x1";
+	next;
+	if (countitem(624) < 1 || countitem(959) < 300 || countitem(551) < 50 || countitem(1023) < 1 || countitem(938) < 100 || countitem(7030) < 1) {
+		mes "[Lee Hester]";
+		mes "วัตถุดิบของคุณยังไม่ครบ";
+		close;
+	}
+	menu "สร้าง Blue Fish",L_MakeBlueFish,"ยกเลิก",L_Close;
+
+L_MakeBlueFish:
+	if (countitem(624) < 1 || countitem(959) < 300 || countitem(551) < 50 || countitem(1023) < 1 || countitem(938) < 100 || countitem(7030) < 1) {
+		mes "[Lee Hester]";
+		mes "วัตถุดิบของคุณยังไม่ครบ";
+		close;
+	}
+	delitem 624,1;
+	delitem 959,300;
+	delitem 551,50;
+	delitem 1023,1;
+	delitem 938,100;
+	delitem 7030,1;
+	getitem 5065,1;
+	specialeffect2 248;
+	mes "[Lee Hester]";
+	mes "เสร็จแล้ว นี่คือ Blue Fish ของคุณ";
+	close;
+
+L_Close:
+	mes "[Lee Hester]";
+	mes "ขอให้ทะเลทราย Morocc มอบโชคดีให้คุณ";
+	close;
+}
+
+
+//============================================================
+// Kitsune Mask
+// Official location from rAthena: pay_dun03,48,84
+// Simplified: no hidden monster spawn manager.
+//============================================================
+pay_dun03,48,84,4	script	Nine Tails#Kitsune2004	1180,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Nine Tails]";
+		mes "ของในตัวคุณมากเกินไป";
+		mes "กลับมาใหม่เมื่อมีช่องว่างพอนะ";
+		close;
+	}
+
+	mes "[Nine Tails]";
+	mes "เจ้าเป็นมนุษย์ที่ตามหาหน้ากากจิ้งจอกใช่ไหม?";
+	mes "ถ้าอยากได้ Kitsune Mask จงพิสูจน์ความตั้งใจด้วยหางของ Nine Tail";
+	next;
+
+	mes "[Nine Tails]";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Nine Tails x999";
+	next;
+
+	if (countitem(1022) < 999) {
+		mes "[Nine Tails]";
+		mes "เจ้ายังมี Nine Tails ไม่ครบ";
+		mes "เมื่อครบแล้วจงกลับมา";
+		close;
+	}
+
+	menu "ส่ง Nine Tails x999",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(1022) < 999) {
+		mes "[Nine Tails]";
+		mes "เจ้ายังมี Nine Tails ไม่ครบ";
+		close;
+	}
+	delitem 1022,999;
+	getitem 5069,1;
+	specialeffect2 248;
+	mes "[Nine Tails]";
+	mes "รับไป นี่คือ Kitsune Mask";
+	mes "จงใช้มันด้วยความเคารพต่อเผ่าจิ้งจอก";
+	close;
+
+L_Close:
+	mes "[Nine Tails]";
+	mes "ยิป... ยิป...";
+	close;
+}
+
+
+//============================================================
+// Orc Hero Helm - Simplified Official-Style Long Quest
+// Official rAthena chain is very long.
+// This port keeps the useful progression and material checks,
+// but removes random gates, long repeated dialogue, and getnameditem.
+//============================================================
+in_orcs01,31,93,1	script	Orc Warrior#Hero2004	1023,2,2,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Orc Warrior]";
+		mes "เจ้าถือของมากเกินไป";
+		mes "กลับมาใหม่เมื่อพร้อม";
+		close;
+	}
+
+	mes "[Orc Warrior]";
+	mes "มนุษย์... เจ้ากล้าบุกเข้ามาในบ้านของ Orc";
+	mes "ถ้าอยากได้รับการยอมรับจากเผ่า Orc จงพิสูจน์ด้วยความอดทน";
+	next;
+
+	if (orcs_hero_hat < 10) {
+		mes "[Orc Warrior]";
+		mes "ขั้นแรก เจ้าต้องแสดงความตั้งใจด้วย Jellopy";
+		mes "ความคืบหน้า: ^0000FF" + orcs_hero_hat + "/10^000000";
+		mes "ส่งครั้งละ Jellopy x1000";
+		next;
+
+		if (countitem(909) < 1000) {
+			mes "[Orc Warrior]";
+			mes "เจ้ายังมี Jellopy ไม่ถึง 1000";
+			close;
+		}
+
+		menu "ส่ง Jellopy x1000",L_GiveJellopy,"ยกเลิก",L_Close;
+	}
+
+	if (orcs_hero_hat == 10) {
+		mes "[Orc Warrior]";
+		mes "เจ้าอดทนพอสมควร";
+		mes "ข้าจะมอบ Orcish Axe เป็นสัญลักษณ์แรกของความพยายาม";
+		next;
+		set orcs_hero_hat,11;
+		getitem 1304,1;
+		specialeffect2 248;
+		mes "[Orc Warrior]";
+		mes "รับไป และจงเรียนรู้วิถีของ Orc ต่อไป";
+		close;
+	}
+
+	if (orcs_hero_hat == 11) {
+		mes "[Orc Warrior]";
+		mes "ต่อไป เจ้าต้องพิสูจน์ผ่านการต่อสู้กับ Orc จำนวนมาก";
+		mes "นำ Orcish Voucher มาให้ครบ 10000";
+		mes "ความคืบหน้า: ^0000FF" + orcs_hero_hat2 + "/10000^000000";
+		next;
+
+		if (countitem(931) < 1) {
+			mes "[Orc Warrior]";
+			mes "เจ้าต้องนำ Orcish Voucher จากการต่อสู้มาให้ข้า";
+			close;
+		}
+
+		menu "ส่ง Orcish Voucher ทั้งหมดที่มี",L_GiveVoucher,"ยกเลิก",L_Close;
+	}
+
+	if (orcs_hero_hat == 12) {
+		mes "[Orc Warrior]";
+		mes "เจ้าพิสูจน์ตัวเองในฐานะนักรบ Orc แล้ว";
+		mes "รับ Orc Helm นี้ไป";
+		next;
+		set orcs_hero_hat,13;
+		getitem 2299,1;
+		getitem 931,1;
+		specialeffect2 248;
+		mes "[Orc Warrior]";
+		mes "เก็บ Orcish Voucher หนึ่งชิ้นไว้เป็นสัญลักษณ์แห่งการยอมรับ";
+		close;
+	}
+
+	if (orcs_hero_hat == 13) {
+		mes "[Orc Warrior]";
+		mes "หากต้องการก้าวไปสู่เกียรติของ Orc Hero";
+		mes "จงนำ Heroic Emblem x100 และ Orc Helm กลับมา";
+		next;
+
+		if (countitem(968) < 100 || countitem(2299) < 1) {
+			mes "[Orc Warrior]";
+			mes "วัตถุดิบยังไม่ครบ";
+			mes "- Heroic Emblem x100";
+			mes "- Orc Helm x1";
+			close;
+		}
+
+		menu "ส่ง Heroic Emblem และ Orc Helm",L_AskHero,"ยกเลิก",L_Close;
+	}
+
+	if (orcs_hero_hat >= 14) {
+		mes "[Orc Warrior]";
+		mes "เจ้าได้รับการยอมรับจากเผ่า Orc แล้ว";
+		mes "จงสวมเกียรตินี้ด้วยความภาคภูมิใจ";
+		close;
+	}
+
+	close;
+
+L_GiveJellopy:
+	if (countitem(909) < 1000) {
+		mes "[Orc Warrior]";
+		mes "Jellopy ไม่ครบ";
+		close;
+	}
+	delitem 909,1000;
+	set orcs_hero_hat,orcs_hero_hat+1;
+	specialeffect2 248;
+	mes "[Orc Warrior]";
+	mes "ข้ารับ Jellopy แล้ว";
+	mes "ความคืบหน้าใหม่: ^0000FF" + orcs_hero_hat + "/10^000000";
+	close;
+
+L_GiveVoucher:
+	set .@amt,countitem(931);
+	if (.@amt < 1) {
+		mes "[Orc Warrior]";
+		mes "เจ้าไม่มี Orcish Voucher";
+		close;
+	}
+	delitem 931,.@amt;
+	set orcs_hero_hat2,orcs_hero_hat2+.@amt;
+	if (orcs_hero_hat2 >= 10000) {
+		set orcs_hero_hat2,10000;
+		set orcs_hero_hat,12;
+		mes "[Orc Warrior]";
+		mes "ครบ 10000 แล้ว";
+		mes "กลับมาคุยกับข้าอีกครั้งเพื่อรับ Orc Helm";
+		close;
+	}
+	mes "[Orc Warrior]";
+	mes "ข้ารับ Orcish Voucher แล้ว";
+	mes "ความคืบหน้า: ^0000FF" + orcs_hero_hat2 + "/10000^000000";
+	close;
+
+L_AskHero:
+	if (countitem(968) < 100 || countitem(2299) < 1) {
+		mes "[Orc Warrior]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	mes "[Orc Warrior]";
+	mes "นี่คือขั้นสุดท้าย";
+	mes "หากส่งของแล้ว เจ้าจะได้รับ Helmet of Orc Hero";
+	next;
+	menu "ยืนยัน",L_MakeHeroHelm,"ยกเลิก",L_Close;
+
+L_MakeHeroHelm:
+	if (countitem(968) < 100 || countitem(2299) < 1) {
+		mes "[Orc Warrior]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 968,100;
+	delitem 2299,1;
+	getitem 5094,1;
+	set orcs_hero_hat,14;
+	specialeffect2 248;
+	mes "[Orc Warrior]";
+	mes "เจ้าคือมนุษย์ที่ได้รับการยอมรับจาก Orc Hero";
+	mes "รับ Helmet of Orc Hero ไป";
+	close;
+
+L_Close:
+	mes "[Orc Warrior]";
+	mes "ออกไปได้แล้ว มนุษย์";
+	close;
+}

@@ -1,0 +1,5081 @@
+//===== eAthena Script =======================================
+//= Safe fake buying services
+//= Uses normal NPC sprites only. No player JobID sprites here.
+//============================================================
+
+
+// Safe buying stores - prontera
+prontera,200,218,4	script	B>YellowH#SB0001	748,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+prontera,156,124,4	script	B>RoughOr#SB0002	743,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+prontera,189,172,4	script	B>Zargon#SB0003	724,{
+	mes "[Buying Store]";
+	mes "B> Zargon";
+	mes "450 zeny each.";
+	next;
+	set @fp_have,countitem(912);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 450;
+	delitem 912,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Zargon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+prontera,150,150,4	script	B>Elunium#SB0004	851,{
+	mes "[Buying Store]";
+	mes "B> Elunium";
+	mes "52000 zeny each.";
+	next;
+	set @fp_have,countitem(985);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 52000;
+	delitem 985,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Elunium";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+prontera,133,149,4	script	B>RoughOr#SB0005	91,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+prontera,143,149,4	script	B>YellowH#SB0006	748,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+prontera,177,120,4	script	B>Garlet#SB0007	743,{
+	mes "[Buying Store]";
+	mes "B> Garlet";
+	mes "250 zeny each.";
+	next;
+	set @fp_have,countitem(910);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 250;
+	delitem 910,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Garlet";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+prontera,136,140,4	script	B>BlueHer#SB0008	91,{
+	mes "[Buying Store]";
+	mes "B> BlueHerb";
+	mes "900 zeny each.";
+	next;
+	set @fp_have,countitem(510);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 900;
+	delitem 510,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BlueHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+prontera,212,166,4	script	B>BlueHer#SB0009	706,{
+	mes "[Buying Store]";
+	mes "B> BlueHerb";
+	mes "900 zeny each.";
+	next;
+	set @fp_have,countitem(510);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 900;
+	delitem 510,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BlueHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+prontera,185,174,4	script	B>RoughEl#SB0010	743,{
+	mes "[Buying Store]";
+	mes "B> RoughElu";
+	mes "8000 zeny each.";
+	next;
+	set @fp_have,countitem(757);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 8000;
+	delitem 757,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughElu";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - morocc
+morocc,167,131,4	script	B>BGem#SB0011	743,{
+	mes "[Buying Store]";
+	mes "B> BGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(717);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 717,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+morocc,183,91,4	script	B>Garlet#SB0012	743,{
+	mes "[Buying Store]";
+	mes "B> Garlet";
+	mes "250 zeny each.";
+	next;
+	set @fp_have,countitem(910);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 250;
+	delitem 910,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Garlet";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+morocc,137,153,4	script	B>WhiteHe#SB0013	724,{
+	mes "[Buying Store]";
+	mes "B> WhiteHerb";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(509);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 509,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> WhiteHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+morocc,169,144,4	script	B>YellowH#SB0014	743,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+morocc,157,102,4	script	B>Elunium#SB0015	851,{
+	mes "[Buying Store]";
+	mes "B> Elunium";
+	mes "52000 zeny each.";
+	next;
+	set @fp_have,countitem(985);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 52000;
+	delitem 985,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Elunium";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+morocc,182,120,4	script	B>YellowH#SB0016	743,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+morocc,176,113,4	script	B>RoughEl#SB0017	743,{
+	mes "[Buying Store]";
+	mes "B> RoughElu";
+	mes "8000 zeny each.";
+	next;
+	set @fp_have,countitem(757);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 8000;
+	delitem 757,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughElu";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+morocc,167,82,4	script	B>Scell#SB0018	748,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+morocc,160,165,4	script	B>RedHerb#SB0019	91,{
+	mes "[Buying Store]";
+	mes "B> RedHerb";
+	mes "100 zeny each.";
+	next;
+	set @fp_have,countitem(507);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 100;
+	delitem 507,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RedHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+morocc,153,108,4	script	B>YGem#SB0020	748,{
+	mes "[Buying Store]";
+	mes "B> YGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(715);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 715,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - payon
+payon,159,158,4	script	B>YellowH#SB0021	748,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+payon,159,92,4	script	B>Jellopy#SB0022	851,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+payon,172,135,4	script	B>Jellopy#SB0023	743,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+payon,179,145,4	script	B>Scell#SB0024	724,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+payon,155,167,4	script	B>Jellopy#SB0025	724,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+payon,181,156,4	script	B>RoughOr#SB0026	743,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+payon,165,168,4	script	B>BlueHer#SB0027	851,{
+	mes "[Buying Store]";
+	mes "B> BlueHerb";
+	mes "900 zeny each.";
+	next;
+	set @fp_have,countitem(510);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 900;
+	delitem 510,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BlueHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+payon,148,111,4	script	B>YellowH#SB0028	91,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+payon,181,90,4	script	B>YGem#SB0029	724,{
+	mes "[Buying Store]";
+	mes "B> YGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(715);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 715,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+payon,177,89,4	script	B>BGem#SB0030	91,{
+	mes "[Buying Store]";
+	mes "B> BGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(717);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 717,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - geffen
+geffen,123,110,4	script	B>RoughOr#SB0031	706,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+geffen,119,121,4	script	B>RoughOr#SB0032	724,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+geffen,96,53,4	script	B>Zargon#SB0033	851,{
+	mes "[Buying Store]";
+	mes "B> Zargon";
+	mes "450 zeny each.";
+	next;
+	set @fp_have,countitem(912);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 450;
+	delitem 912,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Zargon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+geffen,133,72,4	script	B>RedHerb#SB0034	724,{
+	mes "[Buying Store]";
+	mes "B> RedHerb";
+	mes "100 zeny each.";
+	next;
+	set @fp_have,countitem(507);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 100;
+	delitem 507,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RedHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+geffen,91,104,4	script	B>Scell#SB0035	743,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+geffen,104,127,4	script	B>Garlet#SB0036	851,{
+	mes "[Buying Store]";
+	mes "B> Garlet";
+	mes "250 zeny each.";
+	next;
+	set @fp_have,countitem(910);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 250;
+	delitem 910,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Garlet";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+geffen,94,119,4	script	B>RoughOr#SB0037	706,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+geffen,155,70,4	script	B>Orideco#SB0038	706,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+geffen,101,108,4	script	B>RoughEl#SB0039	748,{
+	mes "[Buying Store]";
+	mes "B> RoughElu";
+	mes "8000 zeny each.";
+	next;
+	set @fp_have,countitem(757);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 8000;
+	delitem 757,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughElu";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+geffen,107,128,4	script	B>Orideco#SB0040	743,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - izlude
+izlude,124,136,4	script	B>RoughOr#SB0041	743,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+izlude,106,120,4	script	B>YellowH#SB0042	748,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+izlude,119,157,4	script	B>Scell#SB0043	91,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+izlude,126,135,4	script	B>Orideco#SB0044	706,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+izlude,97,101,4	script	B>Scell#SB0045	91,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+izlude,114,145,4	script	B>Zargon#SB0046	851,{
+	mes "[Buying Store]";
+	mes "B> Zargon";
+	mes "450 zeny each.";
+	next;
+	set @fp_have,countitem(912);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 450;
+	delitem 912,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Zargon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+izlude,129,136,4	script	B>Orideco#SB0047	851,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+izlude,90,146,4	script	B>Orideco#SB0048	706,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+izlude,135,134,4	script	B>BGem#SB0049	724,{
+	mes "[Buying Store]";
+	mes "B> BGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(717);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 717,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+izlude,108,148,4	script	B>Jellopy#SB0050	706,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - alberta
+alberta,118,81,4	script	B>RoughEl#SB0051	724,{
+	mes "[Buying Store]";
+	mes "B> RoughElu";
+	mes "8000 zeny each.";
+	next;
+	set @fp_have,countitem(757);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 8000;
+	delitem 757,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughElu";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+alberta,72,227,4	script	B>WhiteHe#SB0052	743,{
+	mes "[Buying Store]";
+	mes "B> WhiteHerb";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(509);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 509,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> WhiteHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+alberta,28,224,4	script	B>Jellopy#SB0053	743,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+alberta,46,235,4	script	B>Scell#SB0054	706,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+alberta,113,55,4	script	B>RedHerb#SB0055	91,{
+	mes "[Buying Store]";
+	mes "B> RedHerb";
+	mes "100 zeny each.";
+	next;
+	set @fp_have,countitem(507);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 100;
+	delitem 507,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RedHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+alberta,91,76,4	script	B>Zargon#SB0056	706,{
+	mes "[Buying Store]";
+	mes "B> Zargon";
+	mes "450 zeny each.";
+	next;
+	set @fp_have,countitem(912);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 450;
+	delitem 912,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Zargon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+alberta,78,240,4	script	B>Scell#SB0057	748,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+alberta,89,50,4	script	B>Elunium#SB0058	743,{
+	mes "[Buying Store]";
+	mes "B> Elunium";
+	mes "52000 zeny each.";
+	next;
+	set @fp_have,countitem(985);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 52000;
+	delitem 985,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Elunium";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+alberta,74,240,4	script	B>Elunium#SB0059	91,{
+	mes "[Buying Store]";
+	mes "B> Elunium";
+	mes "52000 zeny each.";
+	next;
+	set @fp_have,countitem(985);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 52000;
+	delitem 985,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Elunium";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+alberta,73,245,4	script	B>Elunium#SB0060	748,{
+	mes "[Buying Store]";
+	mes "B> Elunium";
+	mes "52000 zeny each.";
+	next;
+	set @fp_have,countitem(985);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 52000;
+	delitem 985,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Elunium";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - aldebaran
+aldebaran,138,164,4	script	B>Garlet#SB0061	748,{
+	mes "[Buying Store]";
+	mes "B> Garlet";
+	mes "250 zeny each.";
+	next;
+	set @fp_have,countitem(910);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 250;
+	delitem 910,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Garlet";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+aldebaran,123,144,4	script	B>Jellopy#SB0062	851,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+aldebaran,149,168,4	script	B>RGem#SB0063	91,{
+	mes "[Buying Store]";
+	mes "B> RGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(716);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 716,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+aldebaran,172,151,4	script	B>RoughOr#SB0064	748,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+aldebaran,149,152,4	script	B>BlueHer#SB0065	851,{
+	mes "[Buying Store]";
+	mes "B> BlueHerb";
+	mes "900 zeny each.";
+	next;
+	set @fp_have,countitem(510);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 900;
+	delitem 510,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BlueHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+aldebaran,140,109,4	script	B>YGem#SB0066	706,{
+	mes "[Buying Store]";
+	mes "B> YGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(715);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 715,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+aldebaran,149,143,4	script	B>Orideco#SB0067	91,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+aldebaran,124,106,4	script	B>RoughEl#SB0068	724,{
+	mes "[Buying Store]";
+	mes "B> RoughElu";
+	mes "8000 zeny each.";
+	next;
+	set @fp_have,countitem(757);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 8000;
+	delitem 757,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughElu";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+aldebaran,137,174,4	script	B>BGem#SB0069	748,{
+	mes "[Buying Store]";
+	mes "B> BGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(717);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 717,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+aldebaran,127,145,4	script	B>RoughEl#SB0070	706,{
+	mes "[Buying Store]";
+	mes "B> RoughElu";
+	mes "8000 zeny each.";
+	next;
+	set @fp_have,countitem(757);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 8000;
+	delitem 757,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughElu";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - yuno
+yuno,149,204,4	script	B>Elunium#SB0071	851,{
+	mes "[Buying Store]";
+	mes "B> Elunium";
+	mes "52000 zeny each.";
+	next;
+	set @fp_have,countitem(985);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 52000;
+	delitem 985,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Elunium";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+yuno,159,128,4	script	B>YGem#SB0072	743,{
+	mes "[Buying Store]";
+	mes "B> YGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(715);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 715,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+yuno,168,186,4	script	B>Elunium#SB0073	91,{
+	mes "[Buying Store]";
+	mes "B> Elunium";
+	mes "52000 zeny each.";
+	next;
+	set @fp_have,countitem(985);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 52000;
+	delitem 985,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Elunium";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+yuno,151,214,4	script	B>Garlet#SB0074	706,{
+	mes "[Buying Store]";
+	mes "B> Garlet";
+	mes "250 zeny each.";
+	next;
+	set @fp_have,countitem(910);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 250;
+	delitem 910,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Garlet";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+yuno,151,170,4	script	B>RGem#SB0075	724,{
+	mes "[Buying Store]";
+	mes "B> RGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(716);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 716,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+yuno,143,181,4	script	B>Orideco#SB0076	91,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+yuno,145,127,4	script	B>Scell#SB0077	748,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+yuno,168,163,4	script	B>BGem#SB0078	91,{
+	mes "[Buying Store]";
+	mes "B> BGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(717);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 717,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+yuno,176,173,4	script	B>Orideco#SB0079	851,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+yuno,174,180,4	script	B>BlueHer#SB0080	748,{
+	mes "[Buying Store]";
+	mes "B> BlueHerb";
+	mes "900 zeny each.";
+	next;
+	set @fp_have,countitem(510);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 900;
+	delitem 510,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BlueHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - comodo
+comodo,227,158,4	script	B>WhiteHe#SB0081	748,{
+	mes "[Buying Store]";
+	mes "B> WhiteHerb";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(509);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 509,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> WhiteHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+comodo,195,128,4	script	B>BGem#SB0082	743,{
+	mes "[Buying Store]";
+	mes "B> BGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(717);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 717,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+comodo,219,170,4	script	B>RoughEl#SB0083	851,{
+	mes "[Buying Store]";
+	mes "B> RoughElu";
+	mes "8000 zeny each.";
+	next;
+	set @fp_have,countitem(757);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 8000;
+	delitem 757,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughElu";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+comodo,215,179,4	script	B>Elunium#SB0084	748,{
+	mes "[Buying Store]";
+	mes "B> Elunium";
+	mes "52000 zeny each.";
+	next;
+	set @fp_have,countitem(985);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 52000;
+	delitem 985,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Elunium";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+comodo,191,167,4	script	B>Garlet#SB0085	706,{
+	mes "[Buying Store]";
+	mes "B> Garlet";
+	mes "250 zeny each.";
+	next;
+	set @fp_have,countitem(910);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 250;
+	delitem 910,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Garlet";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+comodo,205,174,4	script	B>Elunium#SB0086	851,{
+	mes "[Buying Store]";
+	mes "B> Elunium";
+	mes "52000 zeny each.";
+	next;
+	set @fp_have,countitem(985);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 52000;
+	delitem 985,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Elunium";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+comodo,203,126,4	script	B>Scell#SB0087	743,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+comodo,180,188,4	script	B>Jellopy#SB0088	748,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+comodo,230,201,4	script	B>Jellopy#SB0089	724,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+comodo,180,154,4	script	B>WhiteHe#SB0090	706,{
+	mes "[Buying Store]";
+	mes "B> WhiteHerb";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(509);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 509,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> WhiteHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - amatsu
+amatsu,179,104,4	script	B>WhiteHe#SB0091	724,{
+	mes "[Buying Store]";
+	mes "B> WhiteHerb";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(509);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 509,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> WhiteHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+amatsu,212,89,4	script	B>RoughOr#SB0092	748,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+amatsu,222,80,4	script	B>Zargon#SB0093	91,{
+	mes "[Buying Store]";
+	mes "B> Zargon";
+	mes "450 zeny each.";
+	next;
+	set @fp_have,countitem(912);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 450;
+	delitem 912,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Zargon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+amatsu,200,92,4	script	B>RedHerb#SB0094	743,{
+	mes "[Buying Store]";
+	mes "B> RedHerb";
+	mes "100 zeny each.";
+	next;
+	set @fp_have,countitem(507);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 100;
+	delitem 507,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RedHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - louyang
+louyang,228,112,4	script	B>WhiteHe#SB0095	91,{
+	mes "[Buying Store]";
+	mes "B> WhiteHerb";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(509);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 509,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> WhiteHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+louyang,222,107,4	script	B>BlueHer#SB0096	724,{
+	mes "[Buying Store]";
+	mes "B> BlueHerb";
+	mes "900 zeny each.";
+	next;
+	set @fp_have,countitem(510);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 900;
+	delitem 510,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BlueHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+louyang,185,97,4	script	B>WhiteHe#SB0097	748,{
+	mes "[Buying Store]";
+	mes "B> WhiteHerb";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(509);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 509,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> WhiteHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+louyang,223,115,4	script	B>Scell#SB0098	748,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - ayothaya
+ayothaya,180,161,4	script	B>YellowH#SB0099	91,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+ayothaya,212,158,4	script	B>YellowH#SB0100	724,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+ayothaya,181,175,4	script	B>Orideco#SB0101	91,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+ayothaya,197,179,4	script	B>Jellopy#SB0102	748,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - lighthalzen
+lighthalzen,145,110,4	script	B>BlueHer#SB0103	743,{
+	mes "[Buying Store]";
+	mes "B> BlueHerb";
+	mes "900 zeny each.";
+	next;
+	set @fp_have,countitem(510);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 900;
+	delitem 510,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BlueHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+lighthalzen,184,118,4	script	B>Jellopy#SB0104	851,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+lighthalzen,156,88,4	script	B>RedHerb#SB0105	724,{
+	mes "[Buying Store]";
+	mes "B> RedHerb";
+	mes "100 zeny each.";
+	next;
+	set @fp_have,countitem(507);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 100;
+	delitem 507,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RedHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+lighthalzen,146,89,4	script	B>Orideco#SB0106	743,{
+	mes "[Buying Store]";
+	mes "B> Oridecon";
+	mes "42000 zeny each.";
+	next;
+	set @fp_have,countitem(984);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 42000;
+	delitem 984,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Oridecon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - rachel
+rachel,149,140,4	script	B>RGem#SB0107	724,{
+	mes "[Buying Store]";
+	mes "B> RGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(716);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 716,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+rachel,114,165,4	script	B>RoughOr#SB0108	724,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+rachel,129,135,4	script	B>Garlet#SB0109	851,{
+	mes "[Buying Store]";
+	mes "B> Garlet";
+	mes "250 zeny each.";
+	next;
+	set @fp_have,countitem(910);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 250;
+	delitem 910,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Garlet";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+rachel,133,131,4	script	B>RoughOr#SB0110	743,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - veins
+veins,191,120,4	script	B>Zargon#SB0111	748,{
+	mes "[Buying Store]";
+	mes "B> Zargon";
+	mes "450 zeny each.";
+	next;
+	set @fp_have,countitem(912);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 450;
+	delitem 912,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Zargon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+veins,189,144,4	script	B>RoughOr#SB0112	706,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+veins,209,138,4	script	B>Jellopy#SB0113	706,{
+	mes "[Buying Store]";
+	mes "B> Jellopy";
+	mes "120 zeny each.";
+	next;
+	set @fp_have,countitem(909);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 120;
+	delitem 909,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Jellopy";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+veins,215,122,4	script	B>YellowH#SB0114	724,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - moscovia
+moscovia,209,177,4	script	B>RoughOr#SB0115	91,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+moscovia,198,191,4	script	B>Scell#SB0116	748,{
+	mes "[Buying Store]";
+	mes "B> Scell";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(911);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 911,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Scell";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+moscovia,237,204,4	script	B>RoughOr#SB0117	706,{
+	mes "[Buying Store]";
+	mes "B> RoughOri";
+	mes "7000 zeny each.";
+	next;
+	set @fp_have,countitem(756);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 7000;
+	delitem 756,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RoughOri";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+moscovia,232,196,4	script	B>RedHerb#SB0118	748,{
+	mes "[Buying Store]";
+	mes "B> RedHerb";
+	mes "100 zeny each.";
+	next;
+	set @fp_have,countitem(507);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 100;
+	delitem 507,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RedHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - umbala
+umbala,90,173,4	script	B>Zargon#SB0119	724,{
+	mes "[Buying Store]";
+	mes "B> Zargon";
+	mes "450 zeny each.";
+	next;
+	set @fp_have,countitem(912);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 450;
+	delitem 912,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Zargon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+umbala,120,167,4	script	B>YellowH#SB0120	748,{
+	mes "[Buying Store]";
+	mes "B> YellowHerb";
+	mes "180 zeny each.";
+	next;
+	set @fp_have,countitem(508);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 180;
+	delitem 508,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> YellowHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+umbala,97,163,4	script	B>WhiteHe#SB0121	706,{
+	mes "[Buying Store]";
+	mes "B> WhiteHerb";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(509);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 509,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> WhiteHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+umbala,105,142,4	script	B>RedHerb#SB0122	724,{
+	mes "[Buying Store]";
+	mes "B> RedHerb";
+	mes "100 zeny each.";
+	next;
+	set @fp_have,countitem(507);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 100;
+	delitem 507,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> RedHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+
+// Safe buying stores - niflheim
+niflheim,218,155,4	script	B>Zargon#SB0123	706,{
+	mes "[Buying Store]";
+	mes "B> Zargon";
+	mes "450 zeny each.";
+	next;
+	set @fp_have,countitem(912);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 450;
+	delitem 912,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Zargon";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+niflheim,184,189,4	script	B>BGem#SB0124	748,{
+	mes "[Buying Store]";
+	mes "B> BGem";
+	mes "700 zeny each.";
+	next;
+	set @fp_have,countitem(717);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 700;
+	delitem 717,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> BGem";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+niflheim,189,163,4	script	B>Garlet#SB0125	748,{
+	mes "[Buying Store]";
+	mes "B> Garlet";
+	mes "250 zeny each.";
+	next;
+	set @fp_have,countitem(910);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 250;
+	delitem 910,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> Garlet";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+
+niflheim,213,194,4	script	B>WhiteHe#SB0126	748,{
+	mes "[Buying Store]";
+	mes "B> WhiteHerb";
+	mes "350 zeny each.";
+	next;
+	set @fp_have,countitem(509);
+	if (@fp_have <= 0) {
+		mes "You do not have this item.";
+		close;
+	}
+	mes "You have " + @fp_have + " item(s).";
+	mes "How many do you want to sell?";
+	input @fp_amount;
+	if (@fp_amount <= 0) close;
+	if (@fp_amount > @fp_have) {
+		mes "You do not have that many.";
+		close;
+	}
+	set @fp_total,@fp_amount * 350;
+	delitem 509,@fp_amount;
+	set Zeny,Zeny+@fp_total;
+	mes "Sold. You received " + @fp_total + " zeny.";
+	set @fp_have,0;
+	set @fp_amount,0;
+	set @fp_total,0;
+	close;
+
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer15000:
+	npctalk "B> WhiteHerb";
+	end;
+
+OnTimer35000:
+	initnpctimer;
+	end;
+}
+

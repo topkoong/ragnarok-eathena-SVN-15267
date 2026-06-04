@@ -1,0 +1,51 @@
+//============================================================
+// Headgear Quest NPC
+// Uses confirmed IDs from current planning:
+// 5385 Yoyo Hat, 5388 Snake Head Hat.
+// Requirements are intentionally simple and easy to tune.
+//============================================================
+
+morocc,118,110,4	script	HeadgearQuest#morocc	742,{
+	mes "[ช่างทำหมวกเควส]";
+	mes "ข้ารับทำหมวกพิเศษสำหรับนักผจญภัย";
+	mes "เตรียมวัตถุดิบและค่าบริการให้พร้อม แล้วเลือกหมวกที่ต้องการ";
+	next;
+	switch(select("Yoyo Hat:Snake Head Hat:ยกเลิก")) {
+	case 1:
+		mes "Yoyo Hat ต้องใช้:";
+		mes "- Jellopy 300 ชิ้น";
+		mes "- Yellow Gemstone 50 ชิ้น";
+		mes "- 1,000,000 Zeny";
+		next;
+		if (select("สร้างเลย:ยกเลิก") == 2) close;
+		if (countitem(909) < 300 || countitem(715) < 50 || Zeny < 1000000) {
+			mes "วัตถุดิบหรือ Zeny ไม่เพียงพอ";
+			close;
+		}
+		delitem 909,300;
+		delitem 715,50;
+		set Zeny,Zeny-1000000;
+		getitem 5385,1;
+		mes "สร้าง Yoyo Hat สำเร็จ";
+		close;
+	case 2:
+		mes "Snake Head Hat ต้องใช้:";
+		mes "- Jellopy 500 ชิ้น";
+		mes "- Red Gemstone 50 ชิ้น";
+		mes "- 2,000,000 Zeny";
+		next;
+		if (select("สร้างเลย:ยกเลิก") == 2) close;
+		if (countitem(909) < 500 || countitem(716) < 50 || Zeny < 2000000) {
+			mes "วัตถุดิบหรือ Zeny ไม่เพียงพอ";
+			close;
+		}
+		delitem 909,500;
+		delitem 716,50;
+		set Zeny,Zeny-2000000;
+		getitem 5388,1;
+		mes "สร้าง Snake Head Hat สำเร็จ";
+		close;
+	case 3:
+		close;
+	}
+}

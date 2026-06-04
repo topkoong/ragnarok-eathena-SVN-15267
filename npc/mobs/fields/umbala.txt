@@ -1,0 +1,56 @@
+//===== eAthena Script =======================================
+//= Umbala Field Monster Spawns
+//= Compared with rAthena Pre-Renewal style.
+//===== Compatible With: =====================================
+//= eAthena SVN 15267
+//============================================================
+
+
+//==================================================
+// um_fild01 - Luluka Forest
+//==================================================
+um_fild01,0,0,0,0	monster	Wootan Fighter	1499,10,0,0,0
+um_fild01,0,0,0,0	monster	Stem Worm	1215,15,0,0,0
+um_fild01,0,0,0,0	monster	Harpy	1376,2,0,0,0
+um_fild01,0,0,0,0	monster	Dryad	1493,65,0,0,0
+um_fild01,0,0,0,0	monster	Dustiness	1114,10,0,0,0
+um_fild01,0,0,0,0	monster	Green Plant	1080,10,180000,90000,0
+um_fild01,0,0,0,0	monster	Yellow Plant	1081,10,180000,90000,0
+um_fild01,0,0,0,0	monster	Shining Plant	1083,6,180000,90000,0
+
+
+//==================================================
+// um_fild02 - Hoomga Forest
+//==================================================
+um_fild02,0,0,0,0	monster	Coco	1104,10,0,0,0
+um_fild02,0,0,0,0	monster	Choco	1214,5,0,0,0
+um_fild02,0,0,0,0	monster	Beetle King	1494,30,0,0,0
+um_fild02,0,0,0,0	monster	Dustiness	1114,20,0,0,0
+um_fild02,0,0,0,0	monster	Wootan Fighter	1499,26,0,0,0
+um_fild02,0,0,0,0	monster	Stone Shooter	1495,13,0,0,0
+um_fild02,360,320,20,30	monster	Flora	1118,3,180000,120000,0
+um_fild02,0,0,0,0	monster	Red Plant	1078,5,180000,90000,0
+um_fild02,0,0,0,0	monster	Yellow Plant	1081,5,180000,90000,0
+
+
+//==================================================
+// um_fild03 - Kalala Swamp
+//==================================================
+um_fild03,0,0,0,0	monster	Parasite	1500,95,0,0,0
+um_fild03,0,0,0,0	monster	Dragon Tail	1321,20,0,0,0
+um_fild03,0,0,0,0	monster	Alligator	1271,10,0,0,0
+um_fild03,0,0,0,0	monster	Gryphon	1259,1,3500000,1900000,1
+um_fild03,0,0,0,0	monster	Blue Plant	1079,5,180000,90000,0
+um_fild03,0,0,0,0	monster	Green Plant	1080,10,180000,90000,0
+um_fild03,0,0,0,0	monster	Shining Plant	1083,2,180000,90000,0
+
+
+//==================================================
+// um_fild04 - Hoomga Jungle
+//==================================================
+um_fild04,0,0,0,0	monster	Beetle King	1494,30,0,0,0
+um_fild04,0,0,0,0	monster	Horn	1128,15,0,0,0
+um_fild04,0,0,0,0	monster	Choco	1214,2,0,0,0
+um_fild04,0,0,0,0	monster	Wootan Shooter	1498,7,0,0,0
+um_fild04,0,0,0,0	monster	Red Plant	1078,5,180000,90000,0
+um_fild04,0,0,0,0	monster	Yellow Plant	1081,5,180000,90000,0

@@ -1,0 +1,304 @@
+﻿//0 40 60 80 99 คือเลขระดับ GM ที่ใช้คำสั่งได้ หมายเหตุ ค่าช่องในช่อง<>จะต้องใส่[]ไม่ใส่ก็ได้
+@rates เช็คการดรอปทั้งหมด
+@reloadbattleconf รีโหลตconfไหม่
+@battleignore  -  จะทำให้มอนไม่ตีเรา และเวลาอยู่ใน pvp คนก็จะตีเราไม่ได้ด้วย *--* ง่ายๆ คือ เราจะไม่โดนโจมตีจากทุกทาง
+
+20:@h/@help - เรียกดูคำสั่ง GM ต่างๆ
+40:/b/@broadcast - ประกาศแบบไม่มีชื่อ ตัวสีเหลือง
+40:/nb /@kami - ประกาศแบบมีชื่อ ตัวสีเหลือง
+40:@kamib - ประกาศแบบไม่มีชื่อ ตัวสีฟ้า
+40:/lb/@localbroadcast - ประกาศแบบมีชื่อ ตัวสีเหลือง ประกาศเฉพาะแมพที่อยู่
+40:/nlb - ประกาศแบบไม่มีชื่อ ตัวสีเหลือง ประกาศเฉพาะแมพที่อยู่
+20:@who/@whois/@w [match_text] - ดูชื่อผู้ที่ออนไลท์ทั้งหมด รวมถึง GM
+20:@whogm [match_text] - ดูชื่อ GM ในเซิพเวอร์ ที่ออนไลท์
+1:@where [char name] - บอกตำแหน่งของตัวละครที่กำหนด 
+40:@charcartlist - Displays all items of a player's cart.
+0:@ignorelist - Displays your ignore list
+99:@mapinfo [<0-3> [map]] - Give information about a map (general info +: 0: no more, 1: players, 2: NPC, 3: shops/chat).
+0:@time/@date/@server_date/@serverdate/@server_time/@servertime - เรียกดู เวลา วันที่ จากเครื่องเซิพเวอร์
+60:@guildspy - You will receive all messages of the guild channel
+60:@partyspy - You will receive all messages of the party channel
+40:/hide/@hide - คำสั่งซ้อนตัว GM และเมื่อใช้คำสั่ง @hide เป็นการยกเลิก
+40:@save - ทำจุดที่ยืนอยู่ปัจจุบัน เป็นจุดเซฟ 
+40:@load/@return - กลับไปยังจุดที่เซฟไว้ / มีผลเหมือนใช้ Butterfly Wing 
+40:/mm//mapmove/@warp/@rura/@mapmove - วาบไปแมพและจุดพิกัดที่กำหนด หากไม่ใส่ค่า x, y จะเป็นการสุ่มตำแหน่งใน map นั้น เช่น @rura morocc.gat 119 180
+
+40:@jump [x [y]]- มีผลเหมือนใช้ flywing
+20:/shift/@jumpto/@warpto/@goto - กระโดดไปที่ตัวละครที่ระบุชื่ออยู่
+20:@follow - เรียกตัวละครที่ระบุชื่อมาหา
+10:@go - วาปไปยังเมืองต่างๆ
+
+1: morocc 5: izlude 9: yuno 13: niflheim
+2: geffen 6: aldebaran 10: amatsu 14: louyang
+3: payon 7: xmas (lutie) 11: gonryun 15: start point
+4: alberta 8: comodo 12: umbala 16: prison/jail
+1:@die ---- ฆ่าตัวตาย 
+60:@alive - ชุบชีวิตตัวเอง
+40:@heal [ ] - ฮีลตัวเอง / เพื่มพลัง hp และ sp
+40:@job/@jobchange - เปลี่ยนอาชีพ
+0: Novice 18: Alchemist 4015: Paladin
+1: Swordman 19: Bard 4016: Champion
+2: Mage 20: Dancer 4017: Professor
+3: Archer 23: Super Novice 4018: Stalker
+4: Acolyte 4001: High Novice 4019: Creator
+5: Merchant 4002: High Swordman 4020: Clown
+6: Thief 4003: High Mage 4021: Gypsy
+7: Knight 4004: High Archer 4046: Taekwon
+8: Priest 4005: High Acolyte 4047: Star Gladiator
+9: Wizard 4006: High Merchant 4049: Soul Linker
+10: Blacksmith 4007: High Thief
+11: Hunter 4008: Lord Knight
+12: Assassin 4009: High Priest
+14: Crusader 4010: High Wizard
+15: Monk 4011: Whitesmith
+16: Sage 4012: Sniper
+17: Rogue 4013: Assassin Cross
+4023: Baby 4024: Baby Swordman 4025: Baby Mage
+4026: Baby Archer 4027: Baby Acolyte 4028: Baby Merchant
+4029: Baby Thief 4030: Baby Knight 4031: Baby Priest
+4032: Baby Wizard 4033: Baby Blacksmith 4034: Baby Hunter
+4035: Baby Assassin 4037: Baby Crusader 4038: Baby Monk
+4039: Baby Sage 4040: Baby Rogue 4041: Baby Alchemist
+4042: Baby Bard 4043: Baby Dancer 4045: Super Baby
+
+60:@lvup/@blevel/@baselvlup <จำนวน> - เพิ่มหรือลด LV ของตัวเอง ถ้า - lv ให้พิมพ์คำสั่ง @lvup -จำนวน
+60:@joblvup/@jlevel/@joblvlup - เพิ่มหรือลด จ็อบ lv
+60:@allskill/@allskills/@skillall/@skillsall - ทำให้ตัวละครมีครบทุกสกิล
+40:@option - เพิ่มออพชั่นให้กับตัวละคร
+40: (stackable) 
+40: 1 Petrified (stackable) 01 Sight 32 Peco Peco riding 2048 Orc Head
+40: 2 Frozen 01 Poison 02 Hide 64 GM Perfect Hide 4096 Wedding Sprites
+40: 3 Stunned 02 Cursed 04 Cloak 128 Level 2 Cart 8192 Ruwach
+40: 4 Sleeping 04 Silenced 08 Level 1 Cart 256 Level 3 Cart
+40: 6 darkness 08 ??? 16 Falcon 512 Level 4 Cart
+40: 16 darkness 1024 Level 5 Cart
+20:@mountpeco - ขอ/ปลด ปีโกปีโก้ (สามารถขอได้ทุกอาชีพ,โดยไม่ต้องมีสกิล)
+20:@disguise - Change your appearence to other players to a mob.
+20:@undisguise - Restore your normal appearance.
+20:model - เปลี่ยนลักษณะ ทรงผม-สีผม-สีเสื้อ เช่น @model 15 4 0 
+hair ID [0~17] 
+hair color [0~8] 
+clothes color [0~4] 
+40:@dye/@ccolor - เปลี่ยนสีเสื้อ
+40:@hairstyle/@hstyle - เปลี่ยนทรงผม
+40:@haircolor/@hcolor - เปลี่ยนสีผม
+40:@speed <1-1000> - เปลี่ยนความเร็วในการเดิน เร็วที่สุดคือ 1 ช้าที่สุดคือ 1000 ค่าปกติคือ 140
+40:@effect [ธง]<<ถ้ามี - ใส่ effect ให้กับตัวละคร
+40:@dropall - โยนของทุกอย่างในตัวลงพื้น
+40:@storeall - puts all your possessions in storage
+40:@killable - make your character killable
+60:@stpoint - เพิ่ม/ลด สเตตัสพอย ถ้าลดให้ใส่ -หน้า number of points
+60:@skpoint - เพิ่ม/ลด สกิลพอย ถ้าลดให้ใส่ -หน้า number of points
+60:@zeny - เสกเงิน
+60:@str,@agi,@vit,@int,@dex,@luk - เพิ่ม สเตตัส ต่างๆ เช่น "@str 10" เพิ่ม Str 10
+60:@statall/@statsall/@allstats/@allstat [จำนวน]<<ใส่ก็ได้ไม่ใส่ก็ได้ - ทำให้ตัวละครได้ สเตตัสทุกอย่าง 
+40:@memo [memo_position] - set/change a memo location (no position: display memo points).
+40:@spiritball - เรียกบอลพลังจิต ถ้าเรียกสูงกว่า 1000 จะทำให้เซิพเวอร์มีโอกาสค้างได้
+40:@questskill <#> - เรียนรู้ Skill ที่ต้องทำ Quest 
+40:@lostskill <#> - เอา Quest Skill ที่เรียนรู้แล้ว ออก 
+40:@skillid - look up a skill by name
+40:@useskill - เพิ่มสกิลเสริม
+Novice Swordsman Thief Merchant
+142 = Emergency Care 144 = Moving HP Recovery 149 = Throw Sand 153 = Cart Revolution
+143 = Act dead 145 = Attack Weak Point 150 = Back Sliding 154 = Change Cart
+Archer 146 = Auto Berserk 151 = Take Stone 155 = Crazy Uproar/Loud Voice
+147 = Arrow Creation Acolyte 152 = Stone Throw Magician
+148 = Charge Arrows 156 = Holy Light 157 = Energy Coat
+40: @skilltree <
+40: @marry , - marry two players
+40: @divorce - divorces the two players (you need just one name of them)
+60: @addwarp - อันนี้ผมไม่แน่ใจครับแต่น่าจะเป็น การเพิ่มวาป หรือจดจำวาป
+50:@spawn/@monster/@summon เรียนมอนเตอร์เช่น @monster eddga คือเรียก eddga ออกมา
+60:@killmonster [map] - ฆ่ามอนเตอร์ใน แมพที่ระบุ
+40:@killmonster2 - ฆ่ามอนเตอร์ทั้งหมดในแมพ
+50:@summon - คือการเสกมอนเตอร์โดยมอนเตอร์ตัวนี้มันไม่อัดเรา แต่มันจะอัดมอนเตอร์แทนอีกอย่างเราได้expด้วยท่าเป็น ในPVPมันจะอัดผู้เล่น 
+
+-------------------------------
+1:@storage - เปิดที่เก็บของ
+50:@gstorage - เปิดที่เก็บของของกิล
+60:/item - เสก ไอเท็ม
+60:@item <ปริมาณ> - เสก ไอเท็ม
+60:@item2 <ปริมาณ> <จำนวน +> <การ์ด1> <การ์ด2> <การ์ด3> <การ์ด4> - เสก ไอเท็ม แบบตี + ใส่การ์ด เลย
+40:@itemreset - ลบ ไอเท็ม ทั่งหมด
+60:@itemcheck - ดู ไอเท็ม ทั่งหมด
+60:@idsearch - ค้นหาไอเท็บ
+60:@refine <+/- amount> ตี + ของในตัวเช่น @refine 0 10 ตี+ 10 ทั้งตัว
+60:@produce <ธาตุ> <# of very's>
+ธาตุ: 0=None 1=Ice 2=Earth 3=Fire 4=Wind
+สามารถตีอาวุธธาตุ 3V และใส่ ธาตุได้ด้วย
+60:@repairall - Repair all items of your inventory
+40:@pvpon - เปิด pvp ในแมพ
+40:@pvpoff - ปิด pvp ในแมพ
+40:@gvgon/@gpvpon - เปิด gvg ในแมพ
+40:@gvgoff/@gpvpoff - ปิด gvg ในแมพ
+60:@agitstart - เปิดสงครามกิลวอ
+60:@agitend - ปิดสงครามกิลวอ
+1:@party - สร้างปารตี้
+50:@guild - สร้างกิล
+60:@guildlvup/@guildlvlup <# of levels> - เพิ่ม lv กิล
+60:@guildrecall - เรียกกิลนั้นๆมาหาคุณ
+60:@partyrecall - เรียกปารตี้นั้นๆมาหาคุณ
+60:@hatch - Create a pet from your inventory eggs list.
+60:@makeegg - สร้างไข่มอนเตอร์ [เสกไข่นั้นเอง]
+40:@petfriendly <#> - Set pet friendly amount (0-1000) 1000 = Max
+40:@pethungry <#> - Set pet hungry amount (0-100) 100 = Max
+1:@petrename - Re-enable pet rename
+60:@kill - ฆ่าตัวละครที่ระบุ
+40:@charkillable - make another character killable
+60:@nuke - Kills specified character (nuclear effect).
+60:@chardropall - throws all a chars possession on the ground
+60:@charstoreall - puts all of anothers charactes possessions in storage
+60:/recall/@recall - เรียกคนที่เราระบุชื่อมาที่ผู้เรียก
+80:@recallall - เรียกทุกๆคนในเซิพเวอร์มารวมตัวกัน [ถ้าเน็ตของท่านแรงไม่พออย่าเรียกครับจะทำให้เซิพเวอร ์ค้างได้]
+60:@revive - Revives target character.
+20:@charignorelist - Displays ignore list of the player
+20:@inall - เปิดให้ผู้เล่นที่ระบุชื่อซิปมาได้
+20:@exall - ปิดกั้นไม่ให้ผู้เล่นที่ระบุชื่อซิปมา
+60:@charblock/@block - Blocks definitively a account
+60:@charunblock/@unblock - Unblocks a account
+60:@charban/@ban/@banish/@charbanish <เวลา> - Ban temporarily a account
+เวลา : y = ปี m = เดือน d = วัน s = วินาที่ mn = นาที่ อย่างอื่นผมไม่ทราบแล้วครับ(y/a, m, d/j, h, mn, s)
+ตัวอย่าง: @ban +1y-5d Pagee คือ แบน 1 ปี กับอีก 5 เดือน แบนตัวละครชื่อ Pagee
+60:@charunban/@unban/@unbanish/@charunbanish - แก้แบน
+60:@jail - ส่งผู้เล่นที่ระบุชื่อ ไปยังห้องขัง
+60:@trade - Open a trade window with a another player
+20:@kick - แตะคนที่ระบุชื่อ ออกจากเซิพเวอร์
+99:@kickall - แตะทุกๆคนออกจากเซิพเวอร์
+99:@mapexit - เตะทุกคนและปิด Map
+80:@doom - Kills all NON GM chars on the server.
+80:@doommap - Kills all non GM characters on the map.
+80:@raise - Resurrects all characters on the server.
+80:@raisemap - Resurrects all characters on the map.
+60:@unjail/@discharge - นำผู้เล่นออกจากห้องขัง
+80:@night - Uses @option 00 16 00 on all characters. All characters are in darkness.
+80:@day - Uses @option 00 00 00 on all characters.
+80:@skillon - turn skills on for a map
+80:@skilloff - turn skills on for a map
+99:@reloaditemdb - รีโหลตไอเท็บdbใหม่ (admin command)
+99:@reloadmobdb - รีโหลตมอนเตอร์dbใหม่ (admin command)
+@reloadscript -รันNPCโดยไม่ต้องปิดเซพแล้วเปิดใหม่
+99:@reloadscript - รีโหลต NPC ใหม่ (admin command)
+99:@reloadgmdb - รีโหลต GMdb ใหม่ (admin command)
+99:@adjgmlvl - Do a temporary adjustment of the GM level of a player (admin command)
+99:@adjcmdlvl - Do a temporary adjustment of the GM level of a command (admin command)
+80:@shownpc - แสดง npc ชื่อนั้นๆ (admin command)
+80:@hidenpc - ซ้อน npc ชื่อนั้นๆ (admin command)
+80:@loadnpc - โหลต npc ที่อยู่ใน พาธ ที่ระบุ (admin command)
+80:@unloadnpc - Unload script (admin command)
+99:@gat - For debugging (you inspect around gat)
+99:@packet - For debugging (packet variety) 
+------------------------------
+40:#statsall - ดูสเตตัสของผู้เล่นทุกคนในเซิพเวอร์
+40:#itemlist - ดูรายการ ไอเท็ม ในตัวของผู้เล่น
+40:#storagelist - ดูของที่เก็บใน Save
+40:#stats - ดูสเตตัสของผู้เล่นที่ระบุชื่อ
+60:#option - ใส่ Option ให้กับตัวละคร
+50:#mountpeco - ให้และลบปีโกปีโก้ (คลาสไหนก็ได้,ไม่ต้องอัพสกิลก็สามารถให้ได้)
+50:#petrename - อันนี้ผมไม่แน่ใจนะครับเข้าบอกว่า Re-enable pet rename to a player
+60:#save - Save ให้ตัวละครนั้นๆ ณ ตำแหน่งที่ระบุ
+60:#baselvl <#> - เพิ่ม LV ให้ตัวละครที่ระบุชื่อ
+60:#jlvl <#> - เพิ่ม จ๊อบ lv ให้ตัวละครที่ระบุชื่อ
+60:#job/#jobchange - เปลี่ยนอาชีพให้กับตัวละครที่ระบุชื่อ
+60:#zeny - เพิ่ม/ลบ เงิน ของตัวละครที่ระบุชื่อ
+60:#stpoint - เพิ่ม /ลด สเตตัสพอยของตัวละครที่ระบุชื่อ
+60:#skpoint - เพิ่ม /ลด สกิลพอยของตัวละครที่ระบุชื่อ
+60:#skreset - รีเซ็ท สกิล ของตัวละครที่ระบุชื่อ
+60:#streset - รีเซ็ทสเตตัส ของตัวละครที่ระบุชื่อ
+60:#reset - รีเซ็ท สเตตัส และ สกิล ของตัวละครที่ระบุชื่อ
+60:#questskill <#> - Gives to a player the specified quest skill.
+60:#lostskill <#> - Takes away the specified quest skill from the player.
+60:#delitem - ลบ ไอเท็ม ของตัวละครที่ระบุชื่อ
+50:#model - Changes a player's model
+60:#disguise - Changes disguise of a player
+60:#undisguise - Cancels disguise of a player
+60:#changesex - คำสั่งเปลี่ยนเพศของตัวละคร
+60:#warp/#rura+ - วาปตัวละคร ให้ไปอยู่ที่แมพ ตำแหน่งที่เราระบุ 
+--------------------------------------
+@homlvup - เพิ่มเลเวลให้ Homun
+@homevolution - พัฒนาร่าง Homun
+@makehomun - สร้าง Homun [6001-6016] **ตัวอย่าง @makehomun 6005**
+@homfriendly - เซทความสนิทของ Homon [1-1000(สนิทสนม)] 
+@homhungry - เซทค่าความอิ่มของ Homon [1-100(อิ่มมาก)]
+@homtalk - ให้ Homon พูดตามที่สั่ง
+----------------------------------
+80:@doom - ฆ่าทุกคนในเซิฟเวอร์ ยกเว้น GM
+80:@doommap - ฆ่าทุกคนในแมพ ยกเว้น GM
+80:@raise - ชุบชีวิตทุกคนในเซิฟเวอร์ ยกเว้น GM
+80:@raisemap - ฆ่าทุกคนในแมพ ยกเว้น GM
+60:@disguise - เปลี่ยนตัวเองให้เป็นมอนสเตอร์ เช่น @disguise1001 ตัวเราก็จะเป็น POring
+60:@undisguise - เปลี่ยนจากมอนสเตอร์ กลับสู่สภาพเดิม  
+
+
+--@allstat - เพิ่มค่าสเตตัส เช่น @allstat 99 ค่าสเตตัสทุกอย่างจะ 99
+60:@guildspy - ตรวจดูความเคลื่อนไหวของทุกกิลด์ใน เซิฟเวอร์
+60:@partyspy - ตรวจดูความเคลื่อนไหวของทุกปาร์ตี้ใน เซิฟเวอร์
+40:@killable - ฆ่าตัวละครที่ระบุ
+40:@memo - -จดจำพื้นที่ เหมือน /memo
+40:@skillid - ดูรายชื่อและ ID ของทุกสกิล
+60:@trade - ตั้งร้านขายของ แม้จะ Logout ออกไปแล้ว
+1:@petrename - ระบุชื่อของสัตว์เลี้ยง
+40: @marry <name> <name> - แต่งงาน
+
+
+เพิ่มเติมครับ
+@divorce หย่า
+@pethungry <#> - เพิ่มความหิวแก่สัตว์เลี้ยง (0-100) สูงสุด 100
+@petfriendly เพิ่มความสนิทสนมของสัตว์เลี้ยง (0-100) สูงสุด 100
+@revive ชุบผู้เล่น
+@charblock/@block – ระงับไอดี
+@charunblock/@unblock – ยกเลิกระงับไอดี
+@reloaditemdb - รัน item db โดยไม่ต้องปิดเซพแล้วเปิดใหม่
+@reloadmobdb - รันมอสเตอร์โดยไม่ต้องปิดเซพแล้วเปิดใหม่
+@reloadskilldb -รัน สกิลโดยไม่ต้องปิดเซพแล้วเปิดใหม่
+@reloadscript -รันNPCโดยไม่ต้องปิดเซพแล้วเปิดใหม่ < ใช้บ่อยครับอันนี้ >
+@reloadgmdb -รัน Gm ใหม่โดยไม่ต้องปิดเซพแล้วเปิดใหม่
+
+80:@shownpc - แสดง npc ชื่อนั้นๆ (admin command)
+80:@hidenpc - ซ้อน npc ชื่อนั้นๆ (admin command)
+80:@loadnpc - โหลต npc ที่อยู่ใน พาธ ที่ระบุ (admin command)
+
+40:#statsall - ดูสเตตัสของผู้เล่นทุกคนในเซิพเวอร์
+40:#itemlist - ดูรายการ ไอเท็ม ในตัวของผู้เล่น
+40:#storagelist - ดูของที่เก็บใน Save
+40:#stats - ดูสเตตัสของผู้เล่นที่ระบุชื่อ
+60:#option - ใส่ Option ให้กับตัวละคร
+50:#mountpeco - ให้และลบปีโกปีโก้ (คลาสไหนก็ได้,ไม่ต้องอัพสกิลก็สามารถให้ได้)
+50:#petrename - อันนี้ผมไม่แน่ใจนะครับเข้าบอกว่า Re-enable pet rename to a player
+60:#save - Save ให้ตัวละครนั้นๆ ณ ตำแหน่งที่ระบุ
+60:#baselvl <#> - เพิ่ม LV ให้ตัวละครที่ระบุชื่อ
+60:#jlvl <#> - เพิ่ม จ๊อบ lv ให้ตัวละครที่ระบุชื่อ
+60:#job/#jobchange - เปลี่ยนอาชีพให้กับตัวละครที่ระบุชื่อ
+60:#zeny - เพิ่ม/ลบ เงิน ของตัวละครที่ระบุชื่อ
+60:#stpoint - เพิ่ม /ลด สเตตัสพอยของตัวละครที่ระบุชื่อ
+60:#skpoint - เพิ่ม /ลด สกิลพอยของตัวละครที่ระบุชื่อ
+60:#skreset - รีเซ็ท สกิล ของตัวละครที่ระบุชื่อ
+60:#streset - รีเซ็ทสเตตัส ของตัวละครที่ระบุชื่อ
+60:#reset - รีเซ็ท สเตตัส และ สกิล ของตัวละครที่ระบุชื่อ
+60:#questskill <#> - Gives to a player the specified quest skill.
+60:#lostskill <#> - Takes away the specified quest skill from the player.
+60:#delitem - ลบ ไอเท็ม ของตัวละครที่ระบุชื่อ
+50:#model - Changes a player's model
+60:#disguise - Changes disguise of a player
+60:#undisguise - Cancels disguise of a player
+60:#changesex - คำสั่งเปลี่ยนเพศของตัวละคร
+60:#warp/#rura+ - วาปตัวละคร ให้ไปอยู่ที่แมพ ตำแหน่งที่เราระบุ 
+@rain ฝนตก
+@snow หิมะตก
+@leaves ดอกไม้ร่วง
+@clouds เมฆลอย
+@fog หมอก
+@fireworks พลุไฟ
+@clone ชือตัวละครที่ต้องการ Clone ( ไม่โจมตีผู้เล่นยกเว้นใน PVP )
+@evilclone ชือตัวละครที่ต้องการ Clone ( โจมตีผู้เล่น )
+@breakguild/@leaveguild คำสั่งยุบกิลด์
+@dance แด้นได้ทุกอาชีพ
+@Emo(ใช้ @Emo โดยไม่อัพสกิล)
+@itemmap เสกของทั้ง Map สำหรับ GM
+@maprecall(เรียกตามแมพ)
+@recallsome  คำสั่ง  เรียกทุกคนมารวม ไม่มีผลกับพ่อค้า @autotrade
+@reloadnpcscript  คำสั่ง  reload แบบใหม่ มอนเตอร์ที่ตายไปจะไม่เกิดใหม่!!
+@seeghp เห็น HP Bar ในกิล และพันธมิตร
+@sleep  คำสั่ง  ตั้งห้องนอนหลับแบบอออฟไลท์
+@users โดยที่ไม่นับ Autotrade หรือ AFK
+@whosell(ค้นหาสินค้า)
+@zenymap คำสั่งแจกเงินคนทั้งแมพ สำหรับ GM

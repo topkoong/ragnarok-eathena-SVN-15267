@@ -1,0 +1,3 @@
+เข้า mysql
+run command below
+source C:\Users\topkoong\Documents\game\eAthena SVN 15267\sql-files\script_name.sql;

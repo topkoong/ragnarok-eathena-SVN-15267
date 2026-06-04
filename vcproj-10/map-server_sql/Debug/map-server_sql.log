@@ -1,0 +1,46 @@
+﻿  atcommand.c
+  battle.c
+  battleground.c
+  buyingstore.c
+  chat.c
+  chrif.c
+  clif.c
+  date.c
+  duel.c
+  guild.c
+  guild_castle.c
+  guild_expcache.c
+  homunculus.c
+c:\users\topkoong\documents\game\eathena svn 15267\src\map\clif.c(955): warning C4267: '=': conversion from 'size_t' to 'uint16', possible loss of data
+c:\users\topkoong\documents\game\eathena svn 15267\src\map\clif.c(1116): warning C4267: '=': conversion from 'size_t' to 'uint16', possible loss of data
+  instance.c
+  intif.c
+  itemdb.c
+  log.c
+c:\users\topkoong\documents\game\eathena svn 15267\src\map\clif.c(3369): warning C4267: '=': conversion from 'size_t' to 'uint16', possible loss of data
+c:\users\topkoong\documents\game\eathena svn 15267\src\map\clif.c(3407): warning C4267: '=': conversion from 'size_t' to 'uint16', possible loss of data
+c:\users\topkoong\documents\game\eathena svn 15267\src\map\clif.c(5177): warning C4267: '=': conversion from 'size_t' to 'uint16', possible loss of data
+c:\users\topkoong\documents\game\eathena svn 15267\src\map\clif.c(5206): warning C4267: '=': conversion from 'size_t' to 'uint16', possible loss of data
+  mail.c
+c:\users\topkoong\documents\game\eathena svn 15267\src\map\clif.c(8066): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned short', possible loss of data
+  map.c
+  mapreg_sql.c
+  mercenary.c
+  mob.c
+  npc.c
+  npc_chat.c
+  party.c
+  path.c
+  pc.c
+  pet.c
+  quest.c
+  script.c
+  searchstore.c
+  skill.c
+  status.c
+  storage.c
+  trade.c
+  unit.c
+  vending.c
+atcommand.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  map-server_sql.vcxproj -> C:\Users\topkoong\Documents\game\eAthena SVN 15267\vcproj-10\..\map-server_sql.exe

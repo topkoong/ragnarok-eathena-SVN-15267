@@ -1,0 +1,15 @@
+//===== eAthena Script =======================================
+//= Ayothaya Dungeon Monster Spawns
+//===== Compatible With: =====================================
+//= eAthena SVN 15267
+//============================================================
+
+ayo_dun01,0,0,0,0	monster	Leaf Cat	1586,30,0,0,0
+ayo_dun01,0,0,0,0	monster	Wootan Shooter	1498,20,0,0,0
+ayo_dun01,0,0,0,0	monster	Wootan Fighter	1499,20,0,0,0
+
+ayo_dun02,0,0,0,0	monster	Tamruan	1584,40,0,0,0
+ayo_dun02,0,0,0,0	monster	Kraben	1587,25,0,0,0
+ayo_dun02,0,0,0,0	monster	Wootan Shooter	1498,10,0,0,0
+ayo_dun02,0,0,0,0	monster	Wootan Fighter	1499,10,0,0,0
+ayo_dun02,0,0,0,0	monster	Lady Tanee	1688,1,25200000,3600000,1

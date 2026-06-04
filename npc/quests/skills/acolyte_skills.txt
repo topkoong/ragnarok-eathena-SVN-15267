@@ -1,0 +1,87 @@
+prt_church,173,23,4	script	หัวหน้า acolyte#qsk_al	79,{
+	mes "[Acolyte Klift]";
+	mes "อ้า...พี่น้องทั้งหลาย!";
+	mes "ท่านต้องการพลังเพิ่มเติมที่จะนำไป";
+	mes "ช่วยเหลือผู้ตกทุกข์ได้ยากหรือไม่ ?";
+	mes "ข้าจะช่วยพวกท่านเอง...";
+	next;
+	switch(select("เกี่ยวกับ^3355FF' ความสามารถเพิ่มเติมของ Acolyte '^000000 ..:รับพลัง^3355FF' Holy light '^000000:หยุดพูดเถิดท่าน")) {
+	case 1:
+		mes "[Crift acolyte]";
+		mes "เราสามารถพัฒนาความสามารถ";
+		mes "ด้วยตัวเราเอง";
+		mes "และสามารถเรียนรู้ ";
+		mes "ทักษะพิเศษจากเหล่านักบวชอาวุโส";
+		next;
+		mes "[Crift acolyte]";
+		mes "พลัง^3355FF' Holy Light '^000000 ";
+		mes "สามารถปลดปล่อยเหล้าผู้ทุกข์";
+		mes "ทรมารจากอำนาจชั่วร้าย";
+		mes "นี้คือความสามารถพิเศษ";
+		mes "ถ้าท่านต้องการเรียนรู้ความสามารถนี้";
+		mes "ท่านต้องเตรียมสิ่งของบางอย่างเพื่อใช้งาน";
+		next;
+		mes "[Crift acolyte]";
+		mes "ท่านจะต้องมี";
+		mes "^FF33551 Opal^000000";
+		mes "^FF33551 Crystal Blue^000000";
+		mes "^FF33551 Rosary^000000 ";
+		next;
+		mes "[Crift acolyte]";
+		mes "และท่านต้องมี^FF3355 Job Level 30^000000ขึ้นไป";
+		mes "เพื่อเรียนรู้ความสามารถนี้";
+		next;
+		mes "[Crift acolyte]";
+		mes "แต่ถ้าท่านเป็น Priest";
+		mes "ก็จะไม่มีข้อจำกัดนี้";
+		mes "เนื่องจาก Job Lv";
+		mes "ของท่านน่าจะสูงพอที่จะเรียนรู้พลังนี้แล้ว";
+		close;
+	case 2:
+		if (getskilllv("AL_HOLYLIGHT") == 1) {
+			mes "[Crift acolyte]";
+			mes "ท่านได้เรียนรู้ทักษะ ";
+			mes "' Holy Light 'อยู่แล้ว";
+			mes "ท่านไม่สามารถเรียนรู้ทักษะนี้ได้อีก";
+			close;
+		}
+		else {
+			if (countitem(727) > 0 && countitem(991) > 0 && countitem(2608) > 0) {
+				if ((JobLevel > 29 && BaseJob == Job_Acolyte) || BaseJob == Job_Monk || BaseJob == Job_Priest) {
+					mes "[Crift acolyte]";
+					mes "ความศรัทธาของท่านได้พิสูจน์";
+					mes "แล้วว่าคุณเหมาะสมที่จะได้รับทักษะ";
+					mes " ' Holy Light '";
+					next;
+					delitem 727,1; //White_Jewel
+					delitem 991,1; //Crystal_Blue
+					delitem 2608,1; //Rosary
+					skill 156,1,0;
+					mes "[Crift acolyte]";
+					mes "ท่านผู้เปี่ยมด้วยศรัทธา...";
+					mes "ท่านสามารถใช้พลัง 'Holy light' ได้แล้ว";
+					mes "พระเจ้าจะสถิตอยู่กับท่านเสมอ....";
+					close;
+				}
+			}
+			mes "[Crift acolyte]";
+			mes "โอ้...พี่น้องทั้งหลาย";
+			mes "ท่านยังไม่พร้อมที่จะเรียนทักษะ";
+			mes " ' Holy Light ' . . .";
+			next;
+			mes "[Crift acolyte]";
+			mes "ถ้าท่านฟังสิ่งที่ข้าบอกเกี่ยวกับ";
+			mes "ความสามารถเพิ่มเติมของ acolyte";
+			mes "่ท่านจะทราบว่าท่านยังขาดสิ่งใดบ้าง";
+			close;
+		}
+	case 3:
+		mes "[Crift acolyte]";
+		mes ". . . . .";
+		mes "ข้าเข้าใจความต้องการของท่าน";
+		mes "จงใช้เวลาตัดสินใจและกระทำ";
+		mes "เพื่อให้มันบรรลุผล";
+		mes "พระเจ้าสถิตอยู่กับท่านเสมอ....";
+		close;
+	}
+}

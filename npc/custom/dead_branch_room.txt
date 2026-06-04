@@ -1,0 +1,369 @@
+//============================================================
+// Dead Branch Room
+// File: npc/custom/dead_branch_room.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Provide a controlled room for Dead Branch / Bloody Branch fun.
+// - Prevent players from using branch items in towns.
+// - NPC consumes branch items and summons monsters inside the room.
+// - Includes cleanup option and exit NPC.
+//
+// Design:
+// - Entry fee creates a Zeny sink.
+// - Spawn fee creates another Zeny sink.
+// - Limits active monsters to reduce lag.
+// - Uses guild_vs2 by default.
+// - If guild_vs2 does not exist, change .room_map$ in OnInit.
+//
+// Item IDs verified in this server style:
+// - 604   Dead Branch
+// - 12103 Bloody Branch
+//
+// Encoding note:
+// - Because Thai dialogue is included, save this file as
+//   Windows-874 / CP874 / TIS-620.
+//============================================================
+
+
+//============================================================
+// Dead Branch Room Entrance
+//============================================================
+prontera,127,91,4	script	DeadBranch#main	726,{
+	mes "[ห้องกิ่งไม้เสี่ยงดวง]";
+	mes "ยินดีต้อนรับสู่ห้อง Dead Branch";
+	mes "ที่นี่เป็นพื้นที่ควบคุมสำหรับเรียกมอนสเตอร์จาก Dead Branch และ Bloody Branch";
+	next;
+
+	mes "[ห้องกิ่งไม้เสี่ยงดวง]";
+	mes "ระบบนี้ปลอดภัยกว่าการใช้ Dead Branch ในเมือง เพราะสามารถควบคุมและล้างห้องได้";
+	mes "ค่าเข้า: ^0000FF" + .entry_fee + "^000000 Zeny";
+	next;
+
+	if (Zeny < .entry_fee) {
+		mes "[ห้องกิ่งไม้เสี่ยงดวง]";
+		mes "Zeny ของคุณไม่พอสำหรับค่าเข้า";
+		close;
+	}
+
+	menu "เข้าห้อง Dead Branch",L_Enter,"อ่านกติกา",L_Rules,"ยกเลิก",L_Close;
+
+L_Enter:
+	if (Zeny < .entry_fee) {
+		mes "[ห้องกิ่งไม้เสี่ยงดวง]";
+		mes "Zeny ของคุณไม่พอสำหรับค่าเข้า";
+		close;
+	}
+	set Zeny,Zeny-.entry_fee;
+	warp .room_map$,50,45;
+	end;
+
+L_Rules:
+	mes "[ห้องกิ่งไม้เสี่ยงดวง]";
+	mes "กติกาห้อง Dead Branch:";
+	next;
+	mes "[ห้องกิ่งไม้เสี่ยงดวง]";
+	mes "1. ใช้ NPC ในห้องเพื่อเรียกมอนสเตอร์";
+	mes "2. NPC จะใช้ Dead Branch หรือ Bloody Branch จากตัวคุณ";
+	mes "3. จำกัดจำนวนมอนสเตอร์ค้างห้องเพื่อป้องกันแลค";
+	mes "4. มี NPC สำหรับล้างห้องหากมอนสเตอร์เยอะเกินไป";
+	mes "5. ไม่มีการคืน Branch หรือค่าใช้จ่ายหลังเรียกแล้ว";
+	next;
+	mes "[ห้องกิ่งไม้เสี่ยงดวง]";
+	mes "คำแนะนำ:";
+	mes "- เข้าห้องนี้เป็นปาร์ตี้จะปลอดภัยกว่า";
+	mes "- อย่าเรียกมอนสเตอร์มากเกินไปถ้ายังจัดการไม่หมด";
+	mes "- ถ้าห้องรก ให้ใช้เมนูล้างห้อง";
+	close;
+
+L_Close:
+	mes "[ห้องกิ่งไม้เสี่ยงดวง]";
+	mes "พร้อมเมื่อไหร่ค่อยกลับมาใหม่นะคะ";
+	close;
+
+
+//============================================================
+// Config
+//============================================================
+OnInit:
+	// Change this map if you prefer another isolated room.
+	set .room_map$,"guild_vs2";
+
+	// Zeny sink values.
+	set .entry_fee,100000;
+	set .db_spawn_fee,10000;
+	set .bb_spawn_fee,100000;
+
+	// Safety limit.
+	set .max_mob,80;
+	set .active_mob,0;
+	end;
+}
+
+
+//============================================================
+// Dead Branch Room Controller
+//============================================================
+guild_vs2,50,50,4	script	DB Controller#main	726,{
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "ฉันควบคุมการเรียกมอนสเตอร์ในห้องนี้";
+	mes "จำนวนมอนสเตอร์ที่ระบบนับอยู่ตอนนี้: ^FF0000" + getvariableofnpc(.active_mob,"DeadBranch#main") + "^000000 ตัว";
+	next;
+
+L_Main:
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "ต้องการทำอะไรคะ?";
+	next;
+	menu "ใช้ Dead Branch",L_DeadBranch,"ใช้ Bloody Branch",L_BloodyBranch,"ล้างมอนสเตอร์ในห้อง",L_Clean,"กลับ Prontera",L_Return,"ยกเลิก",L_Close;
+
+
+//============================================================
+// Dead Branch summon
+//============================================================
+L_DeadBranch:
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "Dead Branch จะเรียกมอนสเตอร์แบบสุ่ม";
+	mes "ค่าบริการต่อครั้ง: ^0000FF" + getvariableofnpc(.db_spawn_fee,"DeadBranch#main") + "^000000 Zeny";
+	mes "คุณมี Dead Branch: ^0000FF" + countitem(604) + "^000000 ชิ้น";
+	next;
+
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "ต้องการใช้กี่ชิ้น?";
+	input .@amount;
+
+	if (.@amount <= 0) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "ยกเลิกแล้วค่ะ";
+		close;
+	}
+
+	if (.@amount > 20) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "เพื่อป้องกันแลค ใช้ได้ครั้งละไม่เกิน 20 ชิ้นค่ะ";
+		close;
+	}
+
+	set .@active,getvariableofnpc(.active_mob,"DeadBranch#main");
+	set .@max,getvariableofnpc(.max_mob,"DeadBranch#main");
+
+	if (.@active + .@amount > .@max) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "จำนวนมอนสเตอร์ในห้องจะเกินขีดจำกัด";
+		mes "ขีดจำกัด: ^FF0000" + .@max + "^000000 ตัว";
+		mes "ปัจจุบัน: ^0000FF" + .@active + "^000000 ตัว";
+		close;
+	}
+
+	if (countitem(604) < .@amount) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "คุณมี Dead Branch ไม่พอค่ะ";
+		close;
+	}
+
+	set .@cost,getvariableofnpc(.db_spawn_fee,"DeadBranch#main")*.@amount;
+	if (Zeny < .@cost) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "Zeny ของคุณไม่พอ";
+		mes "ต้องใช้ทั้งหมด: ^FF0000" + .@cost + "^000000 Zeny";
+		close;
+	}
+
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "ยืนยันใช้ Dead Branch x" + .@amount + " หรือไม่?";
+	mes "ค่าบริการรวม: ^FF0000" + .@cost + "^000000 Zeny";
+	next;
+	menu "ยืนยัน",L_DBConfirm,"ยกเลิก",L_Close;
+
+L_DBConfirm:
+	if (countitem(604) < .@amount) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "Dead Branch ไม่พอค่ะ";
+		close;
+	}
+	if (Zeny < .@cost) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "Zeny ไม่พอค่ะ";
+		close;
+	}
+
+	delitem 604,.@amount;
+	set Zeny,Zeny-.@cost;
+
+	for (set .@i,0; .@i < .@amount; set .@i,.@i+1) {
+		monster getvariableofnpc(.room_map$,"DeadBranch#main"),50,55,"--ja--",-1,1,"DB Controller#main::OnMobDead";
+	}
+
+	set getvariableofnpc(.active_mob,"DeadBranch#main"),getvariableofnpc(.active_mob,"DeadBranch#main")+.@amount;
+	specialeffect2 248;
+
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "เรียกมอนสเตอร์จาก Dead Branch เรียบร้อยแล้วค่ะ";
+	close;
+
+
+//============================================================
+// Bloody Branch summon
+//============================================================
+L_BloodyBranch:
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "Bloody Branch จะเรียกมอนสเตอร์ระดับบอสแบบสุ่ม";
+	mes "ค่าบริการต่อครั้ง: ^0000FF" + getvariableofnpc(.bb_spawn_fee,"DeadBranch#main") + "^000000 Zeny";
+	mes "คุณมี Bloody Branch: ^0000FF" + countitem(12103) + "^000000 ชิ้น";
+	next;
+
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "ต้องการใช้กี่ชิ้น?";
+	input .@amount;
+
+	if (.@amount <= 0) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "ยกเลิกแล้วค่ะ";
+		close;
+	}
+
+	if (.@amount > 5) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "เพื่อป้องกันความเสี่ยง ใช้ Bloody Branch ได้ครั้งละไม่เกิน 5 ชิ้นค่ะ";
+		close;
+	}
+
+	set .@active,getvariableofnpc(.active_mob,"DeadBranch#main");
+	set .@max,getvariableofnpc(.max_mob,"DeadBranch#main");
+
+	if (.@active + .@amount > .@max) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "จำนวนมอนสเตอร์ในห้องจะเกินขีดจำกัด";
+		mes "ขีดจำกัด: ^FF0000" + .@max + "^000000 ตัว";
+		mes "ปัจจุบัน: ^0000FF" + .@active + "^000000 ตัว";
+		close;
+	}
+
+	if (countitem(12103) < .@amount) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "คุณมี Bloody Branch ไม่พอค่ะ";
+		close;
+	}
+
+	set .@cost,getvariableofnpc(.bb_spawn_fee,"DeadBranch#main")*.@amount;
+	if (Zeny < .@cost) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "Zeny ของคุณไม่พอ";
+		mes "ต้องใช้ทั้งหมด: ^FF0000" + .@cost + "^000000 Zeny";
+		close;
+	}
+
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "ยืนยันใช้ Bloody Branch x" + .@amount + " หรือไม่?";
+	mes "ค่าบริการรวม: ^FF0000" + .@cost + "^000000 Zeny";
+	next;
+	menu "ยืนยัน",L_BBConfirm,"ยกเลิก",L_Close;
+
+L_BBConfirm:
+	if (countitem(12103) < .@amount) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "Bloody Branch ไม่พอค่ะ";
+		close;
+	}
+	if (Zeny < .@cost) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "Zeny ไม่พอค่ะ";
+		close;
+	}
+
+	delitem 12103,.@amount;
+	set Zeny,Zeny-.@cost;
+
+	for (set .@i,0; .@i < .@amount; set .@i,.@i+1) {
+		monster getvariableofnpc(.room_map$,"DeadBranch#main"),50,55,"--ja--",-3,1,"DB Controller#main::OnMobDead";
+	}
+
+	set getvariableofnpc(.active_mob,"DeadBranch#main"),getvariableofnpc(.active_mob,"DeadBranch#main")+.@amount;
+	specialeffect2 248;
+
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "เรียกมอนสเตอร์จาก Bloody Branch เรียบร้อยแล้วค่ะ";
+	close;
+
+
+//============================================================
+// Cleanup
+//============================================================
+L_Clean:
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "การล้างห้องจะลบมอนสเตอร์ที่ยังเหลืออยู่ทั้งหมด";
+	mes "ค่าบริการล้างห้อง: ^0000FF500,000^000000 Zeny";
+	next;
+
+	if (Zeny < 500000) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "Zeny ของคุณไม่พอค่ะ";
+		close;
+	}
+
+	menu "ล้างห้อง",L_CleanConfirm,"ยกเลิก",L_Close;
+
+L_CleanConfirm:
+	if (Zeny < 500000) {
+		mes "[ผู้ดูแลห้อง Dead Branch]";
+		mes "Zeny ของคุณไม่พอค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500000;
+	killmonster getvariableofnpc(.room_map$,"DeadBranch#main"),"DB Controller#main::OnMobDead";
+	set getvariableofnpc(.active_mob,"DeadBranch#main"),0;
+	specialeffect2 248;
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "ล้างห้องเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Return:
+	warp "prontera",115,95;
+	end;
+
+L_Close:
+	mes "[ผู้ดูแลห้อง Dead Branch]";
+	mes "ขอให้โชคดีค่ะ";
+	close;
+
+
+//============================================================
+// Monster death callback
+//============================================================
+OnMobDead:
+	if (getvariableofnpc(.active_mob,"DeadBranch#main") > 0) {
+		set getvariableofnpc(.active_mob,"DeadBranch#main"),getvariableofnpc(.active_mob,"DeadBranch#main")-1;
+	}
+	end;
+}
+
+
+//============================================================
+// Dead Branch Room Exit
+//============================================================
+guild_vs2,50,40,4	script	DB Exit#main	837,{
+	mes "[ทางออกห้อง Dead Branch]";
+	mes "ต้องการกลับ Prontera หรือไม่?";
+	next;
+	menu "กลับ Prontera",L_Exit,"ยกเลิก",L_Close;
+
+L_Exit:
+	warp "prontera",115,95;
+	end;
+
+L_Close:
+	mes "[ทางออกห้อง Dead Branch]";
+	mes "ขอให้โชคดีค่ะ";
+	close;
+}
+
+
+//============================================================
+// Optional map flags
+//============================================================
+// If any mapflag causes an error in your old eAthena, comment out only that line.
+// nobranch prevents manual branch use from item scripts on this map.
+// NPC-controlled monster summoning above should still be used.
+//============================================================
+guild_vs2	mapflag	nomemo
+guild_vs2	mapflag	nobranch
+guild_vs2	mapflag	nosave	prontera,115,95

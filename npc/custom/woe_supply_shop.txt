@@ -1,0 +1,115 @@
+//============================================================
+// WoE / PvP Supply Shop
+// File: npc/custom/woe_supply_shop.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Centralize WoE / PvP preparation supplies.
+// - Uses F_TopBuyItem from npc/custom/top_common_functions.txt.
+// - Load top_common_functions.txt before this file.
+//
+// Balance:
+// - Prices are intentionally higher than some normal shops.
+// - This is a convenience NPC and a Zeny sink.
+//============================================================
+
+prontera,130,91,4	script	WoESupply#main	837,{
+	mes "[ร้านเสบียง WoE/PvP]";
+	mes "ร้านนี้รวบรวมของใช้สำหรับเตรียมตัวก่อน WoE, PvP, MVP หรือการลงดันเจี้ยนจริงจัง";
+	mes "ราคาบางอย่างจะสูงกว่าร้านปกติ เพราะเป็นความสะดวกและช่วยดูด Zeny ออกจากระบบ";
+	next;
+
+	switch(select(
+		"Potion / Recovery",
+		"Status Recovery",
+		"Mobility / Utility",
+		"Gemstone / Holy Water",
+		"Battle Boost",
+		"Class Supplies",
+		"Cancel"
+	)) {
+	case 1: goto L_Potion;
+	case 2: goto L_Status;
+	case 3: goto L_Utility;
+	case 4: goto L_Gem;
+	case 5: goto L_Boost;
+	case 6: goto L_Class;
+	default: close;
+	}
+
+L_Potion:
+	mes "[ร้านเสบียง WoE/PvP]";
+	mes "เลือก Potion ที่ต้องการ";
+	next;
+	switch(select("White Potion - 1,500z:Blue Potion - 6,000z:Yggdrasil Leaf - 5,000z:Yggdrasil Seed - 150,000z:Yggdrasil Berry - 300,000z:ย้อนกลับ")) {
+	case 1: callfunc "F_TopBuyItem",504,"White Potion",1500;
+	case 2: callfunc "F_TopBuyItem",505,"Blue Potion",6000;
+	case 3: callfunc "F_TopBuyItem",610,"Yggdrasil Leaf",5000;
+	case 4: callfunc "F_TopBuyItem",608,"Yggdrasil Seed",150000;
+	case 5: callfunc "F_TopBuyItem",607,"Yggdrasil Berry",300000;
+	default: close;
+	}
+
+L_Status:
+	mes "[ร้านเสบียง WoE/PvP]";
+	mes "เลือกของแก้สถานะ";
+	next;
+	switch(select("Green Potion - 80z:Panacea - 2,500z:Holy Water - 800z:ย้อนกลับ")) {
+	case 1: callfunc "F_TopBuyItem",506,"Green Potion",80;
+	case 2: callfunc "F_TopBuyItem",525,"Panacea",2500;
+	case 3: callfunc "F_TopBuyItem",523,"Holy Water",800;
+	default: close;
+	}
+
+L_Utility:
+	mes "[ร้านเสบียง WoE/PvP]";
+	mes "เลือกของใช้เคลื่อนที่และอำนวยความสะดวก";
+	next;
+	switch(select("Fly Wing - 150z:Butterfly Wing - 800z:Speed Potion - 25,000z:Giant Fly Wing - 150,000z:Kafra Card - 100,000z:ย้อนกลับ")) {
+	case 1: callfunc "F_TopBuyItem",601,"Fly Wing",150;
+	case 2: callfunc "F_TopBuyItem",602,"Butterfly Wing",800;
+	case 3: callfunc "F_TopBuyItem",12016,"Speed Potion",25000;
+	case 4: callfunc "F_TopBuyItem",12212,"Giant Fly Wing",150000;
+	case 5: callfunc "F_TopBuyItem",12211,"Kafra Card",100000;
+	default: close;
+	}
+
+L_Gem:
+	mes "[ร้านเสบียง WoE/PvP]";
+	mes "เลือก Gemstone หรือของเวทมนตร์";
+	next;
+	switch(select("Blue Gemstone - 700z:Red Gemstone - 700z:Yellow Gemstone - 700z:Cursed Water - 10,000z:ย้อนกลับ")) {
+	case 1: callfunc "F_TopBuyItem",717,"Blue Gemstone",700;
+	case 2: callfunc "F_TopBuyItem",716,"Red Gemstone",700;
+	case 3: callfunc "F_TopBuyItem",715,"Yellow Gemstone",700;
+	case 4: callfunc "F_TopBuyItem",12020,"Cursed Water",10000;
+	default: close;
+	}
+
+L_Boost:
+	mes "[ร้านเสบียง WoE/PvP]";
+	mes "เลือกของเพิ่มความพร้อมในการต่อสู้";
+	next;
+	switch(select("Concentration Potion - 1,000z:Awakening Potion - 2,000z:Berserk Potion - 6,000z:Blessing Scroll - 25,000z:Increase AGI Scroll - 25,000z:Aspersio Scroll - 35,000z:ย้อนกลับ")) {
+	case 1: callfunc "F_TopBuyItem",645,"Concentration Potion",1000;
+	case 2: callfunc "F_TopBuyItem",656,"Awakening Potion",2000;
+	case 3: callfunc "F_TopBuyItem",657,"Berserk Potion",6000;
+	case 4: callfunc "F_TopBuyItem",12215,"Blessing Scroll",25000;
+	case 5: callfunc "F_TopBuyItem",12216,"Increase AGI Scroll",25000;
+	case 6: callfunc "F_TopBuyItem",12217,"Aspersio Scroll",35000;
+	default: close;
+	}
+
+L_Class:
+	mes "[ร้านเสบียง WoE/PvP]";
+	mes "เลือกของใช้เฉพาะสายอาชีพ";
+	next;
+	switch(select("Trap - 1,500z:Arrow x1000 - 20,000z:Poison Bottle - 300,000z:Empty Bottle - 500z:Medicine Bowl - 2,000z:ย้อนกลับ")) {
+	case 1: callfunc "F_TopBuyItem",1065,"Trap",1500;
+	case 2: callfunc "F_TopBuyItem",1750,"Arrow",20;
+	case 3: callfunc "F_TopBuyItem",678,"Poison Bottle",300000;
+	case 4: callfunc "F_TopBuyItem",713,"Empty Bottle",500;
+	case 5: callfunc "F_TopBuyItem",7134,"Medicine Bowl",2000;
+	default: close;
+	}
+}

@@ -1,0 +1,652 @@
+//============================================================
+// Dungeon Entrance Support NPCs
+// File: npc/custom/dungeon_entrance_support.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Add lightweight support NPCs at dungeon entrances.
+// - This is NOT a full Global Buffer.
+// - These NPCs help players prepare before entering dungeons.
+//
+// Important:
+// - field_support_npcs.txt already includes support for:
+//      gef_dun00
+//      moc_pryd01
+//      glast_01
+//   So this file intentionally avoids those locations.
+//
+// Services:
+// - Heal HP/SP
+// - Safe basic buffs
+// - Identify items
+// - Repair equipment using @repairall
+// - Clear problematic buffs
+// - Return to nearest town
+// - Thai dungeon guidance
+//
+// Compatibility:
+// - Uses atcommand "@identify" instead of identifyall;
+// - Uses atcommand "@repairall" instead of repairall;
+// - If your server does not support @repairall, remove only that line.
+//
+// Encoding note:
+// - Because Thai dialogue is included, save this file as
+//   Windows-874 / CP874 / TIS-620 when using it on old eAthena.
+//============================================================
+
+
+//============================================================
+// ถ้ำ Payon
+//============================================================
+pay_dun00,21,183,4	script	Dungeon Support#paydun	837,{
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ยินดีต้อนรับสู่ทางเข้า ^0000FFถ้ำ Payon^000000 ค่ะ";
+	mes "ฉันช่วยฟื้นฟู เตรียมบัฟพื้นฐาน ซ่อมอุปกรณ์ และพากลับเมืองได้";
+	next;
+
+L_Main_paydun:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ต้องการใช้บริการใดคะ?";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal_paydun,"รับบัฟพื้นฐาน",L_Buff_paydun,"ตรวจของ / ซ่อมอุปกรณ์",L_Service_paydun,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear_paydun,"คำแนะนำดันเจี้ยนนี้",L_Info_paydun,"กลับเมือง Payon",L_Return_paydun,"ยกเลิก",L_Close_paydun;
+
+L_Heal_paydun:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฟื้นฟู HP และ SP เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff_paydun:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ฉันไม่ให้บัฟที่แรงเกินไป เพื่อให้การเล่นยังสมดุลนะคะ";
+	close;
+
+L_Service_paydun:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฉันจะช่วยตรวจของที่ยังไม่ได้ Identify และซ่อมอุปกรณ์ให้ค่ะ";
+	mes "ถ้าเซิร์ฟเวอร์ของคุณไม่มีคำสั่ง @repairall ให้ลบบรรทัดนั้นออกจากสคริปต์นี้ได้เลย";
+	next;
+	atcommand "@identify";
+	atcommand "@repairall";
+	specialeffect2 248;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ดำเนินการตรวจของและซ่อมอุปกรณ์เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear_paydun:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Info_paydun:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ถ้ำ Payon เหมาะสำหรับผู้เล่นช่วงต้นถึงกลาง";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ควรพก Potion และระวังมอนสเตอร์ Undead ด้านใน";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ก่อนเข้าดันเจี้ยน แนะนำให้ตรวจสอบ:";
+	mes "- น้ำหนักตัวละคร";
+	mes "- Potion";
+	mes "- Fly Wing / Butterfly Wing";
+	mes "- อุปกรณ์ที่เสียหาย";
+	close;
+
+L_Return_paydun:
+	warp "payon",160,98;
+	end;
+
+L_Close_paydun:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ขอให้ปลอดภัยและล่าได้ของดีนะคะ";
+	close;
+}
+
+
+//============================================================
+// Sphinx Dungeon
+//============================================================
+in_sphinx1,288,9,4	script	Dungeon Support#sphinx	837,{
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ยินดีต้อนรับสู่ทางเข้า ^0000FFSphinx Dungeon^000000 ค่ะ";
+	mes "ฉันช่วยฟื้นฟู เตรียมบัฟพื้นฐาน ซ่อมอุปกรณ์ และพากลับเมืองได้";
+	next;
+
+L_Main_sphinx:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ต้องการใช้บริการใดคะ?";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal_sphinx,"รับบัฟพื้นฐาน",L_Buff_sphinx,"ตรวจของ / ซ่อมอุปกรณ์",L_Service_sphinx,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear_sphinx,"คำแนะนำดันเจี้ยนนี้",L_Info_sphinx,"กลับเมือง Morocc",L_Return_sphinx,"ยกเลิก",L_Close_sphinx;
+
+L_Heal_sphinx:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฟื้นฟู HP และ SP เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff_sphinx:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ฉันไม่ให้บัฟที่แรงเกินไป เพื่อให้การเล่นยังสมดุลนะคะ";
+	close;
+
+L_Service_sphinx:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฉันจะช่วยตรวจของที่ยังไม่ได้ Identify และซ่อมอุปกรณ์ให้ค่ะ";
+	mes "ถ้าเซิร์ฟเวอร์ของคุณไม่มีคำสั่ง @repairall ให้ลบบรรทัดนั้นออกจากสคริปต์นี้ได้เลย";
+	next;
+	atcommand "@identify";
+	atcommand "@repairall";
+	specialeffect2 248;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ดำเนินการตรวจของและซ่อมอุปกรณ์เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear_sphinx:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Info_sphinx:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "Sphinx เป็นดันเจี้ยนที่เหมาะกับการเก็บเลเวลและล่าของ";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ควรเตรียมไอเทมฟื้นฟูและตรวจสอบน้ำหนักก่อนเข้าไป";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ก่อนเข้าดันเจี้ยน แนะนำให้ตรวจสอบ:";
+	mes "- น้ำหนักตัวละคร";
+	mes "- Potion";
+	mes "- Fly Wing / Butterfly Wing";
+	mes "- อุปกรณ์ที่เสียหาย";
+	close;
+
+L_Return_sphinx:
+	warp "morocc",156,93;
+	end;
+
+L_Close_sphinx:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ขอให้ปลอดภัยและล่าได้ของดีนะคะ";
+	close;
+}
+
+
+//============================================================
+// Clock Tower
+//============================================================
+alde_dun01,297,25,4	script	Dungeon Support#clock	837,{
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ยินดีต้อนรับสู่ทางเข้า ^0000FFClock Tower^000000 ค่ะ";
+	mes "ฉันช่วยฟื้นฟู เตรียมบัฟพื้นฐาน ซ่อมอุปกรณ์ และพากลับเมืองได้";
+	next;
+
+L_Main_clock:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ต้องการใช้บริการใดคะ?";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal_clock,"รับบัฟพื้นฐาน",L_Buff_clock,"ตรวจของ / ซ่อมอุปกรณ์",L_Service_clock,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear_clock,"คำแนะนำดันเจี้ยนนี้",L_Info_clock,"กลับเมือง Aldebaran",L_Return_clock,"ยกเลิก",L_Close_clock;
+
+L_Heal_clock:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฟื้นฟู HP และ SP เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff_clock:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ฉันไม่ให้บัฟที่แรงเกินไป เพื่อให้การเล่นยังสมดุลนะคะ";
+	close;
+
+L_Service_clock:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฉันจะช่วยตรวจของที่ยังไม่ได้ Identify และซ่อมอุปกรณ์ให้ค่ะ";
+	mes "ถ้าเซิร์ฟเวอร์ของคุณไม่มีคำสั่ง @repairall ให้ลบบรรทัดนั้นออกจากสคริปต์นี้ได้เลย";
+	next;
+	atcommand "@identify";
+	atcommand "@repairall";
+	specialeffect2 248;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ดำเนินการตรวจของและซ่อมอุปกรณ์เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear_clock:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Info_clock:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "Clock Tower มีมอนสเตอร์หลายระดับและเหมาะกับการฟาร์มระยะกลาง";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ควรเตรียม Fly Wing และ Potion ให้เพียงพอ";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ก่อนเข้าดันเจี้ยน แนะนำให้ตรวจสอบ:";
+	mes "- น้ำหนักตัวละคร";
+	mes "- Potion";
+	mes "- Fly Wing / Butterfly Wing";
+	mes "- อุปกรณ์ที่เสียหาย";
+	close;
+
+L_Return_clock:
+	warp "aldebaran",140,120;
+	end;
+
+L_Close_clock:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ขอให้ปลอดภัยและล่าได้ของดีนะคะ";
+	close;
+}
+
+
+//============================================================
+// Turtle Island Dungeon
+//============================================================
+tur_dun01,154,46,4	script	Dungeon Support#turtle	837,{
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ยินดีต้อนรับสู่ทางเข้า ^0000FFTurtle Island Dungeon^000000 ค่ะ";
+	mes "ฉันช่วยฟื้นฟู เตรียมบัฟพื้นฐาน ซ่อมอุปกรณ์ และพากลับเมืองได้";
+	next;
+
+L_Main_turtle:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ต้องการใช้บริการใดคะ?";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal_turtle,"รับบัฟพื้นฐาน",L_Buff_turtle,"ตรวจของ / ซ่อมอุปกรณ์",L_Service_turtle,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear_turtle,"คำแนะนำดันเจี้ยนนี้",L_Info_turtle,"กลับเมือง Alberta",L_Return_turtle,"ยกเลิก",L_Close_turtle;
+
+L_Heal_turtle:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฟื้นฟู HP และ SP เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff_turtle:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ฉันไม่ให้บัฟที่แรงเกินไป เพื่อให้การเล่นยังสมดุลนะคะ";
+	close;
+
+L_Service_turtle:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฉันจะช่วยตรวจของที่ยังไม่ได้ Identify และซ่อมอุปกรณ์ให้ค่ะ";
+	mes "ถ้าเซิร์ฟเวอร์ของคุณไม่มีคำสั่ง @repairall ให้ลบบรรทัดนั้นออกจากสคริปต์นี้ได้เลย";
+	next;
+	atcommand "@identify";
+	atcommand "@repairall";
+	specialeffect2 248;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ดำเนินการตรวจของและซ่อมอุปกรณ์เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear_turtle:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Info_turtle:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "Turtle Island เหมาะสำหรับผู้เล่นที่มีอุปกรณ์พร้อมระดับหนึ่ง";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "อย่าลืมตรวจสอบน้ำหนักและเตรียมของฟื้นฟูก่อนลุย";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ก่อนเข้าดันเจี้ยน แนะนำให้ตรวจสอบ:";
+	mes "- น้ำหนักตัวละคร";
+	mes "- Potion";
+	mes "- Fly Wing / Butterfly Wing";
+	mes "- อุปกรณ์ที่เสียหาย";
+	close;
+
+L_Return_turtle:
+	warp "alberta",112,60;
+	end;
+
+L_Close_turtle:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ขอให้ปลอดภัยและล่าได้ของดีนะคะ";
+	close;
+}
+
+
+//============================================================
+// Orc Dungeon
+//============================================================
+orcsdun01,32,170,4	script	Dungeon Support#orcdun	837,{
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ยินดีต้อนรับสู่ทางเข้า ^0000FFOrc Dungeon^000000 ค่ะ";
+	mes "ฉันช่วยฟื้นฟู เตรียมบัฟพื้นฐาน ซ่อมอุปกรณ์ และพากลับเมืองได้";
+	next;
+
+L_Main_orc:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ต้องการใช้บริการใดคะ?";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal_orc,"รับบัฟพื้นฐาน",L_Buff_orc,"ตรวจของ / ซ่อมอุปกรณ์",L_Service_orc,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear_orc,"คำแนะนำดันเจี้ยนนี้",L_Info_orc,"กลับเมือง Geffen",L_Return_orc,"ยกเลิก",L_Close_orc;
+
+L_Heal_orc:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฟื้นฟู HP และ SP เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff_orc:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ฉันไม่ให้บัฟที่แรงเกินไป เพื่อให้การเล่นยังสมดุลนะคะ";
+	close;
+
+L_Service_orc:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฉันจะช่วยตรวจของที่ยังไม่ได้ Identify และซ่อมอุปกรณ์ให้ค่ะ";
+	mes "ถ้าเซิร์ฟเวอร์ของคุณไม่มีคำสั่ง @repairall ให้ลบบรรทัดนั้นออกจากสคริปต์นี้ได้เลย";
+	next;
+	atcommand "@identify";
+	atcommand "@repairall";
+	specialeffect2 248;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ดำเนินการตรวจของและซ่อมอุปกรณ์เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear_orc:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Info_orc:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "Orc Dungeon เป็นพื้นที่ฟาร์มยอดนิยมสำหรับช่วงต้นถึงกลาง";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ควรระวังการถูกรุมและเตรียม Potion ให้พร้อม";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ก่อนเข้าดันเจี้ยน แนะนำให้ตรวจสอบ:";
+	mes "- น้ำหนักตัวละคร";
+	mes "- Potion";
+	mes "- Fly Wing / Butterfly Wing";
+	mes "- อุปกรณ์ที่เสียหาย";
+	close;
+
+L_Return_orc:
+	warp "geffen",120,62;
+	end;
+
+L_Close_orc:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ขอให้ปลอดภัยและล่าได้ของดีนะคะ";
+	close;
+}
+
+
+//============================================================
+// Byalan Dungeon
+//============================================================
+iz_dun00,168,168,4	script	Dungeon Support#izdun	837,{
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ยินดีต้อนรับสู่ทางเข้า ^0000FFByalan Dungeon^000000 ค่ะ";
+	mes "ฉันช่วยฟื้นฟู เตรียมบัฟพื้นฐาน ซ่อมอุปกรณ์ และพากลับเมืองได้";
+	next;
+
+L_Main_izdun:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ต้องการใช้บริการใดคะ?";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal_izdun,"รับบัฟพื้นฐาน",L_Buff_izdun,"ตรวจของ / ซ่อมอุปกรณ์",L_Service_izdun,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear_izdun,"คำแนะนำดันเจี้ยนนี้",L_Info_izdun,"กลับเมือง Izlude",L_Return_izdun,"ยกเลิก",L_Close_izdun;
+
+L_Heal_izdun:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฟื้นฟู HP และ SP เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff_izdun:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ฉันไม่ให้บัฟที่แรงเกินไป เพื่อให้การเล่นยังสมดุลนะคะ";
+	close;
+
+L_Service_izdun:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฉันจะช่วยตรวจของที่ยังไม่ได้ Identify และซ่อมอุปกรณ์ให้ค่ะ";
+	mes "ถ้าเซิร์ฟเวอร์ของคุณไม่มีคำสั่ง @repairall ให้ลบบรรทัดนั้นออกจากสคริปต์นี้ได้เลย";
+	next;
+	atcommand "@identify";
+	atcommand "@repairall";
+	specialeffect2 248;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ดำเนินการตรวจของและซ่อมอุปกรณ์เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear_izdun:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Info_izdun:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "Byalan Dungeon มีมอนสเตอร์ธาตุน้ำจำนวนมาก";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "อาวุธหรือสกิลธาตุลมจะช่วยให้ล่าได้ง่ายขึ้น";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ก่อนเข้าดันเจี้ยน แนะนำให้ตรวจสอบ:";
+	mes "- น้ำหนักตัวละคร";
+	mes "- Potion";
+	mes "- Fly Wing / Butterfly Wing";
+	mes "- อุปกรณ์ที่เสียหาย";
+	close;
+
+L_Return_izdun:
+	warp "izlude",128,116;
+	end;
+
+L_Close_izdun:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ขอให้ปลอดภัยและล่าได้ของดีนะคะ";
+	close;
+}
+
+
+//============================================================
+// Prontera Culvert
+//============================================================
+prt_sewb1,131,247,4	script	Dungeon Support#sewer	837,{
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ยินดีต้อนรับสู่ทางเข้า ^0000FFProntera Culvert^000000 ค่ะ";
+	mes "ฉันช่วยฟื้นฟู เตรียมบัฟพื้นฐาน ซ่อมอุปกรณ์ และพากลับเมืองได้";
+	next;
+
+L_Main_sewer:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ต้องการใช้บริการใดคะ?";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal_sewer,"รับบัฟพื้นฐาน",L_Buff_sewer,"ตรวจของ / ซ่อมอุปกรณ์",L_Service_sewer,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear_sewer,"คำแนะนำดันเจี้ยนนี้",L_Info_sewer,"กลับเมือง Prontera",L_Return_sewer,"ยกเลิก",L_Close_sewer;
+
+L_Heal_sewer:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฟื้นฟู HP และ SP เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff_sewer:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ฉันไม่ให้บัฟที่แรงเกินไป เพื่อให้การเล่นยังสมดุลนะคะ";
+	close;
+
+L_Service_sewer:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ฉันจะช่วยตรวจของที่ยังไม่ได้ Identify และซ่อมอุปกรณ์ให้ค่ะ";
+	mes "ถ้าเซิร์ฟเวอร์ของคุณไม่มีคำสั่ง @repairall ให้ลบบรรทัดนั้นออกจากสคริปต์นี้ได้เลย";
+	next;
+	atcommand "@identify";
+	atcommand "@repairall";
+	specialeffect2 248;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ดำเนินการตรวจของและซ่อมอุปกรณ์เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear_sewer:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้เรียบร้อยแล้วค่ะ";
+	close;
+
+L_Info_sewer:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "Prontera Culvert เหมาะสำหรับผู้เล่นใหม่ที่ต้องการเริ่มฟาร์ม";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ควรฝึกใช้ Fly Wing และจัดการน้ำหนักตั้งแต่ช่วงต้นเกม";
+	next;
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ก่อนเข้าดันเจี้ยน แนะนำให้ตรวจสอบ:";
+	mes "- น้ำหนักตัวละคร";
+	mes "- Potion";
+	mes "- Fly Wing / Butterfly Wing";
+	mes "- อุปกรณ์ที่เสียหาย";
+	close;
+
+L_Return_sewer:
+	warp "prontera",156,187;
+	end;
+
+L_Close_sewer:
+	mes "[ผู้ช่วยหน้าดันเจี้ยน]";
+	mes "ขอให้ปลอดภัยและล่าได้ของดีนะคะ";
+	close;
+}
+

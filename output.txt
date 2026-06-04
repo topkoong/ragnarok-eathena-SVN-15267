@@ -1,0 +1,1447 @@
+Folder PATH listing for volume Windows
+Volume serial number is 0C30-F546
+C:.
+|   athena-start
+|   Changelog-Trunk.txt
+|   char-server.sh
+|   char-server_sql.exe
+|   char-server_sql.ilk
+|   char-server_sql.pdb
+|   charserv-sql.bat
+|   charserv.bat
+|   CMakeLists.txt
+|   Config.cfg
+|   configure
+|   configure.in
+|   CTestConfig.cmake
+|   database script.txt
+|   dbghelp.dll
+|   eAthena-10.sdf
+|   eAthena-10.sln
+|   eAthena-6.dsw
+|   eAthena-7.1.sln
+|   eAthena-8.sln
+|   eAthena-9.sln
+|   libmysql.dll
+|   LICENSE
+|   login-server.sh
+|   login-server_sql.exe
+|   login-server_sql.ilk
+|   login-server_sql.pdb
+|   logserv-sql.bat
+|   logserv.bat
+|   Makefile.in
+|   map-server.sh
+|   map-server_sql.exe
+|   map-server_sql.ilk
+|   map-server_sql.pdb
+|   mapserv-sql.bat
+|   mapserv.bat
+|   notice.txt
+|   output.txt
+|   pcre3.dll
+|   readme.html
+|   runserver-sql.bat
+|   runserver.bat
+|   serv.bat
+|   start
+|   startlog.txt
+|   zlib1.dll
+|   ???????????? Gm.txt
+|   ???? Server eAthena ??? SQL.bat
+|   ???? Server ??? SQL ???????.exe
+|   
++---3rdparty
+|   |   CMakeLists.txt
+|   |   README.txt
+|   |   
+|   +---cmake
+|   |   |   FindFunctionLibrary.cmake
+|   |   |   FindMYSQL.cmake
+|   |   |   FindMYSQL_SOURCE_MIRROR.cmake
+|   |   |   FindPCRE.cmake
+|   |   |   TestInline.cmake
+|   |   |   
+|   |   \---tests
+|   |           HAVE_MONOTONIC_CLOCK.c
+|   |           MYSQL_TRY_RUN.c
+|   |           try_inline.c
+|   |           
+|   +---msinttypes
+|   |   |   CMakeLists.txt
+|   |   |   
+|   |   \---include
+|   |           inttypes.h
+|   |           stdint.h
+|   |           
+|   +---mt19937ar
+|   |       CMakeLists.txt
+|   |       Makefile.in
+|   |       mt19937ar.c
+|   |       mt19937ar.h
+|   |       mt19937ar.out
+|   |       mtTest.c
+|   |       readme-mt.txt
+|   |       
+|   +---mysql
+|   |   |   CMakeLists.txt
+|   |   |   mysql-5.5.24
+|   |   |   
+|   |   +---win32
+|   |   |   |   COPYING
+|   |   |   |   README
+|   |   |   |   
+|   |   |   +---docs
+|   |   |   |       ChangeLog
+|   |   |   |       INFO_BIN
+|   |   |   |       INFO_SRC
+|   |   |   |       
+|   |   |   +---include
+|   |   |   |   |   decimal.h
+|   |   |   |   |   errmsg.h
+|   |   |   |   |   keycache.h
+|   |   |   |   |   mysql.h
+|   |   |   |   |   mysqld_ername.h
+|   |   |   |   |   mysqld_error.h
+|   |   |   |   |   mysql_com.h
+|   |   |   |   |   mysql_embed.h
+|   |   |   |   |   mysql_time.h
+|   |   |   |   |   mysql_version.h
+|   |   |   |   |   my_alloc.h
+|   |   |   |   |   my_attribute.h
+|   |   |   |   |   my_compiler.h
+|   |   |   |   |   my_config.h
+|   |   |   |   |   my_dbug.h
+|   |   |   |   |   my_dir.h
+|   |   |   |   |   my_getopt.h
+|   |   |   |   |   my_global.h
+|   |   |   |   |   my_list.h
+|   |   |   |   |   my_net.h
+|   |   |   |   |   my_pthread.h
+|   |   |   |   |   my_sys.h
+|   |   |   |   |   my_xml.h
+|   |   |   |   |   m_ctype.h
+|   |   |   |   |   m_string.h
+|   |   |   |   |   plugin.h
+|   |   |   |   |   plugin_audit.h
+|   |   |   |   |   plugin_ftparser.h
+|   |   |   |   |   sql_common.h
+|   |   |   |   |   sql_state.h
+|   |   |   |   |   sslopt-case.h
+|   |   |   |   |   sslopt-longopts.h
+|   |   |   |   |   sslopt-vars.h
+|   |   |   |   |   typelib.h
+|   |   |   |   |   
+|   |   |   |   \---mysql
+|   |   |   |       |   client_plugin.h
+|   |   |   |       |   innodb_priv.h
+|   |   |   |       |   plugin.h
+|   |   |   |       |   plugin_audit.h
+|   |   |   |       |   plugin_auth.h
+|   |   |   |       |   plugin_auth_common.h
+|   |   |   |       |   plugin_ftparser.h
+|   |   |   |       |   services.h
+|   |   |   |       |   service_my_snprintf.h
+|   |   |   |       |   service_thd_alloc.h
+|   |   |   |       |   service_thd_wait.h
+|   |   |   |       |   service_thread_scheduler.h
+|   |   |   |       |   thread_pool_priv.h
+|   |   |   |       |   
+|   |   |   |       \---psi
+|   |   |   |               mysql_file.h
+|   |   |   |               mysql_thread.h
+|   |   |   |               psi.h
+|   |   |   |               psi_abi_v1.h
+|   |   |   |               psi_abi_v2.h
+|   |   |   |               
+|   |   |   \---lib
+|   |   |           libmysql.dll
+|   |   |           libmysql.lib
+|   |   |           libmysql.pdb
+|   |   |           
+|   |   \---winx64
+|   |       |   COPYING
+|   |       |   README
+|   |       |   
+|   |       +---docs
+|   |       |       ChangeLog
+|   |       |       INFO_BIN
+|   |       |       INFO_SRC
+|   |       |       
+|   |       +---include
+|   |       |   |   decimal.h
+|   |       |   |   errmsg.h
+|   |       |   |   keycache.h
+|   |       |   |   mysql.h
+|   |       |   |   mysqld_ername.h
+|   |       |   |   mysqld_error.h
+|   |       |   |   mysql_com.h
+|   |       |   |   mysql_embed.h
+|   |       |   |   mysql_time.h
+|   |       |   |   mysql_version.h
+|   |       |   |   my_alloc.h
+|   |       |   |   my_attribute.h
+|   |       |   |   my_compiler.h
+|   |       |   |   my_config.h
+|   |       |   |   my_dbug.h
+|   |       |   |   my_dir.h
+|   |       |   |   my_getopt.h
+|   |       |   |   my_global.h
+|   |       |   |   my_list.h
+|   |       |   |   my_net.h
+|   |       |   |   my_pthread.h
+|   |       |   |   my_sys.h
+|   |       |   |   my_xml.h
+|   |       |   |   m_ctype.h
+|   |       |   |   m_string.h
+|   |       |   |   plugin.h
+|   |       |   |   plugin_audit.h
+|   |       |   |   plugin_ftparser.h
+|   |       |   |   sql_common.h
+|   |       |   |   sql_state.h
+|   |       |   |   sslopt-case.h
+|   |       |   |   sslopt-longopts.h
+|   |       |   |   sslopt-vars.h
+|   |       |   |   typelib.h
+|   |       |   |   
+|   |       |   \---mysql
+|   |       |       |   client_plugin.h
+|   |       |       |   innodb_priv.h
+|   |       |       |   plugin.h
+|   |       |       |   plugin_audit.h
+|   |       |       |   plugin_auth.h
+|   |       |       |   plugin_auth_common.h
+|   |       |       |   plugin_ftparser.h
+|   |       |       |   services.h
+|   |       |       |   service_my_snprintf.h
+|   |       |       |   service_thd_alloc.h
+|   |       |       |   service_thd_wait.h
+|   |       |       |   service_thread_scheduler.h
+|   |       |       |   thread_pool_priv.h
+|   |       |       |   
+|   |       |       \---psi
+|   |       |               mysql_file.h
+|   |       |               mysql_thread.h
+|   |       |               psi.h
+|   |       |               psi_abi_v1.h
+|   |       |               psi_abi_v2.h
+|   |       |               
+|   |       \---lib
+|   |               libmysql.dll
+|   |               libmysql.lib
+|   |               libmysql.pdb
+|   |               
+|   +---pcre
+|   |   |   CMakeLists.txt
+|   |   |   
+|   |   +---old
+|   |   |   |   pcre-8.30
+|   |   |   |   
+|   |   |   +---include
+|   |   |   |       pcre.h
+|   |   |   |       
+|   |   |   \---lib
+|   |   |           libpcre.dll.a
+|   |   |           pcre.lib
+|   |   |           
+|   |   \---pcre-8.30
+|   |       |   CMakeLists.txt
+|   |       |   config-cmake.h.in
+|   |       |   config.h.generic
+|   |       |   config.h.in
+|   |       |   dftables.c
+|   |       |   LICENCE
+|   |       |   pcre.h.generic
+|   |       |   pcre.h.in
+|   |       |   pcreposix.c
+|   |       |   pcreposix.h
+|   |       |   pcre_byte_order.c
+|   |       |   pcre_chartables.c.dist
+|   |       |   pcre_compile.c
+|   |       |   pcre_config.c
+|   |       |   pcre_dfa_exec.c
+|   |       |   pcre_exec.c
+|   |       |   pcre_fullinfo.c
+|   |       |   pcre_get.c
+|   |       |   pcre_globals.c
+|   |       |   pcre_internal.h
+|   |       |   pcre_jit_compile.c
+|   |       |   pcre_jit_test.c
+|   |       |   pcre_maketables.c
+|   |       |   pcre_newline.c
+|   |       |   pcre_ord2utf8.c
+|   |       |   pcre_printint.c
+|   |       |   pcre_refcount.c
+|   |       |   pcre_scanner.cc
+|   |       |   pcre_scanner.h
+|   |       |   pcre_string_utils.c
+|   |       |   pcre_study.c
+|   |       |   pcre_tables.c
+|   |       |   pcre_ucd.c
+|   |       |   pcre_valid_utf8.c
+|   |       |   pcre_version.c
+|   |       |   pcre_xclass.c
+|   |       |   README
+|   |       |   ucp.h
+|   |       |   
+|   |       \---sljit
+|   |               sljitConfig.h
+|   |               sljitConfigInternal.h
+|   |               sljitExecAllocator.c
+|   |               sljitLir.c
+|   |               sljitLir.h
+|   |               sljitNativeARM_Thumb2.c
+|   |               sljitNativeARM_v5.c
+|   |               sljitNativeMIPS_32.c
+|   |               sljitNativeMIPS_common.c
+|   |               sljitNativePPC_32.c
+|   |               sljitNativePPC_64.c
+|   |               sljitNativePPC_common.c
+|   |               sljitNativeX86_32.c
+|   |               sljitNativeX86_64.c
+|   |               sljitNativeX86_common.c
+|   |               sljitUtils.c
+|   |               
+|   \---zlib
+|       |   CMakeLists.txt
+|       |   
+|       +---old
+|       |   |   zlib-1.2.7
+|       |   |   
+|       |   +---include
+|       |   |       zconf.h
+|       |   |       zlib.h
+|       |   |       
+|       |   \---lib
+|       |           zdll.lib
+|       |           
+|       \---zlib-1.2.7
+|               adler32.c
+|               CMakeLists.txt
+|               compress.c
+|               crc32.c
+|               crc32.h
+|               deflate.c
+|               deflate.h
+|               gzclose.c
+|               gzguts.h
+|               gzlib.c
+|               gzread.c
+|               gzwrite.c
+|               infback.c
+|               inffast.c
+|               inffast.h
+|               inffixed.h
+|               inflate.c
+|               inflate.h
+|               inftrees.c
+|               inftrees.h
+|               README
+|               trees.c
+|               trees.h
+|               uncompr.c
+|               zconf.h
+|               zconf.h.cmakein
+|               zlib.h
+|               zutil.c
+|               zutil.h
+|               
++---conf
+|   |   atcommand_athena.conf
+|   |   battle_athena.conf
+|   |   Changelog.txt
+|   |   charhelp.txt
+|   |   char_athena.conf
+|   |   grf-files.txt
+|   |   help.txt
+|   |   help2.txt
+|   |   inter_athena.conf
+|   |   login_athena.conf
+|   |   log_athena.conf
+|   |   maps_athena.conf
+|   |   map_athena.conf
+|   |   motd.txt
+|   |   msg_athena.conf
+|   |   packet_athena.conf
+|   |   plugin_athena.conf
+|   |   readme.txt
+|   |   script_athena.conf
+|   |   subnet_athena.conf
+|   |   
+|   +---battle
+|   |       battle.conf
+|   |       battleground.conf
+|   |       client.conf
+|   |       drops.conf
+|   |       exp.conf
+|   |       feature.conf
+|   |       gm.conf
+|   |       guild.conf
+|   |       homunc.conf
+|   |       items.conf
+|   |       misc.conf
+|   |       monster.conf
+|   |       party.conf
+|   |       pet.conf
+|   |       player.conf
+|   |       skill.conf
+|   |       status.conf
+|   |       
+|   +---import
+|   |       atcommand_conf.txt
+|   |       battle_conf.txt
+|   |       char_conf.txt
+|   |       inter_conf.txt
+|   |       login_conf.txt
+|   |       log_conf.txt
+|   |       map_conf.txt
+|   |       msg_conf.txt
+|   |       packet_conf.txt
+|   |       script_conf.txt
+|   |       
+|   \---import-tmpl
+|           atcommand_conf.txt
+|           battle_conf.txt
+|           char_conf.txt
+|           inter_conf.txt
+|           login_conf.txt
+|           log_conf.txt
+|           map_conf.txt
+|           msg_conf.txt
+|           packet_conf.txt
+|           script_conf.txt
+|           
++---db
+|       abra_db.txt
+|       attr_fix.txt
+|       castle_db.txt
+|       Changelog.txt
+|       const.txt
+|       create_arrow_db.txt
+|       exp.txt
+|       exp2.txt
+|       exp_guild.txt
+|       exp_homun.txt
+|       guild_skill_tree.txt
+|       homunculus_db.txt
+|       homun_skill_tree.txt
+|       item_avail.txt
+|       item_bluebox.txt
+|       item_buyingstore.txt
+|       item_cardalbum.txt
+|       item_cookie_bag.txt
+|       item_db.txt
+|       item_db2.txt
+|       item_delay.txt
+|       item_findingore.txt
+|       item_giftbox.txt
+|       item_group_db.txt
+|       item_misc.txt
+|       item_noequip.txt
+|       item_scroll.txt
+|       item_trade.txt
+|       item_violetbox.txt
+|       job_db1.txt
+|       job_db2.txt
+|       map_cache.dat
+|       map_index.txt
+|       mercenary_db.txt
+|       mercenary_skill_db.txt
+|       mob_avail.txt
+|       mob_boss.txt
+|       mob_branch.txt
+|       mob_chat_db.txt
+|       mob_db.txt
+|       mob_db2.txt
+|       mob_poring.txt
+|       mob_pouch.txt
+|       mob_race2_db.txt
+|       mob_skill_db.txt
+|       mob_skill_db2.txt
+|       packet_db.txt
+|       pet_db.txt
+|       pet_db2.txt
+|       produce_db.txt
+|       quest_db.txt
+|       refine_db.txt
+|       size_fix.txt
+|       skill_castnodex_db.txt
+|       skill_cast_db.txt
+|       skill_db.txt
+|       skill_nocast_db.txt
+|       skill_require_db.txt
+|       skill_tree.txt
+|       skill_unit_db.txt
+|       statpoint.txt
+|       
++---doc
+|   |   ea_job_system.txt
+|   |   effect_list.txt
+|   |   item_bonus.txt
+|   |   item_db.txt
+|   |   map_cache.txt
+|   |   mob_db_mode_list.txt
+|   |   packet_struct_notation.txt
+|   |   pccommand_list.txt
+|   |   quest_variables.txt
+|   |   script_commands.txt
+|   |   whisper_sys.txt
+|   |   woe_time_explanation.txt
+|   |   
+|   +---notes
+|   |       Changelog.txt
+|   |       
+|   \---sample
+|           bank_test.txt
+|           basejob_baseclass_upper.txt
+|           delitem2.txt
+|           getequipcardid.txt
+|           getiteminfo.txt
+|           getmonsterinfo.txt
+|           gstorage_test.txt
+|           localized_npc.txt
+|           npc_dynamic_shop.txt
+|           npc_equip_sample.txt
+|           npc_extend_shop.txt
+|           npc_live_dialogues.txt
+|           npc_pcre.txt
+|           npc_sample.txt
+|           npc_shop_test.txt
+|           npc_testchkoption.txt
+|           npc_test_arena.txt
+|           npc_test_array.txt
+|           npc_test_chat.txt
+|           npc_test_duplicate.txt
+|           npc_test_ev.txt
+|           npc_test_func.txt
+|           npc_test_npctimer.txt
+|           npc_test_npctimer2.txt
+|           npc_test_setitemx.txt
+|           npc_test_setmapflag.txt
+|           npc_test_skill.txt
+|           npc_test_str.txt
+|           npc_time_sample.txt
+|           PCLoginEvent.txt
+|           
++---log
+|       atcommandlog.log
+|       picklog.log
+|       
++---npc
+|   |   scripts_athena.conf
+|   |   scripts_guild.conf
+|   |   scripts_jobs.conf
+|   |   scripts_main.conf
+|   |   scripts_mapflags.conf
+|   |   scripts_monsters.conf
+|   |   scripts_warps.conf
+|   |   
+|   +---cities
+|   |       alberta.txt
+|   |       aldebaran.txt
+|   |       comodo.txt
+|   |       geffen.txt
+|   |       izlude.txt
+|   |       lutie.txt
+|   |       morocc.txt
+|   |       payon.txt
+|   |       prontera.txt
+|   |       yuno.txt
+|   |       
+|   +---guides
+|   |       guides_alb.txt
+|   |       guides_alde.txt
+|   |       guides_cmd.txt
+|   |       guides_gef.txt
+|   |       guides_izl.txt
+|   |       guides_juno.txt
+|   |       guides_moc.txt
+|   |       guides_pay.txt
+|   |       guides_pron.txt
+|   |       
+|   +---guild
+|   |       agit_controller.txt
+|   |       agit_template.txt
+|   |       aldeg_cas01.txt
+|   |       aldeg_cas02.txt
+|   |       aldeg_cas03.txt
+|   |       aldeg_cas04.txt
+|   |       aldeg_cas05.txt
+|   |       gefg_cas01.txt
+|   |       gefg_cas02.txt
+|   |       gefg_cas03.txt
+|   |       gefg_cas04.txt
+|   |       gefg_cas05.txt
+|   |       payg_cas01.txt
+|   |       payg_cas02.txt
+|   |       payg_cas03.txt
+|   |       payg_cas04.txt
+|   |       payg_cas05.txt
+|   |       prtg_cas01.txt
+|   |       prtg_cas02.txt
+|   |       prtg_cas03.txt
+|   |       prtg_cas04.txt
+|   |       prtg_cas05.txt
+|   |       
+|   +---jobs
+|   |   |   novice.txt
+|   |   |   supernovice.txt
+|   |   |   
+|   |   +---1-1
+|   |   |       acolyte.txt
+|   |   |       archer.txt
+|   |   |       mage.txt
+|   |   |       merchant.txt
+|   |   |       swordman.txt
+|   |   |       thief.txt
+|   |   |       
+|   |   +---2-1
+|   |   |       assassin.txt
+|   |   |       blacksmith.txt
+|   |   |       hunter.txt
+|   |   |       knight.txt
+|   |   |       priest.txt
+|   |   |       wizard.txt
+|   |   |       
+|   |   +---2-2
+|   |   |       alchemist.txt
+|   |   |       bard.txt
+|   |   |       crusader.txt
+|   |   |       dancer.txt
+|   |   |       monk.txt
+|   |   |       rogue.txt
+|   |   |       sage.txt
+|   |   |       
+|   |   \---Jfunc
+|   |           Jfunc2-1.txt
+|   |           
+|   +---kafras
+|   |       functions_kafras.txt
+|   |       kafras_alb.txt
+|   |       kafras_alde.txt
+|   |       kafras_com.txt
+|   |       kafras_dungeons.txt
+|   |       kafras_gef.txt
+|   |       kafras_izl.txt
+|   |       kafras_mor.txt
+|   |       kafras_pay.txt
+|   |       kafras_pron.txt
+|   |       kafras_yun.txt
+|   |       
+|   +---mapflag
+|   |       battleground.txt
+|   |       fireworks.txt
+|   |       gvg.txt
+|   |       jail.txt
+|   |       night.txt
+|   |       nightmare.txt
+|   |       nobranch.txt
+|   |       noexp.txt
+|   |       noicewall.txt
+|   |       noloot.txt
+|   |       nomemo.txt
+|   |       nopenalty.txt
+|   |       nopvp.txt
+|   |       noreturn.txt
+|   |       nosave.txt
+|   |       noskill.txt
+|   |       noteleport.txt
+|   |       novending.txt
+|   |       nowarp.txt
+|   |       nowarpto.txt
+|   |       partylock.txt
+|   |       pvp.txt
+|   |       pvp_noguild.txt
+|   |       pvp_noparty.txt
+|   |       reset.txt
+|   |       restricted.txt
+|   |       town.txt
+|   |       
+|   +---merchants
+|   |       alchemist.txt
+|   |       clothes_dyer.txt
+|   |       dye_maker.txt
+|   |       gemstone.txt
+|   |       hair_dyer.txt
+|   |       hair_style.txt
+|   |       icecream.txt
+|   |       inn.txt
+|   |       milk_trader.txt
+|   |       old_pharmacist.txt
+|   |       refine.txt
+|   |       renters.txt
+|   |       shops.txt
+|   |       
+|   +---mobs
+|   |   |   citycleaners.txt
+|   |   |   pvp.txt
+|   |   |   
+|   |   +---dungeons
+|   |   |       alde_dun.txt
+|   |   |       anthell.txt
+|   |   |       beach_dun.txt
+|   |   |       c_tower.txt
+|   |   |       gef_dun.txt
+|   |   |       glastheim.txt
+|   |   |       gld_dun.txt
+|   |   |       gld_dunSE.txt
+|   |   |       ice_dun.txt
+|   |   |       in_sphinx.txt
+|   |   |       iz_dun.txt
+|   |   |       mag_dun.txt
+|   |   |       mjo_dun.txt
+|   |   |       moc_pryd.txt
+|   |   |       orcsdun.txt
+|   |   |       pay_dun.txt
+|   |   |       prt_maze.txt
+|   |   |       prt_sew.txt
+|   |   |       treasure.txt
+|   |   |       tur_dun.txt
+|   |   |       xmas_dun.txt
+|   |   |       
+|   |   \---fields
+|   |           comodo.txt
+|   |           geffen.txt
+|   |           lutie.txt
+|   |           mjolnir.txt
+|   |           morocc.txt
+|   |           payon.txt
+|   |           prontera.txt
+|   |           yuno.txt
+|   |           
+|   +---other
+|   |       Global_Functions.txt
+|   |       marriage.txt
+|   |       msg_boards.txt
+|   |       pvp.txt
+|   |       resetskill.txt
+|   |       
+|   +---quests
+|   |   |   bunnyband.txt
+|   |   |   counteragent_mixture.txt
+|   |   |   juice_maker.txt
+|   |   |   magicalhatquest.txt
+|   |   |   monstertamers.txt
+|   |   |   mrsmile.txt
+|   |   |   munak.txt
+|   |   |   quests_alberta.txt
+|   |   |   quests_aldebaran.txt
+|   |   |   quests_comodo.txt
+|   |   |   quests_geffen.txt
+|   |   |   quests_lutie.txt
+|   |   |   quests_Morocc.txt
+|   |   |   quests_payon.txt
+|   |   |   quests_prontera.txt
+|   |   |   quests_yuno.txt
+|   |   |   
+|   |   \---skills
+|   |           acolyte_skills.txt
+|   |           archer_skills.txt
+|   |           blacksmith_skill.txt
+|   |           mage_skills.txt
+|   |           merchant_skills.txt
+|   |           novice_skills.txt
+|   |           swordman_skills.txt
+|   |           thief_skills.txt
+|   |           
+|   \---warps
+|       |   disabled_warps.txt
+|       |   
+|       +---cities
+|       |       alberta.txt
+|       |       aldebaran.txt
+|       |       comodo.txt
+|       |       geffen.txt
+|       |       izlude.txt
+|       |       lutie.txt
+|       |       morroc.txt
+|       |       payon.txt
+|       |       prontera.txt
+|       |       yuno.txt
+|       |       
+|       +---dungeons
+|       |       alde_dun.txt
+|       |       anthell.txt
+|       |       beach_dun.txt
+|       |       c_tower.txt
+|       |       gef_dun.txt
+|       |       in_sphinx.txt
+|       |       iz_dun.txt
+|       |       juperos.txt
+|       |       mag_dun.txt
+|       |       mjo_dun.txt
+|       |       moc_pryd.txt
+|       |       orcsdun.txt
+|       |       pay_dun.txt
+|       |       prt_maze.txt
+|       |       treasure.txt
+|       |       tur_dun.txt
+|       |       xmas_dun.txt
+|       |       
+|       +---fields
+|       |       com_fild.txt
+|       |       geffen_fild.txt
+|       |       glastheim.txt
+|       |       lutie_fild.txt
+|       |       morroc_fild.txt
+|       |       mtmjolnir.txt
+|       |       payon_fild.txt
+|       |       prontera_fild.txt
+|       |       yuno_fild.txt
+|       |       
+|       +---guild
+|       |       guildcastles.txt
+|       |       
+|       +---other
+|       |       airplane.txt
+|       |       arena.txt
+|       |       god.txt
+|       |       jobquests.txt
+|       |       other.txt
+|       |       sign.txt
+|       |       
+|       \---pvp
+|               pvp.txt
+|               
++---plugins
+|       dbghelpplug.dll
+|       exchndl.dll
+|       
++---readme
+|   |   commands.html
+|   |   faq.html
+|   |   resources.html
+|   |   scripting.html
+|   |   setup.html
+|   |   style.css
+|   |   
+|   \---images
+|           bg.gif
+|           clown.png
+|           
++---save
+|       account.txt
+|       accreg.txt
+|       athena.txt
+|       athena_backup.txt
+|       castle.txt
+|       friends.txt
+|       guild.txt
+|       g_storage.txt
+|       homun.txt
+|       mapreg.txt
+|       party.txt
+|       pet.txt
+|       scdata.txt
+|       storage.txt
+|       
++---save-tmpl
+|       account.txt
+|       accreg.txt
+|       athena.txt
+|       athena_backup.txt
+|       castle.txt
+|       friends.txt
+|       guild.txt
+|       g_storage.txt
+|       homun.txt
+|       mapreg.txt
+|       party.txt
+|       pet.txt
+|       scdata.txt
+|       storage.txt
+|       
++---sql-files
+|       convert_engine_innodb.sql
+|       convert_engine_myisam.sql
+|       convert_passwords.sql
+|       item_db.sql
+|       item_db2.sql
+|       logs.sql
+|       main.sql
+|       main_InnoDB.sql
+|       mob_db.sql
+|       mob_db2.sql
+|       upgrade_svn10575_db.sql
+|       upgrade_svn10575_log.sql
+|       upgrade_svn10580.sql
+|       upgrade_svn11018.sql
+|       upgrade_svn11106.sql
+|       upgrade_svn11388.sql
+|       upgrade_svn11548.sql
+|       upgrade_svn11582.sql
+|       upgrade_svn11721_log.sql
+|       upgrade_svn11895.sql
+|       upgrade_svn11915.sql
+|       upgrade_svn12043.sql
+|       upgrade_svn12278.sql
+|       upgrade_svn12294.sql
+|       upgrade_svn12368.sql
+|       upgrade_svn12464.sql
+|       upgrade_svn12559.sql
+|       upgrade_svn12561.sql
+|       upgrade_svn12581.sql
+|       upgrade_svn12725.sql
+|       upgrade_svn12975.sql
+|       upgrade_svn12975_log.sql
+|       upgrade_svn12975_view.sql
+|       upgrade_svn13025_log.sql
+|       upgrade_svn13115_mercenary.sql
+|       upgrade_svn13117_char.sql
+|       upgrade_svn13166_mercenary_owner.sql
+|       upgrade_svn13370_inventory.sql
+|       upgrade_svn13390.sql
+|       upgrade_svn13541.sql
+|       upgrade_svn13583.sql
+|       upgrade_svn13719.sql
+|       upgrade_svn13881.sql
+|       upgrade_svn13890.sql
+|       upgrade_svn13960_questlog.sql
+|       upgrade_svn13963.sql
+|       upgrade_svn14036.sql
+|       upgrade_svn14085.sql
+|       upgrade_svn14242.sql
+|       upgrade_svn14507.sql
+|       upgrade_svn14579.sql
+|       upgrade_svn14672.sql
+|       upgrade_svn14700.sql
+|       upgrade_svn14713_log.sql
+|       upgrade_svn14759.sql
+|       upgrade_svn14796.sql
+|       upgrade_svn14797.sql
+|       upgrade_svn15003.sql
+|       upgrade_svn15084_log.sql
+|       upgrade_svn15086_log.sql
+|       
++---src
+|   |   CMakeLists.txt
+|   |   
+|   +---char
+|   |       char.c
+|   |       char.h
+|   |       CMakeLists.txt
+|   |       inter.c
+|   |       inter.h
+|   |       int_guild.c
+|   |       int_guild.h
+|   |       int_homun.c
+|   |       int_homun.h
+|   |       int_party.c
+|   |       int_party.h
+|   |       int_pet.c
+|   |       int_pet.h
+|   |       int_status.c
+|   |       int_status.h
+|   |       int_storage.c
+|   |       int_storage.h
+|   |       Makefile.in
+|   |       
+|   +---char_sql
+|   |       char.c
+|   |       char.h
+|   |       CMakeLists.txt
+|   |       inter.c
+|   |       inter.h
+|   |       int_auction.c
+|   |       int_auction.h
+|   |       int_guild.c
+|   |       int_guild.h
+|   |       int_homun.c
+|   |       int_homun.h
+|   |       int_mail.c
+|   |       int_mail.h
+|   |       int_mercenary.c
+|   |       int_mercenary.h
+|   |       int_party.c
+|   |       int_party.h
+|   |       int_pet.c
+|   |       int_pet.h
+|   |       int_quest.c
+|   |       int_quest.h
+|   |       int_storage.c
+|   |       int_storage.h
+|   |       Makefile.in
+|   |       
+|   +---common
+|   |       cbasetypes.h
+|   |       CMakeLists.txt
+|   |       config.h.cmakein
+|   |       config.h.in
+|   |       config.vc.h
+|   |       core.c
+|   |       core.h
+|   |       db.c
+|   |       db.h
+|   |       des.c
+|   |       des.h
+|   |       ers.c
+|   |       ers.h
+|   |       grfio.c
+|   |       grfio.h
+|   |       lock.c
+|   |       lock.h
+|   |       Makefile.in
+|   |       malloc.c
+|   |       malloc.h
+|   |       mapindex.c
+|   |       mapindex.h
+|   |       md5calc.c
+|   |       md5calc.h
+|   |       mmo.h
+|   |       nullpo.c
+|   |       nullpo.h
+|   |       plugin.h
+|   |       plugins.c
+|   |       plugins.h
+|   |       random.c
+|   |       random.h
+|   |       showmsg.c
+|   |       showmsg.h
+|   |       socket.c
+|   |       socket.h
+|   |       sql.c
+|   |       sql.h
+|   |       strlib.c
+|   |       strlib.h
+|   |       timer.c
+|   |       timer.h
+|   |       utils.c
+|   |       utils.h
+|   |       version.h
+|   |       
+|   +---login
+|   |   |   account.h
+|   |   |   account_sql.c
+|   |   |   account_txt.c
+|   |   |   CMakeLists.txt
+|   |   |   ipban.h
+|   |   |   ipban_sql.c
+|   |   |   ipban_txt.c
+|   |   |   login.c
+|   |   |   login.h
+|   |   |   loginlog.h
+|   |   |   loginlog_sql.c
+|   |   |   loginlog_txt.c
+|   |   |   Makefile.in
+|   |   |   
+|   |   +---sql
+|   |   |       CMakeLists.txt
+|   |   |       
+|   |   \---txt
+|   |           CMakeLists.txt
+|   |           
+|   +---map
+|   |   |   atcommand.c
+|   |   |   atcommand.h
+|   |   |   battle.c
+|   |   |   battle.h
+|   |   |   battleground.c
+|   |   |   battleground.h
+|   |   |   buyingstore.c
+|   |   |   buyingstore.h
+|   |   |   chat.c
+|   |   |   chat.h
+|   |   |   chrif.c
+|   |   |   chrif.h
+|   |   |   clif.c
+|   |   |   clif.h
+|   |   |   CMakeLists.txt
+|   |   |   date.c
+|   |   |   date.h
+|   |   |   duel.c
+|   |   |   duel.h
+|   |   |   guild.c
+|   |   |   guild.h
+|   |   |   guild_castle.c
+|   |   |   guild_castle.h
+|   |   |   guild_expcache.c
+|   |   |   guild_expcache.h
+|   |   |   homunculus.c
+|   |   |   homunculus.h
+|   |   |   instance.c
+|   |   |   instance.h
+|   |   |   intif.c
+|   |   |   intif.h
+|   |   |   itemdb.c
+|   |   |   itemdb.h
+|   |   |   log.c
+|   |   |   log.h
+|   |   |   mail.c
+|   |   |   mail.h
+|   |   |   Makefile.in
+|   |   |   map.c
+|   |   |   map.h
+|   |   |   mapreg.h
+|   |   |   mapreg_sql.c
+|   |   |   mapreg_txt.c
+|   |   |   mercenary.c
+|   |   |   mercenary.h
+|   |   |   mob.c
+|   |   |   mob.h
+|   |   |   npc.c
+|   |   |   npc.h
+|   |   |   npc_chat.c
+|   |   |   party.c
+|   |   |   party.h
+|   |   |   path.c
+|   |   |   path.h
+|   |   |   pc.c
+|   |   |   pc.h
+|   |   |   pet.c
+|   |   |   pet.h
+|   |   |   quest.c
+|   |   |   quest.h
+|   |   |   script.c
+|   |   |   script.h
+|   |   |   searchstore.c
+|   |   |   searchstore.h
+|   |   |   skill.c
+|   |   |   skill.h
+|   |   |   status.c
+|   |   |   status.h
+|   |   |   storage.c
+|   |   |   storage.h
+|   |   |   trade.c
+|   |   |   trade.h
+|   |   |   unit.c
+|   |   |   unit.h
+|   |   |   vending.c
+|   |   |   vending.h
+|   |   |   
+|   |   +---sql
+|   |   |       CMakeLists.txt
+|   |   |       
+|   |   \---txt
+|   |           CMakeLists.txt
+|   |           
+|   +---plugins
+|   |       CMakeLists.txt
+|   |       console.c
+|   |       console.def
+|   |       dbghelpplug.c
+|   |       dbghelpplug.rc
+|   |       Makefile.in
+|   |       pid.c
+|   |       pid.def
+|   |       sample.c
+|   |       sample.def
+|   |       sig.c
+|   |       
+|   +---tool
+|   |       CMakeLists.txt
+|   |       Makefile.in
+|   |       mapcache.c
+|   |       
+|   \---txt-converter
+|       |   char-converter.c
+|       |   CMakeLists.txt
+|       |   login-converter.c
+|       |   Makefile.in
+|       |   
+|       +---char
+|       |       CMakeLists.txt
+|       |       
+|       \---login
+|               CMakeLists.txt
+|               
++---tools
+|       backup.pl
+|       item_db.pl
+|       mapreg-converter.php
+|       mob_db.pl
+|       stackdump
+|       vs9-to-vs8.php
+|       
++---vcproj-10
+|   |   char-server_sql.vcxproj
+|   |   char-server_sql.vcxproj.user
+|   |   char-server_txt.vcxproj
+|   |   char-server_txt.vcxproj.user
+|   |   common.vcxproj
+|   |   common.vcxproj.filters
+|   |   common.vcxproj.user
+|   |   common_sql.vcxproj
+|   |   common_sql.vcxproj.user
+|   |   login-server_sql.vcxproj
+|   |   login-server_sql.vcxproj.user
+|   |   login-server_txt.vcxproj
+|   |   login-server_txt.vcxproj.user
+|   |   map-server_sql.vcxproj
+|   |   map-server_sql.vcxproj.user
+|   |   map-server_txt.vcxproj
+|   |   map-server_txt.vcxproj.user
+|   |   mapcache.vcxproj
+|   |   mapcache.vcxproj.user
+|   |   txt-converter-char.vcxproj
+|   |   txt-converter-char.vcxproj.filters
+|   |   txt-converter-char.vcxproj.user
+|   |   txt-converter-login.vcxproj
+|   |   txt-converter-login.vcxproj.user
+|   |   
+|   +---char-server_sql
+|   |   \---Debug
+|   |           char-server_sql.Build.CppClean.log
+|   |           char-server_sql.exe.embed.manifest
+|   |           char-server_sql.exe.embed.manifest.res
+|   |           char-server_sql.exe.intermediate.manifest
+|   |           char-server_sql.lastbuildstate
+|   |           char-server_sql.log
+|   |           char-server_sql.write.1.tlog
+|   |           char-server_sql_manifest.rc
+|   |           char.obj
+|   |           CL.4148.read.1.tlog
+|   |           CL.4148.write.1.tlog
+|   |           CL.4348.read.1.tlog
+|   |           CL.4348.write.1.tlog
+|   |           cl.command.1.tlog
+|   |           CL.read.1.tlog
+|   |           cl.write.1.tlog
+|   |           inter.obj
+|   |           int_auction.obj
+|   |           int_guild.obj
+|   |           int_homun.obj
+|   |           int_mail.obj
+|   |           int_mercenary.obj
+|   |           int_party.obj
+|   |           int_pet.obj
+|   |           int_quest.obj
+|   |           int_storage.obj
+|   |           link-cvtres.read.1.tlog
+|   |           link-cvtres.write.1.tlog
+|   |           link.5864-cvtres.read.1.tlog
+|   |           link.5864-cvtres.write.1.tlog
+|   |           link.5864.read.1.tlog
+|   |           link.5864.write.1.tlog
+|   |           link.command.1.tlog
+|   |           link.read.1.tlog
+|   |           link.write.1.tlog
+|   |           mt.command.1.tlog
+|   |           mt.read.1.tlog
+|   |           mt.write.1.tlog
+|   |           rc.command.1.tlog
+|   |           rc.read.1.tlog
+|   |           rc.write.1.tlog
+|   |           vc100.idb
+|   |           vc100.pdb
+|   |           
+|   +---common
+|   |   \---Debug
+|   |           CL.5580.read.1.tlog
+|   |           CL.5580.write.1.tlog
+|   |           CL.6140.read.1.tlog
+|   |           CL.6140.write.1.tlog
+|   |           cl.command.1.tlog
+|   |           CL.read.1.tlog
+|   |           cl.write.1.tlog
+|   |           common.Build.CppClean.log
+|   |           common.lastbuildstate
+|   |           common.lib
+|   |           common.log
+|   |           core.obj
+|   |           db.obj
+|   |           des.obj
+|   |           ers.obj
+|   |           grfio.obj
+|   |           Lib-link.read.1.tlog
+|   |           Lib-link.write.1.tlog
+|   |           lib.command.1.tlog
+|   |           lock.obj
+|   |           malloc.obj
+|   |           mapindex.obj
+|   |           md5calc.obj
+|   |           mt19937ar.obj
+|   |           nullpo.obj
+|   |           plugins.obj
+|   |           random.obj
+|   |           showmsg.obj
+|   |           socket.obj
+|   |           strlib.obj
+|   |           timer.obj
+|   |           utils.obj
+|   |           vc100.pdb
+|   |           
+|   +---common_sql
+|   |   \---Debug
+|   |           cl.command.1.tlog
+|   |           CL.read.1.tlog
+|   |           CL.write.1.tlog
+|   |           common_sql.Build.CppClean.log
+|   |           common_sql.lastbuildstate
+|   |           common_sql.lib
+|   |           common_sql.log
+|   |           common_sql.write.1.tlog
+|   |           Lib-link.read.1.tlog
+|   |           Lib-link.write.1.tlog
+|   |           lib.command.1.tlog
+|   |           sql.obj
+|   |           vc100.pdb
+|   |           
+|   +---login-server_sql
+|   |   \---Debug
+|   |           account_sql.obj
+|   |           CL.5884.read.1.tlog
+|   |           CL.5884.write.1.tlog
+|   |           CL.6044.read.1.tlog
+|   |           CL.6044.write.1.tlog
+|   |           cl.command.1.tlog
+|   |           CL.read.1.tlog
+|   |           cl.write.1.tlog
+|   |           ipban_sql.obj
+|   |           link-cvtres.read.1.tlog
+|   |           link-cvtres.write.1.tlog
+|   |           link.5016-cvtres.read.1.tlog
+|   |           link.5016-cvtres.write.1.tlog
+|   |           link.5016.read.1.tlog
+|   |           link.5016.write.1.tlog
+|   |           link.command.1.tlog
+|   |           link.read.1.tlog
+|   |           link.write.1.tlog
+|   |           login-server_sql.Build.CppClean.log
+|   |           login-server_sql.exe.embed.manifest
+|   |           login-server_sql.exe.embed.manifest.res
+|   |           login-server_sql.exe.intermediate.manifest
+|   |           login-server_sql.lastbuildstate
+|   |           login-server_sql.log
+|   |           login-server_sql.write.1.tlog
+|   |           login-server_sql_manifest.rc
+|   |           login.obj
+|   |           loginlog_sql.obj
+|   |           mt.command.1.tlog
+|   |           mt.read.1.tlog
+|   |           mt.write.1.tlog
+|   |           rc.command.1.tlog
+|   |           rc.read.1.tlog
+|   |           rc.write.1.tlog
+|   |           vc100.idb
+|   |           vc100.pdb
+|   |           
+|   \---map-server_sql
+|       \---Debug
+|               atcommand.obj
+|               battle.obj
+|               battleground.obj
+|               buyingstore.obj
+|               chat.obj
+|               chrif.obj
+|               CL.5656.read.1.tlog
+|               CL.5656.write.1.tlog
+|               CL.5984.read.1.tlog
+|               CL.5984.write.1.tlog
+|               cl.command.1.tlog
+|               CL.read.1.tlog
+|               cl.write.1.tlog
+|               clif.obj
+|               date.obj
+|               duel.obj
+|               guild.obj
+|               guild_castle.obj
+|               guild_expcache.obj
+|               homunculus.obj
+|               instance.obj
+|               intif.obj
+|               itemdb.obj
+|               link-cvtres.read.1.tlog
+|               link-cvtres.write.1.tlog
+|               link.5764-cvtres.read.1.tlog
+|               link.5764-cvtres.write.1.tlog
+|               link.5764.read.1.tlog
+|               link.5764.write.1.tlog
+|               link.command.1.tlog
+|               link.read.1.tlog
+|               link.write.1.tlog
+|               log.obj
+|               mail.obj
+|               map-server_sql.Build.CppClean.log
+|               map-server_sql.exe.embed.manifest
+|               map-server_sql.exe.embed.manifest.res
+|               map-server_sql.exe.intermediate.manifest
+|               map-server_sql.lastbuildstate
+|               map-server_sql.log
+|               map-server_sql.write.1.tlog
+|               map-server_sql_manifest.rc
+|               map.obj
+|               mapreg_sql.obj
+|               mercenary.obj
+|               mob.obj
+|               mt.command.1.tlog
+|               mt.read.1.tlog
+|               mt.write.1.tlog
+|               npc.obj
+|               npc_chat.obj
+|               party.obj
+|               path.obj
+|               pc.obj
+|               pet.obj
+|               quest.obj
+|               rc.command.1.tlog
+|               rc.read.1.tlog
+|               rc.write.1.tlog
+|               script.obj
+|               searchstore.obj
+|               skill.obj
+|               status.obj
+|               storage.obj
+|               trade.obj
+|               unit.obj
+|               vc100.idb
+|               vc100.pdb
+|               vending.obj
+|               
++---vcproj-6
+|       char-server_sql.dsp
+|       char-server_txt.dsp
+|       common.dsp
+|       common_sql.dsp
+|       login-server_sql.dsp
+|       login-server_txt.dsp
+|       map-server_sql.dsp
+|       map-server_txt.dsp
+|       mapcache.dsp
+|       plugin-console.dsp
+|       plugin-pid.dsp
+|       txt-converter-char.dsp
+|       txt-converter-login.dsp
+|       
++---vcproj-7.1
+|       char-server_sql.vcproj
+|       char-server_txt.vcproj
+|       common.vcproj
+|       common_sql.vcproj
+|       login-server_sql.vcproj
+|       login-server_txt.vcproj
+|       map-server_sql.vcproj
+|       map-server_txt.vcproj
+|       mapcache.vcproj
+|       
++---vcproj-8
+|       char-server_sql.vcproj
+|       char-server_txt.vcproj
+|       common.vcproj
+|       common_sql.vcproj
+|       dbghelpplug.vcproj
+|       login-server_sql.vcproj
+|       login-server_txt.vcproj
+|       map-server_sql.vcproj
+|       map-server_txt.vcproj
+|       mapcache.vcproj
+|       plugin-console.vcproj
+|       plugin-pid.vcproj
+|       txt-converter-char.vcproj
+|       txt-converter-login.vcproj
+|       
+\---vcproj-9
+        char-server_sql.vcproj
+        char-server_txt.vcproj
+        common.vcproj
+        common_sql.vcproj
+        dbghelpplug.vcproj
+        login-server_sql.vcproj
+        login-server_txt.vcproj
+        map-server_sql.vcproj
+        map-server_txt.vcproj
+        mapcache.vcproj
+        plugin-console.vcproj
+        plugin-pid.vcproj
+        txt-converter-char.vcproj
+        txt-converter-login.vcproj
+        

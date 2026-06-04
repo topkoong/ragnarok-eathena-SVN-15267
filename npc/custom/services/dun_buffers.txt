@@ -1,0 +1,98 @@
+//============================================================
+// Dungeon Buffers - Dungeon Maps Only
+// eAthena SVN 15267
+//
+// Rule:
+// - Towns use Healer + Global Buffer.
+// - Dungeon maps use Dun Buff.
+// - No Prontera town Dun Buff is loaded.
+//============================================================
+
+function	script	F_DunBuff	{
+	mes "[Dungeon Buffer]";
+	mes "I can recover your HP/SP and give basic buffs.";
+	next;
+
+	if (select("Buff me:Cancel") == 2) close;
+
+	percentheal 100,100;
+	sc_start SC_BLESSING,240000,10;
+	sc_start SC_INCREASEAGI,240000,10;
+
+	specialeffect2 248;
+
+	mes "[Dungeon Buffer]";
+	mes "Done. Good luck!";
+	close;
+}
+
+
+//============================================================
+// Classic dungeon entrance buffers
+//============================================================
+
+moc_pryd01,192,12,4	script	Dun Buff#Pyr	100,{ callfunc "F_DunBuff"; }
+in_sphinx1,288,12,4	script	Dun Buff#Sph	100,{ callfunc "F_DunBuff"; }
+anthell01,35,260,4	script	Dun Buff#Ant	100,{ callfunc "F_DunBuff"; }
+pay_dun00,21,180,4	script	Dun Buff#PayD	100,{ callfunc "F_DunBuff"; }
+iz_dun00,168,165,4	script	Dun Buff#IzD	100,{ callfunc "F_DunBuff"; }
+prt_sewb1,131,244,4	script	Dun Buff#Sew	100,{ callfunc "F_DunBuff"; }
+gef_dun00,104,96,4	script	Dun Buff#GefD	100,{ callfunc "F_DunBuff"; }
+orcsdun01,32,167,4	script	Dun Buff#Orc	100,{ callfunc "F_DunBuff"; }
+mjo_dun01,52,20,4	script	Dun Buff#Mjo	100,{ callfunc "F_DunBuff"; }
+c_tower1,199,156,4	script	Dun Buff#Clock	100,{ callfunc "F_DunBuff"; }
+glast_01,368,301,4	script	Dun Buff#GH	100,{ callfunc "F_DunBuff"; }
+tur_dun01,154,52,4	script	Dun Buff#Tur	100,{ callfunc "F_DunBuff"; }
+xmas_dun01,205,18,4	script	Dun Buff#Toy	100,{ callfunc "F_DunBuff"; }
+
+
+//============================================================
+// Episode dungeon entrance buffers
+//============================================================
+
+ama_dun01,229,14,4	script	Dun Buff#AmaD	100,{ callfunc "F_DunBuff"; }
+gon_dun01,153,56,4	script	Dun Buff#GonD	100,{ callfunc "F_DunBuff"; }
+lou_dun01,218,193,4	script	Dun Buff#LouD	100,{ callfunc "F_DunBuff"; }
+ayo_dun01,275,22,4	script	Dun Buff#AyoD	100,{ callfunc "F_DunBuff"; }
+ein_dun01,22,17,4	script	Dun Buff#EinD	100,{ callfunc "F_DunBuff"; }
+kh_dun01,28,223,4	script	Dun Buff#Kiel	100,{ callfunc "F_DunBuff"; }
+lhz_dun01,150,282,4	script	Dun Buff#LhzD	100,{ callfunc "F_DunBuff"; }
+ra_san01,140,14,4	script	Dun Buff#RaSan	100,{ callfunc "F_DunBuff"; }
+nameless_n,259,210,4	script	Dun Buff#Name	100,{ callfunc "F_DunBuff"; }
+abbey01,51,17,4	script	Dun Buff#Abbey	100,{ callfunc "F_DunBuff"; }
+
+
+//============================================================
+// High-level / special dungeon buffers
+//============================================================
+
+tha_t01,149,78,4	script	Dun Buff#Tha1	837,{ callfunc "F_DunBuff"; }
+tha_t02,150,44,4	script	Dun Buff#Tha2	706,{ callfunc "F_DunBuff"; }
+tha_t03,220,158,4	script	Dun Buff#Tha3	724,{ callfunc "F_DunBuff"; }
+tha_t04,59,143,4	script	Dun Buff#Tha4	91,{ callfunc "F_DunBuff"; }
+tha_t05,62,11,4	script	Dun Buff#Tha5	837,{ callfunc "F_DunBuff"; }
+tha_t06,89,221,4	script	Dun Buff#Tha6	706,{ callfunc "F_DunBuff"; }
+ice_dun01,157,14,4	script	Dun Buff#Ice1	706,{ callfunc "F_DunBuff"; }
+ice_dun02,151,142,4	script	Dun Buff#Ice2	725,{ callfunc "F_DunBuff"; }
+ice_dun03,149,22,4	script	Dun Buff#Ice3	725,{ callfunc "F_DunBuff"; }
+thor_v01,21,225,4	script	Dun Buff#Thor1	100,{ callfunc "F_DunBuff"; }
+thor_v02,75,205,4	script	Dun Buff#Thor2	100,{ callfunc "F_DunBuff"; }
+thor_v03,35,272,4	script	Dun Buff#Thor3	100,{ callfunc "F_DunBuff"; }
+abyss_01,261,269,4	script	Dun Buff#Aby1	100,{ callfunc "F_DunBuff"; }
+abyss_02,275,270,4	script	Dun Buff#Aby2	100,{ callfunc "F_DunBuff"; }
+abyss_03,116,27,4	script	Dun Buff#Aby3	100,{ callfunc "F_DunBuff"; }
+mosk_dun01,189,45,4	script	Dun Buff#Mos1	724,{ callfunc "F_DunBuff"; }
+mosk_dun02,165,30,4	script	Dun Buff#Mos2	724,{ callfunc "F_DunBuff"; }
+mosk_dun03,27,131,4	script	Dun Buff#Mos3	724,{ callfunc "F_DunBuff"; }
+
+
+//============================================================
+// Guild dungeon buffers
+//============================================================
+
+gld_dun01,119,116,4	script	Dun Buff#Gld1	100,{ callfunc "F_DunBuff"; }
+gld_dun02,119,116,4	script	Dun Buff#Gld2	100,{ callfunc "F_DunBuff"; }
+gld_dun03,119,116,4	script	Dun Buff#Gld3	100,{ callfunc "F_DunBuff"; }
+gld_dun04,119,116,4	script	Dun Buff#Gld4	100,{ callfunc "F_DunBuff"; }
+schg_dun01,100,103,4	script	Dun Buff#Schg	100,{ callfunc "F_DunBuff"; }
+arug_dun01,100,103,4	script	Dun Buff#Arug	100,{ callfunc "F_DunBuff"; }

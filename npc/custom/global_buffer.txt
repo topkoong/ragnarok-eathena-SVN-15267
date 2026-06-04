@@ -1,0 +1,152 @@
+//============================================================
+// Global Buffer NPC
+// eAthena SVN 15267 / Pre-Renewal High-Class style
+//
+// Main NPC is in Morocc near Kafra.
+// Duplicates are placed in other main cities.
+//============================================================
+
+morocc,155,97,4	script	Global Buffer#Mor	851,{
+
+	mes "[Global Buffer]";
+	mes "I can apply a full maximum-level buff package.";
+	mes "This works for any job class.";
+	next;
+	
+	switch(select(
+		"Apply Full Buff Package",
+		"Clear Problematic Buffs",
+		"Cancel"
+	)) {
+		case 1:
+			break;
+
+		case 2:
+			sc_end SC_STEELBODY;
+			sc_end SC_PROVOKE;
+			sc_end SC_SPIRIT;
+			sc_end SC_EDP;
+			sc_end SC_ENCPOISON;
+
+			mes "[Global Buffer]";
+			mes "Problematic buffs have been cleared.";
+			close;
+
+		default:
+			close;
+	}
+
+	mes "[Global Buffer]";
+	mes "Weapon Element is optional.";
+	mes "It changes your normal weapon attacks into Fire, Water, Wind, or Earth.";
+	mes "If you are unsure, choose Full Buff only.";
+	next;
+
+	switch(select(
+		"Full Buff only",
+		"Full Buff + Fire Weapon",
+		"Full Buff + Water Weapon",
+		"Full Buff + Wind Weapon",
+		"Full Buff + Earth Weapon",
+		"Cancel"
+	)) {
+		case 1: set .@endow, 0; break;
+		case 2: set .@endow, 1; break;
+		case 3: set .@endow, 2; break;
+		case 4: set .@endow, 3; break;
+		case 5: set .@endow, 4; break;
+		default: close;
+	}
+
+	set .@dur, 86400000; // 24 hours
+
+	// High Priest
+	sc_start SC_BLESSING, .@dur, 10;
+	sc_start SC_INCREASEAGI, .@dur, 10;
+	sc_start SC_ASSUMPTIO, .@dur, 5;
+	sc_start SC_KYRIE, .@dur, 10;
+	sc_start SC_MAGNIFICAT, .@dur, 5;
+	sc_start SC_GLORIA, .@dur, 5;
+	sc_start SC_IMPOSITIO, .@dur, 5;
+	sc_start SC_SUFFRAGIUM, .@dur, 3;
+	sc_start SC_ANGELUS, .@dur, 10;
+
+	// Whitesmith
+	sc_start SC_WEAPONPERFECTION, .@dur, 5;
+	sc_start SC_OVERTHRUST, .@dur, 5;
+	sc_start SC_MAXIMIZEPOWER, .@dur, 5;
+	sc_start SC_ADRENALINE2, .@dur, 5;
+
+	// Sniper
+	sc_start SC_WINDWALK, .@dur, 10;
+	sc_start SC_TRUESIGHT, .@dur, 10;
+
+	// Paladin
+	sc_start SC_INCALLSTATUS, .@dur, 20;
+	sc_start SC_PROVOKE, .@dur, 10;
+	sc_start SC_AUTOGUARD, .@dur, 10;
+
+	// Scholar weapon element
+	if (.@endow == 1) sc_start SC_FIREWEAPON, .@dur, 5;
+	else if (.@endow == 2) sc_start SC_WATERWEAPON, .@dur, 5;
+	else if (.@endow == 3) sc_start SC_WINDWEAPON, .@dur, 5;
+	else if (.@endow == 4) sc_start SC_EARTHWEAPON, .@dur, 5;
+
+	sc_start SC_MINDBREAKER, .@dur, 5;
+	sc_start SC_MEMORIZE, .@dur, 1;
+	sc_start SC_ENERGYCOAT, .@dur, 1;
+
+	// Assassin Cross / Stalker
+	sc_start SC_EDP, .@dur, 5;
+	sc_start SC_ENCPOISON, .@dur, 10;
+	sc_start SC_PRESERVE, .@dur, 1;
+
+	// Champion
+	// Do NOT apply Steel Body in the general buff package.
+	// Steel Body / Mental Strength prevents normal skill usage.
+	// sc_start SC_STEELBODY, .@dur, 5;
+
+	// Give 5 spirit spheres only to Monk / Champion.
+	if (Class == 15 || Class == 4016) {
+		atcommand "@spiritball 5";
+	}
+
+	// Performer
+	sc_start SC_POEMBRAGI, .@dur, 10;
+	sc_start SC_ASSNCROS, .@dur, 10;
+	sc_start SC_SERVICE4U, .@dur, 10;
+	sc_start SC_APPLEIDUN, .@dur, 10;
+
+	// Creator
+	sc_start SC_CP_WEAPON, .@dur, 5;
+	sc_start SC_CP_SHIELD, .@dur, 5;
+	sc_start SC_CP_ARMOR, .@dur, 5;
+	sc_start SC_CP_HELM, .@dur, 5;
+
+	// Soul Linker
+	sc_start SC_KAIZEL, .@dur, 7;
+	sc_start SC_KAUPE, .@dur, 3;
+	sc_start SC_SPIRIT, .@dur, 5;
+
+	percentheal 100,100;
+	specialeffect2 68;
+
+	mes "[Global Buffer]";
+	mes "Done.";
+	mes "You received the full buff package.";
+	close;
+}
+
+//============================================================
+// Global Buffer duplicates near main city service areas
+// Adjust coordinates if your Kafra staff positions are different.
+//============================================================
+
+prontera,156,196,4	duplicate(Global Buffer#Mor)	Global Buffer#Prt	851
+geffen,128,72,4	duplicate(Global Buffer#Mor)	Global Buffer#Gef	851
+payon,178,112,4	duplicate(Global Buffer#Mor)	Global Buffer#Pay	851
+alberta,48,232,4	duplicate(Global Buffer#Mor)	Global Buffer#Alb	851
+aldebaran,148,130,4	duplicate(Global Buffer#Mor)	Global Buffer#Ald	851
+izlude,132,130,4	duplicate(Global Buffer#Mor)	Global Buffer#Iz	851
+yuno,164,198,4	duplicate(Global Buffer#Mor)	Global Buffer#Yun	851
+comodo,200,154,4	duplicate(Global Buffer#Mor)	Global Buffer#Com	851

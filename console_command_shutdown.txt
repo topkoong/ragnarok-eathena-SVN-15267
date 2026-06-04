@@ -1,0 +1,2096 @@
+src\map\atcommand.c:42:#endif
+src\map\atcommand.c:179: * @send (used for testing packet sends from the client)
+src\map\atcommand.c:181:ACMD_FUNC(send)
+src\map\atcommand.c:183:	int len=0,off,end,type;
+src\map\atcommand.c:193:		clif_displaymessage(fd, "	@send len <packet hex number>");
+src\map\atcommand.c:194:		clif_displaymessage(fd, "	@send <packet hex number> {<value>}*");
+src\map\atcommand.c:209:		clif_displaymessage(fd, "Unexpected end of string");\
+src\map\atcommand.c:301:				end=(num<=0? 0: min(off+((int)num),len));
+src\map\atcommand.c:302:				for(; *message != '"' && (off < end || end == 0); ++off){
+src\map\atcommand.c:377:				if(off < end)
+src\map\atcommand.c:379:					memset(WFIFOP(fd,off),0,end-off);
+src\map\atcommand.c:380:					off=end;
+src\map\atcommand.c:391:		{// send dynamic packet
+src\map\atcommand.c:395:		{// send static packet
+src\map\atcommand.c:1151:	if (sd->npc_id || sd->state.vending || sd->state.buyingstore || sd->state.trading || sd->state.storage_flag)
+src\map\atcommand.c:1178:	if (sd->npc_id || sd->state.vending || sd->state.buyingstore || sd->state.trading)
+src\map\atcommand.c:1746:		} // End Addition
+src\map\atcommand.c:1783:		party_send_levelup(sd);
+src\map\atcommand.c:3224:		clif_sendegg(sd);
+src\map\atcommand.c:3236:ACMD_FUNC(petfriendly)
+src\map\atcommand.c:3238:	int friendly;
+src\map\atcommand.c:3242:	if (!message || !*message || (friendly = atoi(message)) < 0) {
+src\map\atcommand.c:3243:		clif_displaymessage(fd, "Please, enter a valid value (usage: @petfriendly <0-1000>).");
+src\map\atcommand.c:3253:	if (friendly < 0 || friendly > 1000)
+src\map\atcommand.c:3259:	if (friendly == pd->pet.intimate) {
+src\map\atcommand.c:3264:	pet_set_intimate(pd, friendly);
+src\map\atcommand.c:3265:	clif_send_petstatus(sd);
+src\map\atcommand.c:3299:	clif_send_petstatus(sd);
+src\map\atcommand.c:3324:	clif_send_petstatus(sd);
+src\map\atcommand.c:3485:	// send answer to login server via char-server
+src\map\atcommand.c:3506:	// send answer to login server via char-server
+src\map\atcommand.c:3899:ACMD_FUNC(agitend)
+src\map\atcommand.c:3908:	guild_agit_end();
+src\map\atcommand.c:3909:	clif_displaymessage(fd, msg_txt(74)); // War of Emperium has been ended.
+src\map\atcommand.c:3917:ACMD_FUNC(agitend2)
+src\map\atcommand.c:3926:	guild_agit2_end();
+src\map\atcommand.c:3927:	clif_displaymessage(fd, msg_txt(405)); // "War of Emperium SE has been ended."
+src\map\atcommand.c:3933: * @mapexit - shuts down the map server
+src\map\atcommand.c:3935:ACMD_FUNC(mapexit)
+src\map\atcommand.c:3939:	do_shutdown();
+src\map\atcommand.c:4241:#endif
+src\map\atcommand.c:4444:	if (map[m_id].flag.novending)
+src\map\atcommand.c:4445:		strcat(atcmd_output, "NoVending | ");
+src\map\atcommand.c:4701:			skill_castend_nodamage_id(&pl_sd->bl, &pl_sd->bl, NPC_SELFDESTRUCTION, 99, gettick(), 0);
+src\map\atcommand.c:5037:	clif_displaymessage(pl_sd->fd, msg_txt(117)); // GM has send you in jails.
+src\map\atcommand.c:5435:	clif_displaymessage(fd, msg_txt(148)); // Information sended to login-server via char-server.
+src\map\atcommand.c:5452:	clif_specialeffect(&sd->bl, type, (send_target)flag);
+src\map\atcommand.c:5748: *  Debug command to locate new skill IDs. It sends the
+src\map\atcommand.c:5971:	if( !sd->state.vending && !sd->state.buyingstore ) { //check if player is vending or buying
+src\map\atcommand.c:6294:		clif_displaymessage(fd, "Fireworks are ended.");
+src\map\atcommand.c:6305: * Clearing Weather Effects by Dexity
+src\map\atcommand.c:6767:	status_change_end(&pl_sd->bl, SC_NOCHAT, INVALID_TIMER);
+src\map\atcommand.c:6841:		status_change_end(&pl_sd->bl, SC_NOCHAT, INVALID_TIMER);
+src\map\atcommand.c:6941:#endif
+src\map\atcommand.c:7086:#endif
+src\map\atcommand.c:7203:ACMD_FUNC(homfriendly)
+src\map\atcommand.c:7205:	int friendly = 0;
+src\map\atcommand.c:7215:		clif_displaymessage(fd, "Please, enter a friendly value: (usage: @homfriendly <friendly value[0-1000]>.");
+src\map\atcommand.c:7219:	friendly = atoi(message);
+src\map\atcommand.c:7220:	friendly = cap_value(friendly, 0, 1000);
+src\map\atcommand.c:7222:	sd->hd->homunculus.intimacy = friendly * 100 ;
+src\map\atcommand.c:7223:	clif_send_homdata(sd,SP_INTIMATE,friendly);
+src\map\atcommand.c:7250:	clif_send_homdata(sd,SP_HUNGRY,hungry);
+src\map\atcommand.c:7630:			status_change_end(&pl_sd->bl, SC_NOCHAT, INVALID_TIMER);
+src\map\atcommand.c:7812:				clif_displaymessage(fd, "notrade    novending   nodrop      noskill     noicewall");
+src\map\atcommand.c:7953:	else if (!strcmpi(map_flag,"novending")) {
+src\map\atcommand.c:7954:		map[m].flag.novending=state;
+src\map\atcommand.c:8404: * Send a @request message to all GMs of lowest_gm_level.
+src\map\atcommand.c:8422: * Feel (SG save map) Reset [HiddenDragon]
+src\map\atcommand.c:8441:#endif
+src\map\atcommand.c:8619:			StringBuf_AppendStr(&buf, equipstr);
+src\map\atcommand.c:8656:					StringBuf_AppendStr(&buf, " -> (card(s): ");
+src\map\atcommand.c:8659:					StringBuf_AppendStr(&buf, ", ");
+src\map\atcommand.c:8665:				StringBuf_AppendStr(&buf, ")");
+src\map\atcommand.c:8946:	{ "petfriendly",       40,40,     atcommand_petfriendly },
+src\map\atcommand.c:8956:	{ "kick",              20,20,     atcommand_kick }, // + right click menu for GM "(name) force to quit"
+src\map\atcommand.c:8968:	{ "agitend",           60,60,     atcommand_agitend },
+src\map\atcommand.c:8969:	{ "mapexit",           99,99,     atcommand_mapexit },
+src\map\atcommand.c:9054:	{ "send",              99,99,     atcommand_send },
+src\map\atcommand.c:9129:	{ "homfriendly",       60,60,     atcommand_homfriendly },
+src\map\atcommand.c:9144:	{ "agitend2",          60,60,     atcommand_agitend2 },
+src\map\atcommand.c:9264:		//this value if there is no parameter. Send it as just the #command
+src\map\battle.c:279:			status_change_end(target, SC_SPIDERWEB, INVALID_TIMER);
+src\map\battle.c:362:			status_change_end(bl, SC_SAFETYWALL, INVALID_TIMER);
+src\map\battle.c:375:			// different delay depending on skill level [celest]
+src\map\battle.c:415:			// Shouldn't end until Breaker's non-weapon part connects.
+src\map\battle.c:418:					status_change_end(bl, SC_KAUPE, INVALID_TIMER);
+src\map\battle.c:432:				status_change_end(bl, SC_UTSUSEMI, INVALID_TIMER);
+src\map\battle.c:434:				status_change_end(bl, SC_BUNSINJYUTSU, INVALID_TIMER);
+src\map\battle.c:445:				status_change_end(bl, SC_AETERNA, INVALID_TIMER); // Shouldn't end until Breaker's non-weapon part connects.
+src\map\battle.c:457:		if (sc->data[SC_DEFENDER] &&
+src\map\battle.c:459:			damage = damage * (100 - sc->data[SC_DEFENDER]->val2) / 100;
+src\map\battle.c:485:				for (i = 0; ARRAYLENGTH(mob_splendide) > i; i++)
+src\map\battle.c:486:					if (mob_splendide[i] == ((TBL_MOB *)src)->class_)
+src\map\battle.c:493:		if ((sce = sc->data[SC_ARMOR]) && // NPC_DEFENDER
+src\map\battle.c:504:				status_change_end(bl, SC_ENERGYCOAT, INVALID_TIMER);
+src\map\battle.c:522:				status_change_end(bl, SC_REJECTSWORD, INVALID_TIMER);
+src\map\battle.c:537:				status_change_end(bl, SC_KYRIE, INVALID_TIMER);
+src\map\battle.c:572:				for (i = 0; ARRAYLENGTH(mob_splendide) > i; i++)
+src\map\battle.c:573:					if (((TBL_MOB *)bl)->class_ == mob_splendide[i])
+src\map\battle.c:1382:	} // End hit/miss calculation
+src\map\battle.c:1538:		} // End default case
+src\map\battle.c:1539:		} // End switch(skill_num)
+src\map\battle.c:2231:	} // Here ends flag.hit section, the rest of the function applies to both hitting and missing attacks
+src\map\battle.c:2714:			// Undead check is on skill_castend_damageid code.
+src\map\battle.c:3469:		status_change_end(src, SC_CLOAKING, INVALID_TIMER);
+src\map\battle.c:3481:			status_change_end(target, SC_AUTOCOUNTER, INVALID_TIMER);
+src\map\battle.c:3491:		status_change_end(target, SC_BLADESTOP_WAIT, INVALID_TIMER);
+src\map\battle.c:3507:			status_change_end(src, SC_SKILLRATE_UP, INVALID_TIMER);
+src\map\battle.c:3521:				status_change_end(src, SC_SACRIFICE, INVALID_TIMER);
+src\map\battle.c:3556:		skill_castend_damage_id(src, target, 0, 1, tick, 0);
+src\map\battle.c:3573:			status_change_end(target, SC_DEVOTION, INVALID_TIMER);
+src\map\battle.c:3597:				skill_castend_pos2(src, target->x, target->y, skillid, skilllv, tick, flag);
+src\map\battle.c:3600:				skill_castend_nodamage_id(src, target, skillid, skilllv, tick, flag);
+src\map\battle.c:3603:				skill_castend_damage_id(src, target, skillid, skilllv, tick, flag);
+src\map\battle.c:3619:	{ // By sending attack type "none" skill_additional_effect won't be invoked. [Skotlex]
+src\map\battle.c:3644:				status_change_end(target, SC_POISONREACT, INVALID_TIMER);
+src\map\battle.c:3707: * (enemy, friend, party, guild, etc)
+src\map\battle.c:3718:	int strip_enemy = 1; // Flag which marks whether to remove the BCT_ENEMY status if it's also friend/ally.
+src\map\battle.c:3884:				state |= BCT_PARTY; // Normal mobs with no ai are friends.
+src\map\battle.c:4005:#endif
+src\map\battle.c:4083:		"delay_dependon_dex",
+src\map\battle.c:4084:		&battle_config.delay_dependon_dex,
+src\map\battle.c:4090:		"delay_dependon_agi",
+src\map\battle.c:4091:		&battle_config.delay_dependon_agi,
+src\map\battle.c:4707:		"pet_friendly_rate",
+src\map\battle.c:4708:		&battle_config.pet_friendly_rate,
+src\map\battle.c:4721:		"pet_hungry_friendly_decrease",
+src\map\battle.c:4722:		&battle_config.pet_hungry_friendly_decrease,
+src\map\battle.c:4749:		"pet_support_min_friendly",
+src\map\battle.c:4750:		&battle_config.pet_support_min_friendly,
+src\map\battle.c:4756:		"pet_equip_min_friendly",
+src\map\battle.c:4757:		&battle_config.pet_equip_min_friendly,
+src\map\battle.c:5359:		"vending_max_value",
+src\map\battle.c:5360:		&battle_config.vending_max_value,
+src\map\battle.c:5366:		"vending_over_max",
+src\map\battle.c:5367:		&battle_config.vending_over_max,
+src\map\battle.c:6116:		"ignore_items_gender",
+src\map\battle.c:6117:		&battle_config.ignore_items_gender,
+src\map\battle.c:6438:		"friend_auto_add",
+src\map\battle.c:6439:		&battle_config.friend_auto_add,
+src\map\battle.c:6459:		"homunculus_friendly_rate",
+src\map\battle.c:6460:		&battle_config.homunculus_friendly_rate,
+src\map\battle.c:6466:		"vending_tax",
+src\map\battle.c:6467:		&battle_config.vending_tax,
+src\map\battle.c:6829:#endif
+src\map\battleground.c:15:#include "guild.h" // guild_send_dot_remove()
+src\map\battleground.c:55:		bg_send_dot_remove(sd);
+src\map\battleground.c:72:int bg_send_dot_remove(struct map_session_data *sd)
+src\map\battleground.c:96:	guild_send_dot_remove(sd);
+src\map\battleground.c:118:	bg_send_dot_remove(sd);
+src\map\battleground.c:131:		sprintf(output, "Server : %s has quit the game...", sd->status.name);
+src\map\battleground.c:209:int bg_send_message(struct map_session_data *sd, const char *mes, int len)
+src\map\battleground.c:220:int bg_send_xy_timer_sub(DBKey key, void *data, va_list ap)
+src\map\battleground.c:240:int bg_send_xy_timer(int tid, unsigned int tick, int id, intptr_t data)
+src\map\battleground.c:242:	bg_team_db->foreach(bg_team_db, bg_send_xy_timer_sub, tick);
+src\map\battleground.c:249:	add_timer_func_list(bg_send_xy_timer, "bg_send_xy_timer");
+src\map\battleground.c:250:	add_timer_interval(gettick() + battle_config.bg_update_interval, bg_send_xy_timer, 0, 0, battle_config.bg_update_interval);
+src\map\buyingstore.c:49:	if( !battle_config.feature_buying_store || sd->state.vending || sd->state.buyingstore || sd->state.trading || slots == 0 )
+src\map\buyingstore.c:59:	if( map[sd->bl.m].flag.novending )
+src\map\buyingstore.c:60:	{// custom: no vending maps
+src\map\buyingstore.c:65:	if( map_getcell(sd->bl.m, sd->bl.x, sd->bl.y, CELL_CHKNOVENDING) )
+src\map\buyingstore.c:66:	{// custom: no vending cells
+src\map\buyingstore.c:114:	if( map[sd->bl.m].flag.novending )
+src\map\buyingstore.c:115:	{// custom: no vending maps
+src\map\buyingstore.c:120:	if( map_getcell(sd->bl.m, sd->bl.x, sd->bl.y, CELL_CHKNOVENDING) )
+src\map\buyingstore.c:121:	{// custom: no vending cells
+src\map\buyingstore.c:144:		{// invalid price: unlike vending, items cannot be bought at 0 Zeny
+src\map\buyingstore.c:410:		map_quit(pl_sd);
+src\map\chat.c:73:		return 0; //Prevent people abusing the chat system by creating multiple chats, as pointed out by End of Exam. [Skotlex]
+src\map\chat.c:75:	if( sd->state.vending || sd->state.buyingstore )
+src\map\chat.c:119:	if( cd == NULL || cd->bl.type != BL_CHAT || cd->bl.m != sd->bl.m || sd->state.vending || sd->state.buyingstore || sd->chatID || cd->users >= cd->limit )
+src\map\chrif.c:52://2afa: Outgoing, chrif_sendmap -> 'sending our maps'
+src\map\chrif.c:53://2afb: Incoming, chrif_sendmapack -> 'Maps received successfully / or not ..'
+src\map\chrif.c:56://2afe: Outgoing, send_usercount_tochar -> 'sends player count of this map server to charserver'
+src\map\chrif.c:57://2aff: Outgoing, send_users_tochar -> 'sends all actual connected character ids to charserver'
+src\map\chrif.c:74://2b10: Outgoing, chrif_updatefamelist -> 'Update the fame ranking lists and send them'
+src\map\chrif.c:80://2b16: Outgoing, chrif_ragsrvinfo -> 'sends base / job / drop rates ....'
+src\map\chrif.c:84://2b1a: Outgoing, chrif_buildfamelist -> 'Build the fame ranking lists and send them'
+src\map\chrif.c:86://2b1c: Outgoing, chrif_save_scdata -> 'Send sc_data of player for saving.'
+src\map\chrif.c:111://Interval at which map server sends number of connected users. [Skotlex]
+src\map\chrif.c:121:	exit(EXIT_FAILURE);
+src\map\chrif.c:128:void chrif_check_shutdown(void)
+src\map\chrif.c:130:	ShowInfo("DEBUG: chrif_check_shutdown called. runflag=%d\n", runflag);
+src\map\chrif.c:131:	if( runflag != SERVER_STATE_SHUTDOWN )
+src\map\chrif.c:135:	runflag = SERVER_STATE_STOP;
+src\map\chrif.c:136:	ShowInfo("DEBUG: chrif_check_shutdown is setting SERVER_STATE_STOP.\n");
+src\map\chrif.c:229:		ShowWarning("SECURITY WARNING - Using the default user/password s1/p1 is not recommended.\n");
+src\map\chrif.c:231:		ShowNotice("Please edit your save/account.txt file to create a proper inter-server user/password (gender 'S')\n");
+src\map\chrif.c:233:		ShowNotice("Please edit your 'login' table to create a proper inter-server user/password (gender 'S')\n");
+src\map\chrif.c:234:#endif
+src\map\chrif.c:267: * Flag = 1: Character is quitting
+src\map\chrif.c:276:	if (flag && sd->state.active) //Store player data which is quitting.
+src\map\chrif.c:281:			ShowError("chrif_save: Failed to set up player %d:%d for proper quitting!\n", sd->status.account_id, sd->status.char_id);
+src\map\chrif.c:307:	WFIFOB(char_fd,12) = (flag==1)?1:0; //Flag to tell char-server this character is quitting.
+src\map\chrif.c:320:#endif
+src\map\chrif.c:341:// sends maps to char-server
+src\map\chrif.c:342:int chrif_sendmap(int fd)
+src\map\chrif.c:345:	ShowStatus("Sending maps to char server...\n");
+src\map\chrif.c:346:	// Sending normal maps, not instances
+src\map\chrif.c:394:	chrif_check_shutdown();
+src\map\chrif.c:456:		exit(EXIT_FAILURE);
+src\map\chrif.c:463:	chrif_sendmap(fd);
+src\map\chrif.c:486:		//Re-send final save
+src\map\chrif.c:490:		{	//Re-send map-change request.
+src\map\chrif.c:510:	chrif_check_shutdown();
+src\map\chrif.c:512:	//If there are players online, send them to the char-server. [Skotlex]
+src\map\chrif.c:513:	send_users_tochar();
+src\map\chrif.c:526:int chrif_sendmapack(int fd)
+src\map\chrif.c:529:		ShowFatalError("chrif : send map list to char server failed %d\n", RFIFOB(fd,2));
+src\map\chrif.c:530:		exit(EXIT_FAILURE);
+src\map\chrif.c:551:#endif
+src\map\chrif.c:614:	//Causes problems if the currently connected player tries to quit or this data belongs to an already connected player which is trying to re-auth.
+src\map\chrif.c:635:	if( runflag == SERVER_STATE_RUN &&
+src\map\chrif.c:773: * Send an account modification request to the login server (via char server).
+src\map\chrif.c:813:		map_quit(sd);
+src\map\chrif.c:909:		map_quit(sd); // Remove leftovers (e.g. autotrading) [Paradox924X]
+src\map\chrif.c:1033:	map_quit(sd); // Remove leftovers (e.g. autotrading) [Paradox924X]
+src\map\chrif.c:1056:			map_quit(sd); //Remove it.
+src\map\chrif.c:1057:		//Else we don't remove it because the char should have a timer to remove the player because it force-quit before,
+src\map\chrif.c:1168:{	//parses the sc_data of the player and sends it to the char-server for saving. [Skotlex]
+src\map\chrif.c:1192:			data.tick = DIFF_TICK(timer->tick,tick); //Duration that is left before ending.
+src\map\chrif.c:1209:#endif
+src\map\chrif.c:1241:#endif
+src\map\chrif.c:1246: * Send rates and motd to char server [Wizputer]
+src\map\chrif.c:1433:		case 0x2afb: chrif_sendmapack(fd); break;
+src\map\chrif.c:1474:int send_usercount_tochar(int tid, unsigned int tick, int id, intptr_t data)
+src\map\chrif.c:1489:int send_users_tochar(void)
+src\map\chrif.c:1545:#endif /* not TXT_ONLY */
+src\map\chrif.c:1552:#endif /* not TXT_ONLY */
+src\map\chrif.c:1606:	// send the user count every 10 seconds, to hide the charserver's online counting problem
+src\map\chrif.c:1607:	add_timer_interval(gettick() + 1000, send_usercount_tochar, 0, 0, UPDATE_INTERVAL);
+src\map\clif.c:35:#include "vending.h"
+src\map\clif.c:280:#endif
+src\map\clif.c:283: * clif_send‚ÅAREA*Žw’èŽž—p
+src\map\clif.c:285:static int clif_send_sub(struct block_list *bl, va_list ap)
+src\map\clif.c:296:	if (!fd) //Don't send to disconnected clients.
+src\map\clif.c:328:		ShowError("WARNING: Invalid use of clif_send function\n");
+src\map\clif.c:331:		// don't send to not move the pointer of the packet for next sessions in the loop
+src\map\clif.c:333:		//NO. It is not ok. There is the chance WFIFOSET actually sends the buffer data, and shifts elements around, which will corrupt the buffer.
+src\map\clif.c:348:int clif_send(const uint8* buf, int len, struct block_list* bl, enum send_target type)
+src\map\clif.c:396:			clif_send (buf, len, bl, SELF);
+src\map\clif.c:399:		map_foreachinarea(clif_send_sub, bl->m, bl->x-AREA_SIZE, bl->y-AREA_SIZE, bl->x+AREA_SIZE, bl->y+AREA_SIZE,
+src\map\clif.c:403:		map_foreachinarea(clif_send_sub, bl->m, bl->x-(AREA_SIZE-5), bl->y-(AREA_SIZE-5),
+src\map\clif.c:620:		ShowError("clif_send: Unrecognized type %d\n",type);
+src\map\clif.c:668:	ShowInfo("DEBUG: clif_authok sending cmd=0x%04x len=%d for %s CID=%d packet_ver=%d\n",
+src\map\clif.c:721:///     11 = BAN_PAY_SUSPEND
+src\map\clif.c:797:	clif_send(buf, packet_len(0x9e), &fitem->bl, AREA);
+src\map\clif.c:814:		clif_send(buf, packet_len(0xa1), &fitem->bl, AREA);
+src\map\clif.c:858:	clif_send(buf, packet_len(0x80), bl, type == CLR_DEAD ? AREA : AREA_WOS);
+src\map\clif.c:862:		clif_send(buf, packet_len(0x80), bl, SELF);
+src\map\clif.c:919:#endif
+src\map\clif.c:967:#endif
+src\map\clif.c:971:#endif
+src\map\clif.c:978:#endif
+src\map\clif.c:991:#endif
+src\map\clif.c:999:#endif
+src\map\clif.c:1009:#endif
+src\map\clif.c:1023:#endif
+src\map\clif.c:1037:#endif
+src\map\clif.c:1047:#endif
+src\map\clif.c:1050:#endif
+src\map\clif.c:1065:	if (type&&spawn) { //End of packet 0x7c
+src\map\clif.c:1073:#endif
+src\map\clif.c:1078:#endif
+src\map\clif.c:1095:#endif
+src\map\clif.c:1108:	if (type) //End for non-player packet
+src\map\clif.c:1110:#endif
+src\map\clif.c:1113:#endif
+src\map\clif.c:1119:#endif
+src\map\clif.c:1133:#endif
+src\map\clif.c:1136:#endif
+src\map\clif.c:1152:#endif
+src\map\clif.c:1160:#endif
+src\map\clif.c:1163:#endif
+src\map\clif.c:1168:#endif
+src\map\clif.c:1179:#endif
+src\map\clif.c:1191:#endif
+src\map\clif.c:1201:#endif
+src\map\clif.c:1211:#endif
+src\map\clif.c:1220:#endif
+src\map\clif.c:1226:#endif
+src\map\clif.c:1229://Modifies the buffer for disguise characters and sends it to self.
+src\map\clif.c:1241:#endif
+src\map\clif.c:1242:	clif_send(buf, len, bl, SELF);
+src\map\clif.c:1262:		clif_send(buf,packet_len(0x1b0),bl,AREA);
+src\map\clif.c:1343:	clif_send(buf, len, bl, AREA_WOS);
+src\map\clif.c:1362:				clif_sendbgemblem_area(sd);
+src\map\clif.c:1391:/// Sends information about owned homunculus to the client (ZC_PROPERTY_HOMUN). [orn]
+src\map\clif.c:1439:	clif_send(buf,packet_len(0x22e),&sd->bl,SELF);
+src\map\clif.c:1453:void clif_send_homdata(struct map_session_data *sd, int state, int param)
+src\map\clif.c:1552:	clif_send(buf,len,bl,AREA_WOS);
+src\map\clif.c:1615:	clif_send(buf, packet_len(0x86), bl, AREA_WOS);
+src\map\clif.c:1619:		clif_send(buf, packet_len(0x86), bl, SELF);
+src\map\clif.c:1625: * Delays the map_quit of a player after they are disconnected. [Skotlex]
+src\map\clif.c:1627:static int clif_delayquit(int tid, unsigned int tick, int id, intptr_t data)
+src\map\clif.c:1633:		map_quit(sd);
+src\map\clif.c:1640:void clif_quitsave(int fd,struct map_session_data *sd)
+src\map\clif.c:1644:		map_quit(sd);
+src\map\clif.c:1647:		//And set a timer to make him quit later.
+src\map\clif.c:1650:		add_timer(gettick() + 10000, clif_delayquit, sd->bl.id, 0);
+src\map\clif.c:1711:	clif_send(buf, packet_len(0x88), bl, AREA);
+src\map\clif.c:1716:		clif_send(buf, packet_len(0x88), bl, SELF);
+src\map\clif.c:1811:/// - append this text
+src\map\clif.c:1881:void clif_sendfakenpc(struct map_session_data *sd, int npcid)
+src\map\clif.c:1894:#endif
+src\map\clif.c:1933:	   clif_sendfakenpc(sd, npcid);
+src\map\clif.c:1965:	   clif_sendfakenpc(sd, npcid);
+src\map\clif.c:1996:	   clif_sendfakenpc(sd, npcid);
+src\map\clif.c:2086:	//Client only receives four cards.. so randomly send them a set of cards. [Skotlex]
+src\map\clif.c:2126:#endif
+src\map\clif.c:2152:#endif
+src\map\clif.c:2155:#endif
+src\map\clif.c:2178:#endif
+src\map\clif.c:2181:#endif
+src\map\clif.c:2233:#endif
+src\map\clif.c:2239:// armor/egg) -1 for stackable items, -2 for stackable items where arrows must send in the equip-point.
+src\map\clif.c:2263://Unified inventory function which sends all of the inventory (requires two packets, one for equipable items and one for stackable ones. [Skotlex]
+src\map\clif.c:2276:#endif
+src\map\clif.c:2283:#endif
+src\map\clif.c:2301:#endif
+src\map\clif.c:2307:#endif
+src\map\clif.c:2318:#endif
+src\map\clif.c:2321:#endif
+src\map\clif.c:2333:#endif
+src\map\clif.c:2335:		clif_send(buf, WBUFW(buf,2), &sd->bl, SELF);
+src\map\clif.c:2346:#endif
+src\map\clif.c:2348:		clif_send(bufe, WBUFW(bufe,2), &sd->bl, SELF);
+src\map\clif.c:2355://Required when items break/get-repaired. Only sends equippable item list.
+src\map\clif.c:2366:#endif
+src\map\clif.c:2384:#endif
+src\map\clif.c:2390:#endif
+src\map\clif.c:2398:#endif
+src\map\clif.c:2416:#endif
+src\map\clif.c:2423:#endif
+src\map\clif.c:2441:#endif
+src\map\clif.c:2450:#endif
+src\map\clif.c:2453:#endif
+src\map\clif.c:2465:#endif
+src\map\clif.c:2467:		clif_send(buf, WBUFW(buf,2), &sd->bl, SELF);
+src\map\clif.c:2475:#endif
+src\map\clif.c:2477:		clif_send(bufe, WBUFW(bufe,2), &sd->bl, SELF);
+src\map\clif.c:2496:#endif
+src\map\clif.c:2503:#endif
+src\map\clif.c:2521:#endif
+src\map\clif.c:2530:#endif
+src\map\clif.c:2533:#endif
+src\map\clif.c:2545:#endif
+src\map\clif.c:2547:		clif_send(buf, WBUFW(buf,2), &sd->bl, SELF);
+src\map\clif.c:2555:#endif
+src\map\clif.c:2557:		clif_send(bufe, WBUFW(bufe,2), &sd->bl, SELF);
+src\map\clif.c:2591:	clif_send(buf,packet_len(0x1eb),&sd->bl,GUILD_SAMEMAP_WOS);
+src\map\clif.c:2595: * Sends x/y dot to a single fd. [Skotlex]
+src\map\clif.c:2621:	clif_send(buf,packet_len(0x1eb),&sd->bl,GUILD_SAMEMAP_WOS);
+src\map\clif.c:2844:	clif_send(buf,packet_len(0x1ab),&sd->bl,AREA_WOS);
+src\map\clif.c:2857:	enum send_target target = AREA;
+src\map\clif.c:2930:#endif
+src\map\clif.c:2942:#endif
+src\map\clif.c:2955:	clif_send(buf,packet_len(0xc3),bl,target);
+src\map\clif.c:2967:	clif_send(buf,packet_len(0x1d7),bl,target);
+src\map\clif.c:2968:#endif
+src\map\clif.c:2971://Sends a change-base-look packet required for traps as they are triggered.
+src\map\clif.c:2980:	clif_send(buf,packet_len(0xc3),bl,AREA);
+src\map\clif.c:2987:	clif_send(buf,packet_len(0x1d7),bl,AREA);
+src\map\clif.c:2988:#endif
+src\map\clif.c:2991://For the stupid cloth-dye bug. Resends the given view data to the area specified by bl.
+src\map\clif.c:2992:void clif_refreshlook(struct block_list *bl,int id,int type,int val,enum send_target target)
+src\map\clif.c:3000:	clif_send(buf,packet_len(0xc3),bl,target);
+src\map\clif.c:3007:	clif_send(buf,packet_len(0x1d7),bl,target);
+src\map\clif.c:3008:#endif
+src\map\clif.c:3197:#endif
+src\map\clif.c:3246:	clif_send(buf,packet_len(0x19b),bl,AREA);
+src\map\clif.c:3272:		clif_send(buf,packet_len(0x229),bl,AREA_WOS);
+src\map\clif.c:3274:		clif_send(buf,packet_len(0x229),bl,SELF);
+src\map\clif.c:3277:		clif_send(buf,packet_len(0x229),bl,SELF);
+src\map\clif.c:3279:		clif_send(buf,packet_len(0x229),bl,AREA);
+src\map\clif.c:3288:		clif_send(buf,packet_len(0x119),bl,AREA_WOS);
+src\map\clif.c:3290:		clif_send(buf,packet_len(0x119),bl,SELF);
+src\map\clif.c:3293:		clif_send(buf,packet_len(0x119),bl,SELF);
+src\map\clif.c:3295:		clif_send(buf,packet_len(0x119),bl,AREA);
+src\map\clif.c:3296:#endif
+src\map\clif.c:3316:		clif_send(buf,packet_len(0x28a),bl,AREA_WOS);
+src\map\clif.c:3318:		clif_send(buf,packet_len(0x28a),bl,SELF);
+src\map\clif.c:3321:		clif_send(buf,packet_len(0x28a),bl,SELF);
+src\map\clif.c:3323:		clif_send(buf,packet_len(0x28a),bl,AREA);
+src\map\clif.c:3364:		clif_send(buf,packet_len(0x1c8),&sd->bl,AREA);
+src\map\clif.c:3365:#endif
+src\map\clif.c:3423:		clif_send(buf,WBUFW(buf,2),cd->owner,AREA_WOSC);
+src\map\clif.c:3456:	clif_send(buf,WBUFW(buf,2),cd->owner,CHAT);
+src\map\clif.c:3475:		clif_send(buf,packet_len(0xd8),cd->owner,AREA_WOSC);
+src\map\clif.c:3546:	clif_send(buf,packet_len(0xdc),&sd->bl,CHAT_WOS);
+src\map\clif.c:3570:	clif_send(buf,packet_len(0xe1)*2,&sd->bl,CHAT);
+src\map\clif.c:3574:/// Notify about user leaving the chatroom (ZC_MEMBER_EXIT).
+src\map\clif.c:3591:	clif_send(buf,packet_len(0xdd),&sd->bl,CHAT);
+src\map\clif.c:3617:#endif
+src\map\clif.c:3662:#endif
+src\map\clif.c:3680:#endif
+src\map\clif.c:3706:#endif
+src\map\clif.c:3786:/// Resets the trade window on the send side (ZC_EXCHANGEITEM_UNDO).
+src\map\clif.c:3852:#endif
+src\map\clif.c:3905:	if( dstsd->state.vending )
+src\map\clif.c:3906:		clif_showvendingboard(&dstsd->bl,dstsd->message,sd->fd);
+src\map\clif.c:3943:	clif_send(buf,len,&sd->bl,SELF);
+src\map\clif.c:3959:				clif_sendbgemblem_single(sd->fd,tsd);
+src\map\clif.c:3994://Aegis data specifies that: 4 endure against single hit sources, 9 against multi-hit.
+src\map\clif.c:4022:/// Sends a 'damage' packet (src performs action on dst)
+src\map\clif.c:4030:///     4 = damage (endure)
+src\map\clif.c:4035:///     9 = multi-hit damage (endure)
+src\map\clif.c:4047:#endif
+src\map\clif.c:4087:#endif
+src\map\clif.c:4089:		clif_send(buf,packet_len(cmd),dst,AREA_WOS);
+src\map\clif.c:4091:		clif_send(buf,packet_len(cmd),dst,SELF);
+src\map\clif.c:4093:		clif_send(buf,packet_len(cmd),dst,AREA);
+src\map\clif.c:4105:#endif
+src\map\clif.c:4106:		clif_send(buf,packet_len(cmd),src,SELF);
+src\map\clif.c:4127:	clif_send(buf, packet_len(0x8a), src, AREA);
+src\map\clif.c:4142:	clif_send(buf, packet_len(0x8a), bl, AREA);
+src\map\clif.c:4146:		clif_send(buf, packet_len(0x8a), bl, SELF);
+src\map\clif.c:4161:	clif_send(buf, packet_len(0x8a), bl, AREA);
+src\map\clif.c:4165:		clif_send(buf, packet_len(0x8a), bl, SELF);
+src\map\clif.c:4172:void clif_changemapcell(int fd, int m, int x, int y, int type, enum send_target target)
+src\map\clif.c:4195:		clif_send(buf,packet_len(0x192),&dummy_bl,target);
+src\map\clif.c:4246:#endif
+src\map\clif.c:4292:	clif_send(buf,packet_len(0x120),&unit->bl,AREA);
+src\map\clif.c:4307:	clif_send(buf,packet_len(0x1ac),bl,AREA);
+src\map\clif.c:4366:			if( sd->state.vending )
+src\map\clif.c:4367:				clif_closevendingboard(bl,tsd->fd);
+src\map\clif.c:4510:#endif
+src\map\clif.c:4576:#endif
+src\map\clif.c:4585:	WBUFL(buf,16) = property<0?0:property; //Avoid sending negatives as element [Skotlex]
+src\map\clif.c:4589:#endif
+src\map\clif.c:4592:		clif_send(buf,packet_len(cmd), bl, AREA_WOS);
+src\map\clif.c:4594:		clif_send(buf,packet_len(cmd), bl, SELF);
+src\map\clif.c:4596:		clif_send(buf,packet_len(cmd), bl, AREA);
+src\map\clif.c:4610:	clif_send(buf,packet_len(0x1b9), bl, AREA);
+src\map\clif.c:4686:#endif
+src\map\clif.c:4725:		clif_send(buf,packet_len(0x114),dst,AREA_WOS);
+src\map\clif.c:4727:		clif_send(buf,packet_len(0x114),dst,SELF);
+src\map\clif.c:4729:		clif_send(buf,packet_len(0x114),dst,AREA);
+src\map\clif.c:4737:		clif_send(buf,packet_len(0x114),src,SELF);
+src\map\clif.c:4756:		clif_send(buf,packet_len(0x1de),dst,AREA_WOS);
+src\map\clif.c:4758:		clif_send(buf,packet_len(0x1de),dst,SELF);
+src\map\clif.c:4760:		clif_send(buf,packet_len(0x1de),dst,AREA);
+src\map\clif.c:4768:		clif_send(buf,packet_len(0x1de),src,SELF);
+src\map\clif.c:4770:#endif
+src\map\clif.c:4814:	clif_send(buf,packet_len(0x115),src,AREA);
+src\map\clif.c:4819:		clif_send(buf,packet_len(0x115),src,SELF);
+src\map\clif.c:4827:		clif_send(buf,packet_len(0x115),dst,SELF);
+src\map\clif.c:4852:		clif_send(buf,packet_len(0x11a),dst,AREA_WOS);
+src\map\clif.c:4854:		clif_send(buf,packet_len(0x11a),dst,SELF);
+src\map\clif.c:4856:		clif_send(buf,packet_len(0x11a),dst,AREA);
+src\map\clif.c:4862:		clif_send(buf,packet_len(0x11a),src,SELF);
+src\map\clif.c:4885:		clif_send(buf,packet_len(0x117),src,AREA_WOS);
+src\map\clif.c:4887:		clif_send(buf,packet_len(0x117),src,SELF);
+src\map\clif.c:4889:		clif_send(buf,packet_len(0x117),src,AREA);
+src\map\clif.c:4914:		clif_send(buf,packet_len(0x1c9),&unit->bl,AREA);
+src\map\clif.c:4917:#endif
+src\map\clif.c:4928:	clif_send(buf,packet_len(0x11f),&unit->bl,AREA);
+src\map\clif.c:5038:	clif_send(buf,packet_len(0x18c),&sd->bl,sd->status.party_id>0?PARTY_SAMEMAP:SELF);
+src\map\clif.c:5052:		return; //Avoid resending the menu twice or more times...
+src\map\clif.c:5128: * Sends a status change packet to the object only, used for loading status changes. [Skotlex]
+src\map\clif.c:5169:		type == SI_TENSIONRELAX || type == SI_LANDENDOW || type == SI_AUTOBERSERK ||
+src\map\clif.c:5179:#endif
+src\map\clif.c:5192:#endif
+src\map\clif.c:5193:	clif_send(buf,packet_len(WBUFW(buf,0)),bl,AREA);
+src\map\clif.c:5199:void clif_notify_chat(struct block_list* bl, const char* message, send_target target)
+src\map\clif.c:5221:	clif_send(buf, WBUFW(buf,2), bl, target);
+src\map\clif.c:5233:	{// don't send a void message (it's not displaying on the client chat). @help can send void line.
+src\map\clif.c:5253:/// Send message (modified by [Yor])
+src\map\clif.c:5266:		if (len_mes > 0) { // don't send a void message (it's not displaying on the client chat). @help can send void line.
+src\map\clif.c:5279:/// Send formatted message
+src\map\clif.c:5288:	va_end(args);
+src\map\clif.c:5300:/// Send broadcast message in yellow or blue without font formatting (ZC_BROADCAST).
+src\map\clif.c:5302:void clif_broadcast(struct block_list* bl, const char* mes, int len, int type, enum send_target target)
+src\map\clif.c:5314:	clif_send(buf, WBUFW(buf,2), bl, target);
+src\map\clif.c:5330: * Send main chat message [LuzZza]
+src\map\clif.c:5338:/// Send broadcast message with font formatting (ZC_BROADCAST2).
+src\map\clif.c:5340:void clif_broadcast2(struct block_list* bl, const char* mes, int len, unsigned long fontColor, short fontType, short fontSize, short fontAlign, short fontY, enum send_target target)
+src\map\clif.c:5352:	clif_send(buf, WBUFW(buf,2), bl, target);
+src\map\clif.c:5389:	clif_send(buf,packet_len(0x148),bl,type==1 ? AREA : AREA_WOS);
+src\map\clif.c:5449:			clif_send(buf,packet_len(0x19a),&sd->bl,SELF);
+src\map\clif.c:5451:			clif_send(buf,packet_len(0x19a),&sd->bl,AREA);
+src\map\clif.c:5453:			clif_send(buf,packet_len(0x19a),&sd->bl,ALL_SAMEMAP);
+src\map\clif.c:5471:	clif_send(buf,packet_len(0x199),&bl,ALL_SAMEMAP);
+src\map\clif.c:5530:#endif
+src\map\clif.c:5537:///     0 = success to send wisper
+src\map\clif.c:5541:void clif_wis_end(int fd, int flag)
+src\map\clif.c:5858:#endif
+src\map\clif.c:5884:void clif_openvendingreq(struct map_session_data* sd, int num)
+src\map\clif.c:5898:/// Displays a vending board to target/area (ZC_STORE_ENTRY).
+src\map\clif.c:5900:void clif_showvendingboard(struct block_list* bl, const char* message, int fd)
+src\map\clif.c:5915:		clif_send(buf,packet_len(0x131),bl,AREA_WOS);
+src\map\clif.c:5920:/// Removes a vending board from screen (ZC_DISAPPEAR_ENTRY).
+src\map\clif.c:5922:void clif_closevendingboard(struct block_list* bl, int fd)
+src\map\clif.c:5935:		clif_send(buf,packet_len(0x132),bl,AREA_WOS);
+src\map\clif.c:5940:/// Sends a list of items in a shop.
+src\map\clif.c:5943:void clif_vendinglist(struct map_session_data* sd, int id, struct s_vending* vending)
+src\map\clif.c:5954:#endif
+src\map\clif.c:5957:	nullpo_retv(vending);
+src\map\clif.c:5961:	count = vsd->vend_num;
+src\map\clif.c:5968:	WFIFOL(fd,8) = vsd->vender_id;
+src\map\clif.c:5969:#endif
+src\map\clif.c:5973:		int index = vending[i].index;
+src\map\clif.c:5975:		WFIFOL(fd,offset+ 0+i*22) = vending[i].value;
+src\map\clif.c:5976:		WFIFOW(fd,offset+ 4+i*22) = vending[i].amount;
+src\map\clif.c:5977:		WFIFOW(fd,offset+ 6+i*22) = vending[i].index + 2;
+src\map\clif.c:5999:void clif_buyvending(struct map_session_data* sd, int index, int amount, int fail)
+src\map\clif.c:6017:void clif_openvending(struct map_session_data* sd, int id, struct s_vending* vending)
+src\map\clif.c:6025:	count = sd->vend_num;
+src\map\clif.c:6033:		int index = vending[i].index;
+src\map\clif.c:6035:		WFIFOL(fd, 8+i*22) = vending[i].value;
+src\map\clif.c:6036:		WFIFOW(fd,12+i*22) = vending[i].index + 2;
+src\map\clif.c:6037:		WFIFOW(fd,14+i*22) = vending[i].amount;
+src\map\clif.c:6051:void clif_vendingreport(struct map_session_data* sd, int index, int amount)
+src\map\clif.c:6101:void clif_party_member_info(struct party_data *p, int member_id, send_target type)
+src\map\clif.c:6129:	clif_send(buf,packet_len(0x1e9),&sd->bl,type);
+src\map\clif.c:6133:/// Sends party information (ZC_GROUP_LIST).
+src\map\clif.c:6167:	if(sd) { // send only to self
+src\map\clif.c:6168:		clif_send(buf, WBUFW(buf,2), &sd->bl, SELF);
+src\map\clif.c:6169:	} else if (party_sd) { // send to whole party
+src\map\clif.c:6170:		clif_send(buf, WBUFW(buf,2), &party_sd->bl, PARTY);
+src\map\clif.c:6202:#endif
+src\map\clif.c:6245:#endif
+src\map\clif.c:6259:#endif
+src\map\clif.c:6272:void clif_party_option(struct party_data* p, int member_id, send_target type)
+src\map\clif.c:6280:#endif
+src\map\clif.c:6300:#endif
+src\map\clif.c:6301:	clif_send(buf,packet_len(cmd),&sd->bl,type);
+src\map\clif.c:6321:	clif_send(buf,packet_len(0x101),&sd->bl,SELF);
+src\map\clif.c:6353:		clif_send(buf,packet_len(0x105),&sd->bl,PARTY);
+src\map\clif.c:6355:		clif_send(buf,packet_len(0x105),&sd->bl,SELF);
+src\map\clif.c:6383:		clif_send(buf,len+8,&sd->bl,PARTY);
+src\map\clif.c:6400:	clif_send(buf,packet_len(0x107),&sd->bl,PARTY_SAMEMAP_WOS);
+src\map\clif.c:6405: * Sends x/y dot to a single fd. [Skotlex]
+src\map\clif.c:6428:#endif
+src\map\clif.c:6445:#endif
+src\map\clif.c:6446:	clif_send(buf,packet_len(cmd),&sd->bl,PARTY_AREA_WOS);
+src\map\clif.c:6451: * Sends HP bar to a single fd. [Skotlex]
+src\map\clif.c:6459:#endif
+src\map\clif.c:6475:#endif
+src\map\clif.c:6490:#endif
+src\map\clif.c:6518:#endif
+src\map\clif.c:6620:void clif_sendegg(struct map_session_data *sd)
+src\map\clif.c:6650:/// Sends a specific pet data update (ZC_CHANGESTATE_PET).
+src\map\clif.c:6661:void clif_send_petdata(struct map_session_data* sd, struct pet_data* pd, int type, int param)
+src\map\clif.c:6671:		clif_send(buf, packet_len(0x1a4), &sd->bl, SELF);
+src\map\clif.c:6673:		clif_send(buf, packet_len(0x1a4), &pd->bl, AREA);
+src\map\clif.c:6679:void clif_send_petstatus(struct map_session_data *sd)
+src\map\clif.c:6699:#endif
+src\map\clif.c:6729:	clif_send(buf,packet_len(0x1aa),&pd->bl,AREA);
+src\map\clif.c:6832:		clif_send(buf, packet_len(0x1cf), &tsd->bl, SELF);
+src\map\clif.c:6834:		clif_send(buf, packet_len(0x1cf), src, AREA);
+src\map\clif.c:6850:	clif_send(buf,packet_len(0x1d0),&sd->bl,AREA);
+src\map\clif.c:6865:	clif_send(buf,packet_len(0x1d2),bl,AREA);
+src\map\clif.c:6885:	clif_send(buf,packet_len(0x1d1),src,AREA);
+src\map\clif.c:6899:	clif_send(buf,packet_len(0x10c),&sd->bl,AREA);
+src\map\clif.c:7001:/// 01f2 <account id>.L <char id>.L <status>.L <gender>.W <hair style>.W <hair color>.W (ZC_UPDATE_CHARSTAT2)
+src\map\clif.c:7022:		clif_send(buf,packet_len(0x1f2),&sd->bl,GUILD_WOS);
+src\map\clif.c:7029:		clif_send(buf,packet_len(0x1f2),&sd->bl,GUILD);
+src\map\clif.c:7033:// Function `clif_guild_memberlogin_notice` sends info about
+src\map\clif.c:7037:// So I suggest use this function for sending "first-time-info"
+src\map\clif.c:7040:// The function sends all the statuses in the single packet 
+src\map\clif.c:7042:void clif_guild_send_onlineinfo(struct map_session_data *sd)
+src\map\clif.c:7068:	clif_send(buf, p_len*count, &sd->bl, SELF);
+src\map\clif.c:7162:/// 0154 <packet len>.W { <account>.L <char id>.L <hair style>.W <hair color>.W <gender>.W <class>.W <level>.W <contrib exp>.L <state>.L <position>.L <memo>.50B <name>.24B }*
+src\map\clif.c:7190:		WFIFOW(fd,c*104+16)=m->gender;
+src\map\clif.c:7268:	// FIXME: This packet is intended to update the clients after a
+src\map\clif.c:7269:	// commit of position info changes, not sending one packet per
+src\map\clif.c:7286:		clif_send(buf,WBUFW(buf,2),&sd->bl,GUILD);
+src\map\clif.c:7294:	// FIXME: This packet is intended to update the clients after a
+src\map\clif.c:7295:	// commit of member position assignment changes, not sending one
+src\map\clif.c:7310:		clif_send(buf,WBUFW(buf,2),&sd->bl,GUILD);
+src\map\clif.c:7314:/// Sends emblems bitmap data to the client that requested it (ZC_GUILD_EMBLEM_IMG).
+src\map\clif.c:7336:/// Sends update of the guild id/emblem id to everyone in the area (ZC_CHANGE_GUILD).
+src\map\clif.c:7350:	clif_send(buf, 12, bl, AREA_WOS);
+src\map\clif.c:7354:/// Sends guild skills (ZC_GUILD_SKILLINFO).
+src\map\clif.c:7391:/// Sends guild notice to client (ZC_GUILD_NOTICE).
+src\map\clif.c:7466:	clif_send(buf,packet_len(0x15a),&sd->bl,GUILD_NOBG);
+src\map\clif.c:7480:#endif
+src\map\clif.c:7489:#endif
+src\map\clif.c:7490:	clif_send(buf, packet_len(cmd), &sd->bl, GUILD_NOBG);
+src\map\clif.c:7503:#endif
+src\map\clif.c:7529:#endif
+src\map\clif.c:7560:		clif_send(buf, WBUFW(buf,2), &sd->bl, GUILD_NOBG);
+src\map\clif.c:7679:	clif_send(buf,packet_len(0x185),guild_getavailablesd(g),GUILD);
+src\map\clif.c:7716:	clif_send(buf,packet_len(0xc0),bl,AREA);
+src\map\clif.c:7730:	clif_send(buf,packet_len(0x191),bl,AREA);
+src\map\clif.c:7744:	clif_send(buf, packet_len(0x1ea), bl, AREA);
+src\map\clif.c:7771:	{// Send zero-length name if no partner, to initialize the client buffer.
+src\map\clif.c:7775:	clif_send(buf, packet_len(0x1e6), &sd->bl, AREA);
+src\map\clif.c:7840:void clif_disp_message(struct block_list* src, const char* mes, int len, enum send_target target)
+src\map\clif.c:7857:	clif_send(buf, WBUFW(buf,2), src, target);
+src\map\clif.c:7888:		map_quit(tsd);
+src\map\clif.c:8029:void clif_soundeffectall(struct block_list* bl, const char* name, int type, enum send_target coverage)
+src\map\clif.c:8040:	clif_send(buf, packet_len(0x1d3), bl, coverage);
+src\map\clif.c:8048:void clif_specialeffect(struct block_list* bl, int type, enum send_target target)
+src\map\clif.c:8060:	clif_send(buf, packet_len(0x1f3), bl, target);
+src\map\clif.c:8064:		clif_send(buf, packet_len(0x1f3), bl, SELF);
+src\map\clif.c:8083:///     effect-dependent value
+src\map\clif.c:8084:void clif_specialeffect_value(struct block_list* bl, int effect_id, int num, send_target target)
+src\map\clif.c:8093:	clif_send(buf, packet_len(0x284), bl, target);
+src\map\clif.c:8098:		clif_send(buf, packet_len(0x284), bl, SELF);
+src\map\clif.c:8125:	clif_send(buf, WBUFW(buf,2), bl, AREA_CHAT_WOC);
+src\map\clif.c:8160:		clif_send_homdata(sd,SP_ACK,0);
+src\map\clif.c:8170:	if( sd->state.vending )
+src\map\clif.c:8171:		clif_openvending(sd, sd->bl.id, sd->vending);
+src\map\clif.c:8173:		clif_sitting(&sd->bl); // FIXME: just send to self, not area
+src\map\clif.c:8174:	if( pc_isdead(sd) ) //When you refresh, resend the death packet.
+src\map\clif.c:8179:	// unlike vending, resuming buyingstore crashes the client.
+src\map\clif.c:8184:#endif
+src\map\clif.c:8295:				//Even thought mobhp ain't a name, we send it as one so the client
+src\map\clif.c:8318:		clif_send(buf, packet_len(cmd), bl, AREA);
+src\map\clif.c:8328://Needed because when you send a 0x95 packet, the client will not remove the cached party/guild info that is not sent.
+src\map\clif.c:8377:	clif_send(buf, packet_len(cmd), &ssd->bl, AREA);
+src\map\clif.c:8396:	clif_send(buf, packet_len(0x1ff), bl, AREA);
+src\map\clif.c:8401:		clif_send(buf, packet_len(0x1ff), bl, SELF);
+src\map\clif.c:8411:	// send message to others
+src\map\clif.c:8414:	// send back message to the speaker
+src\map\clif.c:8430:	clif_send(buf,packet_len(0x107),&sd->bl,PARTY_SAMEMAP_WOS);
+src\map\clif.c:8437:///     0x15 = End all negative status (PA_GOSPEL)
+src\map\clif.c:8589:/// Sends info about a player's equipped items.
+src\map\clif.c:8590:/// 02d7 <packet len>.W <name>.24B <class>.W <hairstyle>.W <up-viewid>.W <mid-viewid>.W <low-viewid>.W <haircolor>.W <cloth-dye>.W <gender>.B {equip item}.26B* (ZC_EQUIPWIN_MICROSCOPE)
+src\map\clif.c:8591:/// 02d7 <packet len>.W <name>.24B <class>.W <hairstyle>.W <bottom-viewid>.W <mid-viewid>.W <up-viewid>.W <haircolor>.W <cloth-dye>.W <gender>.B {equip item}.28B* (ZC_EQUIPWIN_MICROSCOPE, PACKETVER >= 20100629)
+src\map\clif.c:8592:/// 0859 <packet len>.W <name>.24B <class>.W <hairstyle>.W <bottom-viewid>.W <mid-viewid>.W <up-viewid>.W <haircolor>.W <cloth-dye>.W <gender>.B {equip item}.28B* (ZC_EQUIPWIN_MICROSCOPE2, PACKETVER >= 20101124)
+src\map\clif.c:8593:/// 0859 <packet len>.W <name>.24B <class>.W <hairstyle>.W <bottom-viewid>.W <mid-viewid>.W <up-viewid>.W <robe>.W <haircolor>.W <cloth-dye>.W <gender>.B {equip item}.28B* (ZC_EQUIPWIN_MICROSCOPE2, PACKETVER >= 20110111)
+src\map\clif.c:8602:#endif
+src\map\clif.c:8614:#endif
+src\map\clif.c:8625:#endif
+src\map\clif.c:8651:#endif
+src\map\clif.c:8852:	else if( (value=(int)RFIFOL(fd, packet_db[packet_ver][cmd].pos[0])) < START_ACCOUNT_NUM || value > END_ACCOUNT_NUM )\
+src\map\clif.c:8890:/// 0072 <account id>.L <char id>.L <auth code>.L <client time>.L <gender>.B (CZ_ENTER)
+src\map\clif.c:8891:/// 0436 <account id>.L <char id>.L <auth code>.L <client time>.L <gender>.B (CZ_ENTER2)
+src\map\clif.c:8931:	if( runflag != SERVER_STATE_RUN )
+src\map\clif.c:8973:#endif
+src\map\clif.c:8981:void clif_parse_LoadEndAck(int fd,struct map_session_data *sd)
+src\map\clif.c:9008:#endif
+src\map\clif.c:9030:		guild_send_memberinfoshort(sd,1);
+src\map\clif.c:9054:		party_send_movemap(sd);
+src\map\clif.c:9077:		clif_map_property(sd, MAPPROPERTY_FREEPVPZONE); //TODO: Figure out the real packet to send here.
+src\map\clif.c:9098:			clif_send_petdata(sd,sd->pd,0,0);
+src\map\clif.c:9099:			clif_send_petstatus(sd);
+src\map\clif.c:9109:		clif_send_homdata(sd,SP_ACK,0);
+src\map\clif.c:9131:		clif_hotkeys_send(sd);
+src\map\clif.c:9169:		map_foreachpc(clif_friendslist_toggle_sub, sd->status.account_id, sd->status.char_id, 1);
+src\map\clif.c:9196:#endif
+src\map\clif.c:9235:#endif
+src\map\clif.c:9254:	// If player is dead, and is spawned (such as @refresh) send death packet. [Valaris]
+src\map\clif.c:9284:void clif_parse_TickSend(int fd, struct map_session_data *sd)
+src\map\clif.c:9292:/// Sends hotkey bar.
+src\map\clif.c:9296:/// Sends hotkey bar.
+src\map\clif.c:9299:void clif_hotkeys_send(struct map_session_data *sd) {
+src\map\clif.c:9300:	ShowInfo("DEBUG: clif_hotkeys_send skipped.\n");
+src\map\clif.c:9317:#endif
+src\map\clif.c:9354:		sd->st->state = END;
+src\map\clif.c:9398:///     0 = disconnect (quit)
+src\map\clif.c:9415:///     0 = quit
+src\map\clif.c:9416:void clif_parse_QuitGame(int fd, struct map_session_data *sd)
+src\map\clif.c:9498:	// send message to others
+src\map\clif.c:9501:	// send back message to the speaker
+src\map\clif.c:9507:#endif
+src\map\clif.c:9552:void clif_changed_dir(struct block_list *bl, enum send_target target)
+src\map\clif.c:9561:	clif_send(buf, packet_len(0x9c), bl, target);
+src\map\clif.c:9566:		clif_send(buf, packet_len(0x9c), bl, SELF);
+src\map\clif.c:9760:		{	//Send to char-server for character selection.
+src\map\clif.c:9869:		// At this point, don't send wisp/page if it's not exactly the same name, because (example)
+src\map\clif.c:9872:		// so, we send information to inter-server, which is the only one which decide (and copy correct name).
+src\map\clif.c:9881:			clif_wis_end(fd, 1); // 1: target character is not loged in
+src\map\clif.c:9883:			clif_wis_end(fd, 3); // 3: everyone ignored by target
+src\map\clif.c:9890:		clif_wis_end(fd, 2); // 2: ignored by target
+src\map\clif.c:9903:	// notify sender of success
+src\map\clif.c:9904:	clif_wis_end(fd, 0); // 0: success to send wisper
+src\map\clif.c:9925:	// as the length varies depending on the command used, just block unreasonably long strings
+src\map\clif.c:10047:		clif_useitemack(sd,n,0,false); //Send an empty ack packet or the client gets stuck.
+src\map\clif.c:10086:	//Client doesn't send the position for ammo.
+src\map\clif.c:10181:void clif_parse_NpcBuyListSend(int fd, struct map_session_data* sd)
+src\map\clif.c:10216:void clif_parse_NpcSellListSend(int fd,struct map_session_data *sd)
+src\map\clif.c:10322:/// Request to leave the current chatroom (CZ_EXIT_ROOM).
+src\map\clif.c:10381:		return; // client isn't supposed to send this
+src\map\clif.c:10489:///     client sends always 1 for this, even when using /str+ and
+src\map\clif.c:10722:		//You can't use Graffiti/TalkieBox AND have a vending open, so this is safe.
+src\map\clif.c:10833:	skill_castend_map(sd,skill_num,map_name);
+src\map\clif.c:11121:	// as the length varies depending on the command used, just block unreasonably long strings
+src\map\clif.c:11181:	if( sd->state.vending )
+src\map\clif.c:11198:	if( sd->state.vending )
+src\map\clif.c:11438:#endif
+src\map\clif.c:11469:	party_send_message(sd, text, textlen);
+src\map\clif.c:11619:	clif_send(buf, packet_len(0x809), &sd->bl, ALL_CLIENT);
+src\map\clif.c:11636:	clif_send(buf,packet_len(0x80a),&sd->bl,ALL_CLIENT); // Now UPDATE all client.
+src\map\clif.c:11649:	clif_send(buf, packet_len(0x80b), &sd->bl, ALL_CLIENT); // Now UPDATE all client.
+src\map\clif.c:11653:/// Request to close own vending (CZ_REQ_CLOSESTORE).
+src\map\clif.c:11655:void clif_parse_CloseVending(int fd, struct map_session_data* sd)
+src\map\clif.c:11657:	vending_closevending(sd);
+src\map\clif.c:11661:/// Request to open a vending shop (CZ_REQ_BUY_FROMMC).
+src\map\clif.c:11663:void clif_parse_VendingListReq(int fd, struct map_session_data* sd)
+src\map\clif.c:11669:	vending_vendinglistreq(sd,RFIFOL(fd,2));
+src\map\clif.c:11681:	vending_purchasereq(sd, id, sd->vended_id, data, len/4);
+src\map\clif.c:11684:	sd->vended_id = 0;
+src\map\clif.c:11697:	vending_purchasereq(sd, aid, uid, data, len/4);
+src\map\clif.c:11700:	sd->vended_id = 0;
+src\map\clif.c:11710:void clif_parse_OpenVending(int fd, struct map_session_data* sd)
+src\map\clif.c:11719:	if( map[sd->bl.m].flag.novending ) {
+src\map\clif.c:11723:	if( map_getcell(sd->bl.m,sd->bl.x,sd->bl.y,CELL_CHKNOVENDING) ) {
+src\map\clif.c:11730:	vending_openvending(sd, message, flag, data, len/8);
+src\map\clif.c:11960:	if (msg2[0] == '|') msg2[strnlen(msg2, MAX_GUILDMES2)-1] = '\0'; // delete extra space at the end of string
+src\map\clif.c:12061:		bg_send_message(sd, text, textlen);
+src\map\clif.c:12063:		guild_send_message(sd, text, textlen);
+src\map\clif.c:12154:///     now guild name; might have been (intended) email, since the
+src\map\clif.c:12231:void clif_parse_SendEmotion(int fd, struct map_session_data *sd)
+src\map\clif.c:12249:/// NOTE: Also sent when using GM right click menu "(name) force to quit"
+src\map\clif.c:12578:			status_change_end(&dstsd->bl, SC_NOCHAT, INVALID_TIMER);
+src\map\clif.c:12842:/// Friends List
+src\map\clif.c:12845:/// Toggles a single friend online/offline [Skotlex] (ZC_FRIENDS_STATE).
+src\map\clif.c:12850:void clif_friendslist_toggle(struct map_session_data *sd,int account_id, int char_id, int online)
+src\map\clif.c:12854:	//Seek friend.
+src\map\clif.c:12855:	for (i = 0; i < MAX_FRIENDS && sd->status.friends[i].char_id &&
+src\map\clif.c:12856:		(sd->status.friends[i].char_id != char_id || sd->status.friends[i].account_id != account_id); i++);
+src\map\clif.c:12858:	if(i == MAX_FRIENDS || sd->status.friends[i].char_id == 0)
+src\map\clif.c:12863:	WFIFOL(fd, 2) = sd->status.friends[i].account_id;
+src\map\clif.c:12864:	WFIFOL(fd, 6) = sd->status.friends[i].char_id;
+src\map\clif.c:12870://Subfunction called from clif_foreachclient to toggle friends on/off [Skotlex]
+src\map\clif.c:12871:int clif_friendslist_toggle_sub(struct map_session_data *sd,va_list ap)
+src\map\clif.c:12877:	clif_friendslist_toggle(sd, account_id, char_id, online);
+src\map\clif.c:12882:/// Sends the whole friends list (ZC_FRIENDS_LIST).
+src\map\clif.c:12884:void clif_friendslist_send(struct map_session_data *sd)
+src\map\clif.c:12888:	// Send friends list
+src\map\clif.c:12889:	WFIFOHEAD(fd, MAX_FRIENDS * 32 + 4);
+src\map\clif.c:12891:	for(i = 0; i < MAX_FRIENDS && sd->status.friends[i].char_id; i++)
+src\map\clif.c:12893:		WFIFOL(fd, 4 + 32 * i + 0) = sd->status.friends[i].account_id;
+src\map\clif.c:12894:		WFIFOL(fd, 4 + 32 * i + 4) = sd->status.friends[i].char_id;
+src\map\clif.c:12895:		memcpy(WFIFOP(fd, 4 + 32 * i + 8), &sd->status.friends[i].name, NAME_LENGTH);
+src\map\clif.c:12904:	{	//Sending the online players
+src\map\clif.c:12905:		if (map_charid2sd(sd->status.friends[n].char_id))
+src\map\clif.c:12906:			clif_friendslist_toggle(sd, sd->status.friends[n].account_id, sd->status.friends[n].char_id, 1);
+src\map\clif.c:12911:/// Notification about the result of a friend add request (ZC_ADD_FRIENDS_LIST).
+src\map\clif.c:12914:///     0 = MsgStringTable[821]="You have become friends with (%s)."
+src\map\clif.c:12915:///     1 = MsgStringTable[822]="(%s) does not want to be friends with you."
+src\map\clif.c:12916:///     2 = MsgStringTable[819]="Your Friend List is full."
+src\map\clif.c:12917:///     3 = MsgStringTable[820]="(%s)'s Friend List is full."
+src\map\clif.c:12918:void clif_friendslist_reqack(struct map_session_data *sd, struct map_session_data *f_sd, int type)
+src\map\clif.c:12937:/// Asks a player for permission to be added as friend (ZC_REQ_ADD_FRIENDS).
+src\map\clif.c:12939:void clif_friendlist_req(struct map_session_data* sd, int account_id, int char_id, const char* name)
+src\map\clif.c:12952:/// Request to add a player as friend (CZ_ADD_FRIENDS).
+src\map\clif.c:12954:void clif_parse_FriendsListAdd(int fd, struct map_session_data *sd)
+src\map\clif.c:12961:	// Friend doesn't exist (no player with this name)
+src\map\clif.c:12968:	{// adding oneself as friend
+src\map\clif.c:12978:	// Friend already exists
+src\map\clif.c:12979:	for (i = 0; i < MAX_FRIENDS && sd->status.friends[i].char_id != 0; i++) {
+src\map\clif.c:12980:		if (sd->status.friends[i].char_id == f_sd->status.char_id) {
+src\map\clif.c:12981:			clif_displaymessage(fd, "Friend already exists.");
+src\map\clif.c:12986:	if (i == MAX_FRIENDS) {
+src\map\clif.c:12988:		clif_friendslist_reqack(sd, f_sd, 2);
+src\map\clif.c:12992:	clif_friendlist_req(f_sd, sd->status.account_id, sd->status.char_id, sd->status.name);
+src\map\clif.c:12996:/// Answer to a friend add request (CZ_ACK_REQ_ADD_FRIENDS).
+src\map\clif.c:13002:void clif_parse_FriendsListReply(int fd, struct map_session_data *sd)
+src\map\clif.c:13014:#endif
+src\map\clif.c:13017:	{// adding oneself as friend
+src\map\clif.c:13026:		clif_friendslist_reqack(f_sd, sd, 1);
+src\map\clif.c:13030:		for (i = 0; i < MAX_FRIENDS; i++)
+src\map\clif.c:13031:			if (f_sd->status.friends[i].char_id == 0)
+src\map\clif.c:13033:		if (i == MAX_FRIENDS) {
+src\map\clif.c:13034:			clif_friendslist_reqack(f_sd, sd, 2);
+src\map\clif.c:13038:		f_sd->status.friends[i].account_id = sd->status.account_id;
+src\map\clif.c:13039:		f_sd->status.friends[i].char_id = sd->status.char_id;
+src\map\clif.c:13040:		memcpy(f_sd->status.friends[i].name, sd->status.name, NAME_LENGTH);
+src\map\clif.c:13041:		clif_friendslist_reqack(f_sd, sd, 0);
+src\map\clif.c:13043:		if (battle_config.friend_auto_add) {
+src\map\clif.c:13044:			// Also add f_sd to sd's friendlist.
+src\map\clif.c:13045:			for (i = 0; i < MAX_FRIENDS; i++) {
+src\map\clif.c:13046:				if (sd->status.friends[i].char_id == f_sd->status.char_id)
+src\map\clif.c:13048:				if (sd->status.friends[i].char_id == 0)
+src\map\clif.c:13051:			if (i == MAX_FRIENDS) {
+src\map\clif.c:13052:				clif_friendslist_reqack(sd, f_sd, 2);
+src\map\clif.c:13056:			sd->status.friends[i].account_id = f_sd->status.account_id;
+src\map\clif.c:13057:			sd->status.friends[i].char_id = f_sd->status.char_id;
+src\map\clif.c:13058:			memcpy(sd->status.friends[i].name, f_sd->status.name, NAME_LENGTH);
+src\map\clif.c:13059:			clif_friendslist_reqack(sd, f_sd, 0);
+src\map\clif.c:13065:/// Request to delete a friend (CZ_DELETE_FRIENDS).
+src\map\clif.c:13067:void clif_parse_FriendsListRemove(int fd, struct map_session_data *sd)
+src\map\clif.c:13075:	// Search friend
+src\map\clif.c:13076:	for (i = 0; i < MAX_FRIENDS &&
+src\map\clif.c:13077:		(sd->status.friends[i].char_id != char_id || sd->status.friends[i].account_id != account_id); i++);
+src\map\clif.c:13079:	if (i == MAX_FRIENDS) {
+src\map\clif.c:13085:	for(j = i + 1; j < MAX_FRIENDS; j++)
+src\map\clif.c:13086:		memcpy(&sd->status.friends[j-1], &sd->status.friends[j], sizeof(sd->status.friends[0]));
+src\map\clif.c:13088:	memset(&sd->status.friends[MAX_FRIENDS-1], 0, sizeof(sd->status.friends[MAX_FRIENDS-1]));
+src\map\clif.c:13089:	clif_displaymessage(fd, "Friend removed");
+src\map\clif.c:13564:/// Notification about the result of sending a mail (ZC_MAIL_REQ_SEND).
+src\map\clif.c:13569:void clif_Mail_send(int fd, bool fail)
+src\map\clif.c:13609:/// 024a <mail id>.L <title>.40B <sender>.24B
+src\map\clif.c:13610:void clif_Mail_new(int fd, int mail_id, const char *sender, const char *title)
+src\map\clif.c:13616:	safestrncpy((char*)WFIFOP(fd,46), sender, NAME_LENGTH);
+src\map\clif.c:13636:/// 0240 <packet len>.W <amount>.L { <mail id>.L <title>.40B <read>.B <sender>.24B <time>.L }*amount
+src\map\clif.c:13662:		memcpy(WFIFOP(fd,53+73*j), msg->send_name, NAME_LENGTH);
+src\map\clif.c:13694:/// 0242 <packet len>.W <mail id>.L <title>.40B <sender>.24B <time>.L <zeny>.L
+src\map\clif.c:13727:		safestrncpy((char*)WFIFOP(fd,48), msg->send_name, NAME_LENGTH + 1);
+src\map\clif.c:13875:	if( i < MAIL_MAX_INBOX && sd->mail.inbox.msg[i].send_id != 0 )
+src\map\clif.c:13915:/// Request to send mail (CZ_MAIL_SEND).
+src\map\clif.c:13917:void clif_parse_Mail_send(int fd, struct map_session_data *sd)
+src\map\clif.c:13930:	if( DIFF_TICK(sd->cansendmail_tick, gettick()) > 0 )
+src\map\clif.c:13932:		clif_displaymessage(sd->fd,"Cannot send mails too fast!!.");
+src\map\clif.c:13933:		clif_Mail_send(fd, true); // fail
+src\map\clif.c:13943:	{ // Invalid Append condition
+src\map\clif.c:13944:		clif_Mail_send(sd->fd, true); // fail
+src\map\clif.c:13951:	msg.send_id = sd->status.char_id;
+src\map\clif.c:13953:	safestrncpy(msg.send_name, sd->status.name, NAME_LENGTH);
+src\map\clif.c:13963:	if( !intif_Mail_send(sd->status.account_id, &msg) )
+src\map\clif.c:13966:	sd->cansendmail_tick = gettick() + 1000; // 1 Second flood Protection
+src\map\clif.c:13983:	if( sd->state.storage_flag || sd->state.vending || sd->state.buyingstore || sd->state.trading )
+src\map\clif.c:14135:///     0 = You have ended the auction
+src\map\clif.c:14136:///     1 = You cannot end the auction
+src\map\clif.c:14312:#endif
+src\map\clif.c:14328:#endif
+src\map\clif.c:14341:#endif
+src\map\clif.c:14380:#endif
+src\map\clif.c:14399:#endif
+src\map\clif.c:14571:/// Sends list of all quest states (ZC_ALL_QUEST_LIST).
+src\map\clif.c:14573:void clif_quest_send_list(struct map_session_data * sd)
+src\map\clif.c:14594:/// Sends list of all quest missions (ZC_ALL_QUEST_MISSION).
+src\map\clif.c:14596:void clif_quest_send_mission(struct map_session_data * sd)
+src\map\clif.c:14740:#endif
+src\map\clif.c:14981:	clif_send(buf, packet_len(cmd), &sd->bl, BG_AREA_WOS);
+src\map\clif.c:14999:	clif_send(buf, packet_len(0x2df), &sd->bl, BG_SAMEMAP_WOS);
+src\map\clif.c:15014:	clif_send(buf, packet_len(0x2df), &sd->bl, BG_SAMEMAP_WOS);
+src\map\clif.c:15034:	clif_send(buf,WBUFW(buf,2), &sd->bl, BG);
+src\map\clif.c:15067:	bg_send_message(sd, text, textlen);
+src\map\clif.c:15085:	clif_send(buf,packet_len(0x2de),&bl,ALL_SAMEMAP);
+src\map\clif.c:15104:void clif_sendbgemblem_area(struct map_session_data *sd)
+src\map\clif.c:15113:	clif_send(buf,packet_len(0x2dd), &sd->bl, AREA);
+src\map\clif.c:15116:void clif_sendbgemblem_single(int fd, struct map_session_data *sd)
+src\map\clif.c:15138:	clif_send(buf, packet_len(0x2ef), &sd->bl, AREA);
+src\map\clif.c:15139:#endif
+src\map\clif.c:15160:		// This window re-appear each "refresh" of client automatically until type 4 is send to client.
+src\map\clif.c:15164:		clif_send(buf,packet_len(0x02CB),&sd->bl,PARTY);
+src\map\clif.c:15171:		clif_send(buf,packet_len(0x02CC),&sd->bl,PARTY);
+src\map\clif.c:15188:		clif_send(buf,packet_len(0x02CD),&sd->bl,PARTY);
+src\map\clif.c:15200:		clif_send(buf,packet_len(0x02CE),&sd->bl,PARTY);
+src\map\clif.c:15262:	clif_send(buf, packet_len(0x2b8), &sd->bl, PARTY_SAMEMAP_WOS);
+src\map\clif.c:15263:#endif
+src\map\clif.c:15316:/// NOTE:   The state is used on Aegis for sending skill unit packet
+src\map\clif.c:15319:///         constructed, this state tracking was rendered useless,
+src\map\clif.c:15443:	clif_send(buf, packet_len(0x814), &sd->bl, AREA_WOS);
+src\map\clif.c:15474:	clif_send(buf, packet_len(0x816), &sd->bl, AREA_WOS);
+src\map\clif.c:15499:/// Sends buying store item list (ZC_ACK_ITEMLIST_BUYING_STORE).
+src\map\clif.c:15637:///     0 = Vending
+src\map\clif.c:15691:///     0 = appends to existing results
+src\map\clif.c:15700:	unsigned int i, start, end;
+src\map\clif.c:15703:	end   = min(sd->searchstore.count, start+SEARCHSTORE_RESULTS_PER_PAGE);
+src\map\clif.c:15705:	WFIFOHEAD(fd,7+(end-start)*blocksize);
+src\map\clif.c:15707:	WFIFOW(fd,2) = 7+(end-start)*blocksize;
+src\map\clif.c:15712:	for( i = start; i < end; i++ )
+src\map\clif.c:15780:#endif
+src\map\clif.c:15880:				clif_quitsave(fd, sd);
+src\map\clif.c:15884:				map_quit(sd);
+src\map\clif.c:15922:#endif
+src\map\clif.c:15934:#endif
+src\map\clif.c:15950:#endif
+src\map\clif.c:15966:		if( sd && sd->bl.prev == NULL && packet_db[packet_ver][cmd].func != clif_parse_LoadEndAck )
+src\map\clif.c:16012:#endif
+src\map\clif.c:16016:	}; // main loop end
+src\map\clif.c:16046:#endif
+src\map\clif.c:16055:#endif
+src\map\clif.c:16063:#endif
+src\map\clif.c:16086:#endif
+src\map\clif.c:16091:#endif
+src\map\clif.c:16105:#endif
+src\map\clif.c:16117:#endif
+src\map\clif.c:16227:#endif
+src\map\clif.c:16235:#endif
+src\map\clif.c:16250:		{clif_parse_LoadEndAck,"loadendack"},
+src\map\clif.c:16251:		{clif_parse_TickSend,"ticksend"},
+src\map\clif.c:16253:		{clif_parse_QuitGame,"quitgame"},
+src\map\clif.c:16271:		{clif_parse_NpcBuyListSend,"npcbuylistsend"},
+src\map\clif.c:16272:		{clif_parse_NpcSellListSend,"npcselllistsend"},
+src\map\clif.c:16330:		{clif_parse_CloseVending,"closevending"},
+src\map\clif.c:16331:		{clif_parse_VendingListReq,"vendinglistreq"},
+src\map\clif.c:16334:		{clif_parse_OpenVending,"openvending"},
+src\map\clif.c:16356:		{clif_parse_SendEmotion,"sendemotion"},
+src\map\clif.c:16379:		{clif_parse_FriendsListAdd,"friendslistadd"},
+src\map\clif.c:16380:		{clif_parse_FriendsListRemove,"friendslistremove"},
+src\map\clif.c:16381:		{clif_parse_FriendsListReply,"friendslistreply"},
+src\map\clif.c:16408:		{clif_parse_Mail_send,"mailsend"},
+src\map\clif.c:16420:#endif
+src\map\clif.c:16432:#endif
+src\map\clif.c:16456:		exit(EXIT_FAILURE);
+src\map\clif.c:16555:			exit(EXIT_FAILURE);
+src\map\clif.c:16605:		exit(EXIT_FAILURE);
+src\map\clif.c:16609:	add_timer_func_list(clif_delayquit, "clif_delayquit");
+src\map\guild.c:43:#define GUILD_SEND_XY_INVERVAL	5000
+src\map\guild.c:56:static int guild_send_xy_timer(int tid, unsigned int tick, int id, intptr_t data);
+src\map\guild.c:217:	m->gender		=sd->status.sex;
+src\map\guild.c:230://Taken from party_send_xy_timer_sub. [Skotlex]
+src\map\guild.c:231:int guild_send_xy_timer_sub(DBKey key,void *data,va_list ap)
+src\map\guild.c:251://Code from party_send_xy_timer [Skotlex]
+src\map\guild.c:252:static int guild_send_xy_timer(int tid, unsigned int tick, int id, intptr_t data)
+src\map\guild.c:254:	guild_db->foreach(guild_db,guild_send_xy_timer_sub,tick);
+src\map\guild.c:258:int guild_send_dot_remove(struct map_session_data *sd)
+src\map\guild.c:580:		//TODO: send a minimap update to this player
+src\map\guild.c:647:	//TODO: send new emblem info to others
+src\map\guild.c:746:		guild_send_dot_remove(sd);
+src\map\guild.c:752:		//TODO: send emblem update to self and people around
+src\map\guild.c:757:int guild_send_memberinfoshort(struct map_session_data *sd,int online)
+src\map\guild.c:777:			ShowError("guild_send_memberinfoshort: Failed to locate member %d:%d in guild %d!\n", sd->status.account_id, sd->status.char_id, g->guild_id);
+src\map\guild.c:782:	{	//Note that this works because it is invoked in parse_LoadEndAck before connect_new is cleared.
+src\map\guild.c:838:	//Send XY dot updates. [Skotlex]
+src\map\guild.c:839:	//Moved from guild_send_memberinfoshort [LuzZza]
+src\map\guild.c:853:int guild_send_message(struct map_session_data *sd,const char *mes,int len)
+src\map\guild.c:1131:	}	// end addition [Valaris]
+src\map\guild.c:1244:	}	// end addition [Valaris]
+src\map\guild.c:1425:			storage_guild_storage_quit(sd,1);
+src\map\guild.c:1552:int guild_agit_end(void)
+src\map\guild.c:1553:{	// Run All NPC_Event[OnAgitEnd]
+src\map\guild.c:1554:	int c = npc_event_doall("OnAgitEnd");
+src\map\guild.c:1555:	ShowStatus("NPC_Event:[OnAgitEnd] Run (%d) Events by @AgitEnd.\n",c);
+src\map\guild.c:1566:int guild_agit2_end(void)
+src\map\guild.c:1567:{	// Run All NPC_Event[OnAgitEnd2]
+src\map\guild.c:1568:	int c = npc_event_doall("OnAgitEnd2");
+src\map\guild.c:1569:	ShowStatus("NPC_Event:[OnAgitEnd2] Run (%d) Events by @AgitEnd2.\n",c);
+src\map\guild.c:1599:	add_timer_func_list(guild_send_xy_timer, "guild_send_xy_timer");
+src\map\guild.c:1600:	add_timer_interval(gettick()+GUILD_SEND_XY_INVERVAL,guild_send_xy_timer,0,0,GUILD_SEND_XY_INVERVAL);
+src\map\homunculus.c:115://Emote is the emotion the master should use, send negative to disable.
+src\map\homunculus.c:130:	// Send homunculus_dead to client
+src\map\homunculus.c:375:	if (battle_config.homunculus_friendly_rate != 100)
+src\map\homunculus.c:376:		value = (value * battle_config.homunculus_friendly_rate) / 100;
+src\map\homunculus.c:472:	clif_send_homdata(sd,SP_HUNGRY,hd->homunculus.hunger);
+src\map\homunculus.c:473:	clif_send_homdata(sd,SP_INTIMATE,hd->homunculus.intimacy / 100);
+src\map\homunculus.c:516:		clif_send_homdata(sd,SP_INTIMATE,hd->homunculus.intimacy / 100);
+src\map\homunculus.c:519:	clif_send_homdata(sd,SP_HUNGRY,hd->homunculus.hunger);
+src\map\homunculus.c:671:		clif_send_homdata(sd,SP_ACK,0);
+src\map\homunculus.c:673:		clif_hominfo(sd,hd,0); // send this x2. dunno why, but kRO does that [blackhole89]
+src\map\homunculus.c:717:		clif_send_homdata(sd,SP_ACK,0);
+src\map\homunculus.c:719:		clif_hominfo(sd,hd,0); // send this x2. dunno why, but kRO does that [blackhole89]
+src\map\homunculus.c:802:	clif_send_homdata(sd,SP_ACK,0);
+src\map\intif.c:146:	// Send to the local players
+src\map\intif.c:153:		return 0; //No need to send.
+src\map\intif.c:174:	// Send to the local players
+src\map\intif.c:184:		return 0; //No need to send.
+src\map\intif.c:208:		clif_wis_end(sd->fd, 1);
+src\map\intif.c:234:	WFIFOB(inter_fd,6) = flag; // flag: 0: success to send wisper, 1: target character is not loged in?, 2: ignored by target
+src\map\intif.c:356:int intif_send_guild_storage(int account_id,struct guild_storage *gstor)
+src\map\intif.c:484:		return 0; //No need to send.
+src\map\intif.c:613:		return 0; //No need to send.
+src\map\intif.c:756:// Homunculus Packets send to Inter server [albator]
+src\map\intif.c:846:	//Success to send whisper.
+src\map\intif.c:853:int intif_parse_WisEnd(int fd)
+src\map\intif.c:858:		ShowInfo("intif_parse_wisend: player: %s, flag: %d\n", RFIFOP(fd,2), RFIFOB(fd,26)); // flag: 0: success to send wisper, 1: target character is not loged in?, 2: ignored by target
+src\map\intif.c:861:		clif_wis_end(sd->fd, RFIFOB(fd,26));
+src\map\intif.c:895:	// information is sended to all online GM
+src\map\intif.c:1165:	case GMI_GENDER:     g->member[idx].gender     = RFIFOW(fd,18); break;
+src\map\intif.c:1633: * Send Mail
+src\map\intif.c:1635:int intif_Mail_send(int account_id, struct mail_message *msg)
+src\map\intif.c:1652:static void intif_parse_Mail_send(int fd)
+src\map\intif.c:1660:		ShowError("intif_parse_Mail_send: data size error %d %d\n", RFIFOW(fd,2) - 4, sizeof(struct mail_message));
+src\map\intif.c:1667:	// notify sender
+src\map\intif.c:1668:	sd = map_charid2sd(msg.send_id);
+src\map\intif.c:1675:			clif_Mail_send(sd->fd, false);
+src\map\intif.c:1689:		clif_Mail_new(sd->fd, msg.id, msg.send_name, msg.title);
+src\map\intif.c:1697:	const char* sender_name = (char*)RFIFOP(fd,10);
+src\map\intif.c:1704:	clif_Mail_new(sd->fd, mail_id, sender_name, title);
+src\map\intif.c:1897:// Used to send 'You have won the auction' and 'You failed to won the auction' messages
+src\map\intif.c:1909:#endif
+src\map\intif.c:2033:	case 0x3802:	intif_parse_WisEnd(fd); break;
+src\map\intif.c:2077:	case 0x384d:	intif_parse_Mail_send(fd); break;
+src\map\intif.c:2085:#endif
+src\map\itemdb.c:694: * Applies gender restrictions according to settings. [Skotlex]
+src\map\itemdb.c:696:static int itemdb_gendercheck(struct item_data *id)
+src\map\itemdb.c:707:	return (battle_config.ignore_items_gender) ? 2 : id->sex;
+src\map\itemdb.c:719:		| id | name_english | name_japanese | type | price_buy | price_sell | weight | attack | defence | range | slots | equip_jobs | equip_upper | equip_genders | equip_locations | weapon_level | equip_level | refineable | view | script | equip_script | unequip_script |
+src\map\itemdb.c:732:	//ID,Name,Jname,Type,Price,Sell,Weight,ATK,DEF,Range,Slot,Job,Job Upper,Gender,Loc,wLV,eLV,refineable,View
+src\map\itemdb.c:805:	id->sex = itemdb_gendercheck(id); //Apply gender filtering.
+src\map\itemdb.c:990:#endif /* not TXT_ONLY */
+src\map\itemdb.c:1001:#endif
+src\map\itemdb.c:1031:#endif
+src\map\log.c:50:		case LOG_TYPE_VENDING:          return 'V';  // (V)ending
+src\map\log.c:144:#endif
+src\map\log.c:206:		{//We log Extended item
+src\map\log.c:216:#endif
+src\map\log.c:232:		{//We log Extended item
+src\map\log.c:259:#endif
+src\map\log.c:294:#endif
+src\map\log.c:336:#endif
+src\map\log.c:377:#endif
+src\map\log.c:424:#endif
+src\map\log.c:485:#endif
+src\map\log.c:496://end of common filter settings
+src\map\mail.c:37:		{ // Item send
+src\map\mail.c:57:	{  //Zeny send
+src\map\mail.c:132:	// Removes the attachment from sender
+src\map\mail.c:161:	if( sd->state.storage_flag || sd->state.vending || sd->state.buyingstore || sd->state.trading )
+src\map\mail.c:191:	clif_Mail_send(sd->fd, true);
+src\map\mail.c:206:#endif
+src\map\map.c:48:#endif
+src\map\map.c:56:#endif
+src\map\map.c:82:#endif /* not TXT_ONLY */
+src\map\map.c:84:// This param using for sending mainchat
+src\map\map.c:143:// This is the header appended before every compressed map cells info in the map cache
+src\map\map.c:161:int enable_spy = 0; //To enable/disable @spy commands, which consume too much cpu time when sending packets. [Skotlex]
+src\map\map.c:282:#endif
+src\map\map.c:329:#endif
+src\map\map.c:353:#endif
+src\map\map.c:396:		status_change_end(bl, SC_CLOSECONFINE, INVALID_TIMER);
+src\map\map.c:397:		status_change_end(bl, SC_CLOSECONFINE2, INVALID_TIMER);
+src\map\map.c:398://		status_change_end(bl, SC_BLADESTOP, INVALID_TIMER); //Won't stop when you are knocked away, go figure...
+src\map\map.c:399:		status_change_end(bl, SC_TATAMIGAESHI, INVALID_TIMER);
+src\map\map.c:400:		status_change_end(bl, SC_MAGICROD, INVALID_TIMER);
+src\map\map.c:408:#endif
+src\map\map.c:414:#endif
+src\map\map.c:519:#endif
+src\map\map.c:533:#endif
+src\map\map.c:551:			va_end(ap);
+src\map\map.c:589:#endif
+src\map\map.c:604:#endif
+src\map\map.c:623:			va_end(ap);
+src\map\map.c:683:			va_end(ap);
+src\map\map.c:739:			va_end(ap);
+src\map\map.c:873:			va_end(ap);
+src\map\map.c:919:			va_end(ap);
+src\map\map.c:983:	if (magnitude2 < 1) //Same begin and ending point, can't trace path.
+src\map\map.c:1040:						if (k < 0 || k > len_limit) //Since more skills use this, check for ending point as well.
+src\map\map.c:1044:							continue; //Targets beyond the initial ending point need the wall check.
+src\map\map.c:1079:							continue; //Targets beyond the initial ending point need the wall check.
+src\map\map.c:1109:			va_end(ap);
+src\map\map.c:1152:			va_end(ap);
+src\map\map.c:1397:/// Adds(or replaces) the nick of charid to nick_db and fullfils pending requests.
+src\map\map.c:1423:/// Sends name to all pending requests on charid.
+src\map\map.c:1533:int map_quit(struct map_session_data *sd)
+src\map\map.c:1546:		npc_timerevent_quit(sd);
+src\map\map.c:1554:	//map_quit handles extra specific data which is related to quitting normally
+src\map\map.c:1555:	//(changing map-servers invokes unit_free but bypasses map_quit)
+src\map\map.c:1559:		status_change_end(&sd->bl, SC_BOSSMAPINFO, INVALID_TIMER);
+src\map\map.c:1560:		status_change_end(&sd->bl, SC_AUTOTRADE, INVALID_TIMER);
+src\map\map.c:1561:		status_change_end(&sd->bl, SC_SPURT, INVALID_TIMER);
+src\map\map.c:1562:		status_change_end(&sd->bl, SC_BERSERK, INVALID_TIMER);
+src\map\map.c:1563:		status_change_end(&sd->bl, SC_TRICKDEAD, INVALID_TIMER);
+src\map\map.c:1564:		status_change_end(&sd->bl, SC_GUILDAURA, INVALID_TIMER);
+src\map\map.c:1565:		if(sd->sc.data[SC_ENDURE] && sd->sc.data[SC_ENDURE]->val4)
+src\map\map.c:1566:			status_change_end(&sd->bl, SC_ENDURE, INVALID_TIMER); //No need to save infinite endure.
+src\map\map.c:1567:		status_change_end(&sd->bl, SC_WEIGHT50, INVALID_TIMER);
+src\map\map.c:1568:		status_change_end(&sd->bl, SC_WEIGHT90, INVALID_TIMER);
+src\map\map.c:1570:			status_change_end(&sd->bl, SC_ORCISH, INVALID_TIMER);
+src\map\map.c:1571:			status_change_end(&sd->bl, SC_STRIPWEAPON, INVALID_TIMER);
+src\map\map.c:1572:			status_change_end(&sd->bl, SC_STRIPARMOR, INVALID_TIMER);
+src\map\map.c:1573:			status_change_end(&sd->bl, SC_STRIPSHIELD, INVALID_TIMER);
+src\map\map.c:1574:			status_change_end(&sd->bl, SC_STRIPHELM, INVALID_TIMER);
+src\map\map.c:1575:			status_change_end(&sd->bl, SC_EXTREMITYFIST, INVALID_TIMER);
+src\map\map.c:1576:			status_change_end(&sd->bl, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
+src\map\map.c:1578:				status_change_end(&sd->bl, SC_REGENERATION, INVALID_TIMER);
+src\map\map.c:1580:			status_change_end(&sd->bl, SC_CHANGEUNDEAD, INVALID_TIMER);
+src\map\map.c:1582:			status_change_end(&sd->bl, SC_SLOWCAST, INVALID_TIMER);
+src\map\map.c:1583:			status_change_end(&sd->bl, SC_CRITICALWOUND, INVALID_TIMER);
+src\map\map.c:1587:			status_change_end(&sd->bl, SC_MAXIMIZEPOWER, INVALID_TIMER);
+src\map\map.c:1588:			status_change_end(&sd->bl, SC_MAXOVERTHRUST, INVALID_TIMER);
+src\map\map.c:1589:			status_change_end(&sd->bl, SC_STEELBODY, INVALID_TIMER);
+src\map\map.c:1590:			status_change_end(&sd->bl, SC_PRESERVE, INVALID_TIMER);
+src\map\map.c:1591:			status_change_end(&sd->bl, SC_KAAHI, INVALID_TIMER);
+src\map\map.c:1592:			status_change_end(&sd->bl, SC_SPIRIT, INVALID_TIMER);
+src\map\map.c:1598:	if( sd->state.storage_flag == 1 ) sd->state.storage_flag = 0; // No need to Double Save Storage on Quit.
+src\map\map.c:1799:		va_end(args);
+src\map\map.c:1821:		va_end(args);
+src\map\map.c:1846:			va_end(args);
+src\map\map.c:1869:		va_end(args);
+src\map\map.c:1891:		va_end(args);
+src\map\map.c:2002:			break;// end
+src\map\map.c:2025:			break;// end
+src\map\map.c:2384:		case CELL_CHKNOVENDING:
+src\map\map.c:2385:			return (cell.novending);
+src\map\map.c:2393:#endif
+src\map\map.c:2400:#endif
+src\map\map.c:2409:#endif
+src\map\map.c:2438:		case CELL_NOVENDING:     map[m].cell[j].novending = flag;     break;
+src\map\map.c:2600:		exit(EXIT_FAILURE);
+src\map\map.c:2772:/// Initializes map flags and adjusts them depending on configuration.
+src\map\map.c:2901:			exit(EXIT_FAILURE); //No use launching server if maps can't be read.
+src\map\map.c:2908:			exit(EXIT_FAILURE);
+src\map\map.c:2965:	// intialization and configuration-dependent adjustments of mapflags
+src\map\map.c:3047:		if( strcmpi("shutdown", command) == 0 || strcmpi("exit", command) == 0 || strcmpi("quit", command) == 0 )
+src\map\map.c:3049:			runflag = SERVER_STATE_STOP;
+src\map\map.c:3060:		ShowInfo("To shutdown the server:\n");
+src\map\map.c:3061:		ShowInfo("  server:shutdown\n");
+src\map\map.c:3267:	#endif
+src\map\map.c:3292:		exit(EXIT_FAILURE);
+src\map\map.c:3299:	Sql_PrintExtendedInfo(mmysql_handle);
+src\map\map.c:3327:		exit(EXIT_FAILURE);
+src\map\map.c:3334:	Sql_PrintExtendedInfo(logmysql_handle);
+src\map\map.c:3339:#endif /* not TXT_ONLY */
+src\map\map.c:3372:			map_quit((struct map_session_data *) bl);
+src\map\map.c:3422:		map_quit(sd);
+src\map\map.c:3476:#endif /* not TXT_ONLY */
+src\map\map.c:3514:static void map_helpscreen(bool do_exit)
+src\map\map.c:3530:	if( do_exit )
+src\map\map.c:3531:		exit(EXIT_SUCCESS);
+src\map\map.c:3537:static void map_versionscreen(bool do_exit)
+src\map\map.c:3545:	if( do_exit )
+src\map\map.c:3546:		exit(EXIT_SUCCESS);
+src\map\map.c:3559:void do_shutdown(void)
+src\map\map.c:3561:	if( runflag != SERVER_STATE_SHUTDOWN )
+src\map\map.c:3563:		runflag = SERVER_STATE_SHUTDOWN;
+src\map\map.c:3573:		chrif_check_shutdown();
+src\map\map.c:3596:#endif
+src\map\map.c:3616:			exit(EXIT_FAILURE);
+src\map\map.c:3672:				runflag = SERVER_STATE_STOP;
+src\map\map.c:3677:				exit(EXIT_FAILURE);
+src\map\map.c:3691:				exit(EXIT_FAILURE);
+src\map\map.c:3739:#endif /* not TXT_ONLY */
+src\map\mercenary.c:218:static int merc_contract_end(int tid, unsigned int tick, int id, intptr_t data)
+src\map\mercenary.c:230:		ShowError("merc_contract_end %d != %d.\n", md->contract_timer, tid);
+src\map\mercenary.c:253:		status_change_end(&sd->bl, SC_DEVOTION, INVALID_TIMER);
+src\map\mercenary.c:258:		case 0: mercenary_set_faith(md, 1); break; // +1 Loyalty on Contract ends.
+src\map\mercenary.c:270:		delete_timer(md->contract_timer, merc_contract_end);
+src\map\mercenary.c:277:		md->contract_timer = add_timer(gettick() + md->mercenary.life_time, merc_contract_end, md->master->bl.id, 0);
+src\map\mob.c:77://Defines the Manuk/Splendide mob groups for the status reductions [Epoque]
+src\map\mob.c:79:const int mob_splendide[5] = { 1991, 1992, 1993, 1994, 1995 };
+src\map\mob.c:443:		}	// end addition [Valaris]
+src\map\mob.c:941:	// Nothing will be carried out if there is no mind of changing TAGE by TAGE ending.
+src\map\mob.c:1733:#endif
+src\map\mob.c:2176:	} //End EXP giving.
+src\map\mob.c:2208:			// change drops depending on monsters size [Valaris]
+src\map\mob.c:2788: * Friendly Mob whose HP is decreasing by a nearby MOB is looked for.
+src\map\mob.c:2790:int mob_getfriendhprate_sub(struct block_list *bl,va_list ap)
+src\map\mob.c:2804:	if ((*fr) != NULL) //A friend was already found.
+src\map\mob.c:2816:static struct block_list *mob_getfriendhprate(struct mob_data *md,int min_rate,int max_rate)
+src\map\mob.c:2826:	map_foreachinrange(mob_getfriendhprate_sub, &md->bl, 8, type,md,min_rate,max_rate,&fr);
+src\map\mob.c:2846:int mob_getfriendstatus_sub(struct block_list *bl,va_list ap)
+src\map\mob.c:2872:	if( flag^( cond1==MSC_FRIENDSTATUSOFF ) )
+src\map\mob.c:2878:struct mob_data *mob_getfriendstatus(struct mob_data *md,int cond1,int cond2)
+src\map\mob.c:2883:	map_foreachinrange(mob_getfriendstatus_sub, &md->bl, 8,BL_MOB, md,cond1,cond2,&fr);
+src\map\mob.c:2893:	struct block_list *fbl = NULL; //Friend bl, which can either be a BL_PC or BL_MOB depending on the situation. [Skotlex]
+src\map\mob.c:2961:				case MSC_FRIENDHPLTMAXRATE:	// friend HP < maxhp%
+src\map\mob.c:2962:					flag = ((fbl = mob_getfriendhprate(md, 0, ms[i].cond2)) != NULL); break;
+src\map\mob.c:2963:				case MSC_FRIENDHPINRATE	:
+src\map\mob.c:2964:					flag = ((fbl = mob_getfriendhprate(md, ms[i].cond2, ms[i].val[0])) != NULL); break;
+src\map\mob.c:2965:				case MSC_FRIENDSTATUSON:	// friend status[num] on
+src\map\mob.c:2966:				case MSC_FRIENDSTATUSOFF:	// friend status[num] off
+src\map\mob.c:2967:					flag = ((fmd = mob_getfriendstatus(md, ms[i].cond1, ms[i].cond2)) != NULL); break;					
+src\map\mob.c:3027:				case MST_FRIEND:
+src\map\mob.c:3068:				case MST_FRIEND:
+src\map\mob.c:3141:	if(class_ < MOB_CLONE_START || class_ > MOB_CLONE_END)
+src\map\mob.c:3164:	ARR_FIND( MOB_CLONE_START, MOB_CLONE_END, class_, mob_db_data[class_] == NULL );
+src\map\mob.c:3165:	if(class_ >= MOB_CLONE_END)
+src\map\mob.c:3183:	else if (flag&1) //Friendly Character, remove looting.
+src\map\mob.c:3240:				ms[i].target = MST_FRIEND;
+src\map\mob.c:3241:				ms[i].cond1 = MSC_FRIENDHPLTMAXRATE;
+src\map\mob.c:3264:			ms[i].target = MST_FRIEND;
+src\map\mob.c:3265:			ms[i].cond1 = MSC_FRIENDHPLTMAXRATE;
+src\map\mob.c:3309:		if (flag&1) //Friendly Character
+src\map\mob.c:3329:	if (class_ >= MOB_CLONE_START && class_ < MOB_CLONE_END
+src\map\mob.c:3427:	if (class_ >= MOB_CLONE_START && class_ < MOB_CLONE_END) {
+src\map\mob.c:3428:		ShowError("mob_parse_dbrow: Invalid monster ID %d. Range %d-%d is reserved for player clones. Please increase MAX_MOB_DB (%d).\n", class_, MOB_CLONE_START, MOB_CLONE_END-1, MAX_MOB_DB);
+src\map\mob.c:3732:#endif /* not TXT_ONLY */
+src\map\mob.c:3983:		{ "friendhpltmaxrate", MSC_FRIENDHPLTMAXRATE },
+src\map\mob.c:3984:		{ "friendhpinrate",    MSC_FRIENDHPINRATE    },
+src\map\mob.c:3987:		{ "friendstatuson",    MSC_FRIENDSTATUSON    },
+src\map\mob.c:3988:		{ "friendstatusoff",   MSC_FRIENDSTATUSOFF   },
+src\map\mob.c:4020:		{	"friend",	MST_FRIEND	},
+src\map\mob.c:4282:#endif /* TXT_ONLY */
+src\map\npc.c:72:		ShowFatalError("npc_get_new_npc_id: All ids are taken. Exiting...");
+src\map\npc.c:73:		exit(1);
+src\map\npc.c:267:			exit(EXIT_FAILURE);
+src\map\npc.c:270:			exit(EXIT_FAILURE);
+src\map\npc.c:449:			exit(EXIT_FAILURE);
+src\map\npc.c:636:void npc_timerevent_quit(struct map_session_data* sd)
+src\map\npc.c:657:	// Execute OnTimerQuit
+src\map\npc.c:663:		snprintf(buf, ARRAYLENGTH(buf), "%s::OnTimerQuit", nd->exname);
+src\map\npc.c:667:			ShowWarning("npc_timerevent_quit: Unable to execute \"OnTimerQuit\", two NPCs have the same event name [%s]!\n",buf);
+src\map\npc.c:1277:/// @return result code for clif_parse_NpcBuyListSend
+src\map\npc.c:1431:/// @return result code for clif_parse_NpcSellListSend
+src\map\npc.c:1596:#endif
+src\map\npc.c:2096:					script_error(buffer, filepath, 0, "Unexpected end of string.", p);
+src\map\npc.c:2107:		{// end of buffer
+src\map\npc.c:2127:	const char* end;
+src\map\npc.c:2151:	end = strchr(start,'\n');
+src\map\npc.c:2152:	if( strstr(w4,",{") == NULL || script_start == NULL || (end != NULL && script_start > end) )
+src\map\npc.c:2159:	end = npc_skip_script(script_start, buffer, filepath);
+src\map\npc.c:2160:	if( end == NULL )
+src\map\npc.c:2274:	return end;
+src\map\npc.c:2289:	const char* end;
+src\map\npc.c:2297:	end = strchr(start,'\n');
+src\map\npc.c:2304:		return end;// next line, try to continue
+src\map\npc.c:2311:		return end;// next line, try to continue
+src\map\npc.c:2327:			return end;// next line, try to continue
+src\map\npc.c:2338:		return end;// next line, try to continue
+src\map\npc.c:2409:		return end;
+src\map\npc.c:2462:	return end;
+src\map\npc.c:2659:	const char* end;
+src\map\npc.c:2663:	end = strchr(start,'\n');
+src\map\npc.c:2664:	if( *w4 != '{' || script_start == NULL || (end != NULL && script_start > end) )
+src\map\npc.c:2671:	end = npc_skip_script(script_start,buffer,filepath);
+src\map\npc.c:2672:	if( end == NULL )
+src\map\npc.c:2677:		return end;
+src\map\npc.c:2689:	return end;
+src\map\npc.c:3049:	else if (!strcmpi(w3,"novending"))
+src\map\npc.c:3050:		map[m].flag.novending=state;
+src\map\npc.c:3199:		// fill w4 (to end of line)
+src\map\npc.c:3542:	//Debug function to locate all endless loop warps.
+src\map\npc.c:3565:	// End of initialization
+src\map\npc_chat.c:286:	// Normally we would have just stuck it at the end of the list but
+src\map\npc_chat.c:291:	/*  if we are the first pattern, stick us at the end */
+src\map\npc_chat.c:450:#endif //PCRE_SUPPORT
+src\map\party.c:35:int party_send_xy_timer(int tid, unsigned int tick, int id, intptr_t data);
+src\map\party.c:130:	add_timer_func_list(party_send_xy_timer, "party_send_xy_timer");
+src\map\party.c:131:	add_timer_interval(gettick()+battle_config.party_update_interval, party_send_xy_timer, 0, 0, battle_config.party_update_interval);
+src\map\party.c:204:		//We don't do any further work here because the char-server sends a party info packet right after creating the party.
+src\map\party.c:553:/// Party member 'sd' requesting exit from party.
+src\map\party.c:751:void party_send_movemap(struct map_session_data *sd)
+src\map\party.c:785:void party_send_levelup(struct map_session_data *sd)
+src\map\party.c:790:int party_send_logout(struct map_session_data *sd)
+src\map\party.c:806:		ShowError("party_send_logout: Failed to locate member %d:%d in party %d!\n", sd->status.account_id, sd->status.char_id, p->party.party_id);
+src\map\party.c:811:int party_send_message(struct map_session_data *sd,const char *mes,int len)
+src\map\party.c:867:						0,0,skill_get_time(SG_FRIEND, 1));
+src\map\party.c:873:					&& pc_checkskill(p_sd,SG_FRIEND)) {
+src\map\party.c:875:						50+50*pc_checkskill(p_sd,SG_FRIEND), //+100/150/200% rate
+src\map\party.c:876:						0,0,skill_get_time(SG_FRIEND, 1));
+src\map\party.c:884:int party_send_xy_timer(int tid, unsigned int tick, int id, intptr_t data)
+src\map\party.c:918:int party_send_xy_clear(struct party_data *p)
+src\map\party.c:1043:int party_send_dot_remove(struct map_session_data *sd)
+src\map\party.c:1106:		va_end(ap);
+src\map\path.c:57:		exit(EXIT_FAILURE);
+src\map\path.c:294:#endif
+src\map\path.c:434:#endif
+src\map\path.c:463:#endif
+src\map\pc.c:289:	// send status packet
+src\map\pc.c:426:static int pc_inventory_rental_end(int tid, unsigned int tick, int id, intptr_t data)
+src\map\pc.c:433:		ShowError("pc_inventory_rental_end: invalid timer id.\n");
+src\map\pc.c:445:		delete_timer(sd->rental_timer, pc_inventory_rental_end);
+src\map\pc.c:479:		sd->rental_timer = add_timer(gettick() + min(next_tick,3600000), pc_inventory_rental_end, sd->bl.id, 0);
+src\map\pc.c:496:		{ // Update Timer as this one ends first than the current one
+src\map\pc.c:498:			sd->rental_timer = add_timer(gettick() + tick, pc_inventory_rental_end, sd->bl.id, 0);
+src\map\pc.c:502:		sd->rental_timer = add_timer(gettick() + min(tick,3600000), pc_inventory_rental_end, sd->bl.id, 0);
+src\map\pc.c:506:	Determines if the GM can give / drop / trade / vend items
+src\map\pc.c:961:	sd->cansendmail_tick = tick;
+src\map\pc.c:1041:	// Send friends list
+src\map\pc.c:1042:	clif_friendslist_send(sd);
+src\map\pc.c:1183:#endif
+src\map\pc.c:1186:	{	//Character already loaded map! Gotta trigger LoadEndAck manually.
+src\map\pc.c:1188:		clif_parse_LoadEndAck(sd->fd, sd);
+src\map\pc.c:1193:#endif
+src\map\pc.c:1436:// before persisting to the backend.. [MouseJstr]
+src\map\pc.c:1469:	//Do not send S. Novices to first class (Novice)
+src\map\pc.c:1473:		//Send it to first class.
+src\map\pc.c:1506:		status_change_end(&sd->bl, SC_WEIGHT50, INVALID_TIMER);
+src\map\pc.c:1508:		status_change_end(&sd->bl, SC_WEIGHT90, INVALID_TIMER);
+src\map\pc.c:1605:		;  // each autospell works independently
+src\map\pc.c:1780:				delete_timer(autobonus[i].active,pc_endautobonus);
+src\map\pc.c:1808:	autobonus->active = add_timer(gettick()+autobonus->duration, pc_endautobonus, sd->bl.id, (intptr_t)autobonus);
+src\map\pc.c:1815:int pc_endautobonus(int tid, unsigned int tick, int id, intptr_t data)
+src\map\pc.c:2035:		//If this is called outside of status_calc_pc, you'd better pray they do not underflow and end with UINT_MAX max_hp.
+src\map\pc.c:3585:		sd->state.trading || sd->state.vending ||
+src\map\pc.c:3795:	//Gender check
+src\map\pc.c:4027:	if( item_data->nameid == 0 || amount < 1 || item_data->amount < amount || sd->state.vending )
+src\map\pc.c:4067:	if(item_data->nameid==0 || amount < 1 || item_data->amount<amount || sd->state.vending )
+src\map\pc.c:4261:			status_change_end(&sd->bl, SC_BOSSMAPINFO, INVALID_TIMER);
+src\map\pc.c:4262:			status_change_end(&sd->bl, SC_WARM, INVALID_TIMER);
+src\map\pc.c:4263:			status_change_end(&sd->bl, SC_SUN_COMFORT, INVALID_TIMER);
+src\map\pc.c:4264:			status_change_end(&sd->bl, SC_MOON_COMFORT, INVALID_TIMER);
+src\map\pc.c:4265:			status_change_end(&sd->bl, SC_STAR_COMFORT, INVALID_TIMER);
+src\map\pc.c:4266:			status_change_end(&sd->bl, SC_MIRACLE, INVALID_TIMER);
+src\map\pc.c:4276:		party_send_dot_remove(sd); //minimap dot fix [Kevin]
+src\map\pc.c:4277:		guild_send_dot_remove(sd);
+src\map\pc.c:4278:		bg_send_dot_remove(sd);
+src\map\pc.c:4366:	// If the player is changing maps, end cloaking.
+src\map\pc.c:4369:		status_change_end(&sd->bl, SC_CLOAKING, INVALID_TIMER);
+src\map\pc.c:4542:		SC_DEFENDER,
+src\map\pc.c:4555:			status_change_end(&sd->bl, scw_list[i], INVALID_TIMER);
+src\map\pc.c:4560:		status_change_end(&sd->bl, SC_SPURT, INVALID_TIMER);
+src\map\pc.c:4565:				status_change_end(&sd->bl, scs_list[i], INVALID_TIMER);
+src\map\pc.c:5008:		party_send_levelup(sd);
+src\map\pc.c:5143:#endif
+src\map\pc.c:5319:		pc_onstatuschanged(sd,type); // send after the 'ack' to override the truncated value
+src\map\pc.c:5356:		pc_onstatuschanged(sd,type); // send after the 'ack' to override the truncated value
+src\map\pc.c:5525:	pc_onstatuschanged(sd,SP_ULUK);	// End Addition
+src\map\pc.c:5534:		party_send_levelup(sd);
+src\map\pc.c:5549:	{	// New statpoint table used here - Dexity
+src\map\pc.c:5591:	pc_onstatuschanged(sd,SP_ULUK);	// End Addition
+src\map\pc.c:5772:		clif_resurrection(&sd->bl, 1); //If warping fails, send a normal stand up packet.
+src\map\pc.c:5823:			status_change_end(&devsd->bl, SC_DEVOTION, INVALID_TIMER);
+src\map\pc.c:5835:			clif_send_petdata(sd,sd->pd,1,pd->pet.intimate);
+src\map\pc.c:5944:#endif
+src\map\pc.c:6227:			party_send_levelup(sd);
+src\map\pc.c:6484:	//This will automatically adjust bard/dancer classes to the correct gender
+src\map\pc.c:6520:				status_change_end(&sd->bl, sc, INVALID_TIMER);
+src\map\pc.c:6607:#endif
+src\map\pc.c:7086:		ShowError("pc_setregistry_str : reg %s must be string (end in '$') to use this!\n", reg);
+src\map\pc.c:7377:	//Added check to prevent sending the same look on multiple slots ->
+src\map\pc.c:7507:		skill_enchant_elemental_end(&sd->bl,-1);
+src\map\pc.c:7511:		status_change_end(&sd->bl, SC_BENEDICTIO, INVALID_TIMER);
+src\map\pc.c:7512:		status_change_end(&sd->bl, SC_ARMOR_RESIST, INVALID_TIMER);
+src\map\pc.c:7526:		status_change_end(&sd->bl, SC_SIGNUMCRUCIS, INVALID_TIMER);
+src\map\pc.c:7560:	if( sd->state.vending ) //Avoid reorganizing items when we are vending, as that leads to exploits (pointed out by End of Exam)
+src\map\pc.c:7725:#endif
+src\map\pc.c:7956:	status_change_end(&sd->bl, SC_TENSIONRELAX, INVALID_TIMER);
+src\map\pc.c:8121:		//We send one less and then one more because the last entry in the exp array should hold 0.
+src\map\pc.c:8329:	add_timer_func_list(pc_inventory_rental_end, "pc_inventory_rental_end");
+src\map\pc.c:8334:	add_timer_func_list(pc_endautobonus, "pc_endautobonus");
+src\map\pet.c:69:	if( (intimate >= battle_config.pet_equip_min_friendly && pd->pet.intimate < battle_config.pet_equip_min_friendly) || (intimate < battle_config.pet_equip_min_friendly && pd->pet.intimate >= battle_config.pet_equip_min_friendly) )
+src\map\pet.c:139:		pd->pet.intimate < battle_config.pet_support_min_friendly ||
+src\map\pet.c:220:		pet_set_intimate(pd, pd->pet.intimate - battle_config.pet_hungry_friendly_decrease);
+src\map\pet.c:227:		clif_send_petdata(sd,pd,1,pd->pet.intimate);
+src\map\pet.c:229:	clif_send_petdata(sd,pd,2,pd->pet.hungry);
+src\map\pet.c:332:			//Wrong pet?? Set incuvate to no and send it back for saving.
+src\map\pet.c:413:		clif_send_petdata(sd,sd->pd, 0,0);
+src\map\pet.c:414:		clif_send_petdata(sd,sd->pd, 5,battle_config.pet_hair_style);
+src\map\pet.c:416:		clif_send_petstatus(sd);
+src\map\pet.c:454:			clif_send_petdata(sd,sd->pd,0,0);
+src\map\pet.c:455:			clif_send_petdata(sd,sd->pd,5,battle_config.pet_hair_style);
+src\map\pet.c:457:			clif_send_petstatus(sd);
+src\map\pet.c:593:			clif_send_petstatus(sd);
+src\map\pet.c:635:		clif_send_petstatus(sd); //Send status so client knows oet name change got rejected.
+src\map\pet.c:642:	clif_send_petstatus(sd);
+src\map\pet.c:743:		if( battle_config.pet_friendly_rate != 100 )
+src\map\pet.c:744:			k = (pd->petDB->r_hungry * battle_config.pet_friendly_rate)/100;
+src\map\pet.c:768:	clif_send_petdata(sd,pd,2,pd->pet.hungry);
+src\map\pet.c:769:	clif_send_petdata(sd,pd,1,pd->pet.intimate);
+src\map\pet.c:1103:		status_change_end(&sd->bl, pd->recovery->type, INVALID_TIMER);
+src\map\quest.c:51://Send quest info on login
+src\map\quest.c:57:	clif_quest_send_list(sd);
+src\map\quest.c:58:	clif_quest_send_mission(sd);
+src\map\script.c:59:#endif
+src\map\script.c:84:#define script_hasdata(st,i) ( (st)->end > (st)->start + (i) )
+src\map\script.c:86:#define script_lastdata(st) ( (st)->end - (st)->start - 1 )
+src\map\script.c:114:/// Removes the range of values [start,end[ relative to the top of the stack
+src\map\script.c:115:#define script_removetop(st,start,end) ( pop_stack((st), ((st)->stack->sp + (start)), (st)->stack->sp + (end)) )
+src\map\script.c:353:	MF_NOVENDING,
+src\map\script.c:422:	ShowMessage("\tend   = %d\n", st->end);
+src\map\script.c:457:#endif
+src\map\script.c:642:#endif
+src\map\script.c:685:	{// scan for end of list, or occurence of identical string
+src\map\script.c:691:				break; // reached the end
+src\map\script.c:694:		// append node to end of list
+src\map\script.c:729:/// Appends 1 byte to the script buffer.
+src\map\script.c:740:/// Appends a c_op value to the script buffer.
+src\map\script.c:755:/// Appends an integer value to the script buffer.
+src\map\script.c:769:/// Appends a str_data object (label/function/variable/integer) to the script buffer.
+src\map\script.c:855:					return p;//disp_error_message("script:skip_space: end of file while parsing block comment. expected "CL_BOLD"*/"CL_NORM, p);
+src\map\script.c:857:				{// end of block comment
+src\map\script.c:1013:/// Processes end of logical script line.
+src\map\script.c:1020:		add_scriptc(C_EOL);  // mark end of line for stack cleanup
+src\map\script.c:1039:		disp_error_message("parse_simpleexpr: unexpected expr end",p);
+src\map\script.c:1755:		// if-block and else-block end is a new line
+src\map\script.c:1834:		// do-block end is a new line
+src\map\script.c:1864:		// for-block end is a new line
+src\map\script.c:1880:		// while-block end is a new line
+src\map\script.c:2030:	StringBuf_AppendStr(buf, "\n");
+src\map\script.c:2044:		const char *lineend=strchr(p,'\n');
+src\map\script.c:2045:		if(lineend==NULL || error_pos<lineend){
+src\map\script.c:2052:		p=lineend+1;
+src\map\script.c:2056:	StringBuf_AppendStr(&buf, "\a\n");
+src\map\script.c:2079:	char end;
+src\map\script.c:2133:		end = '\0';
+src\map\script.c:2148:		end = '}';
+src\map\script.c:2163:	while( syntax.curly_count != 0 || *p != end )
+src\map\script.c:2166:			disp_error_message("unexpected end of script",p);
+src\map\script.c:2223:#endif
+src\map\script.c:2254:#endif
+src\map\script.c:2272:		st->state = END;
+src\map\script.c:2491:					st->state = END;
+src\map\script.c:2598:#endif
+src\map\script.c:2630:#endif
+src\map\script.c:2699:		ShowFatalError("script:push_copy: can't create copies of C_RETINFO. Exiting...\n");
+src\map\script.c:2700:		exit(1);
+src\map\script.c:2712:/// Removes the values in indexes [start,end[ from the stack.
+src\map\script.c:2714:void pop_stack(struct script_state* st, int start, int end)
+src\map\script.c:2722:	if( end > stack->sp )
+src\map\script.c:2723:		end = stack->sp;
+src\map\script.c:2724:	if( start >= end )
+src\map\script.c:2728:	for( i = start; i < end; i++ )
+src\map\script.c:2746:	if( stack->sp > end )
+src\map\script.c:2748:		memmove(&stack->stack_data[start], &stack->stack_data[end], sizeof(stack->stack_data[0])*(stack->sp - end));
+src\map\script.c:2749:		for( i = start + stack->sp - end; i < stack->sp; ++i )
+src\map\script.c:2753:	     if( st->start > end )   st->start -= end - start;
+src\map\script.c:2755:	     if( st->end > end )   st->end -= end - start;
+src\map\script.c:2756:	else if( st->end > start ) st->end = start;
+src\map\script.c:2757:	     if( stack->defsp > end )   stack->defsp -= end - start;
+src\map\script.c:2759:	stack->sp -= end - start;
+src\map\script.c:2945:		st->state = END;
+src\map\script.c:2981:			st->state = END;
+src\map\script.c:3064:		st->state = END;
+src\map\script.c:3086:		st->state = END;
+src\map\script.c:3101:		st->state = END;
+src\map\script.c:3111:/// @param func Built-in function for which the arguments are intended.
+src\map\script.c:3202:	int i,start_sp,end_sp,func;
+src\map\script.c:3204:	end_sp = st->stack->sp;// position after the last argument
+src\map\script.c:3205:	for( i = end_sp-1; i > 0 ; --i )
+src\map\script.c:3211:		st->state = END;
+src\map\script.c:3217:	st->end = end_sp;
+src\map\script.c:3227:		st->state = END;
+src\map\script.c:3242:		st->state = END;
+src\map\script.c:3249:	pop_stack(st, st->start, st->end);
+src\map\script.c:3261:			st->state = END;
+src\map\script.c:3293:	// TODO In jAthena, this function can take over the pending script in the player. [FlavioJS]
+src\map\script.c:3344:		st->state = END;
+src\map\script.c:3438:	} else if(st->state != END)
+src\map\script.c:3473:					st->state=END;
+src\map\script.c:3510:			st->state=END;
+src\map\script.c:3515:			st->state=END;
+src\map\script.c:3521:			st->state=END;
+src\map\script.c:3535:	else if(st->state != END && st->rid){
+src\map\script.c:3784:#endif
+src\map\script.c:3853:/// Appends a message to the npc dialog.
+src\map\script.c:3884:/// Ends the script and displays the button 'close' on the npc dialog.
+src\map\script.c:3896:	st->state = END;
+src\map\script.c:3989:			st->state = END;
+src\map\script.c:4007:				st->state = END;
+src\map\script.c:4011:			// append option(s)
+src\map\script.c:4015:				StringBuf_AppendStr(&buf, ":");
+src\map\script.c:4016:			StringBuf_AppendStr(&buf, text);
+src\map\script.c:4033:		st->state = END;
+src\map\script.c:4043:			st->state = END;
+src\map\script.c:4058:			st->state = END;
+src\map\script.c:4065:			st->state = END;
+src\map\script.c:4101:				StringBuf_AppendStr(&buf, ":");
+src\map\script.c:4102:			StringBuf_AppendStr(&buf, text);
+src\map\script.c:4120:		st->state = END;
+src\map\script.c:4169:				StringBuf_AppendStr(&buf, ":");
+src\map\script.c:4170:			StringBuf_AppendStr(&buf, text);
+src\map\script.c:4224:		st->state = END;
+src\map\script.c:4247:		st->state = END;
+src\map\script.c:4251:	for( i = st->start+3, j = 0; i < st->end; i++, j++ )
+src\map\script.c:4293:		st->state = END;
+src\map\script.c:4297:	for( i = st->start+3, j = 0; i < st->end; i++, j++ )
+src\map\script.c:4336:		st->state = END;
+src\map\script.c:4350:		st->state = END;
+src\map\script.c:4836:		st->state = END;
+src\map\script.c:4890:		st->state = END;
+src\map\script.c:4960:	int32 end;
+src\map\script.c:4970:		st->state = END;
+src\map\script.c:4981:		st->state = END;
+src\map\script.c:4992:	end = start + script_lastdata(st) - 2;
+src\map\script.c:4993:	if( end > SCRIPT_MAX_ARRAYSIZE )
+src\map\script.c:4994:		end = SCRIPT_MAX_ARRAYSIZE;
+src\map\script.c:4998:		for( i = 3; start < end; ++start, ++i )
+src\map\script.c:5003:		for( i = 3; start < end; ++start, ++i )
+src\map\script.c:5018:	int32 end;
+src\map\script.c:5028:		st->state = END;
+src\map\script.c:5039:		st->state = END;
+src\map\script.c:5055:	end = start + script_getnum(st, 4);
+src\map\script.c:5056:	if( end > SCRIPT_MAX_ARRAYSIZE )
+src\map\script.c:5057:		end = SCRIPT_MAX_ARRAYSIZE;
+src\map\script.c:5059:	for( ; start < end; ++start )
+src\map\script.c:5090:		st->state = END;
+src\map\script.c:5105:		st->state = END;
+src\map\script.c:5114:		st->state = END;
+src\map\script.c:5173:		st->state = END;
+src\map\script.c:5183:		st->state = END;
+src\map\script.c:5201:	int end;
+src\map\script.c:5210:		st->state = END;
+src\map\script.c:5221:		st->state = END;
+src\map\script.c:5232:	end = SCRIPT_MAX_ARRAYSIZE;
+src\map\script.c:5234:	if( start >= end )
+src\map\script.c:5240:		if( count > end - start )
+src\map\script.c:5241:			count = end - start;
+src\map\script.c:5246:		for( ; start + count < end; ++start )
+src\map\script.c:5257:		for( ; start < end; ++start )
+src\map\script.c:5262:		for( ; start < end; ++start )
+src\map\script.c:5285:		st->state = END;
+src\map\script.c:5296:		st->state = END;
+src\map\script.c:5306:		st->state = END;
+src\map\script.c:6141:			st->state = END;
+src\map\script.c:6161:			st->state = END;
+src\map\script.c:6172:			st->state = END;
+src\map\script.c:6188:	st->state = END;
+src\map\script.c:6210:			st->state = END;
+src\map\script.c:6230:			st->state = END;
+src\map\script.c:6241:			st->state = END;
+src\map\script.c:6264:	st->state = END;
+src\map\script.c:7368:/// end
+src\map\script.c:7369:BUILDIN_FUNC(end)
+src\map\script.c:7371:	st->state = END;
+src\map\script.c:8578:		send_target target;
+src\map\script.c:9010:/// Ends one or all status effects on the target unit or on the attached player.
+src\map\script.c:9012:/// sc_end <effect_id>{,<unit_id>};
+src\map\script.c:9013:BUILDIN_FUNC(sc_end)
+src\map\script.c:9036:		//This should help status_change_end force disabling the SC in case it has no limit.
+src\map\script.c:9038:		status_change_end(bl, (sc_type)type, INVALID_TIMER);
+src\map\script.c:9177:	{// do not send egg list, when you already have a pet
+src\map\script.c:9181:	clif_sendegg(sd);
+src\map\script.c:9651:			case MF_NOVENDING:			script_pushint(st,map[m].flag.novending); break;
+src\map\script.c:9721:			case MF_NOVENDING:			map[m].flag.novending=1; break;
+src\map\script.c:9788:			case MF_NOVENDING:			map[m].flag.novending=0; break;
+src\map\script.c:9991:BUILDIN_FUNC(agitend)
+src\map\script.c:9993:	if(agit_flag==0) return 0;      // Agit already End.
+src\map\script.c:9995:	guild_agit_end();
+src\map\script.c:10007:BUILDIN_FUNC(agitend2)
+src\map\script.c:10009:	if(agit2_flag==0) return 0;      // Agit2 already End.
+src\map\script.c:10011:	guild_agit2_end();
+src\map\script.c:11466:	enum send_target target = script_hasdata(st,3) ? (send_target)script_getnum(st,3) : AREA;
+src\map\script.c:11495:	enum send_target target = script_hasdata(st,3) ? (send_target)script_getnum(st,3) : AREA;
+src\map\script.c:11647: * 3:friendly 4:hungry, 5: rename flag.
+src\map\script.c:11680: * 3:friendly 4:hungry, 5: rename flag.
+src\map\script.c:11807:			st->state=END;
+src\map\script.c:11900: * npctalk (sends message to surrounding area)
+src\map\script.c:12708:// substr <str>, <start>, <end>
+src\map\script.c:12714:	int end = script_getnum(st,4);
+src\map\script.c:12716:	if( start >= 0 && start <= end && (unsigned int)end < strlen(str) )
+src\map\script.c:12718:		int len = end + 1 - start;
+src\map\script.c:12755:		st->state = END;
+src\map\script.c:12767:		st->state = END;
+src\map\script.c:12775:		st->state = END;
+src\map\script.c:12826:		st->state = END;
+src\map\script.c:12837:		st->state = END;
+src\map\script.c:12845:		st->state = END;
+src\map\script.c:12863:		st->state = END;
+src\map\script.c:13106:					st->state = END;
+src\map\script.c:13117:			st->state = END;
+src\map\script.c:13181:#endif
+src\map\script.c:13191:#endif
+src\map\script.c:13209:#endif
+src\map\script.c:13226:#endif
+src\map\script.c:13253:		char* end = NULL;
+src\map\script.c:13255:		idx = strtol(p2, &end, 0);
+src\map\script.c:13256:		if( p2 != NULL && p2 != end )
+src\map\script.c:13258:			p2 = skip_space(end);
+src\map\script.c:13272:		st->state = END;
+src\map\script.c:13279:		st->state = END;
+src\map\script.c:13286:		st->state = END;
+src\map\script.c:13293:		st->state = END;
+src\map\script.c:13419:	// append new items to existing shop item list
+src\map\script.c:13615:BUILDIN_FUNC(checkvending) // check vending [Nab4]
+src\map\script.c:13625:		script_pushint(st,sd->state.vending);
+src\map\script.c:13679:		st->state = END;
+src\map\script.c:13690:		st->state = END;
+src\map\script.c:13705:		st->state = END;
+src\map\script.c:14192:				tst->state = END;
+src\map\script.c:14227:		st->state = END;
+src\map\script.c:14237:		st->state = END;
+src\map\script.c:14246:		st->state = END;
+src\map\script.c:14305:#endif
+src\map\script.c:14319:#endif
+src\map\script.c:14386:#endif
+src\map\script.c:15120:		st->state = END;
+src\map\script.c:15298:#endif
+src\map\script.c:15427:#endif
+src\map\script.c:15522:	BUILDIN_DEF(end,""),
+src\map\script.c:15576:	BUILDIN_DEF(sc_end,"i?"),
+src\map\script.c:15610:	BUILDIN_DEF(agitend,""),
+src\map\script.c:15689:#endif
+src\map\script.c:15699:	BUILDIN_DEF(getmapmobs,"s"), //end jA addition
+src\map\script.c:15774:	BUILDIN_DEF(checkvending,"?"),
+src\map\script.c:15800:	BUILDIN_DEF(agitend2,""),
+src\map\searchstore.c:27:	SEARCHTYPE_VENDING      = 0,
+src\map\searchstore.c:50:		case SEARCHTYPE_VENDING:      return &vending_search;
+src\map\searchstore.c:62:		case SEARCHTYPE_VENDING:      return &vending_searchall;
+src\map\searchstore.c:74:		case SEARCHTYPE_VENDING:      return sd->state.vending;
+src\map\searchstore.c:86:		case SEARCHTYPE_VENDING:      return sd->vender_id;
+src\map\searchstore.c:322:	{// no longer vending/buying or not same shop
+src\map\searchstore.c:358:				case SEARCHTYPE_VENDING:      vending_vendinglistreq(sd, account_id); break;
+src\map\skill.c:280:		 * rather than spend too long walking normally first.
+src\map\skill.c:418:		return 0; // gonna be checked in 'skill_castend_nodamage_id'
+src\map\skill.c:428:	case MC_VENDING:
+src\map\skill.c:622:				skill_castend_damage_id(src, bl, HT_BLITZBEAT, (skill < rate) ? skill : rate, tick, SD_LEVEL);
+src\map\skill.c:650:				{ // additional chance from SG_FRIEND [Komurka]
+src\map\skill.c:655:						status_change_end(src, SC_SKILLRATE_UP, INVALID_TIMER);
+src\map\skill.c:964:			status_change_end(bl, SC_SPIRIT, INVALID_TIMER);
+src\map\skill.c:965:			status_change_end(bl, SC_ADRENALINE2, INVALID_TIMER);
+src\map\skill.c:966:			status_change_end(bl, SC_KAITE, INVALID_TIMER);
+src\map\skill.c:967:			status_change_end(bl, SC_KAAHI, INVALID_TIMER);
+src\map\skill.c:968:			status_change_end(bl, SC_ONEHAND, INVALID_TIMER);
+src\map\skill.c:969:			status_change_end(bl, SC_ASPDPOTION2, INVALID_TIMER);
+src\map\skill.c:1102:				skill_castend_pos2(src, tbl->x, tbl->y, skill, skilllv, tick, 0);
+src\map\skill.c:1105:				skill_castend_nodamage_id(src, tbl, skill, skilllv, tick, 0);
+src\map\skill.c:1108:				skill_castend_damage_id(src, tbl, skill, skilllv, tick, 0);
+src\map\skill.c:1212:			skill_castend_pos2(&sd->bl, tbl->x, tbl->y, skill, skilllv, tick, 0);
+src\map\skill.c:1215:			skill_castend_nodamage_id(&sd->bl, tbl, skill, skilllv, tick, 0);
+src\map\skill.c:1218:			skill_castend_damage_id(&sd->bl, tbl, skill, skilllv, tick, 0);
+src\map\skill.c:1316:				clif_send_homdata(hd->master, SP_INTIMATE, hd->homunculus.intimacy / 100);
+src\map\skill.c:1398:				skill_castend_pos2(bl, tbl->x, tbl->y, skillid, skilllv, tick, 0);
+src\map\skill.c:1401:				skill_castend_nodamage_id(bl, tbl, skillid, skilllv, tick, 0);
+src\map\skill.c:1404:				skill_castend_damage_id(bl, tbl, skillid, skilllv, tick, 0);
+src\map\skill.c:1664:			status_change_end(bl, SC_KAITE, INVALID_TIMER);
+src\map\skill.c:1830:		{ // End combo state after skill is invoked. [Skotlex]
+src\map\skill.c:1838:				{						 // Extend combo time.
+src\map\skill.c:1849:					status_change_end(src, SC_COMBO, INVALID_TIMER);
+src\map\skill.c:1863:			if (sd->status.party_id > 0) // bonus from SG_FRIEND [Komurka]
+src\map\skill.c:1883:		{ // bonus from SG_FRIEND [Komurka]
+src\map\skill.c:1885:			if (sd->status.party_id > 0 && (level = pc_checkskill(sd, SG_FRIEND)))
+src\map\skill.c:1898:		} // Switch End
+src\map\skill.c:2036:			status_change_end(bl, SC_DEVOTION, INVALID_TIMER);
+src\map\skill.c:2459:				map_foreachinrange(skill_area_sub, src, skill_get_splash(skl->skill_id, skl->skill_lv), splash_target(src), src, skl->skill_id, skl->skill_lv, tick, skl->flag, skill_castend_damage_id);
+src\map\skill.c:2475:						status_change_end(src, SC_MAGICPOWER, INVALID_TIMER);
+src\map\skill.c:2583:int skill_castend_damage_id(struct block_list *src, struct block_list *bl, int skillid, int skilllv, unsigned int tick, int flag)
+src\map\skill.c:2610:			status_change_end(bl, sct, INVALID_TIMER);
+src\map\skill.c:2749:							   skill_castend_damage_id);
+src\map\skill.c:2796:		// It won't shoot through walls since on castend there has to be a direct
+src\map\skill.c:2817:		status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
+src\map\skill.c:2825:	// 		status_change_end(src, SC_HIDING, INVALID_TIMER);
+src\map\skill.c:2836:	 * 2) skill_castend_damage_id() active RG_BACKSTAP block
+src\map\skill.c:2982:		status_change_end(src, SC_HIDING, INVALID_TIMER);
+src\map\skill.c:3014:		status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
+src\map\skill.c:3019:		status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
+src\map\skill.c:3023:		status_change_end(src, SC_NEN, INVALID_TIMER);
+src\map\skill.c:3024:		status_change_end(src, SC_HIDING, INVALID_TIMER);
+src\map\skill.c:3029:			status_change_end(src, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
+src\map\skill.c:3030:			status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
+src\map\skill.c:3136:			// recursive invocation of skill_castend_damage_id() with flag|1
+src\map\skill.c:3137:			map_foreachinrange(skill_area_sub, bl, skill_get_splash(skillid, skilllv), splash_target(src), src, skillid, skilllv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+src\map\skill.c:3191:				map_foreachinrange(skill_area_sub, bl, skill_get_splash(skillid, skilllv), splash_target(src), src, skillid, skilllv, tick, flag | BCT_ENEMY | 1, skill_castend_damage_id);
+src\map\skill.c:3219:								  src, skillid, skilllv, tick, flag | BCT_ENEMY | 1, skill_castend_damage_id);
+src\map\skill.c:3229:		skill_area_temp[1] = bl->id; // NOTE: This is used in skill_castend_nodamage_id to avoid affecting the target.
+src\map\skill.c:3234:							   skill_castend_nodamage_id);
+src\map\skill.c:3341:		status_change_end(src, SC_SMA, INVALID_TIMER);
+src\map\skill.c:3420:		status_change_end(src, SC_HIDING, INVALID_TIMER);
+src\map\skill.c:3437:								   skill_castend_damage_id);
+src\map\skill.c:3444:		ShowWarning("skill_castend_damage_id: Unknown skill used:%d\n", skillid);
+src\map\skill.c:3468:int skill_castend_nodamage_id(struct block_list *src, struct block_list *bl, int skillid, int skilllv, unsigned int tick, int flag)
+src\map\skill.c:3531:			return skill_castend_damage_id(src, bl, skillid, skilllv, tick, flag);
+src\map\skill.c:3534:	case NPC_SMOKING: // Since it is a self skill, this one ends here rather than in damage_id. [Skotlex]
+src\map\skill.c:3535:		return skill_castend_damage_id(src, bl, skillid, skilllv, tick, flag);
+src\map\skill.c:3539:			return skill_castend_pos2(src, bl->x, bl->y, skillid, skilllv, tick, 0);
+src\map\skill.c:3572:					status_change_end(bl, SC_KAITE, INVALID_TIMER);
+src\map\skill.c:3609:								 skill_castend_nodamage_id);
+src\map\skill.c:3706:							   src, skillid, skilllv, tick, flag | BCT_ENEMY | 1, skill_castend_nodamage_id);
+src\map\skill.c:3714:			status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:3845:						status_change_end(bl, (sc_type)i, INVALID_TIMER);
+src\map\skill.c:3848:						status_change_end(bl, scs[i], INVALID_TIMER);
+src\map\skill.c:3899:		{ // Cannot cast on another bard/dancer-type class of the same gender as caster
+src\map\skill.c:3916:				status_change_end(src, SC_MARIONETTE, INVALID_TIMER);
+src\map\skill.c:3917:				status_change_end(bl, SC_MARIONETTE2, INVALID_TIMER);
+src\map\skill.c:4026:						   src, skillid, skilllv, tick, flag | BCT_ENEMY | 1, skill_castend_damage_id);
+src\map\skill.c:4086:	case NPC_DEFENDER:
+src\map\skill.c:4113:								 skill_castend_nodamage_id);
+src\map\skill.c:4152:		status_change_end(bl, SC_NEN, INVALID_TIMER);
+src\map\skill.c:4163:						skill_castend_nodamage_id);
+src\map\skill.c:4168:	case SM_ENDURE:
+src\map\skill.c:4262:			status_change_end(bl, SC_FREEZE, INVALID_TIMER);
+src\map\skill.c:4264:				status_change_end(bl, SC_STONE, INVALID_TIMER);
+src\map\skill.c:4265:			status_change_end(bl, SC_SLEEP, INVALID_TIMER);
+src\map\skill.c:4411:						   skill_castend_damage_id);
+src\map\skill.c:4412:		status_change_end(src, SC_HIDING, INVALID_TIMER);
+src\map\skill.c:4420:						   src, skillid, skilllv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+src\map\skill.c:4427:		skill_castend_damage_id(src, src, skillid, skilllv, tick, flag);
+src\map\skill.c:4437:		status_change_end(src, SC_SIGHT, INVALID_TIMER);
+src\map\skill.c:4442:						   skill_castend_damage_id);
+src\map\skill.c:4465:						   skill_castend_damage_id);
+src\map\skill.c:4480:			party_foreachsamemap(skill_area_sub, sd, skill_get_splash(skillid, skilllv), src, skillid, skilllv, tick, flag | BCT_PARTY | 1, skill_castend_nodamage_id);
+src\map\skill.c:4487:				party_foreachsamemap(skill_area_sub, mer->master, skill_get_splash(skillid, skilllv), src, skillid, skilllv, tick, flag | BCT_PARTY | 1, skill_castend_nodamage_id);
+src\map\skill.c:4507:								 skill_castend_nodamage_id);
+src\map\skill.c:4513:	case CR_DEFENDER:
+src\map\skill.c:4514:	case ML_DEFENDER:
+src\map\skill.c:4527:			clif_skill_nodamage(src, bl, skillid, skilllv, status_change_end(bl, type, INVALID_TIMER));
+src\map\skill.c:4557:			i = status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:4566:			clif_skill_nodamage(src, bl, skillid, -1, status_change_end(bl, type, INVALID_TIMER)); // Hide skill-scream animation.
+src\map\skill.c:4575:			clif_skill_nodamage(src, bl, skillid, skilllv, status_change_end(bl, type, INVALID_TIMER));
+src\map\skill.c:4581:			clif_walkok(sd); // So aegis has to resend the walk ok.
+src\map\skill.c:4586:			i = status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:4605:			status_change_end(bl, SC_DANCING, INVALID_TIMER);
+src\map\skill.c:4681:			status_change_end(bl, SC_STONE, INVALID_TIMER);
+src\map\skill.c:4714:		status_change_end(bl, SC_SILENCE, INVALID_TIMER);
+src\map\skill.c:4715:		status_change_end(bl, SC_BLIND, INVALID_TIMER);
+src\map\skill.c:4716:		status_change_end(bl, SC_CONFUSION, INVALID_TIMER);
+src\map\skill.c:4722:		status_change_end(bl, SC_POISON, INVALID_TIMER);
+src\map\skill.c:4723:		status_change_end(bl, SC_DPOISON, INVALID_TIMER);
+src\map\skill.c:4734:			status_change_end(bl, SC_FREEZE, INVALID_TIMER);
+src\map\skill.c:4735:			status_change_end(bl, SC_STONE, INVALID_TIMER);
+src\map\skill.c:4736:			status_change_end(bl, SC_SLEEP, INVALID_TIMER);
+src\map\skill.c:4737:			status_change_end(bl, SC_STUN, INVALID_TIMER);
+src\map\skill.c:4754:		status_change_end(bl, SC_CURSE, INVALID_TIMER);
+src\map\skill.c:4755:		status_change_end(bl, SC_BLIND, INVALID_TIMER);
+src\map\skill.c:4759:		status_change_end(bl, SC_BLEEDING, INVALID_TIMER);
+src\map\skill.c:4763:		status_change_end(bl, SC_CONFUSION, INVALID_TIMER);
+src\map\skill.c:4767:		status_change_end(bl, SC_POISON, INVALID_TIMER);
+src\map\skill.c:4768:		status_change_end(bl, SC_SILENCE, INVALID_TIMER);
+src\map\skill.c:4772:		status_change_end(bl, SC_SLEEP, INVALID_TIMER);
+src\map\skill.c:4773:		status_change_end(bl, SC_STUN, INVALID_TIMER);
+src\map\skill.c:4776:	case MER_TENDER:
+src\map\skill.c:4777:		status_change_end(bl, SC_FREEZE, INVALID_TIMER);
+src\map\skill.c:4778:		status_change_end(bl, SC_STONE, INVALID_TIMER);
+src\map\skill.c:4827:	case MC_VENDING:
+src\map\skill.c:4829:		{ // Prevent vending of GMs with unnecessary Level to trade/drop. [Skotlex]
+src\map\skill.c:4833:				clif_openvendingreq(sd, 2 + skilllv);
+src\map\skill.c:5088:		status_change_end(bl, scid, INVALID_TIMER);
+src\map\skill.c:5133:			if ((dstsd && (dstsd->class_ & MAPID_UPPERMASK) == MAPID_SOUL_LINKER) || (tsc && tsc->data[SC_SPIRIT] && tsc->data[SC_SPIRIT]->val2 == SL_ROGUE) // Rogue's spirit defends againt dispel.
+src\map\skill.c:5241:				status_change_end(bl, (sc_type)i, INVALID_TIMER);
+src\map\skill.c:5248:						   skill_castend_damage_id);
+src\map\skill.c:5553:				status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:5577:		// Have val4 passed as 6 is for "infinite cloak" (do not end on attack/skill use).
+src\map\skill.c:5770:			status_change_end(bl, SC_FREEZE, INVALID_TIMER);
+src\map\skill.c:5772:				status_change_end(bl, SC_STONE, INVALID_TIMER);
+src\map\skill.c:5773:			status_change_end(bl, SC_SLEEP, INVALID_TIMER);
+src\map\skill.c:5847:			status_change_end(bl, (sc_type)(SC_STRIPWEAPON + i), INVALID_TIMER);
+src\map\skill.c:6036:							   skill_castend_nodamage_id);
+src\map\skill.c:6053:							   skill_castend_nodamage_id);
+src\map\skill.c:6070:							   skill_castend_nodamage_id);
+src\map\skill.c:6259:							   skill_castend_nodamage_id);
+src\map\skill.c:6272:							   skill_castend_nodamage_id);
+src\map\skill.c:6286:		ShowWarning("skill_castend_nodamage_id: Unknown skill used:%d\n", skillid);
+src\map\skill.c:6313:int skill_castend_id(int tid, unsigned int tick, int id, intptr_t data)
+src\map\skill.c:6325:		ShowDebug("skill_castend_id: src == NULL (tid=%d, id=%d)\n", tid, id);
+src\map\skill.c:6332:		ShowDebug("skill_castend_id: ud == NULL (tid=%d, id=%d)\n", tid, id);
+src\map\skill.c:6349:			ShowError("skill_castend_id: Timer mismatch %d!=%d!\n", ud->skilltimer, tid);
+src\map\skill.c:6379:		// These should become skill_castend_pos
+src\map\skill.c:6397:			return skill_castend_pos(tid, tick, id, data);
+src\map\skill.c:6411:		 * 1) skill_castend_id() pre-check for RG_BACKSTAP
+src\map\skill.c:6445:				/* Abort Back Stab cast-end processing here. */
+src\map\skill.c:6531:			if (!skill_check_condition_castend(sd, ud->skillid, ud->skilllv))
+src\map\skill.c:6573:			ShowInfo("Type %d, ID %d skill castend id [id =%d, lv=%d, target ID %d]\n",
+src\map\skill.c:6578:			skill_castend_nodamage_id(src, target, ud->skillid, ud->skilllv, tick, flag);
+src\map\skill.c:6580:			skill_castend_damage_id(src, target, ud->skillid, ud->skilllv, tick, flag);
+src\map\skill.c:6587:				status_change_end(src, SC_MAGICPOWER, INVALID_TIMER);
+src\map\skill.c:6621:		{ // End states
+src\map\skill.c:6622:			status_change_end(src, SC_EXPLOSIONSPIRITS, INVALID_TIMER);
+src\map\skill.c:6623:			status_change_end(src, SC_BLADESTOP, INVALID_TIMER);
+src\map\skill.c:6664:int skill_castend_pos(int tid, unsigned int tick, int id, intptr_t data)
+src\map\skill.c:6685:		ShowError("skill_castend_pos: Timer mismatch %d!=%d\n", ud->skilltimer, tid);
+src\map\skill.c:6750:			if (!skill_check_condition_castend(sd, ud->skillid, ud->skilllv))
+src\map\skill.c:6767:			ShowInfo("Type %d, ID %d skill castend pos [id =%d, lv=%d, (%d,%d)]\n",
+src\map\skill.c:6789:		skill_castend_pos2(src, ud->skillx, ud->skilly, ud->skillid, ud->skilllv, tick, 0);
+src\map\skill.c:6791:		if (sd && sd->skillitem != AL_WARP) // Warp-Portal thru items will clear data in skill_castend_map. [Inkfish]
+src\map\skill.c:6820:int skill_castend_pos2(struct block_list *src, int x, int y, int skillid, int skilllv, unsigned int tick, int flag)
+src\map\skill.c:6866:						  skill_castend_nodamage_id);
+src\map\skill.c:6870:						  skill_castend_damage_id);
+src\map\skill.c:6878:						  skill_castend_nodamage_id);
+src\map\skill.c:6918:	case WZ_HEAVENDRIVE:
+src\map\skill.c:6985:			status_change_end(src, SC_BASILICA, INVALID_TIMER); // Cancel Basilica
+src\map\skill.c:7059:		status_change_end(src, SC_HIDING, INVALID_TIMER);
+src\map\skill.c:7111:								  skill_castend_nodamage_id);
+src\map\skill.c:7136:								  skill_castend_nodamage_id);
+src\map\skill.c:7206:			status_change_end(src, SC_GOSPEL, INVALID_TIMER);
+src\map\skill.c:7215:				status_change_end(src, type, INVALID_TIMER); // Was under someone else's Gospel. [Skotlex]
+src\map\skill.c:7237:		ShowWarning("skill_castend_pos2: Unknown skill used:%d\n", skillid);
+src\map\skill.c:7241:	status_change_end(src, SC_MAGICPOWER, INVALID_TIMER);
+src\map\skill.c:7257:int skill_castend_map(struct map_session_data *sd, short skill_num, const char *map)
+src\map\skill.c:7297:		ShowInfo("PC %d skill castend skill =%d map=%s\n", sd->bl.id, skill_num, map);
+src\map\skill.c:7372:		if (!skill_check_condition_castend(sd, sd->menuskill_id, lv))
+src\map\skill.c:7379:		sd->skillitem = sd->skillitemlv = 0; // Clear data that's skipped in 'skill_castend_pos' [Inkfish]
+src\map\skill.c:7904:	if (sc && sc->option & OPTION_HIDE && sg->skill_id != WZ_HEAVENDRIVE)
+src\map\skill.c:7986:					  map_flag_vs(bl->m) || battle_check_target(&src->bl, bl, BCT_ENEMY) > 0 ? 1 : 0, // Send val3 =1 to reduce agi.
+src\map\skill.c:8223:					{ // should end when out of sp.
+src\map\skill.c:8363:			case 1: // End all negative status
+src\map\skill.c:8528:			status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:8533:			status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:8538:			status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:8547:				status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:8578:			status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:8596:			status_change_end(bl, SC_DANCING, INVALID_TIMER);
+src\map\skill.c:8607:			status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:8630:			status_change_end(bl, type, INVALID_TIMER);
+src\map\skill.c:8633:				if (bl->type == BL_PC) // Players get blind ended inmediately, others have it still for 30 secs. [Skotlex]
+src\map\skill.c:8634:					status_change_end(bl, SC_BLIND, INVALID_TIMER);
+src\map\skill.c:8963:	case CR_DEFENDER:
+src\map\skill.c:8964:	case ML_DEFENDER:
+src\map\skill.c:9098:			status_change_end(&sd->bl, SC_COMBO, INVALID_TIMER);
+src\map\skill.c:9418:int skill_check_condition_castend(struct map_session_data *sd, short skill, short lv)
+src\map\skill.c:9438:	{ // Cast start or cast end??
+src\map\skill.c:9508:		{ // Ammo type check. Send the "wrong weapon type" message
+src\map\skill.c:9510:			clif_arrow_fail(sd, 0); // Haplo suggested we just send the equip-arrows message instead. [Skotlex]
+src\map\skill.c:9617:	case CR_DEFENDER:
+src\map\skill.c:9618:	case ML_DEFENDER:
+src\map\skill.c:9841:			status_change_end(bl, SC_SUFFRAGIUM, INVALID_TIMER);
+src\map\skill.c:9847:				status_change_end(bl, SC_MEMORIZE, INVALID_TIMER);
+src\map\skill.c:9892:		if (battle_config.delay_dependon_dex && !(delaynodex & 1))
+src\map\skill.c:9900:		if (battle_config.delay_dependon_agi && !(delaynodex & 1))
+src\map\skill.c:10123:							  skill_castend_damage_id);
+src\map\skill.c:10144:							  skill_castend_damage_id);
+src\map\skill.c:10160:						  skill_castend_damage_id);
+src\map\skill.c:10825:int skill_enchant_elemental_end(struct block_list *bl, int type)
+src\map\skill.c:10838:			status_change_end(bl, scs[i], INVALID_TIMER);
+src\map\skill.c:10861:			if (sce->val1 < 3) // End cloaking.
+src\map\skill.c:10862:				status_change_end(bl, SC_CLOAKING, INVALID_TIMER);
+src\map\skill.c:10962:			status_change_end(target, SC_ANKLE, INVALID_TIMER);
+src\map\skill.c:11017:		ShowFatalError("skill_get_new_group_id: All ids are taken. Exiting...");
+src\map\skill.c:11018:		exit(1);
+src\map\skill.c:11109:			sc->data[SC_DANCING]->val2 = 0; // This prevents status_change_end attempting to redelete the group. [Skotlex]
+src\map\skill.c:11110:			status_change_end(src, SC_DANCING, INVALID_TIMER);
+src\map\skill.c:11114:	// end Gospel's status change on 'src'
+src\map\skill.c:11122:			status_change_end(src, SC_GOSPEL, INVALID_TIMER);
+src\map\skill.c:11134:			status_change_end(src, SC_WARM, INVALID_TIMER);
+src\map\skill.c:11608:	//		2: Another unit from same group will end up positioned on this unit (skill_unit_onout not needed)
+src\map\skill.c:11646:			// Cell moves independently, safely move it.
+src\map\skill.c:11665:			break; // Don't move the cell as a cell will end on this tile anyway.
+src\map\skill.c:11908:				if (sd->menuskill_val >= 15) // Legendary Cooking Set.
+src\map\skill.c:11958:			// Flag is only used on the end, so it can be used here. [Skotlex]
+src\map\skill.c:12173:int skill_blockpc_end(int tid, unsigned int tick, int id, intptr_t data)
+src\map\skill.c:12203:	sd->blockskill[skillid] = 0x1 | (0xFE & add_timer(gettick() + tick, skill_blockpc_end, sd->bl.id, skillid));
+src\map\skill.c:12207:int skill_blockhomun_end(int tid, unsigned int tick, int id, intptr_t data) //[orn]
+src\map\skill.c:12232:	return add_timer(gettick() + tick, skill_blockhomun_end, hd->bl.id, skillid);
+src\map\skill.c:12235:int skill_blockmerc_end(int tid, unsigned int tick, int id, intptr_t data) //[orn]
+src\map\skill.c:12258:	return add_timer(gettick() + tick, skill_blockmerc_end, md->bl.id, skillid);
+src\map\skill.c:12506:	// firewall and icewall have 8 layouts (direction-dependent)
+src\map\skill.c:12799:	else if (strcmpi(split[6], "friend") == 0)
+src\map\skill.c:12938:	add_timer_func_list(skill_castend_id, "skill_castend_id");
+src\map\skill.c:12939:	add_timer_func_list(skill_castend_pos, "skill_castend_pos");
+src\map\skill.c:12941:	add_timer_func_list(skill_blockpc_end, "skill_blockpc_end");
+src\map\status.c:32:#include "vending.h"
+src\map\status.c:149:	set_sc(SM_ENDURE, SC_ENDURE, SI_ENDURE, SCB_MDEF | SCB_DSPD);
+src\map\status.c:224:	add_sc(NPC_DEFENDER, SC_ARMOR);
+src\map\status.c:253:	set_sc(CR_DEFENDER, SC_DEFENDER, SI_DEFENDER, SCB_SPEED | SCB_ASPD);
+src\map\status.c:266:	set_sc(SA_VOLCANO, SC_VOLCANO, SI_LANDENDOW, SCB_WATK);
+src\map\status.c:267:	set_sc(SA_DELUGE, SC_DELUGE, SI_LANDENDOW, SCB_MAXHP);
+src\map\status.c:268:	set_sc(SA_VIOLENTGALE, SC_VIOLENTGALE, SI_LANDENDOW, SCB_FLEE);
+src\map\status.c:347:	add_sc(SG_FRIEND, SC_SKILLRATE_UP);
+src\map\status.c:447:	set_sc(ML_DEFENDER, SC_DEFENDER, SI_DEFENDER, SCB_SPEED | SCB_ASPD);
+src\map\status.c:745:				status_change_end(target, SC_STONE, INVALID_TIMER);
+src\map\status.c:746:			status_change_end(target, SC_FREEZE, INVALID_TIMER);
+src\map\status.c:747:			status_change_end(target, SC_SLEEP, INVALID_TIMER);
+src\map\status.c:748:			status_change_end(target, SC_WINKCHARM, INVALID_TIMER);
+src\map\status.c:749:			status_change_end(target, SC_CONFUSION, INVALID_TIMER);
+src\map\status.c:750:			status_change_end(target, SC_TRICKDEAD, INVALID_TIMER);
+src\map\status.c:751:			status_change_end(target, SC_HIDING, INVALID_TIMER);
+src\map\status.c:752:			status_change_end(target, SC_CLOAKING, INVALID_TIMER);
+src\map\status.c:753:			status_change_end(target, SC_CHASEWALK, INVALID_TIMER);
+src\map\status.c:754:			if ((sce = sc->data[SC_ENDURE]) && !sce->val4)
+src\map\status.c:756:				// Endure count is only reduced by non-players on non-gvg maps.
+src\map\status.c:757:				// val4 signals infinite endure. [Skotlex]
+src\map\status.c:759:					status_change_end(target, SC_ENDURE, INVALID_TIMER);
+src\map\status.c:768:					status_change_end(target, SC_GRAVITATION, INVALID_TIMER);
+src\map\status.c:772:				status_change_end(target, SC_DANCING, INVALID_TIMER);
+src\map\status.c:787:			status_change_end(target, SC_BERSERK, INVALID_TIMER);
+src\map\status.c:963:		status->hp >= status->max_hp >> 2) // End auto berserk.
+src\map\status.c:964:		status_change_end(bl, SC_PROVOKE, INVALID_TIMER);
+src\map\status.c:966:	// send hp update to client
+src\map\status.c:1278:				// Non-player units may still bypass this depending on server logic.
+src\map\status.c:1331:			return 0; // Can't use Weapon endow skills on Mercenary (only Master)
+src\map\status.c:1733:				clif_send_petstatus(sd);
+src\map\status.c:1744:	pd->rate_fix = 1000 * (pd->pet.intimate - battle_config.pet_support_min_friendly) / (1000 - battle_config.pet_support_min_friendly) + 500;
+src\map\status.c:1879:	// add new arrays to the end of zeroed area in pc.h (see comments) and size here. [zzo]
+src\map\status.c:2104:		if (pd && pd->petDB && pd->petDB->equip_script && pd->pet.intimate >= battle_config.pet_equip_min_friendly)
+src\map\status.c:2522:		// Will update on LoadEndAck
+src\map\status.c:3218:/// Also sends updates to the client wherever applicable.
+src\map\status.c:3263:	// compare against new values and send client updates
+src\map\status.c:3894:	if (sc->data[SC_ENDURE] && sc->data[SC_ENDURE]->val4 == 0)
+src\map\status.c:3895:		mdef += sc->data[SC_ENDURE]->val1;
+src\map\status.c:4039:		if (sc->data[SC_DEFENDER])
+src\map\status.c:4134:	if (sc->data[SC_DEFENDER])
+src\map\status.c:4135:		aspd_rate += sc->data[SC_DEFENDER]->val4;
+src\map\status.c:4156:	if (sc->data[SC_ENDURE])
+src\map\status.c:4931: * 'type' = type, 'val1~4' depend on the type.
+src\map\status.c:5071:				return status_change_end(bl, type, INVALID_TIMER);
+src\map\status.c:5238:			status_change_end(bl, SC_CURSE, INVALID_TIMER);
+src\map\status.c:5240:				status_change_end(bl, SC_STONE, INVALID_TIMER);
+src\map\status.c:5244:		status_change_end(bl, SC_DECREASEAGI, INVALID_TIMER);
+src\map\status.c:5247:		status_change_end(bl, SC_CONCENTRATE, INVALID_TIMER);
+src\map\status.c:5248:		status_change_end(bl, SC_TRUESIGHT, INVALID_TIMER);
+src\map\status.c:5249:		status_change_end(bl, SC_WINDWALK, INVALID_TIMER);
+src\map\status.c:5252:		status_change_end(bl, SC_CARTBOOST, INVALID_TIMER);
+src\map\status.c:5255:		status_change_end(bl, SC_INCREASEAGI, INVALID_TIMER);
+src\map\status.c:5256:		status_change_end(bl, SC_ADRENALINE, INVALID_TIMER);
+src\map\status.c:5257:		status_change_end(bl, SC_ADRENALINE2, INVALID_TIMER);
+src\map\status.c:5258:		status_change_end(bl, SC_SPEARQUICKEN, INVALID_TIMER);
+src\map\status.c:5259:		status_change_end(bl, SC_TWOHANDQUICKEN, INVALID_TIMER);
+src\map\status.c:5260:		status_change_end(bl, SC_ONEHAND, INVALID_TIMER);
+src\map\status.c:5261:		status_change_end(bl, SC_MERC_QUICKEN, INVALID_TIMER);
+src\map\status.c:5265:		status_change_end(bl, SC_ASPDPOTION0, INVALID_TIMER);
+src\map\status.c:5266:		status_change_end(bl, SC_ASPDPOTION1, INVALID_TIMER);
+src\map\status.c:5267:		status_change_end(bl, SC_ASPDPOTION2, INVALID_TIMER);
+src\map\status.c:5268:		status_change_end(bl, SC_ASPDPOTION3, INVALID_TIMER);
+src\map\status.c:5272:		status_change_end(bl, SC_OVERTHRUST, INVALID_TIMER);
+src\map\status.c:5276:		status_change_end(bl, SC_ASSUMPTIO, INVALID_TIMER);
+src\map\status.c:5280:			status_change_end(bl, SC_BLIND, INVALID_TIMER);
+src\map\status.c:5284:			status_change_end(bl, SC_GOSPEL, INVALID_TIMER);
+src\map\status.c:5287:		status_change_end(bl, SC_CLOSECONFINE, INVALID_TIMER);
+src\map\status.c:5288:		status_change_end(bl, SC_CLOSECONFINE2, INVALID_TIMER);
+src\map\status.c:5293:			status_change_end(bl, SC_ONEHAND, INVALID_TIMER);
+src\map\status.c:5294:			status_change_end(bl, SC_TWOHANDQUICKEN, INVALID_TIMER);
+src\map\status.c:5295:			status_change_end(bl, SC_CONCENTRATION, INVALID_TIMER);
+src\map\status.c:5296:			status_change_end(bl, SC_PARRYING, INVALID_TIMER);
+src\map\status.c:5297:			status_change_end(bl, SC_AURABLADE, INVALID_TIMER);
+src\map\status.c:5298:			status_change_end(bl, SC_MERC_QUICKEN, INVALID_TIMER);
+src\map\status.c:5302:		status_change_end(bl, SC_KYRIE, INVALID_TIMER);
+src\map\status.c:5303:		status_change_end(bl, SC_KAITE, INVALID_TIMER);
+src\map\status.c:5306:		status_change_end(bl, SC_ASSUMPTIO, INVALID_TIMER);
+src\map\status.c:5311:			status_change_end(bl, SC_DECREASEAGI, INVALID_TIMER);
+src\map\status.c:5316:		status_change_end(bl, SC_SPIRIT, INVALID_TIMER);
+src\map\status.c:5319:		status_change_end(bl, SC_MADNESSCANCEL, INVALID_TIMER);
+src\map\status.c:5322:		status_change_end(bl, SC_ADJUSTMENT, INVALID_TIMER);
+src\map\status.c:5326:		status_change_end(bl, SC_BLESSING, INVALID_TIMER);
+src\map\status.c:5327:		status_change_end(bl, SC_INCREASEAGI, INVALID_TIMER);
+src\map\status.c:5330:		status_change_end(bl, SC_FOOD_STR_CASH, INVALID_TIMER);
+src\map\status.c:5333:		status_change_end(bl, SC_FOOD_AGI_CASH, INVALID_TIMER);
+src\map\status.c:5336:		status_change_end(bl, SC_FOOD_VIT_CASH, INVALID_TIMER);
+src\map\status.c:5339:		status_change_end(bl, SC_FOOD_INT_CASH, INVALID_TIMER);
+src\map\status.c:5342:		status_change_end(bl, SC_FOOD_DEX_CASH, INVALID_TIMER);
+src\map\status.c:5345:		status_change_end(bl, SC_FOOD_LUK_CASH, INVALID_TIMER);
+src\map\status.c:5348:		status_change_end(bl, SC_STRFOOD, INVALID_TIMER);
+src\map\status.c:5351:		status_change_end(bl, SC_AGIFOOD, INVALID_TIMER);
+src\map\status.c:5354:		status_change_end(bl, SC_VITFOOD, INVALID_TIMER);
+src\map\status.c:5357:		status_change_end(bl, SC_INTFOOD, INVALID_TIMER);
+src\map\status.c:5360:		status_change_end(bl, SC_DEXFOOD, INVALID_TIMER);
+src\map\status.c:5363:		status_change_end(bl, SC_LUKFOOD, INVALID_TIMER);
+src\map\status.c:5436:		case SC_ENDURE:
+src\map\status.c:5438:				return 1; // Don't let you override infinite endure.
+src\map\status.c:5474:		case SC_ENDURE:
+src\map\status.c:5491:			// val4 signals infinite endure (if val4 == 2 it is infinite endure from Berserk)
+src\map\status.c:5542:			skill_enchant_elemental_end(bl, type);
+src\map\status.c:5794:			// val4&2 makes cloak not end on normal attacks [Skotlex]
+src\map\status.c:5795:			// val4&4 makes cloak not end on using skills
+src\map\status.c:5851:		case SC_DEFENDER:
+src\map\status.c:5894:			if (!sc->data[SC_ENDURE] || !sc->data[SC_ENDURE]->val4)
+src\map\status.c:5895:				sc_start4(bl, SC_ENDURE, 100, 10, 0, 0, 2, tick);
+src\map\status.c:6002:				const enum sc_type types[] = {SC_AUTOGUARD, SC_DEFENDER, SC_REFLECTSHIELD, SC_ENDURE};
+src\map\status.c:6016:		case SC_COMA: // Coma. Sends a char to 1HP. If val2, do not zap sp
+src\map\status.c:6259:			// NPC_DEFENDER:
+src\map\status.c:6266:			// end previous enchants
+src\map\status.c:6267:			skill_enchant_elemental_end(bl, type);
+src\map\status.c:6352:			val2 = 2; // Splendide group
+src\map\status.c:6390:		status_change_end(bl, SC_DANCING, INVALID_TIMER);
+src\map\status.c:6600:	else if (sd) // Send packet to self otherwise (disguised player?)
+src\map\status.c:6603:	// Don't trust the previous sce assignment, in case the SC ended somewhere between there and here.
+src\map\status.c:6742:		status_change_end(bl, (sc_type)i, INVALID_TIMER);
+src\map\status.c:6745:		{ // If for some reason status_change_end decides to still keep the status when quitting. [Skotlex]
+src\map\status.c:6768:int status_change_end_(struct block_list *bl, enum sc_type type, int tid, const char *file, int line)
+src\map\status.c:6792:		if (type == SC_ENDURE && sce->val4)
+src\map\status.c:6793:			// Do not end infinite endure.
+src\map\status.c:6801:			// delays status change ending so that a skill that sets opt1 fails to
+src\map\status.c:6874:			status_change_end(bl, SC_PROVOKE, INVALID_TIMER);
+src\map\status.c:6877:	case SC_ENDURE:
+src\map\status.c:6878:	case SC_DEFENDER:
+src\map\status.c:6889:					status_change_end(&tsd->bl, type, INVALID_TIMER);
+src\map\status.c:6896:				status_change_end(&tsd->bl, type, INVALID_TIMER);
+src\map\status.c:6912:		status_change_end(bl, SC_AUTOGUARD, INVALID_TIMER);
+src\map\status.c:6913:		status_change_end(bl, SC_DEFENDER, INVALID_TIMER);
+src\map\status.c:6914:		status_change_end(bl, SC_REFLECTSHIELD, INVALID_TIMER);
+src\map\status.c:6915:		status_change_end(bl, SC_ENDURE, INVALID_TIMER);
+src\map\status.c:6929:				status_change_end(tbl, SC_BLADESTOP, INVALID_TIMER);
+src\map\status.c:6958:		{ // end status on partner as well
+src\map\status.c:6963:				status_change_end(&dsd->bl, SC_DANCING, INVALID_TIMER);
+src\map\status.c:6973:				ShowDebug("status_change_end: SC_DANCING is missing skill unit group (val1=%d, val2=%d, val3=%d, val4=%d, timer=%d, tid=%d, char_id=%d, map=%s, x=%d, y=%d, prev=%s:%d, from=%s:%d). Please report this! (#3504)\n",
+src\map\status.c:6988:		status_change_end(bl, SC_LONGING, INVALID_TIMER);
+src\map\status.c:7003:			skill_castend_damage_id(src, bl, sce->val2, sce->val1, gettick(), SD_LEVEL);
+src\map\status.c:7012:			// If status was already ended, do nothing.
+src\map\status.c:7015:				status_change_end(src, SC_CLOSECONFINE, INVALID_TIMER);
+src\map\status.c:7045:		{ // check for partner and end their marionette status as well
+src\map\status.c:7053:				status_change_end(pbl, type2, INVALID_TIMER);
+src\map\status.c:7062:		if (sc->data[SC_ENDURE] && sc->data[SC_ENDURE]->val4 == 2)
+src\map\status.c:7064:			sc->data[SC_ENDURE]->val4 = 0;
+src\map\status.c:7065:			status_change_end(bl, SC_ENDURE, INVALID_TIMER);
+src\map\status.c:7118:		// Note: vending/buying is closed by unit_remove_map, no
+src\map\status.c:7120:		map_quit(sd);
+src\map\status.c:7121:		// Because map_quit calls status_change_end with tid -1
+src\map\status.c:7131:				status_change_end(tbl, SC_STOP, INVALID_TIMER);
+src\map\status.c:7450:		{ // Auto-provoke (it is ended in status_heal)
+src\map\status.c:7710:	// default for all non-handled control paths is to end the status
+src\map\status.c:7711:	return status_change_end(bl, type, tid);
+src\map\status.c:7736:		status_change_end(bl, SC_HIDING, INVALID_TIMER);
+src\map\status.c:7737:		status_change_end(bl, SC_CLOAKING, INVALID_TIMER);
+src\map\status.c:7742:			status_change_end(bl, SC_HIDING, INVALID_TIMER);
+src\map\status.c:7743:			status_change_end(bl, SC_CLOAKING, INVALID_TIMER);
+src\map\status.c:7754:				sce->val2 = 0; // This signals it to end.
+src\map\status.c:7762:			status_change_end(bl, SC_CLOSECONFINE2, INVALID_TIMER);
+src\map\status.c:7784:			status_change_end(bl, (sc_type)i, INVALID_TIMER);
+src\map\status.c:7861:		status_change_end(bl, (sc_type)i, INVALID_TIMER);
+src\map\storage.c:314: * When quitting the game.
+src\map\storage.c:316:void storage_storage_quit(struct map_session_data* sd, int flag)
+src\map\storage.c:565:		if (flag) //Char quitting, close it.
+src\map\storage.c:568:			intif_send_guild_storage(account_id,stor);
+src\map\storage.c:609:int storage_guild_storage_quit(struct map_session_data* sd, int flag)
+src\map\trade.c:89:	if( sd->state.vending || target_sd->state.vending )
+src\map\trade.c:106: * Weird enough, the client should only send 3/4
+src\map\trade.c:143:		return; //If client didn't send accept, it's a broken packet?
+src\map\trade.c:156:	if (sd->npc_id || sd->state.vending || sd->state.buyingstore || sd->state.storage_flag ||
+src\map\trade.c:157:		tsd->npc_id || tsd->state.vending || tsd->state.buyingstore || tsd->state.storage_flag)
+src\map\trade.c:349:	{	//Why do this.. ~.~ just send an ack, the item won't display on the trade window.
+src\map\unit.c:28:#include "vending.h"
+src\map\unit.c:165:	ud->walktimer = -2; // arbitrary non-INVALID_TIMER value to make the clif code send walking packets
+src\map\unit.c:218:			//Resend walk packet for proper Self Destruction display.
+src\map\unit.c:429:		status_change_end(bl, SC_RUN, INVALID_TIMER);
+src\map\unit.c:457:		//Set running to 0 beforehand so status_change_end knows not to enable spurt [Kevin]
+src\map\unit.c:459:		status_change_end(bl, SC_RUN, INVALID_TIMER);
+src\map\unit.c:477:		//Set running to 0 beforehand so status_change_end knows not to enable spurt [Kevin]
+src\map\unit.c:479:		status_change_end(bl, SC_RUN, INVALID_TIMER);
+src\map\unit.c:528:	ud->walktimer = -2; // arbitrary non-INVALID_TIMER value to make the clif code send walking packets
+src\map\unit.c:585://  &1  Do not send position update packets.
+src\map\unit.c:769:		status_change_end(bl, SC_RUN, INVALID_TIMER);
+src\map\unit.c:817:		sd->state.vending ||
+src\map\unit.c:1138:	// moved here to prevent Suffragium from ending if skill fails
+src\map\unit.c:1198:		status_change_end(src, SC_CLOAKING, INVALID_TIMER);
+src\map\unit.c:1204:		ud->skilltimer = add_timer( tick+casttime, skill_castend_id, src->id, 0 );
+src\map\unit.c:1209:		skill_castend_id(ud->skilltimer,tick,src->id,0);
+src\map\unit.c:1280:	// moved here to prevent Suffragium from ending if skill fails
+src\map\unit.c:1303:		status_change_end(src, SC_CLOAKING, INVALID_TIMER);
+src\map\unit.c:1311:		ud->skilltimer = add_timer( tick+casttime, skill_castend_pos, src->id, 0 );
+src\map\unit.c:1318:		skill_castend_pos(ud->skilltimer,tick,src->id,0);
+src\map\unit.c:1420:	if (!status_change_end(bl, SC_COMBO, INVALID_TIMER))
+src\map\unit.c:1715:		ret=delete_timer( ud->skilltimer, skill_castend_pos );
+src\map\unit.c:1717:		ret=delete_timer( ud->skilltimer, skill_castend_id );
+src\map\unit.c:1849:		status_change_end(bl, SC_BLADESTOP, INVALID_TIMER);
+src\map\unit.c:1850:		status_change_end(bl, SC_BASILICA, INVALID_TIMER);
+src\map\unit.c:1851:		status_change_end(bl, SC_ANKLE, INVALID_TIMER);
+src\map\unit.c:1852:		status_change_end(bl, SC_TRICKDEAD, INVALID_TIMER);
+src\map\unit.c:1853:		status_change_end(bl, SC_BLADESTOP_WAIT, INVALID_TIMER);
+src\map\unit.c:1854:		status_change_end(bl, SC_RUN, INVALID_TIMER);
+src\map\unit.c:1855:		status_change_end(bl, SC_DANCING, INVALID_TIMER);
+src\map\unit.c:1856:		status_change_end(bl, SC_WARM, INVALID_TIMER);
+src\map\unit.c:1857:		status_change_end(bl, SC_DEVOTION, INVALID_TIMER);
+src\map\unit.c:1858:		status_change_end(bl, SC_MARIONETTE, INVALID_TIMER);
+src\map\unit.c:1859:		status_change_end(bl, SC_MARIONETTE2, INVALID_TIMER);
+src\map\unit.c:1860:		status_change_end(bl, SC_CLOSECONFINE, INVALID_TIMER);
+src\map\unit.c:1861:		status_change_end(bl, SC_CLOSECONFINE2, INVALID_TIMER);
+src\map\unit.c:1862:		status_change_end(bl, SC_HIDING, INVALID_TIMER);
+src\map\unit.c:1866:			status_change_end(bl, SC_CLOAKING, INVALID_TIMER);
+src\map\unit.c:1868:		status_change_end(bl, SC_CHASEWALK, INVALID_TIMER);
+src\map\unit.c:1870:			status_change_end(bl, SC_GOSPEL, INVALID_TIMER);
+src\map\unit.c:1871:		status_change_end(bl, SC_CHANGE, INVALID_TIMER);
+src\map\unit.c:1872:		status_change_end(bl, SC_STOP, INVALID_TIMER);
+src\map\unit.c:1891:		vending_closevending(sd);
+src\map\unit.c:1895:			storage_storage_quit(sd,0);
+src\map\unit.c:1897:			storage_guild_storage_quit(sd,0);
+src\map\unit.c:1913:			status_change_end(bl, SC_CLOAKING, INVALID_TIMER);
+src\map\unit.c:1931:		party_send_dot_remove(sd);//minimap dot fix [Kevin]
+src\map\unit.c:1932:		guild_send_dot_remove(sd);
+src\map\unit.c:1933:		bg_send_dot_remove(sd);
+src\map\unit.c:2087:			// Notify friends that this char logged out. [Skotlex]
+src\map\unit.c:2088:			map_foreachpc(clif_friendslist_toggle_sub, sd->status.account_id, sd->status.char_id, 0);
+src\map\unit.c:2089:			party_send_logout(sd);
+src\map\unit.c:2090:			guild_send_memberinfoshort(sd,0);
+src\map\unit.c:2270:	if( bl->type != BL_PC ) //Players are handled by map_quit
+src\map\vending.c:13:#include "vending.h"
+src\map\vending.c:22:static int vending_nextid = 0;
+src\map\vending.c:24:/// Returns an unique vending shop id.
+src\map\vending.c:25:static int vending_getuid(void)
+src\map\vending.c:27:	return vending_nextid++;
+src\map\vending.c:33:void vending_closevending(struct map_session_data* sd)
+src\map\vending.c:37:	if( sd->state.vending )
+src\map\vending.c:39:		sd->state.vending = false;
+src\map\vending.c:40:		clif_closevendingboard(&sd->bl, 0);
+src\map\vending.c:47:void vending_vendinglistreq(struct map_session_data* sd, int id)
+src\map\vending.c:54:	if( !vsd->state.vending )
+src\map\vending.c:55:		return; // not vending
+src\map\vending.c:63:	sd->vended_id = vsd->vender_id;  // register vending uid
+src\map\vending.c:65:	clif_vendinglist(sd, id, vsd->vending);
+src\map\vending.c:71:void vending_purchasereq(struct map_session_data* sd, int aid, int uid, const uint8* data, int count)
+src\map\vending.c:73:	int i, j, cursor, w, new_ = 0, blank, vend_list[MAX_VENDING];
+src\map\vending.c:75:	struct s_vending vending[MAX_VENDING]; // against duplicate packets
+src\map\vending.c:79:	if( vsd == NULL || !vsd->state.vending || vsd->bl.id == sd->bl.id )
+src\map\vending.c:82:	if( vsd->vender_id != uid )
+src\map\vending.c:84:		clif_buyvending(sd, 0, 0, 6);  // store information was incorrect
+src\map\vending.c:93:	if( count < 1 || count > MAX_VENDING || count > vsd->vend_num )
+src\map\vending.c:98:	// duplicate item in vending to check hacker with multiple packets
+src\map\vending.c:99:	memcpy(&vending, &vsd->vending, sizeof(vsd->vending)); // copy vending list
+src\map\vending.c:117:		ARR_FIND( 0, vsd->vend_num, j, vsd->vending[j].index == idx );
+src\map\vending.c:118:		if( j == vsd->vend_num )
+src\map\vending.c:121:			vend_list[i] = j;
+src\map\vending.c:123:		z += ((double)vsd->vending[j].value * (double)amount);
+src\map\vending.c:126:			clif_buyvending(sd, idx, amount, 1); // you don't have enough zeny
+src\map\vending.c:129:		if( z + (double)vsd->status.zeny > (double)MAX_ZENY && !battle_config.vending_over_max )
+src\map\vending.c:131:			clif_buyvending(sd, idx, vsd->vending[j].amount, 4); // too much zeny = overflow
+src\map\vending.c:138:			clif_buyvending(sd, idx, amount, 2); // you can not buy, because overweight
+src\map\vending.c:142:		//Check to see if cart/vend info is in sync.
+src\map\vending.c:143:		if( vending[j].amount > vsd->status.cart[idx].amount )
+src\map\vending.c:144:			vending[j].amount = vsd->status.cart[idx].amount;
+src\map\vending.c:148:		if( vending[j].amount < amount )
+src\map\vending.c:150:			// send more quantity is not a hack (an other player can have buy items just before)
+src\map\vending.c:151:			clif_buyvending(sd, idx, vsd->vending[j].amount, 4); // not enough quantity
+src\map\vending.c:155:		vending[j].amount -= amount;
+src\map\vending.c:170:	//Logs (V)ending Zeny [Lupus]
+src\map\vending.c:171:	log_zeny(vsd, LOG_TYPE_VENDING, sd, (int)z);
+src\map\vending.c:174:	if( battle_config.vending_tax )
+src\map\vending.c:175:		z -= z * (battle_config.vending_tax/10000.);
+src\map\vending.c:184:		//Logs sold (V)ending items [Lupus]
+src\map\vending.c:185:		log_pick(&vsd->bl, LOG_TYPE_VENDING, vsd->status.cart[idx].nameid, -amount, &vsd->status.cart[idx]);
+src\map\vending.c:186:		log_pick( &sd->bl, LOG_TYPE_VENDING, vsd->status.cart[idx].nameid,  amount, &vsd->status.cart[idx]);
+src\map\vending.c:188:		// vending item
+src\map\vending.c:190:		vsd->vending[vend_list[i]].amount -= amount;
+src\map\vending.c:192:		clif_vendingreport(vsd, idx, amount);
+src\map\vending.c:203:	// compact the vending list
+src\map\vending.c:204:	for( i = 0, cursor = 0; i < vsd->vend_num; i++ )
+src\map\vending.c:206:		if( vsd->vending[i].amount == 0 )
+src\map\vending.c:211:			vsd->vending[cursor].index = vsd->vending[i].index;
+src\map\vending.c:212:			vsd->vending[cursor].amount = vsd->vending[i].amount;
+src\map\vending.c:213:			vsd->vending[cursor].value = vsd->vending[i].value;
+src\map\vending.c:218:	vsd->vend_num = cursor;
+src\map\vending.c:231:		ARR_FIND( 0, vsd->vend_num, i, vsd->vending[i].amount > 0 );
+src\map\vending.c:232:		if( i == vsd->vend_num )
+src\map\vending.c:234:			//Close Vending (this was automatically done by the client, we have to do it manually for autovenders) [Skotlex]
+src\map\vending.c:235:			vending_closevending(vsd);
+src\map\vending.c:236:			map_quit(vsd);	//They have no reason to stay around anymore, do they?
+src\map\vending.c:245:void vending_openvending(struct map_session_data* sd, const char* message, bool flag, const uint8* data, int count)
+src\map\vending.c:248:	int vending_skill_lvl;
+src\map\vending.c:257:	vending_skill_lvl = pc_checkskill(sd, MC_VENDING);
+src\map\vending.c:259:	if( !vending_skill_lvl || !pc_iscarton(sd) )
+src\map\vending.c:261:		clif_skill_fail(sd, MC_VENDING, USESKILL_FAIL_LEVEL, 0);
+src\map\vending.c:266:	if( count < 1 || count > MAX_VENDING || count > 2 + vending_skill_lvl )
+src\map\vending.c:268:		clif_skill_fail(sd, MC_VENDING, USESKILL_FAIL_LEVEL, 0);
+src\map\vending.c:291:		sd->vending[i].index = index;
+src\map\vending.c:292:		sd->vending[i].amount = amount;
+src\map\vending.c:293:		sd->vending[i].value = cap_value(value, 0, (unsigned int)battle_config.vending_max_value);
+src\map\vending.c:299:		clif_displaymessage (sd->fd, msg_txt(266)); //"Some of your items cannot be vended and were removed from the shop."
+src\map\vending.c:303:		clif_skill_fail(sd, MC_VENDING, USESKILL_FAIL_LEVEL, 0); // custom reply packet
+src\map\vending.c:307:	sd->state.vending = true;
+src\map\vending.c:308:	sd->vender_id = vending_getuid();
+src\map\vending.c:309:	sd->vend_num = i;
+src\map\vending.c:313:	clif_openvending(sd,sd->bl.id,sd->vending);
+src\map\vending.c:314:	clif_showvendingboard(&sd->bl,message,0);
+src\map\vending.c:318:/// Checks if an item is being sold in given player's vending.
+src\map\vending.c:319:bool vending_search(struct map_session_data* sd, unsigned short nameid)
+src\map\vending.c:323:	if( !sd->state.vending )
+src\map\vending.c:324:	{// not vending
+src\map\vending.c:328:	ARR_FIND( 0, sd->vend_num, i, sd->status.cart[sd->vending[i].index].nameid == (short)nameid );
+src\map\vending.c:329:	if( i == sd->vend_num )
+src\map\vending.c:338:/// Searches for all items in a vending, that match given ids, price and possible cards.
+src\map\vending.c:340:bool vending_searchall(struct map_session_data* sd, const struct s_search_store_search* s)
+src\map\vending.c:346:	if( !sd->state.vending )
+src\map\vending.c:347:	{// not vending
+src\map\vending.c:353:		ARR_FIND( 0, sd->vend_num, i, sd->status.cart[sd->vending[i].index].nameid == (short)s->itemlist[idx] );
+src\map\vending.c:354:		if( i == sd->vend_num )
+src\map\vending.c:358:		it = &sd->status.cart[sd->vending[i].index];
+src\map\vending.c:360:		if( s->min_price && s->min_price > sd->vending[i].value )
+src\map\vending.c:365:		if( s->max_price && s->max_price < sd->vending[i].value )
+src\map\vending.c:393:		if( !searchstore_result(s->search_sd, sd->vender_id, sd->status.account_id, sd->message, it->nameid, sd->vending[i].amount, sd->vending[i].value, it->card, it->refine) )

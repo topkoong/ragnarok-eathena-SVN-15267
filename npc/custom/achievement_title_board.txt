@@ -1,0 +1,148 @@
+//============================================================
+// Achievement / Title Board
+// File: npc/custom/achievement_title_board.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Provide lightweight achievement and title system using variables.
+// - Old eAthena has no modern achievement UI, so this is dialogue-based.
+// - Tracks variables from other custom NPCs where possible.
+//
+// Tracks:
+// - #QuestCoin
+// - #AdvRewardSpent
+// - #EconomySinkZeny
+// - #RentalUtilityUse
+// - #top_beginner_pack
+//============================================================
+
+prontera,139,91,4	script	TitleBoard#main	726,{
+	mes "[กระดานความสำเร็จ]";
+	mes "ที่นี่คือระบบ Achievement / Title แบบเบา ๆ สำหรับเซิร์ฟเวอร์นี้";
+	mes "ระบบจะใช้ตัวแปรบัญชี จึงไม่ต้องแก้ client";
+	next;
+
+L_Main:
+	callsub S_ShowTitle;
+	mes "[กระดานความสำเร็จ]";
+	mes "ต้องการทำอะไร?";
+	next;
+	switch(select(
+		"ตรวจ Achievement",
+		"เลือก Title",
+		"ดูค่าสถิติ",
+		"คำอธิบาย",
+		"Cancel"
+	)) {
+	case 1: goto L_Check;
+	case 2: goto L_Select;
+	case 3: goto L_Stats;
+	case 4: goto L_Info;
+	default: close;
+	}
+
+S_ShowTitle:
+	if (#ActiveTitle == 1) mes "Title ปัจจุบัน: ^0000FFNew Adventurer^000000";
+	else if (#ActiveTitle == 2) mes "Title ปัจจุบัน: ^0000FFQuest Regular^000000";
+	else if (#ActiveTitle == 3) mes "Title ปัจจุบัน: ^0000FFCoin Veteran^000000";
+	else if (#ActiveTitle == 4) mes "Title ปัจจุบัน: ^0000FFEconomic Supporter^000000";
+	else if (#ActiveTitle == 5) mes "Title ปัจจุบัน: ^0000FFPremium Hunter^000000";
+	else mes "Title ปัจจุบัน: ^777777ยังไม่ได้เลือก^000000";
+	return;
+
+L_Check:
+	mes "[กระดานความสำเร็จ]";
+	mes "กำลังตรวจ Achievement...";
+	next;
+
+	if (#top_beginner_pack && !#AchBeginner) {
+		set #AchBeginner,1;
+		set #QuestCoin,#QuestCoin+2;
+		mes "ได้รับ Achievement: New Adventurer";
+		mes "รางวัล: Quest Coin +2";
+		next;
+	}
+
+	if (#QuestCoin >= 50 && !#AchCoin50) {
+		set #AchCoin50,1;
+		set #QuestCoin,#QuestCoin+5;
+		mes "ได้รับ Achievement: Quest Regular";
+		mes "รางวัล: Quest Coin +5";
+		next;
+	}
+
+	if (#AdvRewardSpent >= 100 && !#AchAdvSpent100) {
+		set #AchAdvSpent100,1;
+		set #QuestCoin,#QuestCoin+10;
+		mes "ได้รับ Achievement: Coin Veteran";
+		mes "รางวัล: Quest Coin +10";
+		next;
+	}
+
+	if (#EconomySinkZeny >= 10000000 && !#AchEcon10M) {
+		set #AchEcon10M,1;
+		set #QuestCoin,#QuestCoin+10;
+		mes "ได้รับ Achievement: Economic Supporter";
+		mes "รางวัล: Quest Coin +10";
+		next;
+	}
+
+	if (#RentalUtilityUse >= 10 && !#AchRental10) {
+		set #AchRental10,1;
+		set #QuestCoin,#QuestCoin+5;
+		mes "ได้รับ Achievement: Utility Regular";
+		mes "รางวัล: Quest Coin +5";
+		next;
+	}
+
+	mes "[กระดานความสำเร็จ]";
+	mes "ตรวจสอบเสร็จแล้ว";
+	close;
+
+L_Select:
+	mes "[กระดานความสำเร็จ]";
+	mes "เลือก Title ที่ต้องการแสดงในบอร์ดนี้";
+	next;
+	switch(select("New Adventurer:Quest Regular:Coin Veteran:Economic Supporter:Premium Hunter:ล้าง Title:ย้อนกลับ")) {
+	case 1:
+		if (!#AchBeginner) { mes "คุณยังไม่ได้ปลดล็อก Title นี้"; close; }
+		set #ActiveTitle,1; break;
+	case 2:
+		if (!#AchCoin50) { mes "คุณยังไม่ได้ปลดล็อก Title นี้"; close; }
+		set #ActiveTitle,2; break;
+	case 3:
+		if (!#AchAdvSpent100) { mes "คุณยังไม่ได้ปลดล็อก Title นี้"; close; }
+		set #ActiveTitle,3; break;
+	case 4:
+		if (!#AchEcon10M) { mes "คุณยังไม่ได้ปลดล็อก Title นี้"; close; }
+		set #ActiveTitle,4; break;
+	case 5:
+		if (#QuestCoin < 100) { mes "ต้องมี Quest Coin อย่างน้อย 100 เพื่อเลือก Title นี้"; close; }
+		set #ActiveTitle,5; break;
+	case 6:
+		set #ActiveTitle,0; break;
+	default:
+		goto L_Main;
+	}
+	mes "[กระดานความสำเร็จ]";
+	mes "เปลี่ยน Title เรียบร้อย";
+	close;
+
+L_Stats:
+	mes "[กระดานความสำเร็จ]";
+	mes "ค่าสถิติของคุณ:";
+	mes "Quest Coin ปัจจุบัน: " + #QuestCoin;
+	mes "Quest Coin ที่ใช้ร้านขั้นสูง: " + #AdvRewardSpent;
+	mes "Zeny ที่ใช้กับ Economy Sink: " + #EconomySinkZeny;
+	mes "จำนวนครั้งที่ใช้ Rental Utility: " + #RentalUtilityUse;
+	next;
+	goto L_Main;
+
+L_Info:
+	mes "[กระดานความสำเร็จ]";
+	mes "ระบบนี้เป็น Title แบบ Dialogue-based";
+	mes "ไม่แสดงเหนือหัวตัวละคร เพราะไม่แก้ไข client";
+	mes "แต่ใช้เป็นระบบความก้าวหน้าและรางวัลเสริมได้";
+	next;
+	goto L_Main;
+}

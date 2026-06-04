@@ -1,0 +1,69 @@
+//============================================================
+// geffen_magic_shops.txt
+// Note: F_TopBuyItem is now loaded from npc/custom/top_common_functions.txt
+//============================================================
+
+// Geffen Magic Shops
+// City identity: magic supplies / mage preparation.
+// NPC names stay ASCII for old client compatibility.
+// Thai text is inside dialogue only.
+//============================================================
+
+geffen,118,60,4	script	MagicGemDealer#gef	837,{
+	mes "[พ่อค้าอัญมณีเวทมนตร์]";
+	mes "ยินดีต้อนรับสู่เมืองเกฟเฟน เมืองแห่งเวทมนตร์";
+	mes "ข้าจัดเตรียมอัญมณีที่ใช้กับเวทและสกิลสำคัญไว้ให้แล้ว";
+	next;
+	switch(select("Blue Gemstone - 500z:Red Gemstone - 500z:Yellow Gemstone - 500z:Holy Water - 500z:ยกเลิก")) {
+	case 1: callfunc "F_TopBuyItem",717,"Blue Gemstone",500;
+	case 2: callfunc "F_TopBuyItem",716,"Red Gemstone",500;
+	case 3: callfunc "F_TopBuyItem",715,"Yellow Gemstone",500;
+	case 4: callfunc "F_TopBuyItem",523,"Holy Water",500;
+	case 5: close;
+	}
+}
+
+geffen,122,60,4	script	ElementStoneDealer#gef	837,{
+	mes "[พ่อค้าหินธาตุ]";
+	mes "พลังธาตุคือพื้นฐานของนักเวทที่ดี";
+	mes "เลือกวัตถุดิบธาตุที่ต้องการได้เลย";
+	next;
+	switch(select("Red Blood - 1,000z:Crystal Blue - 1,000z:Wind of Verdure - 1,000z:Green Live - 1,000z:Flame Heart - 5,000z:Mystic Frozen - 5,000z:Rough Wind - 5,000z:Great Nature - 5,000z:ยกเลิก")) {
+	case 1: callfunc "F_TopBuyItem",990,"Red Blood",1000;
+	case 2: callfunc "F_TopBuyItem",991,"Crystal Blue",1000;
+	case 3: callfunc "F_TopBuyItem",992,"Wind of Verdure",1000;
+	case 4: callfunc "F_TopBuyItem",993,"Green Live",1000;
+	case 5: callfunc "F_TopBuyItem",994,"Flame Heart",5000;
+	case 6: callfunc "F_TopBuyItem",995,"Mystic Frozen",5000;
+	case 7: callfunc "F_TopBuyItem",996,"Rough Wind",5000;
+	case 8: callfunc "F_TopBuyItem",997,"Great Nature",5000;
+	case 9: close;
+	}
+}
+
+geffen,126,60,4	script	MageSupplyDealer#gef	837,{
+	mes "[เจ้าหน้าที่สนับสนุนนักเวท]";
+	mes "นักเวทที่ดีต้องเตรียมตัวให้พร้อมก่อนลงสนาม";
+	mes "ข้ามียาและของใช้พื้นฐานสำหรับการเก็บเลเวลและลงดันเจี้ยน";
+	next;
+	switch(select("Blue Potion - 5,000z:Green Potion - 40z:Fly Wing - 60z:Butterfly Wing - 300z:Magnifier - 40z:ยกเลิก")) {
+	case 1: callfunc "F_TopBuyItem",505,"Blue Potion",5000;
+	case 2: callfunc "F_TopBuyItem",506,"Green Potion",40;
+	case 3: callfunc "F_TopBuyItem",601,"Fly Wing",60;
+	case 4: callfunc "F_TopBuyItem",602,"Butterfly Wing",300;
+	case 5: callfunc "F_TopBuyItem",611,"Magnifier",40;
+	case 6: close;
+	}
+}
+
+geffen,130,60,4	script	GeffenGuide#gef	742,{
+	mes "[อาจารย์แห่งเกฟเฟน]";
+	mes "เกฟเฟนเป็นศูนย์กลางของนักเวทและการเตรียมของสายเวท";
+	mes "หากท่านเล่น Mage, Wizard, Sage, Priest หรือสายที่ใช้ Gemstone เมืองนี้ควรเป็นจุดแวะประจำ";
+	next;
+	mes "คำแนะนำ:";
+	mes "- Blue Gemstone ใช้กับสกิลสำคัญหลายชนิด";
+	mes "- หินธาตุใช้สำหรับการเตรียมคอนเทนต์ธาตุและระบบสาย Sage";
+	mes "- ควรพก Fly Wing และ Butterfly Wing ทุกครั้งก่อนออกล่า";
+	close;
+}

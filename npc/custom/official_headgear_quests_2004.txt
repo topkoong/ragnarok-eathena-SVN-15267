@@ -1,0 +1,619 @@
+//============================================================
+// Official Headgear Quests 2004 - Thai Port, ItemDB Verified
+// File: npc/custom/official_headgear_quests_2004.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Add official-style 2004 headgear quests.
+// - Recipes and locations are based on rAthena 2004 Headgear Quests.
+// - Item IDs were checked against this server's db/item_db.txt extracted
+//   from the uploaded eAthena SVN 15267 archive.
+//
+// Compatibility notes:
+// - Removed rAthena-only command: disable_items;
+// - Avoided modern rAthena syntax.
+// - Uses simple old eAthena commands: mes, next, menu, countitem,
+//   delitem, getitem, set Zeny, close.
+//
+// Important item warning:
+// - Many official quests consume an existing headgear.
+// - If that consumed item is upgraded, carded, slotted, or has special
+//   properties, those properties may be lost when the new item is created.
+//
+// Encoding note:
+// - Because Thai dialogue is included, save this file as
+//   Windows-874 / CP874 / TIS-620 when using it on old eAthena.
+//============================================================
+
+
+//============================================================
+// Headgear Quest Guide
+//============================================================
+prontera,186,86,4	script	HGQ2004Guide#main	837,{
+	mes "[ผู้แนะนำเควสหมวก 2004]";
+	mes "สวัสดีค่ะ นักผจญภัย";
+	mes "ฉันช่วยบอกตำแหน่งเควสหมวกปี 2004 ที่เพิ่มไว้ในเซิร์ฟเวอร์นี้ได้ค่ะ";
+	next;
+	mes "[ผู้แนะนำเควสหมวก 2004]";
+	mes "รายการที่รองรับในไฟล์นี้:";
+	mes "- Black Cat Ears";
+	mes "- X Hairpin / Giant Band Aid / Flower Hairpin";
+	mes "- Hot-blooded Headband / Red Ribbon";
+	mes "- Indian Headband / Decorative Mushroom";
+	mes "- Angel Wing Ears / Cowboy Hat";
+	mes "- Sea-Otter Hat / Teddybear Hat";
+	mes "- Model Training Hat / Tulip Hairpin";
+	mes "- Party Hat / Straw Hat / Sombrero / Beanie";
+	next;
+	mes "[ผู้แนะนำเควสหมวก 2004]";
+	mes "คำเตือนสำคัญ:";
+	mes "ถ้าไอเทมตั้งต้นมีการตีบวก ใส่การ์ด หรือมีคุณสมบัติพิเศษ";
+	mes "ระบบอาจลบคุณสมบัติเหล่านั้นเมื่อสร้างหมวกใหม่ค่ะ";
+	next;
+	mes "[ผู้แนะนำเควสหมวก 2004]";
+	mes "ตำแหน่งหลัก:";
+	mes "Payon, Geffen, Yuno, Prontera, Comodo, Lutie และ Xmas Inn";
+	close;
+}
+
+
+//============================================================
+// 1) Black Cat Ears
+// Official location: payon,115,131
+// Recipe verified in db/item_db.txt:
+// 2213 Kitty Band + 983 Black Dyestuffs + 914 Fluff x200 + 10,000z
+// Reward: 5057 Black Cat Ears
+//============================================================
+payon,115,131,3	script	Neko Neko#2004	725,{
+	mes "[Neko Neko]";
+	mes "เมี้ยว~ สนใจหูแมวดำน่ารัก ๆ ไหมคะ?";
+	mes "ฉันทำ Black Cat Ears ให้ได้ ถ้าคุณนำวัตถุดิบมาครบ";
+	next;
+	mes "[Neko Neko]";
+	mes "ต้องใช้:";
+	mes "1 Kitty Band";
+	mes "1 Black Dyestuffs";
+	mes "200 Fluff";
+	mes "10,000 Zeny";
+	next;
+	menu "สร้าง Black Cat Ears",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(2213) < 1 || countitem(983) < 1 || countitem(914) < 200 || Zeny < 10000) {
+		mes "[Neko Neko]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 2213,1;
+	delitem 983,1;
+	delitem 914,200;
+	set Zeny,Zeny-10000;
+	getitem 5057,1;
+	mes "[Neko Neko]";
+	mes "เสร็จแล้วค่ะ Black Cat Ears ของคุณ~";
+	close;
+
+L_Close:
+	mes "[Neko Neko]";
+	mes "ถ้าพร้อมแล้วค่อยกลับมานะคะ";
+	close;
+}
+
+
+//============================================================
+// 2) X Hairpin / Giant Band Aid / Flower Hairpin
+// Official location: geffen,129,148
+//============================================================
+geffen,129,148,3	script	Argen#2004	779,{
+	mes "[Argen]";
+	mes "เบื่อ ๆ อยู่พอดีเลย อยากให้ฉันทำเครื่องประดับผมให้ไหม?";
+	mes "เลือกแบบที่ต้องการได้เลย";
+	next;
+	menu "X Hairpin",L_X,"Giant Band Aid",L_Band,"Flower Hairpin",L_Flower,"ยกเลิก",L_Close;
+
+L_X:
+	mes "[Argen]";
+	mes "X Hairpin ต้องใช้ 1 Stellar และ 400 Ectoplasm";
+	next;
+	if (countitem(2294) < 1 || countitem(7220) < 400) {
+		mes "[Argen]";
+		mes "วัตถุดิบยังไม่ครบนะ";
+		close;
+	}
+	delitem 2294,1;
+	delitem 7220,400;
+	getitem 5079,1;
+	mes "[Argen]";
+	mes "เสร็จแล้ว X Hairpin เท่มากเลยนะ";
+	close;
+
+L_Band:
+	mes "[Argen]";
+	mes "Giant Band Aid ต้องใช้ 1 Alcohol และ 500 Rotten Bandage";
+	next;
+	if (countitem(970) < 1 || countitem(930) < 500) {
+		mes "[Argen]";
+		mes "วัตถุดิบยังไม่ครบนะ";
+		close;
+	}
+	delitem 970,1;
+	delitem 930,500;
+	getitem 5063,1;
+	mes "[Argen]";
+	mes "เรียบร้อย Giant Band Aid ของคุณ";
+	close;
+
+L_Flower:
+	mes "[Argen]";
+	mes "Flower Hairpin ต้องใช้ 1 Romantic Flower, 10 Steel และ 20,000 Zeny";
+	next;
+	if (countitem(2269) < 1 || countitem(999) < 10 || Zeny < 20000) {
+		mes "[Argen]";
+		mes "วัตถุดิบหรือ Zeny ยังไม่ครบนะ";
+		close;
+	}
+	delitem 2269,1;
+	delitem 999,10;
+	set Zeny,Zeny-20000;
+	getitem 5061,1;
+	getitem 905,1;
+	mes "[Argen]";
+	mes "เสร็จแล้ว Flower Hairpin และมี Stem เหลือให้ด้วย";
+	close;
+
+L_Close:
+	mes "[Argen]";
+	mes "ถ้าอยากได้เครื่องประดับผม ค่อยกลับมานะ";
+	close;
+}
+
+
+//============================================================
+// 3) Hot-blooded Headband
+// Official location: yuno,300,188
+//============================================================
+yuno,300,188,5	script	Zhenbolt#2004	753,{
+	mes "[Zhenbolt]";
+	mes "พลังใจ! ความกล้า! จิตวิญญาณนักสู้!";
+	mes "ถ้าคุณมีวัตถุดิบครบ ฉันจะทำ Hot-blooded Headband ให้";
+	next;
+	mes "[Zhenbolt]";
+	mes "ต้องใช้ 300 Red Muffler, 300 Burning Heart, 1 Bandana และ 1 White Dyestuffs";
+	next;
+	menu "สร้าง Hot-blooded Headband",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(7216) < 300 || countitem(7097) < 300 || countitem(2211) < 1 || countitem(982) < 1) {
+		mes "[Zhenbolt]";
+		mes "วัตถุดิบยังไม่ครบ! กลับไปฝึกฝนมาใหม่!";
+		close;
+	}
+	delitem 7216,300;
+	delitem 7097,300;
+	delitem 2211,1;
+	delitem 982,1;
+	getitem 5070,1;
+	mes "[Zhenbolt]";
+	mes "รับไป! Hot-blooded Headband แห่งจิตวิญญาณนักสู้!";
+	close;
+
+L_Close:
+	mes "[Zhenbolt]";
+	mes "เมื่อหัวใจพร้อม จงกลับมา!";
+	close;
+}
+
+
+//============================================================
+// 4) Red Ribbon
+// Official location: prontera,165,232
+//============================================================
+prontera,165,232,3	script	Nephia#2004	744,{
+	mes "[Nephia]";
+	mes "ริบบิ้นสีแดงจะทำให้ลุคดูน่ารักขึ้นมากเลยค่ะ";
+	mes "ถ้าต้องการ Red Ribbon ฉันช่วยผูกให้ได้นะคะ";
+	next;
+	mes "[Nephia]";
+	mes "ต้องใช้ 1 Big Ribbon, 1 Ribbon และ 1 Silk Ribbon";
+	next;
+	menu "สร้าง Red Ribbon",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(2244) < 1 || countitem(2209) < 1 || countitem(10007) < 1) {
+		mes "[Nephia]";
+		mes "ของยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 2244,1;
+	delitem 2209,1;
+	delitem 10007,1;
+	getitem 5083,1;
+	mes "[Nephia]";
+	mes "เสร็จแล้วค่ะ Red Ribbon น่ารักมากเลย";
+	close;
+
+L_Close:
+	mes "[Nephia]";
+	mes "ไว้กลับมาแต่งตัวด้วยกันใหม่นะคะ";
+	close;
+}
+
+
+//============================================================
+// 5) Indian Headband
+// Official location: comodo,237,217
+//============================================================
+comodo,237,217,5	script	Meruntei#2004	732,{
+	mes "[Meruntei]";
+	mes "จิตวิญญาณแห่งชนเผ่าจะอยู่กับผู้ที่ให้ความเคารพ";
+	mes "ฉันทำ Indian Headband ให้คุณได้";
+	next;
+	mes "[Meruntei]";
+	mes "ต้องใช้ 1 Indian Fillet, 1 Striped Hairband, 10 Peco Peco Feather และ 10,000 Zeny";
+	next;
+	menu "สร้าง Indian Headband",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(5010) < 1 || countitem(5049) < 1 || countitem(7101) < 10 || Zeny < 10000) {
+		mes "[Meruntei]";
+		mes "วัตถุดิบหรือ Zeny ยังไม่ครบ";
+		close;
+	}
+	delitem 5010,1;
+	delitem 5049,1;
+	delitem 7101,10;
+	set Zeny,Zeny-10000;
+	getitem 5071,1;
+	mes "[Meruntei]";
+	mes "Indian Headband ของคุณเสร็จแล้ว";
+	close;
+
+L_Close:
+	mes "[Meruntei]";
+	mes "จงเดินทางด้วยความเคารพต่อผืนดิน";
+	close;
+}
+
+
+//============================================================
+// 6) Decorative Mushroom / Mushroom Band
+// Official location: geffen,67,87
+//============================================================
+geffen,67,87,3	script	Ipore#2004	700,{
+	mes "[Ipore]";
+	mes "ฉันกำลังทดลองเวทมนตร์เกี่ยวกับเห็ดอยู่";
+	mes "ถ้ามี Mushroom Spore มากพอ ฉันทำหมวกเห็ดให้ได้นะ";
+	next;
+	mes "[Ipore]";
+	mes "ต้องใช้ 300 Mushroom Spore";
+	next;
+	menu "สร้าง Decorative Mushroom",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(921) < 300) {
+		mes "[Ipore]";
+		mes "Mushroom Spore ยังไม่ครบ 300 ชิ้น";
+		close;
+	}
+	delitem 921,300;
+	getitem 5082,1;
+	mes "[Ipore]";
+	mes "สำเร็จ! เห็ดบนหัว... เอ่อ Decorative Mushroom ของคุณ!";
+	close;
+
+L_Close:
+	mes "[Ipore]";
+	mes "ถ้าอยากร่วมทดลองเวทมนตร์เห็ด ค่อยกลับมานะ";
+	close;
+}
+
+
+//============================================================
+// 7) Angel Wing Ears / Devil Wing Ears
+// Official location: yuno,241,52
+//============================================================
+yuno,241,52,3	script	Old Blacksmith#2004	813,{
+	mes "[ช่างตีเหล็กเก่า]";
+	mes "Elven Ears เป็นงานฝีมือที่ดีอยู่แล้ว";
+	mes "แต่ถ้ารวมกับ Angel Wing หรือ Devil Wing จะยิ่งโดดเด่นขึ้น";
+	next;
+	menu "Angel Wing Ears",L_Angel,"Devil Wing Ears",L_Devil,"ยกเลิก",L_Close;
+
+L_Angel:
+	mes "[ช่างตีเหล็กเก่า]";
+	mes "ต้องใช้ 1 Angel Wing, 1 Elven Ears และ 20,000 Zeny";
+	next;
+	if (countitem(2254) < 1 || countitem(2286) < 1 || Zeny < 20000) {
+		mes "[ช่างตีเหล็กเก่า]";
+		mes "วัตถุดิบหรือ Zeny ยังไม่ครบ";
+		close;
+	}
+	delitem 2254,1;
+	delitem 2286,1;
+	set Zeny,Zeny-20000;
+	getitem 5074,1;
+	mes "[ช่างตีเหล็กเก่า]";
+	mes "Angel Wing Ears เสร็จแล้ว";
+	close;
+
+L_Devil:
+	mes "[ช่างตีเหล็กเก่า]";
+	mes "ต้องใช้ 1 Evil Wing, 1 Elven Ears และ 20,000 Zeny";
+	next;
+	if (countitem(2255) < 1 || countitem(2286) < 1 || Zeny < 20000) {
+		mes "[ช่างตีเหล็กเก่า]";
+		mes "วัตถุดิบหรือ Zeny ยังไม่ครบ";
+		close;
+	}
+	delitem 2255,1;
+	delitem 2286,1;
+	set Zeny,Zeny-20000;
+	getitem 5075,1;
+	mes "[ช่างตีเหล็กเก่า]";
+	mes "Devil Wing Ears เสร็จแล้ว";
+	close;
+
+L_Close:
+	mes "[ช่างตีเหล็กเก่า]";
+	mes "ถ้ามีวัตถุดิบดี ๆ ค่อยกลับมา";
+	close;
+}
+
+
+//============================================================
+// 8) Sea-Otter Hat
+// Official location: xmas,183,267
+//============================================================
+xmas,183,267,3	script	Pretty Lindsay#2004	793,{
+	mes "[Pretty Lindsay]";
+	mes "สวัสดีค่ะ! ฉันทำ Sea-Otter Hat ได้ น่ารักและอบอุ่นมากเลยนะ";
+	next;
+	mes "[Pretty Lindsay]";
+	mes "ต้องใช้ 1 Raccoon Hat และ 1 Smokie Leaf";
+	next;
+	menu "สร้าง Sea-Otter Hat",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(5033) < 1 || countitem(5064) < 1) {
+		mes "[Pretty Lindsay]";
+		mes "ยังไม่มี Raccoon Hat หรือ Smokie Leaf ค่ะ";
+		close;
+	}
+	delitem 5033,1;
+	delitem 5064,1;
+	getitem 5078,1;
+	mes "[Pretty Lindsay]";
+	mes "เสร็จแล้วค่ะ Sea-Otter Hat ของคุณ!";
+	close;
+
+L_Close:
+	mes "[Pretty Lindsay]";
+	mes "แล้วมาเล่นที่ Lutie อีกนะคะ";
+	close;
+}
+
+
+//============================================================
+// 9) Teddybear Hat
+// Official location: xmas,175,156
+//============================================================
+xmas,175,156,3	script	Fuzzy Fuzz#2004	712,{
+	mes "[Fuzzy Fuzz]";
+	mes "หมวกตุ๊กตาหมีเหมาะกับคนใจดีและอบอุ่น";
+	mes "ถ้านำวัตถุดิบมาครบ ฉันจะทำ Teddybear Hat ให้ค่ะ";
+	next;
+	mes "[Fuzzy Fuzz]";
+	mes "ต้องใช้ 1 Panda Hat, 100 Needle Packet, 100 Spool และ 300 Black Bear Skin";
+	next;
+	menu "สร้าง Teddybear Hat",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(5030) < 1 || countitem(7213) < 100 || countitem(7217) < 100 || countitem(7161) < 300) {
+		mes "[Fuzzy Fuzz]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 5030,1;
+	delitem 7213,100;
+	delitem 7217,100;
+	delitem 7161,300;
+	getitem 5059,1;
+	mes "[Fuzzy Fuzz]";
+	mes "Teddybear Hat เสร็จแล้วค่ะ ดูแลมันดี ๆ นะคะ";
+	close;
+
+L_Close:
+	mes "[Fuzzy Fuzz]";
+	mes "ขอให้มีวันที่อบอุ่นค่ะ";
+	close;
+}
+
+
+//============================================================
+// 10) Model Training Hat
+// Official location: payon_in03,8,193
+//============================================================
+payon_in03,8,193,4	script	Nanhyang#2004	77,{
+	mes "[Nanhyang]";
+	mes "ยินดีต้อนรับสู่การฝึกบุคลิกภาพ";
+	mes "ฉันสามารถทำ Model Training Hat หรือแยกมันกลับเป็นวัตถุดิบเดิมได้ค่ะ";
+	next;
+	menu "สร้าง Model Training Hat",L_Make,"แยก Model Training Hat",L_Break,"ยกเลิก",L_Close;
+
+L_Make:
+	mes "[Nanhyang]";
+	mes "ต้องใช้ 1 Apple of Archer และ 1 Book";
+	next;
+	if (countitem(2285) < 1 || countitem(1550) < 1) {
+		mes "[Nanhyang]";
+		mes "วัตถุดิบยังไม่ครบค่ะ";
+		close;
+	}
+	delitem 2285,1;
+	delitem 1550,1;
+	getitem 5073,1;
+	getitem 1750,1;
+	mes "[Nanhyang]";
+	mes "Model Training Hat เสร็จแล้วค่ะ และนี่คือ Arrow ที่เหลือ";
+	close;
+
+L_Break:
+	mes "[Nanhyang]";
+	mes "การแยกต้องใช้ 1 Model Training Hat และ 1 Arrow";
+	next;
+	if (countitem(5073) < 1 || countitem(1750) < 1) {
+		mes "[Nanhyang]";
+		mes "คุณยังไม่มีของสำหรับแยกค่ะ";
+		close;
+	}
+	delitem 5073,1;
+	delitem 1750,1;
+	getitem 2285,1;
+	getitem 1550,1;
+	mes "[Nanhyang]";
+	mes "แยกเรียบร้อย ได้ Apple of Archer และ Book คืนค่ะ";
+	close;
+
+L_Close:
+	mes "[Nanhyang]";
+	mes "ขอให้บุคลิกภาพดีขึ้นทุกวันนะคะ";
+	close;
+}
+
+
+//============================================================
+// 11) Tulip Hairpin
+// Official location: geffen,83,189
+//============================================================
+geffen,83,189,5	script	Seth#2004	716,{
+	mes "[Seth]";
+	mes "ผมพับดอกไม้กระดาษได้แล้วนะ!";
+	mes "ถ้ามี Mr. Smile กับ Scarlet Dyestuffs ผมจะทำ Tulip Hairpin ให้";
+	next;
+	mes "[Seth]";
+	mes "ต้องใช้ 1 Mr. Smile และ 1 Scarlet Dyestuffs";
+	next;
+	menu "สร้าง Tulip Hairpin",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(2278) < 1 || countitem(975) < 1) {
+		mes "[Seth]";
+		mes "ของยังไม่ครบครับ";
+		close;
+	}
+	delitem 2278,1;
+	delitem 975,1;
+	getitem 5077,1;
+	mes "[Seth]";
+	mes "เสร็จแล้วครับ Tulip Hairpin!";
+	close;
+
+L_Close:
+	mes "[Seth]";
+	mes "ไว้มาเล่นพับกระดาษกันใหม่นะครับ";
+	close;
+}
+
+
+//============================================================
+// 12) Mad Hatter: Party Hat / Straw Hat / Cowboy Hat / Sombrero / Beanie
+// Official location: xmas_in,35,30
+//============================================================
+xmas_in,35,30,3	script	Mad Hatter#2004	797,{
+	mes "[Mad Hatter]";
+	mes "ฉันคือ Mad Hatter ผู้ปรับแต่งหมวกเก่าให้มีชีวิตใหม่";
+	mes "เลือกหมวกที่ต้องการได้เลย";
+	next;
+	menu "Party Hat",L_Party,"Straw Hat",L_Straw,"Cowboy Hat",L_Cowboy,"Sombrero",L_Sombrero,"Beanie",L_Beanie,"ยกเลิก",L_Close;
+
+L_Party:
+	mes "[Mad Hatter]";
+	mes "Party Hat ต้องใช้ 1 Santa Hat, 100 Oil Paper และ 100 Slick Paper";
+	next;
+	if (countitem(2236) < 1 || countitem(7151) < 100 || countitem(7111) < 100) {
+		mes "[Mad Hatter]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 2236,1;
+	delitem 7151,100;
+	delitem 7111,100;
+	getitem 5060,1;
+	getitem 914,10;
+	mes "[Mad Hatter]";
+	mes "Party Hat เสร็จแล้ว! มี Fluff เหลือให้นิดหน่อยด้วย";
+	close;
+
+L_Straw:
+	mes "[Mad Hatter]";
+	mes "Straw Hat ต้องใช้ 1 Sakkat, 300 Tough Vines และ 300 Piece of Bamboo";
+	next;
+	if (countitem(2280) < 1 || countitem(7197) < 300 || countitem(7150) < 300) {
+		mes "[Mad Hatter]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 2280,1;
+	delitem 7197,300;
+	delitem 7150,300;
+	getitem 5062,1;
+	mes "[Mad Hatter]";
+	mes "Straw Hat เสร็จแล้ว ดูสบาย ๆ มาก";
+	close;
+
+L_Cowboy:
+	mes "[Mad Hatter]";
+	mes "Cowboy Hat ต้องใช้ 1 Western Grace, 108 Claw of Desert Wolf, 108 Soft Blade of Grass และ 4 Burning Horseshoe";
+	next;
+	if (countitem(2248) < 1 || countitem(7030) < 108 || countitem(7194) < 108 || countitem(7120) < 4) {
+		mes "[Mad Hatter]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 2248,1;
+	delitem 7030,108;
+	delitem 7194,108;
+	delitem 7120,4;
+	getitem 5075,1;
+	mes "[Mad Hatter]";
+	mes "Cowboy Hat เสร็จแล้ว เท่มาก!";
+	close;
+
+L_Sombrero:
+	mes "[Mad Hatter]";
+	mes "Sombrero ต้องใช้ 1 Straw Hat, 50 Cactus Needle และ 1 Guitar";
+	next;
+	if (countitem(5062) < 1 || countitem(952) < 50 || countitem(1907) < 1) {
+		mes "[Mad Hatter]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 5062,1;
+	delitem 952,50;
+	delitem 1907,1;
+	getitem 5067,1;
+	mes "[Mad Hatter]";
+	mes "Sombrero เสร็จแล้ว! Adios!";
+	close;
+
+L_Beanie:
+	mes "[Mad Hatter]";
+	mes "Beanie ต้องใช้ 1 Cap และ 500 Yarn";
+	next;
+	if (countitem(2226) < 1 || countitem(7038) < 500) {
+		mes "[Mad Hatter]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 2226,1;
+	delitem 7038,500;
+	getitem 5076,1;
+	mes "[Mad Hatter]";
+	mes "Beanie เสร็จแล้ว ดูอบอุ่นและเท่มาก";
+	close;
+
+L_Close:
+	mes "[Mad Hatter]";
+	mes "ถ้ามีหมวกเก่า ๆ อยากแปลงโฉม ค่อยกลับมานะ";
+	close;
+}

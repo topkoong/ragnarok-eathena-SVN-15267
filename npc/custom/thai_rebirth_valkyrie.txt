@@ -1,0 +1,143 @@
+//============================================================
+// Thai Rebirth / Valkyrie NPC for eAthena SVN 15267
+// Purpose:
+//   Normal 2nd Class 99/50 -> High Novice
+//
+// Adapted from rAthena's classic Valkyrie rebirth concept,
+// but simplified for old eAthena compatibility.
+//
+// Supported source jobs:
+//   Knight, Priest, Wizard, Blacksmith, Hunter, Assassin
+//   Crusader, Monk, Sage, Rogue, Alchemist, Bard, Dancer
+//
+// Important:
+//   - This NPC does NOT add 3rd jobs.
+//   - This NPC stores the intended transcendent job in ADVJOB.
+//   - The Thai High-Class Job Changer uses ADVJOB to guide the player.
+//============================================================
+
+valkyrie,48,86,4	script	RebirthNPC#rebirth	811,{
+
+	// --------------------------------------------------------
+	// Config
+	// --------------------------------------------------------
+	set .@ReqBase, 99;
+	set .@ReqJob, 50;
+	set .@RequireZeroWeight, 1; // rAthena-style: player must carry nothing.
+	set .@RequireZeroZeny, 1;   // rAthena-style: player must have 0 zeny.
+	set .@RequireNoSkillPoint, 1;
+	set .@GiveStarterItems, 1;
+
+	mes "[วาลคีรีจุติใหม่]";
+	mes "ยินดีต้อนรับสู่วิถีแห่งการจุติใหม่";
+	mes "ข้าสามารถนำพาผู้กล้าระดับสูงกลับไปเริ่มต้นชีวิตใหม่ในฐานะ High Novice ได้";
+	next;
+
+	// Already reborn / high class.
+	if (Class >= 4001 && Class <= 4021) {
+		mes "[วาลคีรีจุติใหม่]";
+		mes "เจ้าผ่านการจุติใหม่มาแล้ว";
+		mes "จงเดินหน้าบนเส้นทางของเจ้าให้สมเกียรติ";
+		close;
+	}
+
+	// Map current normal 2nd job to intended transcendent final job.
+	set .@target, 0;
+
+	// 2-1 jobs
+	if (Class == 7 || Class == 13) set .@target, 4008;       // Knight / Knight Mounted -> Lord Knight
+	else if (Class == 8) set .@target, 4009;                 // Priest -> High Priest
+	else if (Class == 9) set .@target, 4010;                 // Wizard -> High Wizard
+	else if (Class == 10) set .@target, 4011;                // Blacksmith -> Whitesmith
+	else if (Class == 11) set .@target, 4012;                // Hunter -> Sniper
+	else if (Class == 12) set .@target, 4013;                // Assassin -> Assassin Cross
+
+	// 2-2 jobs
+	else if (Class == 14 || Class == 21) set .@target, 4015; // Crusader / Crusader Mounted -> Paladin
+	else if (Class == 15) set .@target, 4016;                // Monk -> Champion
+	else if (Class == 16) set .@target, 4017;                // Sage -> Professor
+	else if (Class == 17) set .@target, 4018;                // Rogue -> Stalker
+	else if (Class == 18) set .@target, 4019;                // Alchemist -> Creator
+	else if (Class == 19) set .@target, 4020;                // Bard -> Clown
+	else if (Class == 20) set .@target, 4021;                // Dancer -> Gypsy
+
+	if (.@target == 0) {
+		mes "[วาลคีรีจุติใหม่]";
+		mes "ข้าช่วยได้เฉพาะตัวละครอาชีพ 2nd Class ปกติเท่านั้น";
+		mes "เช่น Knight, Priest, Wizard, Crusader, Rogue, Alchemist และอาชีพ 2nd Class อื่น ๆ";
+		close;
+	}
+
+	if (BaseLevel < .@ReqBase || JobLevel < .@ReqJob) {
+		mes "[วาลคีรีจุติใหม่]";
+		mes "เจ้ายังไม่พร้อมสำหรับการจุติใหม่";
+		mes "ต้องมี Base Level " + .@ReqBase + " และ Job Level " + .@ReqJob + " ก่อน";
+		close;
+	}
+
+	if (.@RequireNoSkillPoint && SkillPoint > 0) {
+		mes "[วาลคีรีจุติใหม่]";
+		mes "เจ้ายังมี Skill Point เหลืออยู่";
+		mes "โปรดใช้ Skill Point ให้หมดก่อนกลับมาหาข้า";
+		close;
+	}
+
+	if (checkcart() || checkfalcon() || checkriding()) {
+		mes "[วาลคีรีจุติใหม่]";
+		mes "ก่อนจุติใหม่ เจ้าต้องถอด Cart, Falcon หรือ Peco Peco ออกก่อน";
+		close;
+	}
+
+	if (.@RequireZeroWeight && Weight > 0) {
+		mes "[วาลคีรีจุติใหม่]";
+		mes "เจ้าต้องปล่อยวางสัมภาระทั้งหมดก่อน";
+		mes "โปรดฝากหรือทิ้งไอเท็มทั้งหมดให้ Weight เหลือ 0 แล้วกลับมาใหม่";
+		close;
+	}
+
+	if (.@RequireZeroZeny && Zeny > 0) {
+		mes "[วาลคีรีจุติใหม่]";
+		mes "เจ้าต้องปล่อยวางทรัพย์สินทั้งหมดก่อน";
+		mes "โปรดทำให้ Zeny เหลือ 0 แล้วกลับมาใหม่";
+		close;
+	}
+
+	mes "[วาลคีรีจุติใหม่]";
+	mes "เมื่อจุติใหม่ เจ้าจะกลับไปเป็น High Novice";
+	mes "จากนั้นเจ้าจะเดินทางต่อไปสู่อาชีพไฮคลาสตามสายเดิม";
+	next;
+
+	mes "[วาลคีรีจุติใหม่]";
+	mes "เจ้าพร้อมที่จะจุติใหม่หรือไม่?";
+	next;
+
+	if (select("พร้อมแล้ว ข้าต้องการจุติใหม่", "ยังไม่พร้อม") == 2) {
+		mes "[วาลคีรีจุติใหม่]";
+		mes "จงกลับมาเมื่อเจ้าพร้อม";
+		close;
+	}
+
+	// Store intended final transcendent job.
+	// Example: Knight -> 4008 Lord Knight, Rogue -> 4018 Stalker.
+	set ADVJOB, .@target;
+
+	// Change to High Novice and reset level.
+	jobchange 4001;
+	resetlvl(1);
+
+	// Give basic novice quest skills. If your eAthena rejects these lines,
+	// comment them out and reload the script.
+	skill 142,1,0; // NV_FIRSTAID
+	skill 143,1,0; // NV_TRICKDEAD
+
+	if (.@GiveStarterItems) {
+		getitem 1202,1; // Knife_
+		getitem 2302,1; // Cotton_Shirt_
+	}
+
+	mes "[วาลคีรีจุติใหม่]";
+	mes "ยินดีด้วย";
+	mes "เจ้าจุติใหม่เป็น High Novice แล้ว";
+	mes "จงไปพบผู้เปลี่ยนอาชีพไฮคลาสเพื่อเดินทางต่อไป";
+	close;
+}

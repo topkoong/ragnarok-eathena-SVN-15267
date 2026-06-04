@@ -1,0 +1,244 @@
+//============================================================
+// Thai High-Class Job Changer for eAthena SVN 15267
+// Purpose:
+//   High Novice -> High 1st Class
+//   High 1st Class -> Transcendent 2nd Class
+//
+// Works together with thai_rebirth_valkyrie.txt by reading ADVJOB.
+// If ADVJOB is set, the player is forced/guided to the correct final
+// transcendent class based on their original 2nd job before rebirth.
+//
+// This script intentionally uses numeric job IDs for old eAthena
+// compatibility.
+//============================================================
+
+valkyrie,48,39,5	script	HighClassNPC#highclass	742,{
+
+	// --------------------------------------------------------
+	// Config
+	// --------------------------------------------------------
+	set .@MinHighNoviceJob, 10;
+	set .@MinHighFirstJob, 40; // Change to 50 if your server requires Job 50.
+	set .@ForceOriginalPath, 1; // 1 = use ADVJOB to force original path after rebirth.
+
+	mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+	mes "สวัสดี ข้าช่วยเปลี่ยนอาชีพสำหรับผู้ที่จุติใหม่แล้ว";
+	mes "ข้ารองรับ High Novice และ High 1st Class เท่านั้น";
+	next;
+
+	//========================================================
+	// High Novice -> High 1st Class
+	//========================================================
+	if (Class == 4001) {
+		if (JobLevel < .@MinHighNoviceJob) {
+			mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+			mes "เจ้ายังมี Job Level ไม่ถึง " + .@MinHighNoviceJob;
+			mes "กลับมาอีกครั้งเมื่อพร้อมแล้ว";
+			close;
+		}
+
+		set .@job, 0;
+
+		// If player came through Thai Rebirth NPC, ADVJOB tells us the intended final class.
+		if (.@ForceOriginalPath && ADVJOB > 0) {
+			// Lord Knight / Paladin -> High Swordman
+			if (ADVJOB == 4008 || ADVJOB == 4015) set .@job, 4002;
+			// High Wizard / Professor -> High Mage
+			else if (ADVJOB == 4010 || ADVJOB == 4017) set .@job, 4003;
+			// Sniper / Clown / Gypsy -> High Archer
+			else if (ADVJOB == 4012 || ADVJOB == 4020 || ADVJOB == 4021) set .@job, 4004;
+			// High Priest / Champion -> High Acolyte
+			else if (ADVJOB == 4009 || ADVJOB == 4016) set .@job, 4005;
+			// Whitesmith / Creator -> High Merchant
+			else if (ADVJOB == 4011 || ADVJOB == 4019) set .@job, 4006;
+			// Assassin Cross / Stalker -> High Thief
+			else if (ADVJOB == 4013 || ADVJOB == 4018) set .@job, 4007;
+		}
+
+		if (.@job > 0) {
+			mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+			mes "เส้นทางเดิมของเจ้าถูกบันทึกไว้แล้ว";
+			mes "ข้าจะเปลี่ยนอาชีพให้เจ้าตามสายที่ถูกต้อง";
+			next;
+			callsub S_ConfirmJobChange, .@job, 0;
+			end;
+		}
+
+		mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+		mes "เจ้าคือ High Novice";
+		mes "ต้องการเปลี่ยนเป็นอาชีพใด?";
+		next;
+
+		switch(select("High Swordman", "High Mage", "High Archer", "High Acolyte", "High Merchant", "High Thief", "ยกเลิก")) {
+			case 1: set .@job, 4002; break;
+			case 2: set .@job, 4003; break;
+			case 3: set .@job, 4004; break;
+			case 4: set .@job, 4005; break;
+			case 5: set .@job, 4006; break;
+			case 6: set .@job, 4007; break;
+			default:
+				mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+				mes "ไว้กลับมาใหม่เมื่อเจ้าพร้อม";
+				close;
+		}
+
+		callsub S_ConfirmJobChange, .@job, 0;
+		end;
+	}
+
+	//========================================================
+	// High 1st Class -> Transcendent 2nd Class
+	//========================================================
+
+	// High Swordman -> Lord Knight / Paladin
+	if (Class == 4002) {
+		callsub S_CheckHighFirstLevel, .@MinHighFirstJob;
+		callsub S_SetFinalJob, 4008, 4015;
+		callsub S_ConfirmJobChange, .@job, 1;
+		end;
+	}
+
+	// High Mage -> High Wizard / Professor
+	if (Class == 4003) {
+		callsub S_CheckHighFirstLevel, .@MinHighFirstJob;
+		callsub S_SetFinalJob, 4010, 4017;
+		callsub S_ConfirmJobChange, .@job, 1;
+		end;
+	}
+
+	// High Archer -> Sniper / Clown / Gypsy
+	if (Class == 4004) {
+		callsub S_CheckHighFirstLevel, .@MinHighFirstJob;
+
+		if (.@ForceOriginalPath && ADVJOB > 0) {
+			if (ADVJOB == 4012 || ADVJOB == 4020 || ADVJOB == 4021) set .@job, ADVJOB;
+		}
+
+		if (.@job == 0) {
+			mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+			mes "เจ้าต้องการเดินสู่เส้นทางใด?";
+			next;
+
+			if (Sex == 1) {
+				switch(select("Sniper", "Clown", "ยกเลิก")) {
+					case 1: set .@job, 4012; break;
+					case 2: set .@job, 4020; break;
+					default: close;
+				}
+			} else {
+				switch(select("Sniper", "Gypsy", "ยกเลิก")) {
+					case 1: set .@job, 4012; break;
+					case 2: set .@job, 4021; break;
+					default: close;
+				}
+			}
+		}
+
+		callsub S_ConfirmJobChange, .@job, 1;
+		end;
+	}
+
+	// High Acolyte -> High Priest / Champion
+	if (Class == 4005) {
+		callsub S_CheckHighFirstLevel, .@MinHighFirstJob;
+		callsub S_SetFinalJob, 4009, 4016;
+		callsub S_ConfirmJobChange, .@job, 1;
+		end;
+	}
+
+	// High Merchant -> Whitesmith / Creator
+	if (Class == 4006) {
+		callsub S_CheckHighFirstLevel, .@MinHighFirstJob;
+		callsub S_SetFinalJob, 4011, 4019;
+		callsub S_ConfirmJobChange, .@job, 1;
+		end;
+	}
+
+	// High Thief -> Assassin Cross / Stalker
+	if (Class == 4007) {
+		callsub S_CheckHighFirstLevel, .@MinHighFirstJob;
+		callsub S_SetFinalJob, 4013, 4018;
+		callsub S_ConfirmJobChange, .@job, 1;
+		end;
+	}
+
+	mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+	mes "ข้าช่วยได้เฉพาะ High Novice และ High 1st Class เท่านั้น";
+	close;
+
+
+//============================================================
+// ตรวจสอบ Job Level ของ High 1st Class
+//============================================================
+S_CheckHighFirstLevel:
+	set .@required_job_level, getarg(0);
+
+	if (JobLevel < .@required_job_level) {
+		mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+		mes "เจ้ายังมี Job Level ไม่ถึง " + .@required_job_level;
+		mes "กลับมาอีกครั้งเมื่อพร้อมแล้ว";
+		close;
+	}
+
+	return;
+
+
+//============================================================
+// เลือก final transcendent job โดยอิง ADVJOB ก่อน
+// getarg(0) = 2-1 advanced job
+// getarg(1) = 2-2 advanced job
+//============================================================
+S_SetFinalJob:
+	set .@class1, getarg(0);
+	set .@class2, getarg(1);
+	set .@job, 0;
+
+	if (.@ForceOriginalPath && ADVJOB > 0) {
+		if (ADVJOB == .@class1 || ADVJOB == .@class2) set .@job, ADVJOB;
+	}
+
+	if (.@job == 0) {
+		mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+		mes "เจ้าต้องการเดินสู่เส้นทางใด?";
+		next;
+
+		// The labels below are intentionally generic because old eAthena
+		// cannot always call jobname() safely in every script context.
+		switch(select("สาย 2-1 ไฮคลาส", "สาย 2-2 ไฮคลาส", "ยกเลิก")) {
+			case 1: set .@job, .@class1; break;
+			case 2: set .@job, .@class2; break;
+			default: close;
+		}
+	}
+
+	return;
+
+
+//============================================================
+// ยืนยันและเปลี่ยนอาชีพ
+// getarg(0) = target job
+// getarg(1) = clear ADVJOB after change? 1 yes, 0 no
+//============================================================
+S_ConfirmJobChange:
+	set .@target_job, getarg(0);
+	set .@clear_advjob, getarg(1);
+
+	mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+	mes "เจ้าต้องการเปลี่ยนอาชีพตอนนี้เลยหรือไม่?";
+	next;
+
+	if (select("ใช่, เปลี่ยนอาชีพเลย", "ไม่, ขอยกเลิกก่อน") == 2) {
+		mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+		mes "ไว้กลับมาใหม่เมื่อเจ้าพร้อม";
+		close;
+	}
+
+	jobchange .@target_job;
+
+	if (.@clear_advjob) set ADVJOB, 0;
+
+	mes "[ผู้เปลี่ยนอาชีพไฮคลาส]";
+	mes "ยินดีด้วย!";
+	mes "เจ้าเปลี่ยนอาชีพสำเร็จแล้ว";
+	close;
+}

@@ -1,0 +1,118 @@
+//============================================================
+// Rental Utility NPC
+// File: npc/custom/rental_utility_npc.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Provide limited utility packages without relying on unsupported
+//   timed rental commands.
+// - This is not a permanent equipment rental system.
+// - Uses cooldowns and consumable packages for safety.
+//
+// Tracks:
+// - #RentalUtilityUse
+// - #RentalNextTime
+//============================================================
+
+prontera,136,91,4	script	RentalUtil#main	837,{
+	mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+	mes "ฉันมีแพ็กเกจช่วยเดินทางและทดลองเล่นแบบจำกัดเวลา";
+	mes "ระบบนี้ไม่ใช่การเช่าอุปกรณ์ถาวร แต่เป็นแพ็กเกจ Consumable ที่มีคูลดาวน์";
+	next;
+
+L_Main:
+	mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+	mes "จำนวนครั้งที่เคยใช้บริการ: ^0000FF" + #RentalUtilityUse + "^000000";
+	next;
+	switch(select(
+		"Starter Travel Pack - 50,000z",
+		"Party Travel Pack - 250,000z",
+		"Combat Trial Pack - 500,000z",
+		"Premium Trial Pack - 1,500,000z + 3 Quest Coins",
+		"คำอธิบาย",
+		"Cancel"
+	)) {
+	case 1: set .@type,1; set .@cost,50000; set .@coin,0; goto L_Check;
+	case 2: set .@type,2; set .@cost,250000; set .@coin,0; goto L_Check;
+	case 3: set .@type,3; set .@cost,500000; set .@coin,0; goto L_Check;
+	case 4: set .@type,4; set .@cost,1500000; set .@coin,3; goto L_Check;
+	case 5: goto L_Info;
+	default: close;
+	}
+
+L_Check:
+	if (#RentalNextTime > gettimetick(2)) {
+		set .@remain,#RentalNextTime-gettimetick(2);
+		set .@min,.@remain/60;
+		if (.@min < 1) set .@min,1;
+		mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+		mes "คุณยังติดคูลดาวน์อยู่";
+		mes "เหลือประมาณ " + .@min + " นาที";
+		close;
+	}
+	if (Zeny < .@cost) {
+		mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+		mes "Zeny ของคุณไม่พอ";
+		close;
+	}
+	if (#QuestCoin < .@coin) {
+		mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+		mes "Quest Coin ของคุณไม่พอ";
+		close;
+	}
+	mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+	mes "ยืนยันรับแพ็กเกจนี้หรือไม่?";
+	mes "Zeny: " + .@cost;
+	mes "Quest Coin: " + .@coin;
+	next;
+	menu "ยืนยัน",L_Give,"ยกเลิก",L_Main;
+
+L_Give:
+	if (Zeny < .@cost || #QuestCoin < .@coin) {
+		mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+		mes "ทรัพยากรไม่พอ";
+		close;
+	}
+	set Zeny,Zeny-.@cost;
+	set #QuestCoin,#QuestCoin-.@coin;
+	set #RentalUtilityUse,#RentalUtilityUse+1;
+	set #RentalNextTime,gettimetick(2)+3600;
+
+	if (.@type == 1) {
+		getitem 601,30;
+		getitem 602,5;
+		getitem 504,20;
+	}
+	else if (.@type == 2) {
+		getitem 12212,2;
+		getitem 12211,1;
+		getitem 610,3;
+	}
+	else if (.@type == 3) {
+		getitem 645,10;
+		getitem 656,10;
+		getitem 657,5;
+		getitem 506,20;
+	}
+	else if (.@type == 4) {
+		getitem 12210,1;
+		getitem 12214,1;
+		getitem 12215,2;
+		getitem 12216,2;
+	}
+	specialeffect2 248;
+	mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+	mes "รับแพ็กเกจเรียบร้อยแล้ว";
+	mes "คูลดาวน์ 1 ชั่วโมง";
+	close;
+
+L_Info:
+	mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+	mes "ทำไมไม่ใช้ระบบเช่าอุปกรณ์จริง?";
+	next;
+	mes "[ผู้ให้เช่าอุปกรณ์ช่วยเดินทาง]";
+	mes "เพราะ eAthena เก่าแต่ละเวอร์ชันรองรับคำสั่ง rental ไม่เท่ากัน";
+	mes "วิธีนี้ใช้ getitem และ cooldown จึงปลอดภัยกว่า";
+	next;
+	goto L_Main;
+}

@@ -1,0 +1,1077 @@
+//===== eAthena Script =======================================
+//= OPTIONAL hidden waitingroom overlays V4
+//= These are invisible NPC controllers that create native overhead chat-room boxes.
+//= This is NOT a real player-owned chat room. True player chat requires BL_PC sessions.
+//============================================================
+
+prontera,216,194,4	script	Bio3Party#CR0001	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+prontera,166,150,4	script	GHparty#CR0002	-1,{
+	end;
+OnInit:
+	waitingroom "GH party",20;
+	end;
+}
+
+prontera,192,204,4	script	MVPparty#CR0003	-1,{
+	end;
+OnInit:
+	waitingroom "MVP party",20;
+	end;
+}
+
+prontera,131,167,4	script	IceDunLFP#CR0004	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+prontera,220,152,4	script	GuildRecruit#CR0005	-1,{
+	end;
+OnInit:
+	waitingroom "Guild Recruit",20;
+	end;
+}
+
+prontera,206,166,4	script	ABBEYparty#CR0006	-1,{
+	end;
+OnInit:
+	waitingroom "ABBEY party",20;
+	end;
+}
+
+prontera,199,153,4	script	WoEGuild#CR0007	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+prontera,212,194,4	script	NeedHP#CR0008	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+prontera,132,131,4	script	Bio3Party#CR0009	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+prontera,152,119,4	script	LFTank#CR0010	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+prontera,138,161,4	script	ET1/12#CR0011	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+prontera,166,190,4	script	MVPparty#CR0012	-1,{
+	end;
+OnInit:
+	waitingroom "MVP party",20;
+	end;
+}
+
+morocc,177,130,4	script	NeedHW#CR0013	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+morocc,149,83,4	script	LFTank#CR0014	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+morocc,175,111,4	script	IceDunLFP#CR0015	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+morocc,142,92,4	script	LFPThor#CR0016	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+morocc,170,126,4	script	NeedBragi#CR0017	-1,{
+	end;
+OnInit:
+	waitingroom "Need Bragi",20;
+	end;
+}
+
+morocc,165,161,4	script	LFTank#CR0018	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+morocc,142,145,4	script	NeedHW#CR0019	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+morocc,154,144,4	script	ET1/12#CR0020	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+morocc,126,162,4	script	MVPparty#CR0021	-1,{
+	end;
+OnInit:
+	waitingroom "MVP party",20;
+	end;
+}
+
+morocc,168,77,4	script	NeedBragi#CR0022	-1,{
+	end;
+OnInit:
+	waitingroom "Need Bragi",20;
+	end;
+}
+
+morocc,123,154,4	script	ET1/12#CR0023	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+morocc,141,93,4	script	IceDunLFP#CR0024	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+payon,158,122,4	script	NeedHW#CR0025	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+payon,182,159,4	script	LFTank#CR0026	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+payon,177,163,4	script	GuildRecruit#CR0027	-1,{
+	end;
+OnInit:
+	waitingroom "Guild Recruit",20;
+	end;
+}
+
+payon,184,102,4	script	LFTank#CR0028	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+payon,181,146,4	script	MVPparty#CR0029	-1,{
+	end;
+OnInit:
+	waitingroom "MVP party",20;
+	end;
+}
+
+payon,135,96,4	script	WoEGuild#CR0030	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+payon,159,144,4	script	GuildRecruit#CR0031	-1,{
+	end;
+OnInit:
+	waitingroom "Guild Recruit",20;
+	end;
+}
+
+payon,138,127,4	script	NeedHW#CR0032	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+payon,178,113,4	script	NeedHW#CR0033	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+payon,153,167,4	script	NeedHP#CR0034	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+payon,179,168,4	script	GHparty#CR0035	-1,{
+	end;
+OnInit:
+	waitingroom "GH party",20;
+	end;
+}
+
+payon,167,86,4	script	WoEGuild#CR0036	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+geffen,93,132,4	script	LFTank#CR0037	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+geffen,129,66,4	script	IceDunLFP#CR0038	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+geffen,125,87,4	script	ET1/12#CR0039	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+geffen,99,127,4	script	NeedHP#CR0040	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+geffen,107,80,4	script	ET1/12#CR0041	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+geffen,114,48,4	script	LFPThor#CR0042	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+geffen,148,88,4	script	GuildRecruit#CR0043	-1,{
+	end;
+OnInit:
+	waitingroom "Guild Recruit",20;
+	end;
+}
+
+geffen,117,120,4	script	NeedHW#CR0044	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+geffen,113,89,4	script	LFPThor#CR0045	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+geffen,144,131,4	script	ET1/12#CR0046	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+geffen,98,116,4	script	ABBEYparty#CR0047	-1,{
+	end;
+OnInit:
+	waitingroom "ABBEY party",20;
+	end;
+}
+
+geffen,121,131,4	script	GHparty#CR0048	-1,{
+	end;
+OnInit:
+	waitingroom "GH party",20;
+	end;
+}
+
+izlude,130,125,4	script	MVPparty#CR0049	-1,{
+	end;
+OnInit:
+	waitingroom "MVP party",20;
+	end;
+}
+
+izlude,131,164,4	script	Bio3Party#CR0050	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+izlude,123,132,4	script	MVPparty#CR0051	-1,{
+	end;
+OnInit:
+	waitingroom "MVP party",20;
+	end;
+}
+
+izlude,107,107,4	script	Bio3Party#CR0052	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+izlude,127,129,4	script	IceDunLFP#CR0053	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+izlude,131,138,4	script	PVPanyone#CR0054	-1,{
+	end;
+OnInit:
+	waitingroom "PVP anyone?",20;
+	end;
+}
+
+izlude,135,132,4	script	LFTank#CR0055	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+izlude,112,108,4	script	Bio3Party#CR0056	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+izlude,119,140,4	script	WoEGuild#CR0057	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+izlude,121,120,4	script	MVPparty#CR0058	-1,{
+	end;
+OnInit:
+	waitingroom "MVP party",20;
+	end;
+}
+
+izlude,94,150,4	script	IceDunLFP#CR0059	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+izlude,108,125,4	script	PVPanyone#CR0060	-1,{
+	end;
+OnInit:
+	waitingroom "PVP anyone?",20;
+	end;
+}
+
+alberta,45,216,4	script	NeedHP#CR0061	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+alberta,39,243,4	script	IceDunLFP#CR0062	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+alberta,101,54,4	script	Bio3Party#CR0063	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+alberta,44,217,4	script	GuildRecruit#CR0064	-1,{
+	end;
+OnInit:
+	waitingroom "Guild Recruit",20;
+	end;
+}
+
+alberta,79,73,4	script	NeedHP#CR0065	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+alberta,110,90,4	script	WoEGuild#CR0066	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+alberta,85,58,4	script	NeedHW#CR0067	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+alberta,117,60,4	script	Bio3Party#CR0068	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+alberta,64,247,4	script	ET1/12#CR0069	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+alberta,83,76,4	script	WoEGuild#CR0070	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+alberta,22,221,4	script	IceDunLFP#CR0071	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+alberta,57,229,4	script	LFPThor#CR0072	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+aldebaran,150,171,4	script	Bio3Party#CR0073	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+aldebaran,116,132,4	script	WoEGuild#CR0074	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+aldebaran,163,147,4	script	LFPThor#CR0075	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+aldebaran,136,173,4	script	LFTank#CR0076	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+aldebaran,150,149,4	script	GuildRecruit#CR0077	-1,{
+	end;
+OnInit:
+	waitingroom "Guild Recruit",20;
+	end;
+}
+
+aldebaran,171,161,4	script	MVPparty#CR0078	-1,{
+	end;
+OnInit:
+	waitingroom "MVP party",20;
+	end;
+}
+
+aldebaran,160,143,4	script	ET1/12#CR0079	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+aldebaran,136,145,4	script	NeedHP#CR0080	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+aldebaran,156,135,4	script	WoEGuild#CR0081	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+aldebaran,133,161,4	script	ET1/12#CR0082	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+aldebaran,115,126,4	script	PVPanyone#CR0083	-1,{
+	end;
+OnInit:
+	waitingroom "PVP anyone?",20;
+	end;
+}
+
+aldebaran,115,121,4	script	NeedBragi#CR0084	-1,{
+	end;
+OnInit:
+	waitingroom "Need Bragi",20;
+	end;
+}
+
+yuno,167,135,4	script	LFPThor#CR0085	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+yuno,137,163,4	script	IceDunLFP#CR0086	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+yuno,149,139,4	script	PVPanyone#CR0087	-1,{
+	end;
+OnInit:
+	waitingroom "PVP anyone?",20;
+	end;
+}
+
+yuno,164,148,4	script	Bio3Party#CR0088	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+yuno,189,146,4	script	LFPThor#CR0089	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+yuno,145,190,4	script	NeedHW#CR0090	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+yuno,183,131,4	script	Bio3Party#CR0091	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+yuno,145,155,4	script	GHparty#CR0092	-1,{
+	end;
+OnInit:
+	waitingroom "GH party",20;
+	end;
+}
+
+yuno,172,148,4	script	NeedHP#CR0093	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+yuno,140,183,4	script	LFPThor#CR0094	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+yuno,175,158,4	script	NeedHP#CR0095	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+yuno,166,131,4	script	ET1/12#CR0096	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+comodo,224,163,4	script	MVPparty#CR0097	-1,{
+	end;
+OnInit:
+	waitingroom "MVP party",20;
+	end;
+}
+
+comodo,175,154,4	script	ET1/12#CR0098	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+comodo,226,210,4	script	NeedHP#CR0099	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+comodo,179,157,4	script	IceDunLFP#CR0100	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+comodo,194,138,4	script	LFTank#CR0101	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+comodo,208,207,4	script	WoEGuild#CR0102	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+comodo,202,145,4	script	NeedHW#CR0103	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+comodo,189,143,4	script	ABBEYparty#CR0104	-1,{
+	end;
+OnInit:
+	waitingroom "ABBEY party",20;
+	end;
+}
+
+comodo,196,183,4	script	WoEGuild#CR0105	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+comodo,198,187,4	script	IceDunLFP#CR0106	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+comodo,208,141,4	script	WoEGuild#CR0107	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+comodo,181,199,4	script	ABBEYparty#CR0108	-1,{
+	end;
+OnInit:
+	waitingroom "ABBEY party",20;
+	end;
+}
+
+amatsu,220,107,4	script	NeedHW#CR0109	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+amatsu,211,82,4	script	NeedBragi#CR0110	-1,{
+	end;
+OnInit:
+	waitingroom "Need Bragi",20;
+	end;
+}
+
+amatsu,195,75,4	script	PVPanyone#CR0111	-1,{
+	end;
+OnInit:
+	waitingroom "PVP anyone?",20;
+	end;
+}
+
+amatsu,216,105,4	script	NeedHW#CR0112	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+amatsu,219,83,4	script	GuildRecruit#CR0113	-1,{
+	end;
+OnInit:
+	waitingroom "Guild Recruit",20;
+	end;
+}
+
+louyang,216,123,4	script	GuildRecruit#CR0114	-1,{
+	end;
+OnInit:
+	waitingroom "Guild Recruit",20;
+	end;
+}
+
+louyang,206,97,4	script	ET1/12#CR0115	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+louyang,232,107,4	script	ET1/12#CR0116	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+louyang,195,86,4	script	NeedHP#CR0117	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+louyang,208,92,4	script	NeedHW#CR0118	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+ayothaya,202,151,4	script	GHparty#CR0119	-1,{
+	end;
+OnInit:
+	waitingroom "GH party",20;
+	end;
+}
+
+ayothaya,179,151,4	script	NeedHW#CR0120	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+ayothaya,227,182,4	script	WoEGuild#CR0121	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+ayothaya,192,163,4	script	NeedHP#CR0122	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+ayothaya,215,161,4	script	NeedHP#CR0123	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+lighthalzen,159,94,4	script	LFPThor#CR0124	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+lighthalzen,144,107,4	script	LFTank#CR0125	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+lighthalzen,158,96,4	script	LFPThor#CR0126	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+lighthalzen,145,110,4	script	ABBEYparty#CR0127	-1,{
+	end;
+OnInit:
+	waitingroom "ABBEY party",20;
+	end;
+}
+
+lighthalzen,160,80,4	script	LFTank#CR0128	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+rachel,124,153,4	script	GuildRecruit#CR0129	-1,{
+	end;
+OnInit:
+	waitingroom "Guild Recruit",20;
+	end;
+}
+
+rachel,113,142,4	script	Bio3Party#CR0130	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+rachel,127,136,4	script	Bio3Party#CR0131	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+rachel,156,133,4	script	GHparty#CR0132	-1,{
+	end;
+OnInit:
+	waitingroom "GH party",20;
+	end;
+}
+
+rachel,122,155,4	script	IceDunLFP#CR0133	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+veins,195,115,4	script	ET1/12#CR0134	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+veins,192,125,4	script	NeedHW#CR0135	-1,{
+	end;
+OnInit:
+	waitingroom "Need HW",20;
+	end;
+}
+
+veins,234,133,4	script	ET1/12#CR0136	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+veins,210,124,4	script	LFPThor#CR0137	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+veins,197,134,4	script	IceDunLFP#CR0138	-1,{
+	end;
+OnInit:
+	waitingroom "Ice Dun LFP",20;
+	end;
+}
+
+moscovia,205,203,4	script	Bio3Party#CR0139	-1,{
+	end;
+OnInit:
+	waitingroom "Bio3 Party",20;
+	end;
+}
+
+moscovia,213,202,4	script	NeedHP#CR0140	-1,{
+	end;
+OnInit:
+	waitingroom "Need HP",20;
+	end;
+}
+
+moscovia,200,173,4	script	PVPanyone#CR0141	-1,{
+	end;
+OnInit:
+	waitingroom "PVP anyone?",20;
+	end;
+}
+
+moscovia,231,186,4	script	LFPThor#CR0142	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+moscovia,202,184,4	script	PVPanyone#CR0143	-1,{
+	end;
+OnInit:
+	waitingroom "PVP anyone?",20;
+	end;
+}
+
+umbala,116,180,4	script	ET1/12#CR0144	-1,{
+	end;
+OnInit:
+	waitingroom "ET 1/12",20;
+	end;
+}
+
+umbala,105,179,4	script	WoEGuild#CR0145	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+umbala,112,169,4	script	GHparty#CR0146	-1,{
+	end;
+OnInit:
+	waitingroom "GH party",20;
+	end;
+}
+
+umbala,76,174,4	script	LFTank#CR0147	-1,{
+	end;
+OnInit:
+	waitingroom "LF Tank",20;
+	end;
+}
+
+umbala,116,156,4	script	GHparty#CR0148	-1,{
+	end;
+OnInit:
+	waitingroom "GH party",20;
+	end;
+}
+
+niflheim,210,176,4	script	WoEGuild#CR0149	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+niflheim,195,159,4	script	WoEGuild#CR0150	-1,{
+	end;
+OnInit:
+	waitingroom "WoE Guild",20;
+	end;
+}
+
+niflheim,193,160,4	script	GHparty#CR0151	-1,{
+	end;
+OnInit:
+	waitingroom "GH party",20;
+	end;
+}
+
+niflheim,199,194,4	script	LFPThor#CR0152	-1,{
+	end;
+OnInit:
+	waitingroom "LFP Thor",20;
+	end;
+}
+
+niflheim,189,191,4	script	ABBEYparty#CR0153	-1,{
+	end;
+OnInit:
+	waitingroom "ABBEY party",20;
+	end;
+}
+

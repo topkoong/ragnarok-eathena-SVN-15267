@@ -1,0 +1,1679 @@
+//===== eAthena Script =======================================
+//= Fake Player Mobs V4 - player-looking mobs via mob_avail.txt
+//= No baby/small classes. Mounted jobs use Peco sprites/options.
+//============================================================
+
+// Main city fake players - prontera
+prontera,186,150,0,0	monster	Monk Lv99	2045,1,0,0,0
+prontera,187,150,0,0	monster	LFP	2047,1,0,0,0
+prontera,162,218,0,0	monster	High Priest Lv99	2065,1,0,0,0
+prontera,167,133,0,0	monster	Priest Lv85	2034,1,0,0,0
+prontera,135,148,0,0	monster	Sniper Lv81	2083,1,0,0,0
+prontera,208,169,0,0	monster	Alchemist Lv60	2122,1,0,0,0
+prontera,185,181,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+prontera,196,212,0,0	monster	brb	2121,1,0,0,0
+prontera,156,115,0,0	monster	LFP	2055,1,0,0,0
+prontera,218,164,0,0	monster	Gypsy Lv98	2105,1,0,0,0
+prontera,205,173,0,0	monster	Whitesmith Lv79	2128,1,0,0,0
+prontera,163,128,0,0	monster	Archer Lv50	2004,1,0,0,0
+prontera,151,134,0,0	monster	Paladin Lv86	2088,1,0,0,0
+prontera,192,207,0,0	monster	Bard Lv99	2055,1,0,0,0
+prontera,201,199,0,0	monster	Creator Lv83	2123,1,0,0,0
+prontera,210,164,0,0	monster	LFP	2028,1,0,0,0
+prontera,130,200,0,0	monster	Whitesmith Lv80	2109,1,0,0,0
+prontera,198,158,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+prontera,163,180,0,0	monster	Alchemist Lv60	2122,1,0,0,0
+prontera,169,136,0,0	monster	MVP later?	2129,1,0,0,0
+prontera,168,202,0,0	monster	Buff pls	2065,1,0,0,0
+prontera,125,195,0,0	monster	Wizard Lv74	2036,1,0,0,0
+prontera,146,155,0,0	monster	OC/DC here	2052,1,0,0,0
+prontera,132,129,0,0	monster	Blacksmith Lv80	2126,1,0,0,0
+prontera,184,204,0,0	monster	Swordman Lv28	2000,1,0,0,0
+prontera,204,171,0,0	monster	Whitesmith Lv91	2077,1,0,0,0
+prontera,210,203,0,0	monster	ET party?	2135,1,0,0,0
+prontera,218,195,0,0	monster	Bio party?	2078,1,0,0,0
+prontera,144,148,0,0	monster	Creator Lv93	2099,1,0,0,0
+prontera,180,131,0,0	monster	High Wizard Lv84	2075,1,0,0,0
+prontera,177,183,0,0	monster	Creator Lv90	2113,1,0,0,0
+prontera,204,163,0,0	monster	Guild?	2097,1,0,0,0
+prontera,154,148,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+prontera,187,175,0,0	monster	Bard Lv99	2055,1,0,0,0
+prontera,175,126,0,0	monster	Whitesmith Lv99	2130,1,0,0,0
+prontera,215,183,0,0	monster	Merchant Lv23	2011,1,0,0,0
+prontera,183,176,0,0	monster	Sage Lv68	2047,1,0,0,0
+prontera,163,126,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+prontera,203,175,0,0	monster	Warp pls	2043,1,0,0,0
+prontera,136,122,0,0	monster	Need HP	2077,1,0,0,0
+prontera,130,127,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+prontera,145,136,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+prontera,168,153,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+prontera,172,179,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+prontera,135,130,0,0	monster	Whitesmith Lv99	2120,1,0,0,0
+prontera,139,185,0,0	monster	ET party?	2040,1,0,0,0
+prontera,143,169,0,0	monster	Gypsy Lv98	2105,1,0,0,0
+prontera,165,117,0,0	monster	Assassin Cross Lv76	2084,1,0,0,0
+prontera,207,197,0,0	monster	Whitesmith Lv99	2120,1,0,0,0
+prontera,162,145,0,0	monster	Guild?	2000,1,0,0,0
+prontera,164,216,0,0	monster	Buff pls	2087,1,0,0,0
+prontera,189,151,0,0	monster	Whitesmith Lv91	2077,1,0,0,0
+prontera,169,134,0,0	monster	Crusader Lv57	2032,1,0,0,0
+prontera,167,141,0,0	monster	Whitesmith Lv81	2141,1,0,0,0
+prontera,164,156,0,0	monster	Knight Lv82	2031,1,0,0,0
+prontera,131,115,0,0	monster	B> loot	2012,1,0,0,0
+prontera,184,184,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+prontera,197,182,0,0	monster	Whitesmith Lv99	2130,1,0,0,0
+prontera,134,150,0,0	monster	Mage Lv23	2002,1,0,0,0
+prontera,177,132,0,0	monster	Thor?	2053,1,0,0,0
+prontera,192,216,0,0	monster	ET party?	2111,1,0,0,0
+prontera,169,141,0,0	monster	Knight Lv82	2031,1,0,0,0
+prontera,191,199,0,0	monster	Creator Lv88	2125,1,0,0,0
+prontera,205,166,0,0	monster	Clown Lv99	2102,1,0,0,0
+prontera,187,178,0,0	monster	Clown Lv99	2102,1,0,0,0
+prontera,173,130,0,0	monster	Guild?	2132,1,0,0,0
+prontera,137,146,0,0	monster	Wizard Lv99	2037,1,0,0,0
+prontera,159,134,0,0	monster	LFP	2084,1,0,0,0
+prontera,197,153,0,0	monster	High Priest Lv99	2065,1,0,0,0
+prontera,143,126,0,0	monster	Mage Lv23	2002,1,0,0,0
+prontera,135,118,0,0	monster	MVP later?	2047,1,0,0,0
+prontera,158,143,0,0	monster	z z z	2089,1,0,0,0
+prontera,142,176,0,0	monster	Clown Lv88	2101,1,0,0,0
+prontera,140,137,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+prontera,203,163,0,0	monster	Clown Lv99	2102,1,0,0,0
+prontera,215,205,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+prontera,164,115,0,0	monster	Whitesmith Lv80	2109,1,0,0,0
+prontera,189,176,0,0	monster	Creator Lv88	2114,1,0,0,0
+prontera,203,188,0,0	monster	Thor?	2011,1,0,0,0
+prontera,183,159,0,0	monster	Need HP	2060,1,0,0,0
+prontera,205,185,0,0	monster	S> stuff	2122,1,0,0,0
+prontera,133,147,0,0	monster	Creator Lv88	2125,1,0,0,0
+prontera,162,142,0,0	monster	Hunter Lv70	2042,1,0,0,0
+prontera,135,143,0,0	monster	Sniper Lv81	2083,1,0,0,0
+prontera,218,156,0,0	monster	Mage Lv23	2002,1,0,0,0
+prontera,119,198,0,0	monster	Creator Lv86	2124,1,0,0,0
+prontera,186,167,0,0	monster	Creator Lv76	2138,1,0,0,0
+prontera,158,199,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+prontera,124,207,0,0	monster	Mage Lv23	2002,1,0,0,0
+prontera,146,135,0,0	monster	High Priest Lv87	2064,1,0,0,0
+prontera,173,135,0,0	monster	Crusader Lv57	2032,1,0,0,0
+prontera,153,132,0,0	monster	ET party?	2066,1,0,0,0
+prontera,204,190,0,0	monster	Thor?	2111,1,0,0,0
+prontera,156,119,0,0	monster	Whitesmith Lv80	2109,1,0,0,0
+prontera,197,191,0,0	monster	Buff pls	2079,1,0,0,0
+prontera,141,150,0,0	monster	S>Ranked Pots	2117,1,0,0,0
+prontera,160,143,0,0	monster	S>Armor	2051,1,0,0,0
+prontera,193,198,0,0	monster	S>OC/DC	2110,1,0,0,0
+prontera,161,156,0,0	monster	S>Gemstones	2107,1,0,0,0
+prontera,132,141,0,0	monster	S>Slotted	2124,1,0,0,0
+prontera,153,127,0,0	monster	S>Upgrade	2052,1,0,0,0
+prontera,180,118,0,0	monster	S>Upgrade	2118,1,0,0,0
+prontera,153,143,0,0	monster	S>MVP Loot	2125,1,0,0,0
+prontera,174,189,0,0	monster	S>Slotted	2053,1,0,0,0
+prontera,152,178,0,0	monster	S>OC/DC	2140,1,0,0,0
+prontera,151,202,0,0	monster	S>Gemstones	2110,1,0,0,0
+prontera,182,173,0,0	monster	S>Ori/Elu	2099,1,0,0,0
+prontera,191,192,0,0	monster	S>Ori/Elu	2107,1,0,0,0
+prontera,150,138,0,0	monster	S>Weapon	2132,1,0,0,0
+prontera,146,172,0,0	monster	S>Ranked Pots	2112,1,0,0,0
+prontera,180,192,0,0	monster	S>Armor	2115,1,0,0,0
+prontera,156,220,0,0	monster	S>Upgrade	2140,1,0,0,0
+prontera,186,193,0,0	monster	S>Slotted	2113,1,0,0,0
+prontera,152,147,0,0	monster	S>MVP Loot	2115,1,0,0,0
+prontera,152,134,0,0	monster	S>Armor	2078,1,0,0,0
+prontera,199,162,0,0	monster	S>Ranked Pots	2138,1,0,0,0
+prontera,142,132,0,0	monster	S>Upgrade	2129,1,0,0,0
+prontera,176,118,0,0	monster	S>Slotted	2078,1,0,0,0
+prontera,164,147,0,0	monster	S>OC/DC	2012,1,0,0,0
+prontera,139,135,0,0	monster	S>Ori/Elu	2119,1,0,0,0
+prontera,178,170,0,0	monster	S>Ranked Pots	2116,1,0,0,0
+prontera,135,216,0,0	monster	S>Gemstones	2078,1,0,0,0
+prontera,171,163,0,0	monster	S>OC/DC	2138,1,0,0,0
+prontera,162,182,0,0	monster	S>Cheap Pots	2139,1,0,0,0
+prontera,193,191,0,0	monster	S>OC/DC	2077,1,0,0,0
+
+// Main city fake players - morocc
+morocc,157,135,0,0	monster	z z z	2103,1,0,0,0
+morocc,175,127,0,0	monster	Stalker Lv94	2096,1,0,0,0
+morocc,141,113,0,0	monster	Rogue Lv66	2050,1,0,0,0
+morocc,151,147,0,0	monster	S> stuff	2004,1,0,0,0
+morocc,130,137,0,0	monster	Alchemist Lv90	2052,1,0,0,0
+morocc,160,119,0,0	monster	Buff pls	2078,1,0,0,0
+morocc,140,114,0,0	monster	ET party?	2127,1,0,0,0
+morocc,152,139,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+morocc,129,96,0,0	monster	Monk Lv99	2045,1,0,0,0
+morocc,121,149,0,0	monster	Buff pls	2048,1,0,0,0
+morocc,153,77,0,0	monster	Warp pls	2056,1,0,0,0
+morocc,174,116,0,0	monster	Warp pls	2135,1,0,0,0
+morocc,144,109,0,0	monster	S> stuff	2100,1,0,0,0
+morocc,122,147,0,0	monster	Priest Lv62	2035,1,0,0,0
+morocc,151,99,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+morocc,140,136,0,0	monster	ET party?	2067,1,0,0,0
+morocc,152,130,0,0	monster	Creator Lv76	2100,1,0,0,0
+morocc,132,135,0,0	monster	Scholar Lv92	2093,1,0,0,0
+morocc,182,157,0,0	monster	Bio party?	2054,1,0,0,0
+morocc,152,158,0,0	monster	Sniper Lv81	2083,1,0,0,0
+morocc,182,104,0,0	monster	Whitesmith Lv99	2110,1,0,0,0
+morocc,181,76,0,0	monster	Creator Lv93	2099,1,0,0,0
+morocc,186,130,0,0	monster	ET party?	2000,1,0,0,0
+morocc,169,152,0,0	monster	Sniper Lv81	2083,1,0,0,0
+morocc,145,157,0,0	monster	Creator Lv88	2114,1,0,0,0
+morocc,158,159,0,0	monster	Paladin Lv99	2087,1,0,0,0
+morocc,134,137,0,0	monster	Blacksmith Lv62	2137,1,0,0,0
+morocc,189,102,0,0	monster	Need party	2111,1,0,0,0
+morocc,171,104,0,0	monster	Whitesmith Lv99	2130,1,0,0,0
+morocc,173,100,0,0	monster	Assassin Cross Lv84	2085,1,0,0,0
+morocc,189,119,0,0	monster	Blacksmith Lv67	2039,1,0,0,0
+morocc,173,107,0,0	monster	Whitesmith Lv99	2130,1,0,0,0
+morocc,145,109,0,0	monster	Merchant Lv30	2112,1,0,0,0
+morocc,178,74,0,0	monster	Stalker Lv94	2096,1,0,0,0
+morocc,157,116,0,0	monster	Need party	2084,1,0,0,0
+morocc,176,112,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+morocc,180,135,0,0	monster	z z z	2131,1,0,0,0
+morocc,157,146,0,0	monster	Paladin Lv99	2087,1,0,0,0
+morocc,167,123,0,0	monster	Knight Lv80	2030,1,0,0,0
+morocc,151,123,0,0	monster	Creator Lv88	2125,1,0,0,0
+morocc,185,81,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+morocc,174,120,0,0	monster	Knight Lv82	2031,1,0,0,0
+morocc,121,150,0,0	monster	Merchant Lv32	2134,1,0,0,0
+morocc,175,85,0,0	monster	B> loot	2035,1,0,0,0
+morocc,156,164,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+morocc,159,134,0,0	monster	MVP later?	2032,1,0,0,0
+morocc,124,155,0,0	monster	Merchant Lv30	2112,1,0,0,0
+morocc,144,126,0,0	monster	Hunter Lv70	2042,1,0,0,0
+morocc,152,133,0,0	monster	Sage Lv68	2047,1,0,0,0
+morocc,148,141,0,0	monster	Scholar Lv92	2093,1,0,0,0
+morocc,132,78,0,0	monster	Guild?	2043,1,0,0,0
+morocc,145,156,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+morocc,126,143,0,0	monster	Clown Lv99	2102,1,0,0,0
+morocc,136,104,0,0	monster	High Wizard Lv84	2075,1,0,0,0
+morocc,142,129,0,0	monster	Bard Lv61	2054,1,0,0,0
+morocc,158,140,0,0	monster	Clown Lv88	2101,1,0,0,0
+morocc,161,103,0,0	monster	Blacksmith Lv75	2139,1,0,0,0
+morocc,164,142,0,0	monster	Whitesmith Lv99	2117,1,0,0,0
+morocc,151,163,0,0	monster	ET party?	2053,1,0,0,0
+morocc,162,119,0,0	monster	Whitesmith Lv99	2079,1,0,0,0
+morocc,180,73,0,0	monster	Blacksmith Lv98	2040,1,0,0,0
+morocc,150,158,0,0	monster	Whitesmith Lv99	2117,1,0,0,0
+morocc,171,152,0,0	monster	Sage Lv68	2047,1,0,0,0
+morocc,129,161,0,0	monster	Priest Lv62	2035,1,0,0,0
+morocc,145,118,0,0	monster	Champion Lv94	2092,1,0,0,0
+morocc,167,142,0,0	monster	Creator Lv93	2099,1,0,0,0
+morocc,172,99,0,0	monster	LFP	2093,1,0,0,0
+morocc,123,142,0,0	monster	Clown Lv99	2102,1,0,0,0
+morocc,152,143,0,0	monster	Priest Lv62	2035,1,0,0,0
+morocc,183,77,0,0	monster	OC/DC here	2092,1,0,0,0
+morocc,137,149,0,0	monster	Alchemist Lv90	2052,1,0,0,0
+morocc,124,137,0,0	monster	Assassin Lv96	2044,1,0,0,0
+morocc,157,145,0,0	monster	Need HP	2063,1,0,0,0
+morocc,135,95,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+morocc,185,149,0,0	monster	Mage Lv23	2002,1,0,0,0
+morocc,172,123,0,0	monster	High Priest Lv99	2065,1,0,0,0
+morocc,122,130,0,0	monster	Creator Lv99	2098,1,0,0,0
+morocc,139,90,0,0	monster	Assassin Cross Lv76	2084,1,0,0,0
+morocc,152,87,0,0	monster	Assassin Cross Lv87	2086,1,0,0,0
+morocc,179,133,0,0	monster	brb	2106,1,0,0,0
+morocc,157,75,0,0	monster	Rogue Lv66	2050,1,0,0,0
+morocc,150,93,0,0	monster	Merchant Lv30	2112,1,0,0,0
+morocc,164,158,0,0	monster	LFP	2061,1,0,0,0
+morocc,164,86,0,0	monster	Blacksmith Lv67	2039,1,0,0,0
+morocc,151,151,0,0	monster	Assassin Lv96	2044,1,0,0,0
+morocc,178,97,0,0	monster	Creator Lv88	2125,1,0,0,0
+morocc,176,155,0,0	monster	ET party?	2003,1,0,0,0
+morocc,151,90,0,0	monster	Bio party?	2086,1,0,0,0
+morocc,133,114,0,0	monster	Clown Lv99	2103,1,0,0,0
+morocc,147,105,0,0	monster	Need party	2025,1,0,0,0
+morocc,150,148,0,0	monster	Alchemist Lv60	2122,1,0,0,0
+morocc,189,81,0,0	monster	B> loot	2087,1,0,0,0
+morocc,166,83,0,0	monster	Lord Knight Lv87	2063,1,0,0,0
+morocc,134,130,0,0	monster	Assassin Lv87	2043,1,0,0,0
+morocc,152,72,0,0	monster	Rogue Lv59	2049,1,0,0,0
+morocc,161,162,0,0	monster	S>Supplies	2099,1,0,0,0
+morocc,180,120,0,0	monster	S>Ori/Elu	2110,1,0,0,0
+morocc,164,137,0,0	monster	S>Supplies	2119,1,0,0,0
+morocc,145,71,0,0	monster	S>Supplies	2107,1,0,0,0
+morocc,154,139,0,0	monster	S>Cheap Pots	2132,1,0,0,0
+morocc,157,102,0,0	monster	S>Cheap Pots	2112,1,0,0,0
+morocc,137,137,0,0	monster	S>MVP Loot	2116,1,0,0,0
+morocc,184,134,0,0	monster	S>Gemstones	2113,1,0,0,0
+morocc,130,98,0,0	monster	S>OC/DC	2039,1,0,0,0
+morocc,127,146,0,0	monster	S>Armor	2141,1,0,0,0
+morocc,179,109,0,0	monster	S>Ori/Elu	2134,1,0,0,0
+morocc,166,98,0,0	monster	S>Cards	2109,1,0,0,0
+morocc,138,135,0,0	monster	S>Armor	2126,1,0,0,0
+morocc,138,142,0,0	monster	S>Slotted	2110,1,0,0,0
+morocc,143,76,0,0	monster	S>Ori/Elu	2119,1,0,0,0
+morocc,133,70,0,0	monster	S>Cards	2039,1,0,0,0
+morocc,186,81,0,0	monster	S>Weapon	2113,1,0,0,0
+morocc,147,160,0,0	monster	S>Slotted	2039,1,0,0,0
+morocc,135,138,0,0	monster	S>Upgrade	2126,1,0,0,0
+morocc,153,134,0,0	monster	S>MVP Loot	2132,1,0,0,0
+morocc,163,114,0,0	monster	S>OC/DC	2100,1,0,0,0
+morocc,159,95,0,0	monster	S>Ranked Pots	2078,1,0,0,0
+morocc,136,118,0,0	monster	S>Weapon	2038,1,0,0,0
+morocc,178,154,0,0	monster	S>Gemstones	2124,1,0,0,0
+morocc,182,113,0,0	monster	S>Supplies	2100,1,0,0,0
+morocc,174,161,0,0	monster	S>Ranked Pots	2128,1,0,0,0
+morocc,184,76,0,0	monster	S>Ori/Elu	2117,1,0,0,0
+morocc,149,156,0,0	monster	S>Cheap Pots	2141,1,0,0,0
+morocc,120,147,0,0	monster	S>MVP Loot	2100,1,0,0,0
+morocc,143,161,0,0	monster	S>Cards	2012,1,0,0,0
+
+// Main city fake players - payon
+payon,189,174,0,0	monster	LFP	2086,1,0,0,0
+payon,169,146,0,0	monster	Knight Lv82	2031,1,0,0,0
+payon,175,141,0,0	monster	S> stuff	2111,1,0,0,0
+payon,183,158,0,0	monster	LFP	2062,1,0,0,0
+payon,156,151,0,0	monster	Assassin Lv96	2044,1,0,0,0
+payon,157,121,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+payon,166,150,0,0	monster	B> loot	2092,1,0,0,0
+payon,181,153,0,0	monster	Blacksmith Lv98	2040,1,0,0,0
+payon,183,95,0,0	monster	Swordman Lv30	2001,1,0,0,0
+payon,182,179,0,0	monster	Champion Lv78	2091,1,0,0,0
+payon,174,163,0,0	monster	Bio party?	2123,1,0,0,0
+payon,172,102,0,0	monster	Acolyte Lv45	2007,1,0,0,0
+payon,142,102,0,0	monster	Merchant Lv40	2012,1,0,0,0
+payon,174,170,0,0	monster	Gypsy Lv98	2105,1,0,0,0
+payon,180,140,0,0	monster	Lord Knight Lv87	2063,1,0,0,0
+payon,163,180,0,0	monster	Alchemist Lv89	2107,1,0,0,0
+payon,156,103,0,0	monster	Guild?	2128,1,0,0,0
+payon,168,153,0,0	monster	Blacksmith Lv98	2040,1,0,0,0
+payon,179,113,0,0	monster	Alchemist Lv90	2052,1,0,0,0
+payon,169,137,0,0	monster	Champion Lv78	2091,1,0,0,0
+payon,190,101,0,0	monster	MVP later?	2113,1,0,0,0
+payon,190,141,0,0	monster	Bard Lv61	2054,1,0,0,0
+payon,135,101,0,0	monster	Dancer Lv68	2058,1,0,0,0
+payon,160,126,0,0	monster	Clown Lv88	2101,1,0,0,0
+payon,157,97,0,0	monster	Clown Lv99	2103,1,0,0,0
+payon,143,86,0,0	monster	OC/DC here	2060,1,0,0,0
+payon,173,164,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+payon,187,169,0,0	monster	Creator Lv76	2138,1,0,0,0
+payon,173,153,0,0	monster	Thor?	2086,1,0,0,0
+payon,162,149,0,0	monster	LFP	2044,1,0,0,0
+payon,154,164,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+payon,174,156,0,0	monster	Thief Lv54	2028,1,0,0,0
+payon,180,165,0,0	monster	Blacksmith Lv80	2126,1,0,0,0
+payon,178,129,0,0	monster	OC/DC here	2044,1,0,0,0
+payon,155,167,0,0	monster	Merchant Lv40	2012,1,0,0,0
+payon,170,140,0,0	monster	Sage Lv98	2048,1,0,0,0
+payon,164,170,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+payon,190,113,0,0	monster	Alchemist Lv90	2052,1,0,0,0
+payon,172,125,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+payon,171,104,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+payon,186,173,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+payon,150,153,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+payon,154,131,0,0	monster	Thief Lv54	2028,1,0,0,0
+payon,187,122,0,0	monster	Merchant Lv37	2121,1,0,0,0
+payon,156,123,0,0	monster	S> stuff	2066,1,0,0,0
+payon,158,147,0,0	monster	Merchant Lv30	2112,1,0,0,0
+payon,161,126,0,0	monster	Blacksmith Lv80	2126,1,0,0,0
+payon,177,160,0,0	monster	Paladin Lv99	2089,1,0,0,0
+payon,173,170,0,0	monster	Buff pls	2094,1,0,0,0
+payon,185,145,0,0	monster	Dancer Lv96	2060,1,0,0,0
+payon,184,170,0,0	monster	Creator Lv76	2138,1,0,0,0
+payon,144,86,0,0	monster	Paladin Lv86	2088,1,0,0,0
+payon,159,161,0,0	monster	Archer Lv27	2005,1,0,0,0
+payon,181,105,0,0	monster	Assassin Lv96	2044,1,0,0,0
+payon,146,138,0,0	monster	Thief Lv54	2028,1,0,0,0
+payon,162,120,0,0	monster	Paladin Lv99	2087,1,0,0,0
+payon,150,106,0,0	monster	Champion Lv99	2090,1,0,0,0
+payon,153,151,0,0	monster	Whitesmith Lv91	2077,1,0,0,0
+payon,181,148,0,0	monster	Dancer Lv96	2060,1,0,0,0
+payon,180,145,0,0	monster	Warp pls	2055,1,0,0,0
+payon,151,170,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+payon,186,153,0,0	monster	Blacksmith Lv67	2115,1,0,0,0
+payon,183,150,0,0	monster	Thor?	2007,1,0,0,0
+payon,166,127,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+payon,146,92,0,0	monster	Assassin Cross Lv76	2084,1,0,0,0
+payon,177,129,0,0	monster	Champion Lv99	2090,1,0,0,0
+payon,153,174,0,0	monster	Priest Lv85	2034,1,0,0,0
+payon,156,129,0,0	monster	ET party?	2043,1,0,0,0
+payon,170,126,0,0	monster	Lord Knight Lv87	2063,1,0,0,0
+payon,188,145,0,0	monster	Guild?	2134,1,0,0,0
+payon,158,158,0,0	monster	Monk Lv99	2046,1,0,0,0
+payon,174,158,0,0	monster	LFP	2093,1,0,0,0
+payon,189,176,0,0	monster	Thief Lv25	2029,1,0,0,0
+payon,160,114,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+payon,164,143,0,0	monster	Guild?	2056,1,0,0,0
+payon,154,109,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+payon,141,120,0,0	monster	Clown Lv99	2103,1,0,0,0
+payon,159,160,0,0	monster	Whitesmith Lv99	2110,1,0,0,0
+payon,148,114,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+payon,163,122,0,0	monster	Buff pls	2012,1,0,0,0
+payon,189,170,0,0	monster	Merchant Lv30	2112,1,0,0,0
+payon,182,163,0,0	monster	Alchemist Lv60	2122,1,0,0,0
+payon,141,109,0,0	monster	Clown Lv99	2102,1,0,0,0
+payon,182,155,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+payon,185,159,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+payon,181,96,0,0	monster	Need party	2096,1,0,0,0
+payon,158,117,0,0	monster	MVP later?	2097,1,0,0,0
+payon,181,180,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+payon,166,95,0,0	monster	Creator Lv76	2138,1,0,0,0
+payon,172,156,0,0	monster	Wizard Lv99	2037,1,0,0,0
+payon,165,172,0,0	monster	Need HP	2117,1,0,0,0
+payon,151,114,0,0	monster	Guild?	2001,1,0,0,0
+payon,178,173,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+payon,179,162,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+payon,162,125,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+payon,186,166,0,0	monster	S>Cards	2135,1,0,0,0
+payon,184,150,0,0	monster	S>Weapon	2123,1,0,0,0
+payon,168,162,0,0	monster	S>Ranked Pots	2098,1,0,0,0
+payon,186,168,0,0	monster	S>Upgrade	2051,1,0,0,0
+payon,174,166,0,0	monster	S>Cheap Pots	2051,1,0,0,0
+payon,187,103,0,0	monster	S>OC/DC	2141,1,0,0,0
+payon,176,130,0,0	monster	S>Upgrade	2136,1,0,0,0
+payon,163,146,0,0	monster	S>Upgrade	2123,1,0,0,0
+payon,171,105,0,0	monster	S>Weapon	2040,1,0,0,0
+payon,190,163,0,0	monster	S>Ranked Pots	2126,1,0,0,0
+payon,161,158,0,0	monster	S>Weapon	2012,1,0,0,0
+payon,168,100,0,0	monster	S>Supplies	2109,1,0,0,0
+payon,158,125,0,0	monster	S>Slotted	2125,1,0,0,0
+payon,190,150,0,0	monster	S>Cards	2118,1,0,0,0
+payon,183,180,0,0	monster	S>Ori/Elu	2134,1,0,0,0
+payon,175,124,0,0	monster	S>Weapon	2011,1,0,0,0
+payon,175,149,0,0	monster	S>Weapon	2131,1,0,0,0
+payon,152,124,0,0	monster	S>Cheap Pots	2039,1,0,0,0
+payon,187,142,0,0	monster	S>Gemstones	2012,1,0,0,0
+payon,155,131,0,0	monster	S>Armor	2038,1,0,0,0
+payon,178,99,0,0	monster	S>Ori/Elu	2120,1,0,0,0
+payon,163,161,0,0	monster	S>Cheap Pots	2125,1,0,0,0
+payon,176,170,0,0	monster	S>Armor	2140,1,0,0,0
+payon,171,134,0,0	monster	S>OC/DC	2107,1,0,0,0
+payon,171,157,0,0	monster	S>Upgrade	2116,1,0,0,0
+payon,150,174,0,0	monster	S>Gemstones	2119,1,0,0,0
+payon,186,143,0,0	monster	S>Slotted	2127,1,0,0,0
+payon,148,137,0,0	monster	S>Cards	2138,1,0,0,0
+payon,175,156,0,0	monster	S>MVP Loot	2139,1,0,0,0
+payon,190,145,0,0	monster	S>MVP Loot	2138,1,0,0,0
+
+// Main city fake players - geffen
+geffen,104,62,0,0	monster	LFP	2101,1,0,0,0
+geffen,143,91,0,0	monster	Whitesmith Lv99	2110,1,0,0,0
+geffen,105,48,0,0	monster	Sniper Lv81	2083,1,0,0,0
+geffen,131,68,0,0	monster	S> stuff	2131,1,0,0,0
+geffen,134,90,0,0	monster	Blacksmith Lv71	2133,1,0,0,0
+geffen,125,127,0,0	monster	B> loot	2064,1,0,0,0
+geffen,102,66,0,0	monster	LFP	2045,1,0,0,0
+geffen,138,130,0,0	monster	Blacksmith Lv67	2039,1,0,0,0
+geffen,119,108,0,0	monster	ET party?	2131,1,0,0,0
+geffen,135,106,0,0	monster	Stalker Lv94	2096,1,0,0,0
+geffen,134,116,0,0	monster	Bio party?	2033,1,0,0,0
+geffen,92,60,0,0	monster	Bio party?	2095,1,0,0,0
+geffen,117,112,0,0	monster	Champion Lv94	2092,1,0,0,0
+geffen,153,62,0,0	monster	Priest Lv62	2035,1,0,0,0
+geffen,115,99,0,0	monster	High Priest Lv99	2065,1,0,0,0
+geffen,96,45,0,0	monster	High Priest Lv97	2066,1,0,0,0
+geffen,128,123,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+geffen,144,132,0,0	monster	Gypsy Lv98	2105,1,0,0,0
+geffen,100,60,0,0	monster	OC/DC here	2110,1,0,0,0
+geffen,144,87,0,0	monster	Assassin Cross Lv76	2084,1,0,0,0
+geffen,86,128,0,0	monster	Archer Lv50	2004,1,0,0,0
+geffen,92,91,0,0	monster	Acolyte Lv45	2007,1,0,0,0
+geffen,105,118,0,0	monster	Creator Lv90	2113,1,0,0,0
+geffen,106,105,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+geffen,102,47,0,0	monster	Assassin Lv87	2043,1,0,0,0
+geffen,90,54,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+geffen,114,95,0,0	monster	Guild?	2037,1,0,0,0
+geffen,115,93,0,0	monster	B> loot	2108,1,0,0,0
+geffen,127,112,0,0	monster	Scholar Lv79	2095,1,0,0,0
+geffen,138,124,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+geffen,95,122,0,0	monster	Champion Lv78	2091,1,0,0,0
+geffen,98,127,0,0	monster	Merchant Lv23	2011,1,0,0,0
+geffen,106,70,0,0	monster	Creator Lv99	2098,1,0,0,0
+geffen,93,113,0,0	monster	Sniper Lv81	2083,1,0,0,0
+geffen,94,62,0,0	monster	Scholar Lv79	2095,1,0,0,0
+geffen,139,123,0,0	monster	Creator Lv76	2138,1,0,0,0
+geffen,141,93,0,0	monster	Priest Lv85	2034,1,0,0,0
+geffen,114,124,0,0	monster	Wizard Lv74	2036,1,0,0,0
+geffen,133,126,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+geffen,144,118,0,0	monster	Bard Lv61	2054,1,0,0,0
+geffen,125,45,0,0	monster	Blacksmith Lv98	2040,1,0,0,0
+geffen,147,91,0,0	monster	Creator Lv76	2100,1,0,0,0
+geffen,102,99,0,0	monster	Thief Lv54	2028,1,0,0,0
+geffen,86,108,0,0	monster	Creator Lv93	2099,1,0,0,0
+geffen,128,100,0,0	monster	Scholar Lv78	2094,1,0,0,0
+geffen,117,122,0,0	monster	OC/DC here	2037,1,0,0,0
+geffen,115,78,0,0	monster	B> loot	2032,1,0,0,0
+geffen,95,126,0,0	monster	z z z	2083,1,0,0,0
+geffen,97,91,0,0	monster	Creator Lv99	2098,1,0,0,0
+geffen,111,65,0,0	monster	High Priest Lv99	2065,1,0,0,0
+geffen,103,114,0,0	monster	z z z	2124,1,0,0,0
+geffen,106,54,0,0	monster	Whitesmith Lv99	2078,1,0,0,0
+geffen,130,64,0,0	monster	Assassin Lv96	2044,1,0,0,0
+geffen,136,105,0,0	monster	OC/DC here	2089,1,0,0,0
+geffen,96,125,0,0	monster	brb	2137,1,0,0,0
+geffen,110,77,0,0	monster	Stalker Lv94	2096,1,0,0,0
+geffen,147,55,0,0	monster	Champion Lv99	2090,1,0,0,0
+geffen,126,103,0,0	monster	Hunter Lv70	2042,1,0,0,0
+geffen,117,85,0,0	monster	Knight Lv80	2030,1,0,0,0
+geffen,104,78,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+geffen,153,46,0,0	monster	Acolyte Lv45	2007,1,0,0,0
+geffen,93,114,0,0	monster	Buff pls	2012,1,0,0,0
+geffen,123,99,0,0	monster	Bio party?	2087,1,0,0,0
+geffen,137,81,0,0	monster	Creator Lv86	2124,1,0,0,0
+geffen,117,103,0,0	monster	B> loot	2031,1,0,0,0
+geffen,114,47,0,0	monster	Dancer Lv96	2060,1,0,0,0
+geffen,107,102,0,0	monster	Creator Lv90	2113,1,0,0,0
+geffen,116,112,0,0	monster	Priest Lv85	2034,1,0,0,0
+geffen,106,114,0,0	monster	LFP	2100,1,0,0,0
+geffen,135,108,0,0	monster	Rogue Lv66	2050,1,0,0,0
+geffen,142,92,0,0	monster	LFP	2111,1,0,0,0
+geffen,126,49,0,0	monster	B> loot	2094,1,0,0,0
+geffen,106,126,0,0	monster	brb	2011,1,0,0,0
+geffen,124,127,0,0	monster	B> loot	2075,1,0,0,0
+geffen,99,46,0,0	monster	Crusader Lv57	2032,1,0,0,0
+geffen,101,50,0,0	monster	Whitesmith Lv99	2079,1,0,0,0
+geffen,154,90,0,0	monster	Blacksmith Lv67	2115,1,0,0,0
+geffen,123,59,0,0	monster	MVP later?	2127,1,0,0,0
+geffen,155,66,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+geffen,105,59,0,0	monster	OC/DC here	2094,1,0,0,0
+geffen,150,57,0,0	monster	Merchant Lv23	2011,1,0,0,0
+geffen,117,75,0,0	monster	Assassin Lv87	2043,1,0,0,0
+geffen,100,50,0,0	monster	Creator Lv76	2100,1,0,0,0
+geffen,118,123,0,0	monster	Gypsy Lv98	2105,1,0,0,0
+geffen,112,50,0,0	monster	Sage Lv68	2047,1,0,0,0
+geffen,132,65,0,0	monster	Whitesmith Lv79	2128,1,0,0,0
+geffen,85,126,0,0	monster	Scholar Lv78	2094,1,0,0,0
+geffen,144,121,0,0	monster	OC/DC here	2095,1,0,0,0
+geffen,114,113,0,0	monster	Guild?	2035,1,0,0,0
+geffen,111,76,0,0	monster	Warp pls	2092,1,0,0,0
+geffen,129,83,0,0	monster	Warp pls	2045,1,0,0,0
+geffen,113,128,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+geffen,119,125,0,0	monster	Buff pls	2097,1,0,0,0
+geffen,114,100,0,0	monster	z z z	2125,1,0,0,0
+geffen,95,64,0,0	monster	Assassin Cross Lv76	2084,1,0,0,0
+geffen,140,118,0,0	monster	S>Weapon	2109,1,0,0,0
+geffen,108,102,0,0	monster	S>Upgrade	2114,1,0,0,0
+geffen,89,120,0,0	monster	S>OC/DC	2025,1,0,0,0
+geffen,107,134,0,0	monster	S>Cards	2123,1,0,0,0
+geffen,121,50,0,0	monster	S>Cheap Pots	2099,1,0,0,0
+geffen,90,102,0,0	monster	S>Gemstones	2140,1,0,0,0
+geffen,116,91,0,0	monster	S>MVP Loot	2121,1,0,0,0
+geffen,111,115,0,0	monster	S>Ori/Elu	2129,1,0,0,0
+geffen,129,115,0,0	monster	S>Armor	2100,1,0,0,0
+geffen,108,125,0,0	monster	S>Ranked Pots	2109,1,0,0,0
+geffen,127,91,0,0	monster	S>OC/DC	2011,1,0,0,0
+geffen,106,74,0,0	monster	S>Upgrade	2039,1,0,0,0
+geffen,127,82,0,0	monster	S>MVP Loot	2111,1,0,0,0
+geffen,102,71,0,0	monster	S>Gemstones	2120,1,0,0,0
+geffen,128,80,0,0	monster	S>Ori/Elu	2052,1,0,0,0
+geffen,106,45,0,0	monster	S>Cards	2129,1,0,0,0
+geffen,139,110,0,0	monster	S>Supplies	2098,1,0,0,0
+geffen,90,74,0,0	monster	S>OC/DC	2108,1,0,0,0
+geffen,110,64,0,0	monster	S>Ori/Elu	2122,1,0,0,0
+geffen,118,61,0,0	monster	S>Supplies	2077,1,0,0,0
+geffen,131,88,0,0	monster	S>Cheap Pots	2011,1,0,0,0
+geffen,119,68,0,0	monster	S>Ori/Elu	2128,1,0,0,0
+geffen,104,134,0,0	monster	S>Ori/Elu	2053,1,0,0,0
+geffen,125,61,0,0	monster	S>Armor	2115,1,0,0,0
+geffen,131,78,0,0	monster	S>Upgrade	2111,1,0,0,0
+geffen,104,69,0,0	monster	S>Upgrade	2110,1,0,0,0
+geffen,103,103,0,0	monster	S>Gemstones	2112,1,0,0,0
+geffen,125,79,0,0	monster	S>OC/DC	2112,1,0,0,0
+geffen,125,99,0,0	monster	S>Ranked Pots	2125,1,0,0,0
+geffen,85,121,0,0	monster	S>Weapon	2025,1,0,0,0
+
+// Main city fake players - izlude
+izlude,113,128,0,0	monster	Guild?	2084,1,0,0,0
+izlude,116,131,0,0	monster	OC/DC here	2036,1,0,0,0
+izlude,87,140,0,0	monster	Blacksmith Lv67	2039,1,0,0,0
+izlude,102,114,0,0	monster	Archer Lv27	2005,1,0,0,0
+izlude,156,124,0,0	monster	Clown Lv99	2103,1,0,0,0
+izlude,98,148,0,0	monster	Need HP	2085,1,0,0,0
+izlude,114,135,0,0	monster	Guild?	2052,1,0,0,0
+izlude,112,144,0,0	monster	Creator Lv83	2123,1,0,0,0
+izlude,87,144,0,0	monster	Blacksmith Lv62	2137,1,0,0,0
+izlude,139,119,0,0	monster	Warp pls	2062,1,0,0,0
+izlude,91,123,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+izlude,142,120,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+izlude,102,120,0,0	monster	Blacksmith Lv67	2039,1,0,0,0
+izlude,107,126,0,0	monster	Hunter Lv70	2042,1,0,0,0
+izlude,128,160,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+izlude,139,118,0,0	monster	Bio party?	2111,1,0,0,0
+izlude,91,145,0,0	monster	Whitesmith Lv99	2131,1,0,0,0
+izlude,107,99,0,0	monster	brb	2085,1,0,0,0
+izlude,105,111,0,0	monster	High Priest Lv97	2066,1,0,0,0
+izlude,131,112,0,0	monster	Creator Lv86	2124,1,0,0,0
+izlude,96,121,0,0	monster	Champion Lv94	2092,1,0,0,0
+izlude,131,139,0,0	monster	Champion Lv99	2090,1,0,0,0
+izlude,121,164,0,0	monster	OC/DC here	2125,1,0,0,0
+izlude,104,135,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+izlude,108,145,0,0	monster	Scholar Lv79	2095,1,0,0,0
+izlude,103,137,0,0	monster	Bard Lv61	2054,1,0,0,0
+izlude,134,97,0,0	monster	Alchemist Lv61	2116,1,0,0,0
+izlude,151,117,0,0	monster	B> loot	2113,1,0,0,0
+izlude,129,95,0,0	monster	Sniper Lv81	2083,1,0,0,0
+izlude,140,130,0,0	monster	Creator Lv88	2125,1,0,0,0
+izlude,106,102,0,0	monster	z z z	2138,1,0,0,0
+izlude,114,125,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+izlude,102,122,0,0	monster	brb	2053,1,0,0,0
+izlude,109,112,0,0	monster	Guild?	2030,1,0,0,0
+izlude,152,118,0,0	monster	Merchant Lv37	2121,1,0,0,0
+izlude,152,126,0,0	monster	Thor?	2056,1,0,0,0
+izlude,133,134,0,0	monster	Stalker Lv99	2097,1,0,0,0
+izlude,122,113,0,0	monster	Gypsy Lv98	2105,1,0,0,0
+izlude,134,124,0,0	monster	Thor?	2141,1,0,0,0
+izlude,128,116,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+izlude,99,128,0,0	monster	Need party	2114,1,0,0,0
+izlude,148,118,0,0	monster	Merchant Lv27	2025,1,0,0,0
+izlude,121,148,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+izlude,128,148,0,0	monster	Rogue Lv66	2050,1,0,0,0
+izlude,135,146,0,0	monster	Thief Lv54	2028,1,0,0,0
+izlude,92,150,0,0	monster	Thor?	2041,1,0,0,0
+izlude,120,141,0,0	monster	Knight Lv80	2030,1,0,0,0
+izlude,96,131,0,0	monster	Gypsy Lv98	2105,1,0,0,0
+izlude,126,116,0,0	monster	Priest Lv62	2035,1,0,0,0
+izlude,128,133,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+izlude,119,125,0,0	monster	Clown Lv88	2101,1,0,0,0
+izlude,116,149,0,0	monster	LFP	2058,1,0,0,0
+izlude,118,162,0,0	monster	Blacksmith Lv75	2139,1,0,0,0
+izlude,98,96,0,0	monster	Knight Lv80	2030,1,0,0,0
+izlude,119,95,0,0	monster	Dancer Lv96	2060,1,0,0,0
+izlude,109,129,0,0	monster	Champion Lv78	2091,1,0,0,0
+izlude,115,128,0,0	monster	High Priest Lv97	2066,1,0,0,0
+izlude,90,126,0,0	monster	Alchemist Lv89	2107,1,0,0,0
+izlude,133,120,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+izlude,102,107,0,0	monster	Buff pls	2140,1,0,0,0
+izlude,119,146,0,0	monster	Creator Lv83	2123,1,0,0,0
+izlude,100,99,0,0	monster	Merchant Lv99	2127,1,0,0,0
+izlude,86,121,0,0	monster	Clown Lv88	2101,1,0,0,0
+izlude,106,145,0,0	monster	LFP	2105,1,0,0,0
+izlude,96,147,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+izlude,115,141,0,0	monster	Scholar Lv78	2094,1,0,0,0
+izlude,111,104,0,0	monster	Need party	2115,1,0,0,0
+izlude,119,123,0,0	monster	Guild?	2105,1,0,0,0
+izlude,121,141,0,0	monster	Creator Lv88	2125,1,0,0,0
+izlude,140,115,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+izlude,131,116,0,0	monster	Whitesmith Lv99	2117,1,0,0,0
+izlude,98,118,0,0	monster	Sniper Lv81	2083,1,0,0,0
+izlude,123,160,0,0	monster	LFP	2075,1,0,0,0
+izlude,92,124,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+izlude,101,158,0,0	monster	Buff pls	2136,1,0,0,0
+izlude,132,132,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+izlude,109,128,0,0	monster	Paladin Lv86	2088,1,0,0,0
+izlude,115,137,0,0	monster	Sniper Lv81	2083,1,0,0,0
+izlude,95,156,0,0	monster	Blacksmith Lv71	2133,1,0,0,0
+izlude,112,99,0,0	monster	Monk Lv99	2046,1,0,0,0
+izlude,106,122,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+izlude,144,149,0,0	monster	Sniper Lv82	2080,1,0,0,0
+izlude,117,95,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+izlude,133,130,0,0	monster	Assassin Lv96	2044,1,0,0,0
+izlude,92,164,0,0	monster	ET party?	2132,1,0,0,0
+izlude,121,135,0,0	monster	B> loot	2110,1,0,0,0
+izlude,96,136,0,0	monster	LFP	2053,1,0,0,0
+izlude,117,137,0,0	monster	Knight Lv82	2031,1,0,0,0
+izlude,139,123,0,0	monster	Blacksmith Lv67	2115,1,0,0,0
+izlude,97,113,0,0	monster	Merchant Lv30	2112,1,0,0,0
+izlude,106,95,0,0	monster	Thor?	2054,1,0,0,0
+izlude,127,108,0,0	monster	High Wizard Lv91	2076,1,0,0,0
+izlude,148,105,0,0	monster	Creator Lv76	2138,1,0,0,0
+izlude,117,108,0,0	monster	Monk Lv99	2045,1,0,0,0
+izlude,90,159,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+izlude,138,145,0,0	monster	S>Ranked Pots	2129,1,0,0,0
+izlude,95,123,0,0	monster	S>Gemstones	2039,1,0,0,0
+izlude,156,121,0,0	monster	S>OC/DC	2125,1,0,0,0
+izlude,128,138,0,0	monster	S>Weapon	2040,1,0,0,0
+izlude,99,141,0,0	monster	S>Supplies	2135,1,0,0,0
+izlude,122,147,0,0	monster	S>Weapon	2116,1,0,0,0
+izlude,132,115,0,0	monster	S>Cheap Pots	2099,1,0,0,0
+izlude,100,149,0,0	monster	S>Gemstones	2098,1,0,0,0
+izlude,115,140,0,0	monster	S>Cheap Pots	2118,1,0,0,0
+izlude,95,117,0,0	monster	S>Ori/Elu	2112,1,0,0,0
+izlude,105,146,0,0	monster	S>Cheap Pots	2038,1,0,0,0
+izlude,156,129,0,0	monster	S>Upgrade	2038,1,0,0,0
+izlude,108,135,0,0	monster	S>MVP Loot	2039,1,0,0,0
+izlude,140,142,0,0	monster	S>Slotted	2131,1,0,0,0
+izlude,128,143,0,0	monster	S>Ori/Elu	2128,1,0,0,0
+izlude,104,108,0,0	monster	S>Upgrade	2140,1,0,0,0
+izlude,151,120,0,0	monster	S>Weapon	2039,1,0,0,0
+izlude,128,142,0,0	monster	S>Cards	2140,1,0,0,0
+izlude,116,101,0,0	monster	S>Gemstones	2115,1,0,0,0
+izlude,125,130,0,0	monster	S>Slotted	2112,1,0,0,0
+izlude,133,104,0,0	monster	S>Ori/Elu	2134,1,0,0,0
+izlude,108,153,0,0	monster	S>Gemstones	2140,1,0,0,0
+izlude,138,107,0,0	monster	S>Slotted	2079,1,0,0,0
+izlude,121,119,0,0	monster	S>MVP Loot	2099,1,0,0,0
+izlude,102,144,0,0	monster	S>Upgrade	2127,1,0,0,0
+izlude,122,128,0,0	monster	S>Ranked Pots	2109,1,0,0,0
+izlude,159,104,0,0	monster	S>Upgrade	2051,1,0,0,0
+izlude,114,158,0,0	monster	S>OC/DC	2139,1,0,0,0
+izlude,131,127,0,0	monster	S>Armor	2133,1,0,0,0
+izlude,116,141,0,0	monster	S>Cards	2107,1,0,0,0
+
+// Main city fake players - alberta
+alberta,102,62,0,0	monster	Swordman Lv30	2001,1,0,0,0
+alberta,95,80,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+alberta,58,232,0,0	monster	B> loot	2003,1,0,0,0
+alberta,94,47,0,0	monster	Warp pls	2035,1,0,0,0
+alberta,108,59,0,0	monster	Clown Lv99	2103,1,0,0,0
+alberta,103,85,0,0	monster	Whitesmith Lv99	2079,1,0,0,0
+alberta,90,77,0,0	monster	B> loot	2078,1,0,0,0
+alberta,54,222,0,0	monster	Assassin Lv87	2043,1,0,0,0
+alberta,99,56,0,0	monster	Scholar Lv78	2094,1,0,0,0
+alberta,106,73,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+alberta,42,239,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+alberta,34,225,0,0	monster	Alchemist Lv60	2122,1,0,0,0
+alberta,38,229,0,0	monster	Need party	2007,1,0,0,0
+alberta,75,246,0,0	monster	Blacksmith Lv67	2115,1,0,0,0
+alberta,30,232,0,0	monster	MVP later?	2007,1,0,0,0
+alberta,81,85,0,0	monster	Merchant Lv27	2025,1,0,0,0
+alberta,47,222,0,0	monster	Paladin Lv99	2087,1,0,0,0
+alberta,49,248,0,0	monster	Need HP	2126,1,0,0,0
+alberta,20,241,0,0	monster	High Priest Lv87	2064,1,0,0,0
+alberta,57,236,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+alberta,47,246,0,0	monster	Blacksmith Lv67	2115,1,0,0,0
+alberta,119,46,0,0	monster	Mage Lv23	2002,1,0,0,0
+alberta,88,66,0,0	monster	Need party	2030,1,0,0,0
+alberta,26,240,0,0	monster	Scholar Lv92	2093,1,0,0,0
+alberta,65,230,0,0	monster	Archer Lv50	2004,1,0,0,0
+alberta,104,83,0,0	monster	LFP	2102,1,0,0,0
+alberta,119,71,0,0	monster	Need party	2028,1,0,0,0
+alberta,60,223,0,0	monster	Merchant Lv27	2025,1,0,0,0
+alberta,92,76,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+alberta,89,86,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+alberta,26,230,0,0	monster	Clown Lv99	2102,1,0,0,0
+alberta,75,68,0,0	monster	LFP	2064,1,0,0,0
+alberta,39,217,0,0	monster	OC/DC here	2119,1,0,0,0
+alberta,59,230,0,0	monster	Need HP	2104,1,0,0,0
+alberta,92,67,0,0	monster	Creator Lv99	2098,1,0,0,0
+alberta,83,247,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+alberta,40,250,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+alberta,117,72,0,0	monster	Whitesmith Lv79	2128,1,0,0,0
+alberta,68,76,0,0	monster	Assassin Lv87	2043,1,0,0,0
+alberta,69,218,0,0	monster	LFP	2120,1,0,0,0
+alberta,46,239,0,0	monster	Blacksmith Lv67	2115,1,0,0,0
+alberta,89,90,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+alberta,99,87,0,0	monster	Gypsy Lv90	2104,1,0,0,0
+alberta,43,228,0,0	monster	Knight Lv80	2030,1,0,0,0
+alberta,41,233,0,0	monster	Gypsy Lv90	2104,1,0,0,0
+alberta,68,223,0,0	monster	Hunter Lv92	2041,1,0,0,0
+alberta,99,83,0,0	monster	Wizard Lv99	2037,1,0,0,0
+alberta,25,215,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+alberta,109,71,0,0	monster	ET party?	2098,1,0,0,0
+alberta,49,236,0,0	monster	Merchant Lv99	2127,1,0,0,0
+alberta,86,60,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+alberta,83,217,0,0	monster	Thief Lv54	2028,1,0,0,0
+alberta,84,232,0,0	monster	ET party?	2075,1,0,0,0
+alberta,76,248,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+alberta,87,77,0,0	monster	Warp pls	2078,1,0,0,0
+alberta,87,74,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+alberta,104,78,0,0	monster	Priest Lv62	2035,1,0,0,0
+alberta,39,227,0,0	monster	Wizard Lv74	2036,1,0,0,0
+alberta,85,60,0,0	monster	ET party?	2124,1,0,0,0
+alberta,113,50,0,0	monster	Creator Lv90	2113,1,0,0,0
+alberta,90,46,0,0	monster	Crusader Lv59	2033,1,0,0,0
+alberta,81,234,0,0	monster	Thief Lv25	2029,1,0,0,0
+alberta,77,228,0,0	monster	Priest Lv62	2035,1,0,0,0
+alberta,30,229,0,0	monster	Warp pls	2084,1,0,0,0
+alberta,26,249,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+alberta,67,60,0,0	monster	Bard Lv66	2056,1,0,0,0
+alberta,30,217,0,0	monster	Need party	2106,1,0,0,0
+alberta,61,227,0,0	monster	S> stuff	2056,1,0,0,0
+alberta,80,223,0,0	monster	Knight Lv80	2030,1,0,0,0
+alberta,61,241,0,0	monster	Scholar Lv79	2095,1,0,0,0
+alberta,63,231,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+alberta,84,59,0,0	monster	Knight Lv82	2031,1,0,0,0
+alberta,101,55,0,0	monster	Merchant Lv32	2134,1,0,0,0
+alberta,72,50,0,0	monster	S> stuff	2006,1,0,0,0
+alberta,108,64,0,0	monster	Creator Lv83	2123,1,0,0,0
+alberta,21,221,0,0	monster	Crusader Lv57	2032,1,0,0,0
+alberta,34,219,0,0	monster	Clown Lv88	2101,1,0,0,0
+alberta,49,235,0,0	monster	brb	2004,1,0,0,0
+alberta,76,246,0,0	monster	Alchemist Lv89	2107,1,0,0,0
+alberta,72,224,0,0	monster	Need party	2043,1,0,0,0
+alberta,97,47,0,0	monster	Whitesmith Lv80	2109,1,0,0,0
+alberta,47,223,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+alberta,22,240,0,0	monster	Need party	2049,1,0,0,0
+alberta,73,67,0,0	monster	S> stuff	2030,1,0,0,0
+alberta,94,49,0,0	monster	Merchant Lv27	2025,1,0,0,0
+alberta,69,63,0,0	monster	Archer Lv27	2005,1,0,0,0
+alberta,20,244,0,0	monster	Knight Lv80	2030,1,0,0,0
+alberta,102,53,0,0	monster	Need HP	2113,1,0,0,0
+alberta,68,72,0,0	monster	Thief Lv54	2028,1,0,0,0
+alberta,69,73,0,0	monster	Thief Lv54	2028,1,0,0,0
+alberta,99,77,0,0	monster	B> loot	2131,1,0,0,0
+alberta,74,235,0,0	monster	Whitesmith Lv99	2078,1,0,0,0
+alberta,95,57,0,0	monster	Creator Lv83	2123,1,0,0,0
+alberta,111,68,0,0	monster	Clown Lv88	2101,1,0,0,0
+alberta,66,89,0,0	monster	Need party	2064,1,0,0,0
+alberta,94,90,0,0	monster	S>Weapon	2038,1,0,0,0
+alberta,60,241,0,0	monster	S>Slotted	2112,1,0,0,0
+alberta,105,50,0,0	monster	S>OC/DC	2053,1,0,0,0
+alberta,22,246,0,0	monster	S>Gemstones	2100,1,0,0,0
+alberta,93,54,0,0	monster	S>Gemstones	2038,1,0,0,0
+alberta,84,46,0,0	monster	S>Cheap Pots	2011,1,0,0,0
+alberta,85,50,0,0	monster	S>Ori/Elu	2112,1,0,0,0
+alberta,62,232,0,0	monster	S>Gemstones	2122,1,0,0,0
+alberta,109,90,0,0	monster	S>Weapon	2117,1,0,0,0
+alberta,94,60,0,0	monster	S>Upgrade	2123,1,0,0,0
+alberta,107,89,0,0	monster	S>Ranked Pots	2129,1,0,0,0
+alberta,85,227,0,0	monster	S>MVP Loot	2121,1,0,0,0
+alberta,74,56,0,0	monster	S>Gemstones	2011,1,0,0,0
+alberta,113,61,0,0	monster	S>MVP Loot	2134,1,0,0,0
+alberta,49,246,0,0	monster	S>OC/DC	2117,1,0,0,0
+alberta,41,229,0,0	monster	S>Armor	2111,1,0,0,0
+alberta,30,245,0,0	monster	S>Ori/Elu	2137,1,0,0,0
+alberta,105,73,0,0	monster	S>MVP Loot	2140,1,0,0,0
+alberta,79,232,0,0	monster	S>Ori/Elu	2125,1,0,0,0
+alberta,83,88,0,0	monster	S>Supplies	2038,1,0,0,0
+alberta,85,90,0,0	monster	S>Slotted	2077,1,0,0,0
+alberta,70,238,0,0	monster	S>Gemstones	2012,1,0,0,0
+alberta,40,230,0,0	monster	S>Ranked Pots	2123,1,0,0,0
+alberta,66,250,0,0	monster	S>OC/DC	2120,1,0,0,0
+alberta,76,71,0,0	monster	S>Cheap Pots	2052,1,0,0,0
+alberta,80,52,0,0	monster	S>Armor	2117,1,0,0,0
+alberta,76,215,0,0	monster	S>MVP Loot	2129,1,0,0,0
+alberta,36,226,0,0	monster	S>Ori/Elu	2116,1,0,0,0
+alberta,102,74,0,0	monster	S>Armor	2118,1,0,0,0
+alberta,112,49,0,0	monster	S>Slotted	2124,1,0,0,0
+
+// Main city fake players - aldebaran
+aldebaran,151,128,0,0	monster	Thief Lv54	2028,1,0,0,0
+aldebaran,148,151,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+aldebaran,172,144,0,0	monster	Merchant Lv99	2127,1,0,0,0
+aldebaran,145,145,0,0	monster	Thor?	2055,1,0,0,0
+aldebaran,130,154,0,0	monster	S> stuff	2065,1,0,0,0
+aldebaran,170,119,0,0	monster	Thor?	2079,1,0,0,0
+aldebaran,170,167,0,0	monster	MVP later?	2028,1,0,0,0
+aldebaran,164,149,0,0	monster	Blacksmith Lv61	2132,1,0,0,0
+aldebaran,144,102,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+aldebaran,155,170,0,0	monster	Blacksmith Lv75	2139,1,0,0,0
+aldebaran,160,175,0,0	monster	Champion Lv78	2091,1,0,0,0
+aldebaran,146,112,0,0	monster	B> loot	2076,1,0,0,0
+aldebaran,161,156,0,0	monster	Merchant Lv27	2025,1,0,0,0
+aldebaran,117,112,0,0	monster	Bard Lv99	2055,1,0,0,0
+aldebaran,162,160,0,0	monster	Merchant Lv40	2012,1,0,0,0
+aldebaran,157,167,0,0	monster	B> loot	2051,1,0,0,0
+aldebaran,170,174,0,0	monster	High Wizard Lv84	2075,1,0,0,0
+aldebaran,148,174,0,0	monster	Blacksmith Lv61	2132,1,0,0,0
+aldebaran,131,128,0,0	monster	LFP	2080,1,0,0,0
+aldebaran,171,121,0,0	monster	ET party?	2141,1,0,0,0
+aldebaran,162,153,0,0	monster	Dancer Lv68	2058,1,0,0,0
+aldebaran,143,145,0,0	monster	Paladin Lv86	2088,1,0,0,0
+aldebaran,147,127,0,0	monster	Scholar Lv79	2095,1,0,0,0
+aldebaran,130,127,0,0	monster	Bard Lv99	2055,1,0,0,0
+aldebaran,138,165,0,0	monster	ET party?	2105,1,0,0,0
+aldebaran,137,169,0,0	monster	Guild?	2066,1,0,0,0
+aldebaran,175,164,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+aldebaran,136,141,0,0	monster	Assassin Lv96	2044,1,0,0,0
+aldebaran,148,114,0,0	monster	Creator Lv86	2124,1,0,0,0
+aldebaran,155,162,0,0	monster	Crusader Lv59	2033,1,0,0,0
+aldebaran,170,148,0,0	monster	Warp pls	2112,1,0,0,0
+aldebaran,172,169,0,0	monster	Archer Lv27	2005,1,0,0,0
+aldebaran,132,157,0,0	monster	Swordman Lv28	2000,1,0,0,0
+aldebaran,168,145,0,0	monster	Wizard Lv74	2036,1,0,0,0
+aldebaran,150,160,0,0	monster	Warp pls	2028,1,0,0,0
+aldebaran,169,128,0,0	monster	Hunter Lv92	2041,1,0,0,0
+aldebaran,157,116,0,0	monster	Need party	2000,1,0,0,0
+aldebaran,136,99,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+aldebaran,133,155,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+aldebaran,135,175,0,0	monster	Creator Lv90	2113,1,0,0,0
+aldebaran,142,125,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+aldebaran,158,140,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+aldebaran,140,129,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+aldebaran,152,170,0,0	monster	S> stuff	2037,1,0,0,0
+aldebaran,135,130,0,0	monster	Creator Lv99	2098,1,0,0,0
+aldebaran,159,168,0,0	monster	High Wizard Lv84	2075,1,0,0,0
+aldebaran,158,169,0,0	monster	Archer Lv27	2005,1,0,0,0
+aldebaran,138,157,0,0	monster	Whitesmith Lv91	2077,1,0,0,0
+aldebaran,163,155,0,0	monster	B> loot	2131,1,0,0,0
+aldebaran,162,148,0,0	monster	ET party?	2128,1,0,0,0
+aldebaran,159,129,0,0	monster	Thor?	2127,1,0,0,0
+aldebaran,133,163,0,0	monster	Wizard Lv74	2036,1,0,0,0
+aldebaran,164,161,0,0	monster	Gypsy Lv90	2104,1,0,0,0
+aldebaran,151,100,0,0	monster	LFP	2061,1,0,0,0
+aldebaran,132,149,0,0	monster	Creator Lv76	2100,1,0,0,0
+aldebaran,134,121,0,0	monster	High Wizard Lv91	2076,1,0,0,0
+aldebaran,135,120,0,0	monster	Creator Lv76	2138,1,0,0,0
+aldebaran,147,173,0,0	monster	Knight Lv82	2031,1,0,0,0
+aldebaran,161,150,0,0	monster	Stalker Lv99	2097,1,0,0,0
+aldebaran,147,139,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+aldebaran,146,125,0,0	monster	Crusader Lv59	2033,1,0,0,0
+aldebaran,131,152,0,0	monster	Crusader Lv57	2032,1,0,0,0
+aldebaran,168,114,0,0	monster	z z z	2124,1,0,0,0
+aldebaran,139,158,0,0	monster	Creator Lv93	2099,1,0,0,0
+aldebaran,155,145,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+aldebaran,162,169,0,0	monster	Bio party?	2125,1,0,0,0
+aldebaran,159,156,0,0	monster	Creator Lv76	2138,1,0,0,0
+aldebaran,139,152,0,0	monster	S> stuff	2111,1,0,0,0
+aldebaran,120,141,0,0	monster	Clown Lv88	2101,1,0,0,0
+aldebaran,164,173,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+aldebaran,167,111,0,0	monster	Sniper Lv81	2083,1,0,0,0
+aldebaran,123,119,0,0	monster	High Priest Lv99	2065,1,0,0,0
+aldebaran,140,108,0,0	monster	LFP	2042,1,0,0,0
+aldebaran,161,144,0,0	monster	High Priest Lv87	2064,1,0,0,0
+aldebaran,160,165,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+aldebaran,156,153,0,0	monster	Blacksmith Lv80	2126,1,0,0,0
+aldebaran,152,135,0,0	monster	Merchant Lv40	2012,1,0,0,0
+aldebaran,142,123,0,0	monster	LFP	2034,1,0,0,0
+aldebaran,132,166,0,0	monster	brb	2131,1,0,0,0
+aldebaran,137,99,0,0	monster	Need HP	2094,1,0,0,0
+aldebaran,148,162,0,0	monster	Whitesmith Lv99	2130,1,0,0,0
+aldebaran,149,175,0,0	monster	brb	2105,1,0,0,0
+aldebaran,162,165,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+aldebaran,154,168,0,0	monster	Bio party?	2060,1,0,0,0
+aldebaran,168,125,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+aldebaran,118,137,0,0	monster	ET party?	2062,1,0,0,0
+aldebaran,173,158,0,0	monster	Rogue Lv59	2049,1,0,0,0
+aldebaran,153,113,0,0	monster	B> loot	2065,1,0,0,0
+aldebaran,149,155,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+aldebaran,134,134,0,0	monster	Need party	2038,1,0,0,0
+aldebaran,137,121,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+aldebaran,127,133,0,0	monster	Need party	2124,1,0,0,0
+aldebaran,174,154,0,0	monster	Monk Lv99	2046,1,0,0,0
+aldebaran,121,134,0,0	monster	Sage Lv68	2047,1,0,0,0
+aldebaran,169,160,0,0	monster	Acolyte Lv45	2007,1,0,0,0
+aldebaran,120,132,0,0	monster	S>Cheap Pots	2077,1,0,0,0
+aldebaran,175,151,0,0	monster	S>MVP Loot	2131,1,0,0,0
+aldebaran,147,161,0,0	monster	S>OC/DC	2053,1,0,0,0
+aldebaran,146,158,0,0	monster	S>MVP Loot	2079,1,0,0,0
+aldebaran,134,149,0,0	monster	S>MVP Loot	2099,1,0,0,0
+aldebaran,143,160,0,0	monster	S>Gemstones	2127,1,0,0,0
+aldebaran,156,99,0,0	monster	S>Upgrade	2135,1,0,0,0
+aldebaran,162,173,0,0	monster	S>Supplies	2117,1,0,0,0
+aldebaran,170,150,0,0	monster	S>Supplies	2100,1,0,0,0
+aldebaran,155,161,0,0	monster	S>Supplies	2110,1,0,0,0
+aldebaran,155,127,0,0	monster	S>Slotted	2133,1,0,0,0
+aldebaran,135,154,0,0	monster	S>Cards	2107,1,0,0,0
+aldebaran,130,163,0,0	monster	S>Weapon	2052,1,0,0,0
+aldebaran,142,109,0,0	monster	S>Slotted	2115,1,0,0,0
+aldebaran,132,171,0,0	monster	S>Cards	2117,1,0,0,0
+aldebaran,135,165,0,0	monster	S>Cards	2117,1,0,0,0
+aldebaran,135,159,0,0	monster	S>Upgrade	2134,1,0,0,0
+aldebaran,143,152,0,0	monster	S>Gemstones	2134,1,0,0,0
+aldebaran,126,136,0,0	monster	S>OC/DC	2116,1,0,0,0
+aldebaran,145,161,0,0	monster	S>Ori/Elu	2141,1,0,0,0
+aldebaran,175,127,0,0	monster	S>Ori/Elu	2111,1,0,0,0
+aldebaran,116,111,0,0	monster	S>Cards	2141,1,0,0,0
+aldebaran,168,131,0,0	monster	S>Armor	2130,1,0,0,0
+aldebaran,132,169,0,0	monster	S>OC/DC	2137,1,0,0,0
+aldebaran,168,174,0,0	monster	S>Cards	2128,1,0,0,0
+aldebaran,137,128,0,0	monster	S>Ranked Pots	2100,1,0,0,0
+aldebaran,144,162,0,0	monster	S>Ranked Pots	2120,1,0,0,0
+aldebaran,122,133,0,0	monster	S>MVP Loot	2113,1,0,0,0
+aldebaran,133,173,0,0	monster	S>MVP Loot	2108,1,0,0,0
+aldebaran,170,127,0,0	monster	S>Cards	2130,1,0,0,0
+
+// Main city fake players - yuno
+yuno,182,170,0,0	monster	Priest Lv62	2035,1,0,0,0
+yuno,184,186,0,0	monster	Monk Lv99	2045,1,0,0,0
+yuno,146,185,0,0	monster	OC/DC here	2039,1,0,0,0
+yuno,145,200,0,0	monster	Guild?	2059,1,0,0,0
+yuno,189,160,0,0	monster	Bard Lv99	2055,1,0,0,0
+yuno,183,145,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+yuno,136,199,0,0	monster	Creator Lv88	2125,1,0,0,0
+yuno,149,185,0,0	monster	Bio party?	2054,1,0,0,0
+yuno,172,127,0,0	monster	Bard Lv66	2056,1,0,0,0
+yuno,190,190,0,0	monster	Archer Lv27	2005,1,0,0,0
+yuno,167,139,0,0	monster	Warp pls	2059,1,0,0,0
+yuno,178,179,0,0	monster	Sniper Lv81	2083,1,0,0,0
+yuno,185,147,0,0	monster	Priest Lv85	2034,1,0,0,0
+yuno,190,156,0,0	monster	Blacksmith Lv62	2137,1,0,0,0
+yuno,190,142,0,0	monster	Assassin Cross Lv76	2084,1,0,0,0
+yuno,149,178,0,0	monster	Clown Lv99	2102,1,0,0,0
+yuno,141,199,0,0	monster	Wizard Lv99	2037,1,0,0,0
+yuno,179,176,0,0	monster	Blacksmith Lv83	2119,1,0,0,0
+yuno,158,152,0,0	monster	Buff pls	2084,1,0,0,0
+yuno,192,183,0,0	monster	z z z	2126,1,0,0,0
+yuno,200,206,0,0	monster	Assassin Lv96	2044,1,0,0,0
+yuno,187,141,0,0	monster	Blacksmith Lv83	2119,1,0,0,0
+yuno,171,164,0,0	monster	Monk Lv99	2046,1,0,0,0
+yuno,168,181,0,0	monster	Thor?	2067,1,0,0,0
+yuno,191,211,0,0	monster	Blacksmith Lv62	2137,1,0,0,0
+yuno,161,182,0,0	monster	Whitesmith Lv99	2130,1,0,0,0
+yuno,174,150,0,0	monster	MVP later?	2090,1,0,0,0
+yuno,168,174,0,0	monster	OC/DC here	2031,1,0,0,0
+yuno,172,164,0,0	monster	Need HP	2032,1,0,0,0
+yuno,163,165,0,0	monster	Assassin Cross Lv84	2085,1,0,0,0
+yuno,189,128,0,0	monster	LFP	2098,1,0,0,0
+yuno,152,202,0,0	monster	Gypsy Lv90	2104,1,0,0,0
+yuno,180,148,0,0	monster	Monk Lv99	2046,1,0,0,0
+yuno,184,138,0,0	monster	Stalker Lv99	2097,1,0,0,0
+yuno,135,166,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+yuno,177,125,0,0	monster	B> loot	2075,1,0,0,0
+yuno,174,143,0,0	monster	Need HP	2098,1,0,0,0
+yuno,156,159,0,0	monster	Merchant Lv40	2012,1,0,0,0
+yuno,181,159,0,0	monster	Thor?	2040,1,0,0,0
+yuno,146,138,0,0	monster	OC/DC here	2065,1,0,0,0
+yuno,167,131,0,0	monster	Paladin Lv99	2087,1,0,0,0
+yuno,189,139,0,0	monster	Creator Lv76	2138,1,0,0,0
+yuno,186,202,0,0	monster	Alchemist Lv60	2122,1,0,0,0
+yuno,172,132,0,0	monster	Crusader Lv57	2032,1,0,0,0
+yuno,172,140,0,0	monster	Buff pls	2086,1,0,0,0
+yuno,186,133,0,0	monster	S> stuff	2049,1,0,0,0
+yuno,140,184,0,0	monster	OC/DC here	2004,1,0,0,0
+yuno,176,145,0,0	monster	Thor?	2079,1,0,0,0
+yuno,147,125,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+yuno,159,188,0,0	monster	High Priest Lv97	2066,1,0,0,0
+yuno,163,132,0,0	monster	Alchemist Lv90	2052,1,0,0,0
+yuno,141,215,0,0	monster	Merchant Lv99	2127,1,0,0,0
+yuno,153,187,0,0	monster	Thor?	2133,1,0,0,0
+yuno,167,128,0,0	monster	Paladin Lv99	2089,1,0,0,0
+yuno,175,149,0,0	monster	S> stuff	2100,1,0,0,0
+yuno,181,148,0,0	monster	Scholar Lv78	2094,1,0,0,0
+yuno,160,125,0,0	monster	Paladin Lv99	2089,1,0,0,0
+yuno,185,131,0,0	monster	LFP	2048,1,0,0,0
+yuno,155,134,0,0	monster	High Priest Lv97	2066,1,0,0,0
+yuno,151,165,0,0	monster	Need party	2125,1,0,0,0
+yuno,196,173,0,0	monster	Whitesmith Lv99	2120,1,0,0,0
+yuno,186,177,0,0	monster	Creator Lv99	2098,1,0,0,0
+yuno,186,171,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+yuno,147,166,0,0	monster	z z z	2056,1,0,0,0
+yuno,196,171,0,0	monster	Alchemist Lv99	2053,1,0,0,0
+yuno,154,127,0,0	monster	Dancer Lv96	2060,1,0,0,0
+yuno,166,140,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+yuno,166,144,0,0	monster	Guild?	2043,1,0,0,0
+yuno,154,154,0,0	monster	Dancer Lv99	2059,1,0,0,0
+yuno,172,156,0,0	monster	Creator Lv99	2098,1,0,0,0
+yuno,183,182,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+yuno,174,165,0,0	monster	Whitesmith Lv80	2109,1,0,0,0
+yuno,165,157,0,0	monster	Sniper Lv82	2080,1,0,0,0
+yuno,155,157,0,0	monster	High Priest Lv97	2066,1,0,0,0
+yuno,164,138,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+yuno,178,171,0,0	monster	Wizard Lv99	2037,1,0,0,0
+yuno,146,133,0,0	monster	Sniper Lv81	2083,1,0,0,0
+yuno,172,125,0,0	monster	Priest Lv62	2035,1,0,0,0
+yuno,164,213,0,0	monster	Merchant Lv37	2121,1,0,0,0
+yuno,161,177,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+yuno,185,196,0,0	monster	Alchemist Lv90	2052,1,0,0,0
+yuno,166,135,0,0	monster	Blacksmith Lv98	2040,1,0,0,0
+yuno,187,165,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+yuno,187,177,0,0	monster	Rogue Lv59	2049,1,0,0,0
+yuno,186,192,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+yuno,181,129,0,0	monster	Paladin Lv86	2088,1,0,0,0
+yuno,137,180,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+yuno,169,144,0,0	monster	Creator Lv90	2113,1,0,0,0
+yuno,155,174,0,0	monster	Dancer Lv68	2058,1,0,0,0
+yuno,149,125,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+yuno,190,195,0,0	monster	ET party?	2000,1,0,0,0
+yuno,200,165,0,0	monster	brb	2044,1,0,0,0
+yuno,185,140,0,0	monster	Merchant Lv37	2121,1,0,0,0
+yuno,175,182,0,0	monster	Alchemist Lv89	2107,1,0,0,0
+yuno,184,171,0,0	monster	Knight Lv80	2030,1,0,0,0
+yuno,157,158,0,0	monster	S>Weapon	2127,1,0,0,0
+yuno,187,203,0,0	monster	S>Ranked Pots	2109,1,0,0,0
+yuno,176,136,0,0	monster	S>Weapon	2110,1,0,0,0
+yuno,157,197,0,0	monster	S>Ori/Elu	2053,1,0,0,0
+yuno,141,213,0,0	monster	S>Gemstones	2114,1,0,0,0
+yuno,165,160,0,0	monster	S>Supplies	2125,1,0,0,0
+yuno,154,193,0,0	monster	S>Slotted	2136,1,0,0,0
+yuno,200,202,0,0	monster	S>Cards	2117,1,0,0,0
+yuno,153,175,0,0	monster	S>Weapon	2040,1,0,0,0
+yuno,197,205,0,0	monster	S>Ranked Pots	2117,1,0,0,0
+yuno,140,166,0,0	monster	S>Armor	2110,1,0,0,0
+yuno,149,180,0,0	monster	S>MVP Loot	2119,1,0,0,0
+yuno,154,166,0,0	monster	S>Armor	2039,1,0,0,0
+yuno,161,140,0,0	monster	S>MVP Loot	2079,1,0,0,0
+yuno,174,152,0,0	monster	S>Ranked Pots	2112,1,0,0,0
+yuno,183,128,0,0	monster	S>Weapon	2129,1,0,0,0
+yuno,147,143,0,0	monster	S>MVP Loot	2107,1,0,0,0
+yuno,173,172,0,0	monster	S>Supplies	2119,1,0,0,0
+yuno,161,164,0,0	monster	S>Armor	2128,1,0,0,0
+yuno,186,148,0,0	monster	S>Armor	2116,1,0,0,0
+yuno,145,158,0,0	monster	S>Cheap Pots	2053,1,0,0,0
+yuno,147,130,0,0	monster	S>MVP Loot	2126,1,0,0,0
+yuno,181,154,0,0	monster	S>Supplies	2135,1,0,0,0
+yuno,159,157,0,0	monster	S>Armor	2129,1,0,0,0
+yuno,147,168,0,0	monster	S>OC/DC	2137,1,0,0,0
+yuno,181,199,0,0	monster	S>Upgrade	2107,1,0,0,0
+yuno,159,144,0,0	monster	S>MVP Loot	2109,1,0,0,0
+yuno,176,125,0,0	monster	S>Weapon	2139,1,0,0,0
+yuno,167,144,0,0	monster	S>Cards	2123,1,0,0,0
+yuno,158,146,0,0	monster	S>Ranked Pots	2139,1,0,0,0
+
+// Main city fake players - comodo
+comodo,184,168,0,0	monster	Whitesmith Lv99	2078,1,0,0,0
+comodo,189,207,0,0	monster	Blacksmith Lv75	2139,1,0,0,0
+comodo,179,138,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+comodo,175,129,0,0	monster	Stalker Lv94	2096,1,0,0,0
+comodo,182,135,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+comodo,222,127,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+comodo,175,210,0,0	monster	Crusader Lv59	2033,1,0,0,0
+comodo,207,208,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+comodo,219,141,0,0	monster	Knight Lv80	2030,1,0,0,0
+comodo,224,141,0,0	monster	Paladin Lv99	2089,1,0,0,0
+comodo,208,182,0,0	monster	Stalker Lv99	2097,1,0,0,0
+comodo,178,184,0,0	monster	Champion Lv94	2092,1,0,0,0
+comodo,234,178,0,0	monster	Whitesmith Lv91	2077,1,0,0,0
+comodo,210,175,0,0	monster	Merchant Lv37	2121,1,0,0,0
+comodo,175,174,0,0	monster	High Priest Lv87	2064,1,0,0,0
+comodo,207,146,0,0	monster	Whitesmith Lv99	2079,1,0,0,0
+comodo,228,205,0,0	monster	Whitesmith Lv99	2120,1,0,0,0
+comodo,225,163,0,0	monster	Hunter Lv92	2041,1,0,0,0
+comodo,207,129,0,0	monster	Sage Lv68	2047,1,0,0,0
+comodo,177,157,0,0	monster	Bio party?	2127,1,0,0,0
+comodo,224,207,0,0	monster	Archer Lv27	2005,1,0,0,0
+comodo,222,201,0,0	monster	LFP	2115,1,0,0,0
+comodo,194,128,0,0	monster	Guild?	2092,1,0,0,0
+comodo,217,172,0,0	monster	Need party	2126,1,0,0,0
+comodo,212,176,0,0	monster	Merchant Lv30	2112,1,0,0,0
+comodo,224,179,0,0	monster	Knight Lv80	2030,1,0,0,0
+comodo,221,193,0,0	monster	Need party	2002,1,0,0,0
+comodo,160,146,0,0	monster	Blacksmith Lv61	2132,1,0,0,0
+comodo,223,126,0,0	monster	Rogue Lv66	2050,1,0,0,0
+comodo,203,196,0,0	monster	S> stuff	2135,1,0,0,0
+comodo,202,127,0,0	monster	S> stuff	2064,1,0,0,0
+comodo,214,163,0,0	monster	Wizard Lv99	2037,1,0,0,0
+comodo,198,138,0,0	monster	z z z	2053,1,0,0,0
+comodo,168,148,0,0	monster	Creator Lv99	2098,1,0,0,0
+comodo,175,170,0,0	monster	MVP later?	2126,1,0,0,0
+comodo,232,190,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+comodo,168,127,0,0	monster	Guild?	2094,1,0,0,0
+comodo,163,135,0,0	monster	Champion Lv78	2091,1,0,0,0
+comodo,206,201,0,0	monster	Whitesmith Lv99	2078,1,0,0,0
+comodo,183,205,0,0	monster	High Priest Lv87	2064,1,0,0,0
+comodo,235,172,0,0	monster	Creator Lv93	2099,1,0,0,0
+comodo,188,152,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+comodo,198,201,0,0	monster	Thief Lv54	2028,1,0,0,0
+comodo,177,201,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+comodo,167,157,0,0	monster	Dancer Lv99	2059,1,0,0,0
+comodo,180,183,0,0	monster	Alchemist Lv89	2107,1,0,0,0
+comodo,223,127,0,0	monster	MVP later?	2112,1,0,0,0
+comodo,195,151,0,0	monster	Merchant Lv23	2011,1,0,0,0
+comodo,223,179,0,0	monster	Dancer Lv99	2059,1,0,0,0
+comodo,222,194,0,0	monster	LFP	2109,1,0,0,0
+comodo,219,182,0,0	monster	Guild?	2012,1,0,0,0
+comodo,207,128,0,0	monster	Crusader Lv57	2032,1,0,0,0
+comodo,180,166,0,0	monster	Alchemist Lv81	2051,1,0,0,0
+comodo,211,190,0,0	monster	Need party	2120,1,0,0,0
+comodo,222,137,0,0	monster	Knight Lv82	2031,1,0,0,0
+comodo,167,166,0,0	monster	Alchemist Lv89	2107,1,0,0,0
+comodo,203,166,0,0	monster	Blacksmith Lv75	2139,1,0,0,0
+comodo,209,189,0,0	monster	Warp pls	2119,1,0,0,0
+comodo,194,142,0,0	monster	Blacksmith Lv71	2133,1,0,0,0
+comodo,186,192,0,0	monster	Swordman Lv28	2000,1,0,0,0
+comodo,191,167,0,0	monster	Blacksmith Lv83	2119,1,0,0,0
+comodo,225,207,0,0	monster	Champion Lv99	2090,1,0,0,0
+comodo,172,158,0,0	monster	Bard Lv99	2055,1,0,0,0
+comodo,229,156,0,0	monster	Blacksmith Lv80	2126,1,0,0,0
+comodo,188,126,0,0	monster	Bio party?	2053,1,0,0,0
+comodo,170,151,0,0	monster	Assassin Lv87	2043,1,0,0,0
+comodo,221,156,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+comodo,186,135,0,0	monster	Scholar Lv92	2093,1,0,0,0
+comodo,222,146,0,0	monster	Whitesmith Lv99	2120,1,0,0,0
+comodo,196,150,0,0	monster	Crusader Lv57	2032,1,0,0,0
+comodo,198,130,0,0	monster	Thief Lv54	2028,1,0,0,0
+comodo,178,172,0,0	monster	Bio party?	2059,1,0,0,0
+comodo,201,152,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+comodo,178,161,0,0	monster	B> loot	2119,1,0,0,0
+comodo,225,167,0,0	monster	Alchemist Lv81	2051,1,0,0,0
+comodo,210,131,0,0	monster	brb	2043,1,0,0,0
+comodo,186,142,0,0	monster	Buff pls	2061,1,0,0,0
+comodo,184,151,0,0	monster	S> stuff	2127,1,0,0,0
+comodo,172,135,0,0	monster	S> stuff	2003,1,0,0,0
+comodo,197,151,0,0	monster	Need party	2042,1,0,0,0
+comodo,183,177,0,0	monster	Champion Lv99	2090,1,0,0,0
+comodo,218,168,0,0	monster	Assassin Cross Lv76	2084,1,0,0,0
+comodo,188,193,0,0	monster	High Priest Lv87	2064,1,0,0,0
+comodo,217,209,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+comodo,176,189,0,0	monster	Knight Lv82	2031,1,0,0,0
+comodo,228,194,0,0	monster	Clown Lv88	2101,1,0,0,0
+comodo,182,154,0,0	monster	Creator Lv88	2125,1,0,0,0
+comodo,191,126,0,0	monster	Merchant Lv32	2134,1,0,0,0
+comodo,191,142,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+comodo,215,161,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+comodo,181,173,0,0	monster	Buff pls	2095,1,0,0,0
+comodo,223,168,0,0	monster	Whitesmith Lv80	2109,1,0,0,0
+comodo,215,149,0,0	monster	brb	2012,1,0,0,0
+comodo,196,207,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+comodo,175,137,0,0	monster	Whitesmith Lv99	2117,1,0,0,0
+comodo,234,207,0,0	monster	S>Cheap Pots	2113,1,0,0,0
+comodo,214,151,0,0	monster	S>Ori/Elu	2125,1,0,0,0
+comodo,180,127,0,0	monster	S>Armor	2130,1,0,0,0
+comodo,196,145,0,0	monster	S>Armor	2139,1,0,0,0
+comodo,219,143,0,0	monster	S>Cheap Pots	2141,1,0,0,0
+comodo,183,204,0,0	monster	S>OC/DC	2113,1,0,0,0
+comodo,209,199,0,0	monster	S>Supplies	2122,1,0,0,0
+comodo,162,140,0,0	monster	S>Weapon	2038,1,0,0,0
+comodo,207,190,0,0	monster	S>Slotted	2128,1,0,0,0
+comodo,224,176,0,0	monster	S>OC/DC	2039,1,0,0,0
+comodo,199,195,0,0	monster	S>Gemstones	2111,1,0,0,0
+comodo,224,199,0,0	monster	S>Armor	2126,1,0,0,0
+comodo,217,204,0,0	monster	S>Cheap Pots	2123,1,0,0,0
+comodo,167,132,0,0	monster	S>Gemstones	2136,1,0,0,0
+comodo,217,199,0,0	monster	S>Ori/Elu	2111,1,0,0,0
+comodo,199,135,0,0	monster	S>Cards	2039,1,0,0,0
+comodo,222,153,0,0	monster	S>Ori/Elu	2109,1,0,0,0
+comodo,200,182,0,0	monster	S>Ranked Pots	2098,1,0,0,0
+comodo,162,131,0,0	monster	S>Armor	2040,1,0,0,0
+comodo,187,184,0,0	monster	S>Ranked Pots	2141,1,0,0,0
+comodo,199,169,0,0	monster	S>Supplies	2108,1,0,0,0
+comodo,206,178,0,0	monster	S>Ori/Elu	2110,1,0,0,0
+comodo,183,190,0,0	monster	S>MVP Loot	2136,1,0,0,0
+comodo,199,194,0,0	monster	S>Ori/Elu	2129,1,0,0,0
+comodo,177,196,0,0	monster	S>Gemstones	2077,1,0,0,0
+comodo,218,127,0,0	monster	S>Ranked Pots	2113,1,0,0,0
+comodo,186,129,0,0	monster	S>Gemstones	2121,1,0,0,0
+comodo,203,174,0,0	monster	S>Armor	2038,1,0,0,0
+comodo,166,129,0,0	monster	S>OC/DC	2011,1,0,0,0
+comodo,214,203,0,0	monster	S>Slotted	2134,1,0,0,0
+
+// Episode city fake players - amatsu
+amatsu,214,109,0,0	monster	Bio party?	2116,1,0,0,0
+amatsu,190,108,0,0	monster	Thief Lv25	2029,1,0,0,0
+amatsu,190,106,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+amatsu,221,78,0,0	monster	ET party?	2097,1,0,0,0
+amatsu,225,104,0,0	monster	B> loot	2123,1,0,0,0
+amatsu,204,87,0,0	monster	Mage Lv23	2002,1,0,0,0
+amatsu,208,76,0,0	monster	Whitesmith Lv99	2130,1,0,0,0
+amatsu,205,100,0,0	monster	Creator Lv76	2100,1,0,0,0
+amatsu,216,100,0,0	monster	ET party?	2062,1,0,0,0
+amatsu,188,78,0,0	monster	Blacksmith Lv83	2119,1,0,0,0
+amatsu,223,76,0,0	monster	Bard Lv66	2056,1,0,0,0
+amatsu,207,86,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+amatsu,190,82,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+amatsu,211,108,0,0	monster	Thief Lv25	2029,1,0,0,0
+amatsu,187,87,0,0	monster	High Priest Lv99	2065,1,0,0,0
+amatsu,193,100,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+amatsu,210,102,0,0	monster	Clown Lv99	2103,1,0,0,0
+amatsu,209,76,0,0	monster	Blacksmith Lv71	2133,1,0,0,0
+amatsu,188,90,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+amatsu,195,109,0,0	monster	Creator Lv76	2100,1,0,0,0
+amatsu,212,109,0,0	monster	brb	2108,1,0,0,0
+amatsu,194,87,0,0	monster	brb	2097,1,0,0,0
+amatsu,189,81,0,0	monster	brb	2038,1,0,0,0
+amatsu,186,99,0,0	monster	Need HP	2032,1,0,0,0
+amatsu,195,108,0,0	monster	Need HP	2032,1,0,0,0
+amatsu,219,92,0,0	monster	Mage Lv23	2002,1,0,0,0
+amatsu,214,86,0,0	monster	Monk Lv99	2045,1,0,0,0
+amatsu,190,93,0,0	monster	Assassin Lv87	2043,1,0,0,0
+amatsu,195,89,0,0	monster	Clown Lv88	2101,1,0,0,0
+amatsu,215,85,0,0	monster	Merchant Lv32	2134,1,0,0,0
+amatsu,188,83,0,0	monster	Crusader Lv59	2033,1,0,0,0
+amatsu,211,71,0,0	monster	Mage Lv99	2003,1,0,0,0
+amatsu,204,107,0,0	monster	Alchemist Lv90	2052,1,0,0,0
+amatsu,220,81,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+amatsu,175,90,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+amatsu,180,101,0,0	monster	Need party	2087,1,0,0,0
+amatsu,212,95,0,0	monster	Champion Lv78	2091,1,0,0,0
+amatsu,201,100,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+amatsu,192,105,0,0	monster	Stalker Lv94	2096,1,0,0,0
+amatsu,197,95,0,0	monster	Knight Lv82	2031,1,0,0,0
+amatsu,206,78,0,0	monster	Whitesmith Lv80	2109,1,0,0,0
+amatsu,215,87,0,0	monster	Blacksmith Lv67	2039,1,0,0,0
+amatsu,207,110,0,0	monster	Archer Lv50	2004,1,0,0,0
+amatsu,201,99,0,0	monster	Stalker Lv99	2097,1,0,0,0
+amatsu,215,105,0,0	monster	Dancer Lv96	2060,1,0,0,0
+amatsu,201,105,0,0	monster	S>Ori/Elu	2117,1,0,0,0
+amatsu,184,103,0,0	monster	S>Armor	2118,1,0,0,0
+amatsu,202,72,0,0	monster	S>OC/DC	2135,1,0,0,0
+amatsu,196,75,0,0	monster	S>Upgrade	2124,1,0,0,0
+amatsu,191,75,0,0	monster	S>Armor	2123,1,0,0,0
+amatsu,213,109,0,0	monster	S>Cards	2136,1,0,0,0
+amatsu,194,95,0,0	monster	S>MVP Loot	2133,1,0,0,0
+amatsu,210,74,0,0	monster	S>Cards	2130,1,0,0,0
+amatsu,207,78,0,0	monster	S>Cards	2040,1,0,0,0
+amatsu,217,83,0,0	monster	S>Cards	2025,1,0,0,0
+amatsu,193,77,0,0	monster	S>Ranked Pots	2117,1,0,0,0
+amatsu,214,71,0,0	monster	S>Ori/Elu	2100,1,0,0,0
+
+// Episode city fake players - louyang
+louyang,212,107,0,0	monster	Whitesmith Lv80	2109,1,0,0,0
+louyang,218,117,0,0	monster	Blacksmith Lv67	2039,1,0,0,0
+louyang,198,117,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+louyang,217,95,0,0	monster	Warp pls	2134,1,0,0,0
+louyang,217,108,0,0	monster	Scholar Lv79	2095,1,0,0,0
+louyang,221,86,0,0	monster	Bard Lv99	2055,1,0,0,0
+louyang,189,104,0,0	monster	Gypsy Lv90	2104,1,0,0,0
+louyang,206,109,0,0	monster	Whitesmith Lv80	2109,1,0,0,0
+louyang,220,114,0,0	monster	Whitesmith Lv99	2110,1,0,0,0
+louyang,218,112,0,0	monster	Archer Lv50	2004,1,0,0,0
+louyang,221,96,0,0	monster	LFP	2048,1,0,0,0
+louyang,228,114,0,0	monster	Swordman Lv28	2000,1,0,0,0
+louyang,234,95,0,0	monster	Blacksmith Lv75	2139,1,0,0,0
+louyang,218,95,0,0	monster	Sage Lv68	2047,1,0,0,0
+louyang,192,121,0,0	monster	Warp pls	2031,1,0,0,0
+louyang,187,95,0,0	monster	Scholar Lv92	2093,1,0,0,0
+louyang,223,106,0,0	monster	Paladin Lv99	2089,1,0,0,0
+louyang,219,92,0,0	monster	Hunter Lv92	2041,1,0,0,0
+louyang,200,92,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+louyang,235,112,0,0	monster	Swordman Lv30	2001,1,0,0,0
+louyang,205,111,0,0	monster	Whitesmith Lv99	2079,1,0,0,0
+louyang,208,125,0,0	monster	Lord Knight Lv87	2063,1,0,0,0
+louyang,206,99,0,0	monster	Blacksmith Lv80	2126,1,0,0,0
+louyang,223,115,0,0	monster	Rogue Lv59	2049,1,0,0,0
+louyang,232,95,0,0	monster	Buff pls	2000,1,0,0,0
+louyang,218,123,0,0	monster	Assassin Cross Lv76	2084,1,0,0,0
+louyang,211,124,0,0	monster	Mage Lv99	2003,1,0,0,0
+louyang,188,123,0,0	monster	Whitesmith Lv79	2128,1,0,0,0
+louyang,223,92,0,0	monster	Priest Lv85	2034,1,0,0,0
+louyang,193,92,0,0	monster	S> stuff	2133,1,0,0,0
+louyang,187,88,0,0	monster	Alchemist Lv99	2108,1,0,0,0
+louyang,226,116,0,0	monster	Whitesmith Lv89	2129,1,0,0,0
+louyang,224,120,0,0	monster	LFP	2025,1,0,0,0
+louyang,194,121,0,0	monster	brb	2032,1,0,0,0
+louyang,194,125,0,0	monster	Assassin Lv87	2043,1,0,0,0
+louyang,185,115,0,0	monster	z z z	2052,1,0,0,0
+louyang,222,100,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+louyang,209,111,0,0	monster	Hunter Lv70	2042,1,0,0,0
+louyang,185,85,0,0	monster	Whitesmith Lv79	2128,1,0,0,0
+louyang,199,86,0,0	monster	MVP later?	2062,1,0,0,0
+louyang,202,87,0,0	monster	Creator Lv88	2125,1,0,0,0
+louyang,212,101,0,0	monster	Hunter Lv92	2041,1,0,0,0
+louyang,200,87,0,0	monster	Wizard Lv99	2037,1,0,0,0
+louyang,204,96,0,0	monster	Bio party?	2104,1,0,0,0
+louyang,195,118,0,0	monster	Merchant Lv32	2134,1,0,0,0
+louyang,205,115,0,0	monster	S>Gemstones	2078,1,0,0,0
+louyang,190,95,0,0	monster	S>Cards	2053,1,0,0,0
+louyang,235,87,0,0	monster	S>Weapon	2136,1,0,0,0
+louyang,226,113,0,0	monster	S>Slotted	2112,1,0,0,0
+louyang,229,124,0,0	monster	S>Slotted	2120,1,0,0,0
+louyang,193,109,0,0	monster	S>MVP Loot	2132,1,0,0,0
+louyang,207,109,0,0	monster	S>Supplies	2122,1,0,0,0
+louyang,187,103,0,0	monster	S>Weapon	2135,1,0,0,0
+louyang,233,119,0,0	monster	S>OC/DC	2120,1,0,0,0
+louyang,226,95,0,0	monster	S>Cheap Pots	2110,1,0,0,0
+louyang,202,117,0,0	monster	S>Ranked Pots	2118,1,0,0,0
+louyang,206,117,0,0	monster	S>OC/DC	2051,1,0,0,0
+
+// Episode city fake players - ayothaya
+ayothaya,179,177,0,0	monster	Blacksmith Lv62	2137,1,0,0,0
+ayothaya,218,169,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+ayothaya,194,187,0,0	monster	Blacksmith Lv61	2132,1,0,0,0
+ayothaya,224,171,0,0	monster	Need party	2094,1,0,0,0
+ayothaya,191,169,0,0	monster	Hunter Lv92	2041,1,0,0,0
+ayothaya,229,148,0,0	monster	Need party	2060,1,0,0,0
+ayothaya,212,154,0,0	monster	Whitesmith Lv81	2141,1,0,0,0
+ayothaya,180,181,0,0	monster	Buff pls	2138,1,0,0,0
+ayothaya,207,184,0,0	monster	MVP later?	2125,1,0,0,0
+ayothaya,181,168,0,0	monster	Need party	2053,1,0,0,0
+ayothaya,182,185,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+ayothaya,195,172,0,0	monster	Whitesmith Lv81	2141,1,0,0,0
+ayothaya,186,160,0,0	monster	Stalker Lv94	2096,1,0,0,0
+ayothaya,226,188,0,0	monster	brb	2136,1,0,0,0
+ayothaya,219,157,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+ayothaya,225,152,0,0	monster	Paladin Lv99	2089,1,0,0,0
+ayothaya,218,182,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+ayothaya,190,155,0,0	monster	Need party	2085,1,0,0,0
+ayothaya,201,154,0,0	monster	Assassin Lv96	2044,1,0,0,0
+ayothaya,195,169,0,0	monster	Whitesmith Lv99	2130,1,0,0,0
+ayothaya,201,168,0,0	monster	ET party?	2064,1,0,0,0
+ayothaya,210,147,0,0	monster	High Priest Lv97	2066,1,0,0,0
+ayothaya,218,184,0,0	monster	Monk Lv99	2046,1,0,0,0
+ayothaya,200,178,0,0	monster	Creator Lv88	2125,1,0,0,0
+ayothaya,222,159,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+ayothaya,228,184,0,0	monster	Bard Lv99	2055,1,0,0,0
+ayothaya,180,173,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+ayothaya,222,165,0,0	monster	ET party?	2045,1,0,0,0
+ayothaya,178,165,0,0	monster	brb	2060,1,0,0,0
+ayothaya,185,160,0,0	monster	Champion Lv94	2092,1,0,0,0
+ayothaya,223,168,0,0	monster	Paladin Lv99	2089,1,0,0,0
+ayothaya,183,164,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+ayothaya,210,150,0,0	monster	Whitesmith Lv99	2131,1,0,0,0
+ayothaya,223,171,0,0	monster	Scholar Lv92	2093,1,0,0,0
+ayothaya,186,167,0,0	monster	Blacksmith Lv83	2119,1,0,0,0
+ayothaya,207,164,0,0	monster	MVP later?	2102,1,0,0,0
+ayothaya,212,151,0,0	monster	Acolyte Lv45	2007,1,0,0,0
+ayothaya,195,157,0,0	monster	Buff pls	2115,1,0,0,0
+ayothaya,208,178,0,0	monster	Blacksmith Lv67	2115,1,0,0,0
+ayothaya,229,166,0,0	monster	Warp pls	2025,1,0,0,0
+ayothaya,224,161,0,0	monster	Archer Lv27	2005,1,0,0,0
+ayothaya,191,174,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+ayothaya,208,177,0,0	monster	brb	2007,1,0,0,0
+ayothaya,229,170,0,0	monster	OC/DC here	2066,1,0,0,0
+ayothaya,180,153,0,0	monster	LFP	2047,1,0,0,0
+ayothaya,207,154,0,0	monster	S>Ori/Elu	2099,1,0,0,0
+ayothaya,227,146,0,0	monster	S>Ranked Pots	2012,1,0,0,0
+ayothaya,193,160,0,0	monster	S>Ranked Pots	2128,1,0,0,0
+ayothaya,193,157,0,0	monster	S>Ori/Elu	2051,1,0,0,0
+ayothaya,205,165,0,0	monster	S>MVP Loot	2039,1,0,0,0
+ayothaya,183,178,0,0	monster	S>Cheap Pots	2051,1,0,0,0
+ayothaya,227,181,0,0	monster	S>Upgrade	2121,1,0,0,0
+ayothaya,184,179,0,0	monster	S>Cheap Pots	2111,1,0,0,0
+ayothaya,184,152,0,0	monster	S>MVP Loot	2053,1,0,0,0
+ayothaya,216,156,0,0	monster	S>MVP Loot	2113,1,0,0,0
+ayothaya,185,158,0,0	monster	S>OC/DC	2098,1,0,0,0
+ayothaya,195,183,0,0	monster	S>Cheap Pots	2038,1,0,0,0
+
+// Episode city fake players - lighthalzen
+lighthalzen,166,93,0,0	monster	Monk Lv99	2045,1,0,0,0
+lighthalzen,177,87,0,0	monster	Merchant Lv32	2134,1,0,0,0
+lighthalzen,156,94,0,0	monster	Creator Lv88	2125,1,0,0,0
+lighthalzen,135,106,0,0	monster	Whitesmith Lv99	2110,1,0,0,0
+lighthalzen,169,121,0,0	monster	Bio party?	2093,1,0,0,0
+lighthalzen,141,98,0,0	monster	Dancer Lv68	2058,1,0,0,0
+lighthalzen,143,108,0,0	monster	Blacksmith Lv80	2126,1,0,0,0
+lighthalzen,149,108,0,0	monster	Bio party?	2064,1,0,0,0
+lighthalzen,166,122,0,0	monster	B> loot	2038,1,0,0,0
+lighthalzen,165,116,0,0	monster	Wizard Lv99	2037,1,0,0,0
+lighthalzen,165,83,0,0	monster	Paladin Lv99	2089,1,0,0,0
+lighthalzen,178,85,0,0	monster	Thor?	2001,1,0,0,0
+lighthalzen,146,118,0,0	monster	Champion Lv99	2090,1,0,0,0
+lighthalzen,138,89,0,0	monster	Assassin Cross Lv76	2084,1,0,0,0
+lighthalzen,156,104,0,0	monster	Bio party?	2092,1,0,0,0
+lighthalzen,178,113,0,0	monster	B> loot	2049,1,0,0,0
+lighthalzen,164,111,0,0	monster	B> loot	2087,1,0,0,0
+lighthalzen,181,88,0,0	monster	Creator Lv88	2114,1,0,0,0
+lighthalzen,150,118,0,0	monster	Sage Lv68	2047,1,0,0,0
+lighthalzen,147,86,0,0	monster	brb	2113,1,0,0,0
+lighthalzen,168,118,0,0	monster	Assassin Cross Lv87	2086,1,0,0,0
+lighthalzen,164,117,0,0	monster	Sniper Lv82	2080,1,0,0,0
+lighthalzen,160,122,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+lighthalzen,139,125,0,0	monster	Acolyte Lv45	2007,1,0,0,0
+lighthalzen,176,89,0,0	monster	Need HP	2114,1,0,0,0
+lighthalzen,173,90,0,0	monster	Need HP	2051,1,0,0,0
+lighthalzen,152,114,0,0	monster	Bard Lv99	2055,1,0,0,0
+lighthalzen,175,120,0,0	monster	Champion Lv99	2090,1,0,0,0
+lighthalzen,168,125,0,0	monster	Wizard Lv99	2037,1,0,0,0
+lighthalzen,180,104,0,0	monster	Sniper Lv81	2083,1,0,0,0
+lighthalzen,164,109,0,0	monster	Need HP	2061,1,0,0,0
+lighthalzen,171,94,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+lighthalzen,141,117,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+lighthalzen,185,95,0,0	monster	ET party?	2100,1,0,0,0
+lighthalzen,185,98,0,0	monster	Assassin Lv96	2044,1,0,0,0
+lighthalzen,185,106,0,0	monster	Lord Knight Lv81	2061,1,0,0,0
+lighthalzen,170,115,0,0	monster	Creator Lv99	2098,1,0,0,0
+lighthalzen,171,102,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+lighthalzen,137,88,0,0	monster	Wizard Lv99	2037,1,0,0,0
+lighthalzen,138,108,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+lighthalzen,169,82,0,0	monster	Champion Lv94	2092,1,0,0,0
+lighthalzen,148,103,0,0	monster	S> stuff	2090,1,0,0,0
+lighthalzen,176,93,0,0	monster	Need HP	2047,1,0,0,0
+lighthalzen,159,97,0,0	monster	Whitesmith Lv99	2117,1,0,0,0
+lighthalzen,136,85,0,0	monster	Priest Lv62	2035,1,0,0,0
+lighthalzen,182,82,0,0	monster	S>Cheap Pots	2053,1,0,0,0
+lighthalzen,145,115,0,0	monster	S>Weapon	2122,1,0,0,0
+lighthalzen,167,85,0,0	monster	S>Upgrade	2130,1,0,0,0
+lighthalzen,138,118,0,0	monster	S>Upgrade	2132,1,0,0,0
+lighthalzen,178,110,0,0	monster	S>OC/DC	2112,1,0,0,0
+lighthalzen,137,118,0,0	monster	S>Cheap Pots	2136,1,0,0,0
+lighthalzen,179,95,0,0	monster	S>Cheap Pots	2113,1,0,0,0
+lighthalzen,140,110,0,0	monster	S>Supplies	2126,1,0,0,0
+lighthalzen,173,89,0,0	monster	S>Ori/Elu	2126,1,0,0,0
+lighthalzen,185,121,0,0	monster	S>Gemstones	2039,1,0,0,0
+lighthalzen,179,106,0,0	monster	S>Ori/Elu	2127,1,0,0,0
+lighthalzen,180,108,0,0	monster	S>Slotted	2039,1,0,0,0
+
+// Episode city fake players - rachel
+rachel,132,135,0,0	monster	Merchant Lv40	2012,1,0,0,0
+rachel,142,164,0,0	monster	Whitesmith Lv99	2078,1,0,0,0
+rachel,111,137,0,0	monster	MVP later?	2106,1,0,0,0
+rachel,127,158,0,0	monster	Swordman Lv28	2000,1,0,0,0
+rachel,112,136,0,0	monster	High Priest Lv87	2064,1,0,0,0
+rachel,156,143,0,0	monster	Crusader Lv59	2033,1,0,0,0
+rachel,121,159,0,0	monster	Blacksmith Lv83	2119,1,0,0,0
+rachel,164,133,0,0	monster	Creator Lv86	2124,1,0,0,0
+rachel,128,143,0,0	monster	brb	2125,1,0,0,0
+rachel,154,126,0,0	monster	LFP	2100,1,0,0,0
+rachel,146,151,0,0	monster	S> stuff	2032,1,0,0,0
+rachel,154,161,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+rachel,130,155,0,0	monster	z z z	2094,1,0,0,0
+rachel,140,161,0,0	monster	Blacksmith Lv62	2137,1,0,0,0
+rachel,139,132,0,0	monster	B> loot	2076,1,0,0,0
+rachel,163,150,0,0	monster	Clown Lv99	2103,1,0,0,0
+rachel,128,127,0,0	monster	Gypsy Lv95	2106,1,0,0,0
+rachel,145,148,0,0	monster	Sage Lv68	2047,1,0,0,0
+rachel,117,132,0,0	monster	Archer Lv50	2004,1,0,0,0
+rachel,134,156,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+rachel,153,155,0,0	monster	Champion Lv94	2092,1,0,0,0
+rachel,165,134,0,0	monster	S> stuff	2036,1,0,0,0
+rachel,139,137,0,0	monster	Merchant Lv27	2025,1,0,0,0
+rachel,150,154,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+rachel,160,140,0,0	monster	Merchant Lv27	2025,1,0,0,0
+rachel,113,157,0,0	monster	Hunter Lv92	2041,1,0,0,0
+rachel,116,161,0,0	monster	Need party	2041,1,0,0,0
+rachel,123,152,0,0	monster	Creator Lv83	2123,1,0,0,0
+rachel,152,149,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+rachel,119,133,0,0	monster	Clown Lv88	2101,1,0,0,0
+rachel,131,143,0,0	monster	High Priest Lv87	2064,1,0,0,0
+rachel,125,126,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+rachel,154,125,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+rachel,118,134,0,0	monster	Whitesmith Lv81	2141,1,0,0,0
+rachel,161,130,0,0	monster	Acolyte Lv45	2007,1,0,0,0
+rachel,132,134,0,0	monster	Knight Lv82	2031,1,0,0,0
+rachel,146,147,0,0	monster	Need HP	2086,1,0,0,0
+rachel,162,135,0,0	monster	Scholar Lv79	2095,1,0,0,0
+rachel,124,147,0,0	monster	Stalker Lv94	2096,1,0,0,0
+rachel,127,139,0,0	monster	OC/DC here	2116,1,0,0,0
+rachel,119,148,0,0	monster	Merchant Lv23	2011,1,0,0,0
+rachel,155,129,0,0	monster	Priest Lv62	2035,1,0,0,0
+rachel,117,162,0,0	monster	Buff pls	2079,1,0,0,0
+rachel,117,151,0,0	monster	Sniper Lv82	2080,1,0,0,0
+rachel,128,137,0,0	monster	High Priest Lv99	2065,1,0,0,0
+rachel,137,164,0,0	monster	S>Upgrade	2077,1,0,0,0
+rachel,134,140,0,0	monster	S>Cheap Pots	2128,1,0,0,0
+rachel,147,159,0,0	monster	S>Cheap Pots	2135,1,0,0,0
+rachel,111,126,0,0	monster	S>Slotted	2079,1,0,0,0
+rachel,138,157,0,0	monster	S>Gemstones	2117,1,0,0,0
+rachel,130,151,0,0	monster	S>Ori/Elu	2131,1,0,0,0
+rachel,142,139,0,0	monster	S>Ranked Pots	2012,1,0,0,0
+rachel,150,149,0,0	monster	S>Cards	2025,1,0,0,0
+rachel,110,145,0,0	monster	S>Upgrade	2137,1,0,0,0
+rachel,124,131,0,0	monster	S>OC/DC	2053,1,0,0,0
+rachel,160,164,0,0	monster	S>Supplies	2126,1,0,0,0
+rachel,146,163,0,0	monster	S>MVP Loot	2098,1,0,0,0
+
+// Episode city fake players - veins
+veins,190,113,0,0	monster	Clown Lv99	2102,1,0,0,0
+veins,204,148,0,0	monster	Stalker Lv94	2096,1,0,0,0
+veins,223,129,0,0	monster	Merchant Lv37	2121,1,0,0,0
+veins,224,139,0,0	monster	Thief Lv54	2028,1,0,0,0
+veins,216,114,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+veins,204,136,0,0	monster	Warp pls	2006,1,0,0,0
+veins,202,121,0,0	monster	Mage Lv23	2002,1,0,0,0
+veins,191,139,0,0	monster	Lord Knight Lv87	2063,1,0,0,0
+veins,202,142,0,0	monster	Need party	2112,1,0,0,0
+veins,204,132,0,0	monster	Bard Lv61	2054,1,0,0,0
+veins,216,121,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+veins,187,127,0,0	monster	Sniper Lv82	2080,1,0,0,0
+veins,226,149,0,0	monster	Scholar Lv79	2095,1,0,0,0
+veins,224,149,0,0	monster	Creator Lv93	2099,1,0,0,0
+veins,227,125,0,0	monster	Need party	2108,1,0,0,0
+veins,228,139,0,0	monster	OC/DC here	2100,1,0,0,0
+veins,227,138,0,0	monster	Whitesmith Lv99	2131,1,0,0,0
+veins,222,121,0,0	monster	Whitesmith Lv99	2078,1,0,0,0
+veins,200,128,0,0	monster	Blacksmith Lv83	2119,1,0,0,0
+veins,185,143,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+veins,220,121,0,0	monster	Hunter Lv70	2042,1,0,0,0
+veins,202,138,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+veins,214,120,0,0	monster	Alchemist Lv90	2052,1,0,0,0
+veins,228,140,0,0	monster	Need party	2054,1,0,0,0
+veins,226,111,0,0	monster	z z z	2129,1,0,0,0
+veins,200,123,0,0	monster	Hunter Lv70	2042,1,0,0,0
+veins,190,125,0,0	monster	Bard Lv61	2054,1,0,0,0
+veins,216,140,0,0	monster	z z z	2098,1,0,0,0
+veins,192,132,0,0	monster	Champion Lv94	2092,1,0,0,0
+veins,193,122,0,0	monster	OC/DC here	2047,1,0,0,0
+veins,200,130,0,0	monster	Monk Lv99	2045,1,0,0,0
+veins,186,132,0,0	monster	Dancer Lv96	2060,1,0,0,0
+veins,197,126,0,0	monster	Dancer Lv68	2058,1,0,0,0
+veins,214,135,0,0	monster	Merchant Lv30	2112,1,0,0,0
+veins,206,122,0,0	monster	Gypsy Lv98	2105,1,0,0,0
+veins,189,150,0,0	monster	Crusader Lv59	2033,1,0,0,0
+veins,232,113,0,0	monster	Blacksmith Lv98	2040,1,0,0,0
+veins,193,113,0,0	monster	Warp pls	2113,1,0,0,0
+veins,191,131,0,0	monster	Need HP	2007,1,0,0,0
+veins,218,110,0,0	monster	Merchant Lv99	2127,1,0,0,0
+veins,214,119,0,0	monster	z z z	2090,1,0,0,0
+veins,193,136,0,0	monster	Clown Lv99	2102,1,0,0,0
+veins,219,112,0,0	monster	Dancer Lv99	2059,1,0,0,0
+veins,225,148,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+veins,214,121,0,0	monster	Gypsy Lv98	2105,1,0,0,0
+veins,192,115,0,0	monster	S>OC/DC	2110,1,0,0,0
+veins,228,142,0,0	monster	S>Cards	2039,1,0,0,0
+veins,223,145,0,0	monster	S>Weapon	2140,1,0,0,0
+veins,222,142,0,0	monster	S>Gemstones	2100,1,0,0,0
+veins,233,139,0,0	monster	S>Ori/Elu	2039,1,0,0,0
+veins,188,118,0,0	monster	S>Weapon	2111,1,0,0,0
+veins,204,120,0,0	monster	S>OC/DC	2011,1,0,0,0
+veins,218,128,0,0	monster	S>Supplies	2107,1,0,0,0
+veins,214,147,0,0	monster	S>MVP Loot	2129,1,0,0,0
+veins,191,150,0,0	monster	S>Upgrade	2112,1,0,0,0
+veins,233,110,0,0	monster	S>Supplies	2122,1,0,0,0
+veins,196,122,0,0	monster	S>Supplies	2025,1,0,0,0
+
+// Episode city fake players - moscovia
+moscovia,233,191,0,0	monster	Priest Lv85	2034,1,0,0,0
+moscovia,225,187,0,0	monster	Paladin Lv99	2089,1,0,0,0
+moscovia,234,189,0,0	monster	Champion Lv94	2092,1,0,0,0
+moscovia,201,192,0,0	monster	Blacksmith Lv61	2132,1,0,0,0
+moscovia,232,199,0,0	monster	Assassin Cross Lv87	2086,1,0,0,0
+moscovia,227,191,0,0	monster	Need party	2063,1,0,0,0
+moscovia,209,181,0,0	monster	High Wizard Lv88	2067,1,0,0,0
+moscovia,233,176,0,0	monster	Creator Lv76	2100,1,0,0,0
+moscovia,205,189,0,0	monster	High Priest Lv99	2065,1,0,0,0
+moscovia,219,188,0,0	monster	Creator Lv88	2114,1,0,0,0
+moscovia,212,182,0,0	monster	Blacksmith Lv67	2039,1,0,0,0
+moscovia,203,191,0,0	monster	High Wizard Lv91	2076,1,0,0,0
+moscovia,210,178,0,0	monster	Champion Lv94	2092,1,0,0,0
+moscovia,222,186,0,0	monster	Need party	2102,1,0,0,0
+moscovia,210,206,0,0	monster	Stalker Lv94	2096,1,0,0,0
+moscovia,212,180,0,0	monster	OC/DC here	2130,1,0,0,0
+moscovia,222,188,0,0	monster	Wizard Lv74	2036,1,0,0,0
+moscovia,207,182,0,0	monster	Blacksmith Lv71	2133,1,0,0,0
+moscovia,210,190,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+moscovia,195,189,0,0	monster	Sniper Lv81	2083,1,0,0,0
+moscovia,221,172,0,0	monster	Creator Lv99	2098,1,0,0,0
+moscovia,239,178,0,0	monster	Crusader Lv59	2033,1,0,0,0
+moscovia,234,202,0,0	monster	ET party?	2052,1,0,0,0
+moscovia,198,175,0,0	monster	Whitesmith Lv99	2131,1,0,0,0
+moscovia,235,180,0,0	monster	Need party	2078,1,0,0,0
+moscovia,235,192,0,0	monster	Whitesmith Lv99	2078,1,0,0,0
+moscovia,221,209,0,0	monster	Creator Lv99	2098,1,0,0,0
+moscovia,204,184,0,0	monster	Blacksmith Lv61	2132,1,0,0,0
+moscovia,221,175,0,0	monster	Blacksmith Lv83	2119,1,0,0,0
+moscovia,240,192,0,0	monster	Merchant Lv40	2012,1,0,0,0
+moscovia,213,210,0,0	monster	Blacksmith Lv80	2126,1,0,0,0
+moscovia,212,181,0,0	monster	B> loot	2102,1,0,0,0
+moscovia,226,210,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+moscovia,219,190,0,0	monster	Creator Lv86	2124,1,0,0,0
+moscovia,206,186,0,0	monster	Archer Lv50	2004,1,0,0,0
+moscovia,215,205,0,0	monster	Thor?	2000,1,0,0,0
+moscovia,235,170,0,0	monster	Alchemist Lv90	2052,1,0,0,0
+moscovia,203,203,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+moscovia,220,188,0,0	monster	Thor?	2141,1,0,0,0
+moscovia,209,183,0,0	monster	Archer Lv27	2005,1,0,0,0
+moscovia,200,176,0,0	monster	OC/DC here	2067,1,0,0,0
+moscovia,205,182,0,0	monster	Clown Lv88	2101,1,0,0,0
+moscovia,218,199,0,0	monster	Champion Lv99	2090,1,0,0,0
+moscovia,237,173,0,0	monster	Crusader Lv57	2032,1,0,0,0
+moscovia,216,191,0,0	monster	Scholar Lv79	2095,1,0,0,0
+moscovia,228,188,0,0	monster	S>MVP Loot	2135,1,0,0,0
+moscovia,210,194,0,0	monster	S>Weapon	2133,1,0,0,0
+moscovia,209,182,0,0	monster	S>Armor	2110,1,0,0,0
+moscovia,222,206,0,0	monster	S>Weapon	2078,1,0,0,0
+moscovia,208,195,0,0	monster	S>Upgrade	2116,1,0,0,0
+moscovia,219,182,0,0	monster	S>MVP Loot	2133,1,0,0,0
+moscovia,236,189,0,0	monster	S>OC/DC	2108,1,0,0,0
+moscovia,235,174,0,0	monster	S>Weapon	2112,1,0,0,0
+moscovia,226,175,0,0	monster	S>Armor	2111,1,0,0,0
+moscovia,230,197,0,0	monster	S>MVP Loot	2135,1,0,0,0
+moscovia,225,201,0,0	monster	S>Gemstones	2122,1,0,0,0
+moscovia,226,179,0,0	monster	S>Ranked Pots	2077,1,0,0,0
+
+// Episode city fake players - umbala
+umbala,97,151,0,0	monster	Monk Lv99	2046,1,0,0,0
+umbala,96,140,0,0	monster	Paladin Lv99	2087,1,0,0,0
+umbala,99,166,0,0	monster	Archer Lv50	2004,1,0,0,0
+umbala,79,163,0,0	monster	Thief Lv25	2029,1,0,0,0
+umbala,84,179,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+umbala,92,171,0,0	monster	Whitesmith Lv82	2136,1,0,0,0
+umbala,109,142,0,0	monster	Whitesmith Lv79	2128,1,0,0,0
+umbala,96,163,0,0	monster	Whitesmith Lv81	2141,1,0,0,0
+umbala,79,172,0,0	monster	MVP later?	2108,1,0,0,0
+umbala,86,145,0,0	monster	brb	2075,1,0,0,0
+umbala,102,174,0,0	monster	MVP later?	2110,1,0,0,0
+umbala,119,169,0,0	monster	Sage Lv98	2048,1,0,0,0
+umbala,107,148,0,0	monster	Dancer Lv68	2058,1,0,0,0
+umbala,95,165,0,0	monster	Thief Lv54	2028,1,0,0,0
+umbala,75,172,0,0	monster	B> loot	2113,1,0,0,0
+umbala,77,164,0,0	monster	Warp pls	2123,1,0,0,0
+umbala,80,168,0,0	monster	OC/DC here	2063,1,0,0,0
+umbala,102,158,0,0	monster	Merchant Lv30	2112,1,0,0,0
+umbala,85,141,0,0	monster	Dancer Lv96	2060,1,0,0,0
+umbala,90,160,0,0	monster	Clown Lv99	2103,1,0,0,0
+umbala,116,150,0,0	monster	Acolyte Lv35	2006,1,0,0,0
+umbala,119,167,0,0	monster	Whitesmith Lv99	2079,1,0,0,0
+umbala,76,175,0,0	monster	brb	2079,1,0,0,0
+umbala,104,158,0,0	monster	Clown Lv99	2102,1,0,0,0
+umbala,83,167,0,0	monster	Alchemist Lv61	2116,1,0,0,0
+umbala,90,149,0,0	monster	Blacksmith Lv99	2038,1,0,0,0
+umbala,80,157,0,0	monster	Knight Lv80	2030,1,0,0,0
+umbala,75,157,0,0	monster	Bard Lv61	2054,1,0,0,0
+umbala,105,159,0,0	monster	Blacksmith Lv62	2137,1,0,0,0
+umbala,108,143,0,0	monster	Knight Lv80	2030,1,0,0,0
+umbala,110,151,0,0	monster	Guild?	2108,1,0,0,0
+umbala,76,142,0,0	monster	Creator Lv86	2124,1,0,0,0
+umbala,110,147,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+umbala,109,144,0,0	monster	z z z	2132,1,0,0,0
+umbala,75,150,0,0	monster	Blacksmith Lv98	2040,1,0,0,0
+umbala,111,154,0,0	monster	Bard Lv66	2056,1,0,0,0
+umbala,102,170,0,0	monster	z z z	2096,1,0,0,0
+umbala,93,178,0,0	monster	ET party?	2091,1,0,0,0
+umbala,76,169,0,0	monster	Sage Lv98	2048,1,0,0,0
+umbala,105,180,0,0	monster	brb	2034,1,0,0,0
+umbala,82,175,0,0	monster	Blacksmith Lv62	2137,1,0,0,0
+umbala,111,161,0,0	monster	High Priest Lv97	2066,1,0,0,0
+umbala,87,163,0,0	monster	Alchemist Lv81	2051,1,0,0,0
+umbala,97,142,0,0	monster	Whitesmith Lv99	2135,1,0,0,0
+umbala,98,165,0,0	monster	Thor?	2091,1,0,0,0
+umbala,90,174,0,0	monster	S>Upgrade	2099,1,0,0,0
+umbala,115,158,0,0	monster	S>Gemstones	2119,1,0,0,0
+umbala,118,150,0,0	monster	S>Cheap Pots	2121,1,0,0,0
+umbala,75,159,0,0	monster	S>Upgrade	2117,1,0,0,0
+umbala,114,141,0,0	monster	S>MVP Loot	2011,1,0,0,0
+umbala,88,156,0,0	monster	S>OC/DC	2112,1,0,0,0
+umbala,92,168,0,0	monster	S>Ranked Pots	2114,1,0,0,0
+umbala,89,152,0,0	monster	S>Cards	2127,1,0,0,0
+umbala,75,149,0,0	monster	S>Cards	2109,1,0,0,0
+umbala,90,156,0,0	monster	S>Upgrade	2053,1,0,0,0
+umbala,79,175,0,0	monster	S>Slotted	2114,1,0,0,0
+umbala,89,173,0,0	monster	S>Armor	2112,1,0,0,0
+
+// Episode city fake players - niflheim
+niflheim,180,182,0,0	monster	z z z	2076,1,0,0,0
+niflheim,216,162,0,0	monster	Whitesmith Lv99	2131,1,0,0,0
+niflheim,182,193,0,0	monster	B> loot	2042,1,0,0,0
+niflheim,190,169,0,0	monster	Buff pls	2066,1,0,0,0
+niflheim,207,185,0,0	monster	LFP	2002,1,0,0,0
+niflheim,210,194,0,0	monster	Lord Knight Lv96	2062,1,0,0,0
+niflheim,222,182,0,0	monster	Bard Lv99	2055,1,0,0,0
+niflheim,188,158,0,0	monster	Monk Lv99	2046,1,0,0,0
+niflheim,210,185,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+niflheim,211,167,0,0	monster	Blacksmith Lv63	2111,1,0,0,0
+niflheim,199,193,0,0	monster	Scholar Lv92	2093,1,0,0,0
+niflheim,192,185,0,0	monster	Lord Knight Lv87	2063,1,0,0,0
+niflheim,211,187,0,0	monster	brb	2141,1,0,0,0
+niflheim,194,176,0,0	monster	Alchemist Lv60	2122,1,0,0,0
+niflheim,207,158,0,0	monster	High Wizard Lv91	2076,1,0,0,0
+niflheim,218,170,0,0	monster	Thor?	2086,1,0,0,0
+niflheim,195,164,0,0	monster	Crusader Lv57	2032,1,0,0,0
+niflheim,190,175,0,0	monster	Whitesmith Lv99	2120,1,0,0,0
+niflheim,198,188,0,0	monster	Bio party?	2006,1,0,0,0
+niflheim,213,195,0,0	monster	Blacksmith Lv75	2140,1,0,0,0
+niflheim,211,183,0,0	monster	ET party?	2058,1,0,0,0
+niflheim,185,186,0,0	monster	High Wizard Lv91	2076,1,0,0,0
+niflheim,196,163,0,0	monster	Priest Lv62	2035,1,0,0,0
+niflheim,207,191,0,0	monster	Scholar Lv92	2093,1,0,0,0
+niflheim,188,156,0,0	monster	Sage Lv68	2047,1,0,0,0
+niflheim,180,169,0,0	monster	Gypsy Lv90	2104,1,0,0,0
+niflheim,214,173,0,0	monster	Dancer Lv99	2059,1,0,0,0
+niflheim,216,182,0,0	monster	Whitesmith Lv91	2077,1,0,0,0
+niflheim,206,173,0,0	monster	Dancer Lv68	2058,1,0,0,0
+niflheim,197,173,0,0	monster	Merchant Lv40	2012,1,0,0,0
+niflheim,200,169,0,0	monster	Blacksmith Lv67	2039,1,0,0,0
+niflheim,210,170,0,0	monster	Alchemist Lv60	2122,1,0,0,0
+niflheim,183,191,0,0	monster	Alchemist Lv61	2116,1,0,0,0
+niflheim,200,195,0,0	monster	Alchemist Lv83	2118,1,0,0,0
+niflheim,218,171,0,0	monster	Archer Lv27	2005,1,0,0,0
+niflheim,204,173,0,0	monster	Priest Lv62	2035,1,0,0,0
+niflheim,203,164,0,0	monster	ET party?	2113,1,0,0,0
+niflheim,197,181,0,0	monster	S> stuff	2033,1,0,0,0
+niflheim,189,161,0,0	monster	Knight Lv82	2031,1,0,0,0
+niflheim,182,195,0,0	monster	Blacksmith Lv75	2139,1,0,0,0
+niflheim,219,182,0,0	monster	Crusader Lv59	2033,1,0,0,0
+niflheim,225,186,0,0	monster	Buff pls	2004,1,0,0,0
+niflheim,209,165,0,0	monster	Bard Lv61	2054,1,0,0,0
+niflheim,196,188,0,0	monster	Buff pls	2120,1,0,0,0
+niflheim,188,192,0,0	monster	S> stuff	2130,1,0,0,0
+niflheim,212,177,0,0	monster	S>OC/DC	2098,1,0,0,0
+niflheim,183,169,0,0	monster	S>Ori/Elu	2137,1,0,0,0
+niflheim,215,158,0,0	monster	S>Armor	2111,1,0,0,0
+niflheim,209,164,0,0	monster	S>Cards	2116,1,0,0,0
+niflheim,225,189,0,0	monster	S>Upgrade	2119,1,0,0,0
+niflheim,201,177,0,0	monster	S>Armor	2122,1,0,0,0
+niflheim,224,172,0,0	monster	S>Cheap Pots	2121,1,0,0,0
+niflheim,218,160,0,0	monster	S>Weapon	2122,1,0,0,0
+niflheim,180,158,0,0	monster	S>Supplies	2121,1,0,0,0
+niflheim,204,176,0,0	monster	S>OC/DC	2116,1,0,0,0
+niflheim,193,165,0,0	monster	S>Upgrade	2038,1,0,0,0
+niflheim,225,168,0,0	monster	S>Cheap Pots	2112,1,0,0,0
+

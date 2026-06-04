@@ -1,0 +1,132 @@
+//============================================================
+// Battle Supply Shops - Full City Market Version
+// eAthena SVN 15267
+//
+// Goal:
+// - More dealers.
+// - Better city identity.
+// - No straight-line placement.
+// - NPCs placed around middle city service areas.
+//============================================================
+
+
+//============================================================
+// Prontera = upper fountain market plaza
+// Clean aligned layout
+//
+// Layout:
+//   Row 1 = normal supplies
+//   Row 2 = rare / equipment dealers
+//
+// Notes:
+// - Wider X spacing to avoid overlap.
+// - Row 2 is higher than Row 1.
+// - Different sprites for each dealer type.
+//============================================================
+
+// Row 1: core supply dealers
+prontera,122,218,4	shop	Potion Shop#Prt	91,501:50,502:250,503:500,504:1200
+prontera,138,218,4	shop	Upgrade Shop#Prt	748,984:45000,985:55000,756:8000,757:9000
+prontera,154,218,4	shop	Gem Dealer#Prt	706,715:800,716:800,717:800,523:2500
+prontera,170,218,4	shop	Arrow Dealer#Prt	725,1750:10,1751:20,1752:20,1753:20,1754:20
+prontera,186,218,4	shop	Utility Shop#Prt	721,601:500,602:1000,645:5000,656:5000
+
+// Row 2: rare / equipment dealers
+prontera,122,232,4	shop	Rare Hat Dealer#Prt	732,2256:2500000,5053:2000000,5160:3500000
+prontera,149,187,4	shop	Rare Garment#Prt	752,2501:2500,2503:30000,2505:80000
+prontera,154,232,4	shop	Weapon Dealer#Prt	99,1101:3000,1104:10000,1107:30000,1162:800000,1168:900000
+prontera,170,232,4	shop	Armor Dealer#Prt	743,2301:2500,2317:500000,2501:2500,2105:50000
+prontera,161,190,4	shop	MVP Card Dealer#Prt	851,4047:5000000,4054:5000000,4174:8000000,4197:10000000,4241:8000000
+prontera,165,190,4	shop	Rare Shield Acc#Prt	731,2101:3000,2103:13000,2105:50000,2115:150000,2601:25000,2602:50000
+
+//============================================================
+// Morocc = assassin / combat preparation
+// Requested left-side aligned market + separated potion shop
+//============================================================
+
+morocc,102,107,4	shop	Quest Weapon#Mor	99,1201:2000,1204:5000,1216:80000,1222:120000
+morocc,106,107,4	shop	Sin Supply#Mor	747,678:250000
+morocc,110,107,4	shop	Combat Gear#Mor	748,601:1000,602:1000,645:5000,656:5000,657:50000
+morocc,114,107,4	shop	Quest Shield#Mor	726,2101:3000,2103:13000,2105:50000,2115:150000
+morocc,118,107,4	shop	Dagger Shop#Mor	732,1201:2000,1204:5000,1216:80000,1222:120000
+morocc,122,107,4	shop	Utility Shop#Mor	721,601:500,602:1000,645:5000,656:5000
+morocc,126,107,4	shop	Upgrade Shop#Mor	748,984:45000,985:55000,756:8000,757:9000
+
+morocc,170,76,4	shop	Potion Shop#Mor	700,501:50,502:250,503:500,504:1200
+
+
+//============================================================
+// Payon = archer / hunter / forest supplies
+//============================================================
+
+payon,168,104,4	shop	Arrow Shop#Pay	725,1750:10,1751:20,1752:20,1753:20,1754:20,1755:20,1756:20,1757:20,1758:20,1759:20,1760:20
+payon,184,112,4	shop	Trap Shop#Pay	727,1065:1000
+payon,160,121,4	shop	Bow Shop#Pay	724,1701:5000,1702:12000,1703:30000
+payon,187,95,4	shop	Forest Supply#Pay	706,501:50,502:250,503:500,504:1200,601:500
+payon,172,130,4	shop	Hunter Gear#Pay	743,1750:10,1751:20,1065:1000,645:5000
+
+
+//============================================================
+// Geffen = mage / gemstone / magic supplies
+//============================================================
+
+geffen,119,66,4	shop	Gem Shop#Gef	706,715:800,716:800,717:800,523:2500
+geffen,135,63,4	shop	Mage Supply#Gef	700,501:50,502:250,503:500,504:1200,601:500,602:1000
+geffen,112,82,4	shop	Staff Shop#Gef	837,1601:3000,1604:12000,1607:80000,1610:150000
+geffen,143,80,4	shop	Magic Gear#Gef	851,715:800,716:800,717:800,645:5000
+geffen,128,95,4	shop	Clock Supply#Gef	91,601:500,602:1000,645:5000,656:5000
+
+
+//============================================================
+// Izlude = swordman / beginner combat
+//============================================================
+
+izlude,127,118,4	shop	Novice Gear#Iz	724,501:50,502:250,503:500,504:1200,601:500,602:1000
+izlude,145,122,4	shop	Sword Shop#Iz	99,1101:3000,1104:10000,1107:30000
+izlude,134,137,4	shop	Shield Shop#Iz	748,2101:3000,2103:13000,2105:50000
+izlude,116,132,4	shop	Battle Shop#Iz	743,645:5000,656:5000,657:50000
+izlude,152,136,4	shop	Armor Shop#Iz	91,2301:2500,2401:2500,2501:2500
+
+
+//============================================================
+// Alberta = merchant / travel / trade
+//============================================================
+
+alberta,31,240,4	shop	Travel Shop#Alb	721,601:500,602:1000,645:5000,656:5000
+alberta,52,232,4	shop	Merchant Gear#Alb	731,501:50,502:250,503:500,504:1200
+alberta,38,219,4	shop	Trade Goods#Alb	99,909:100,910:250,911:300,912:400
+alberta,72,63,4	shop	Ship Supply#Alb	724,601:500,602:1000,645:5000
+alberta,93,72,4	shop	Port Gear#Alb	743,2101:3000,2301:2500,2401:2500
+
+
+//============================================================
+// Aldebaran = alchemist / upgrade / clock tower prep
+//============================================================
+
+aldebaran,142,116,4	shop	Alch Supply#Ald	731,713:5000,7135:30000,7136:30000,7137:30000,7138:30000,7139:50000
+aldebaran,158,118,4	shop	Upgrade Shop#Ald	748,984:45000,985:55000,756:8000,757:9000
+aldebaran,130,132,4	shop	Clock Gear#Ald	706,601:500,602:1000,645:5000,656:5000
+aldebaran,162,138,4	shop	Potion Shop#Ald	91,501:50,502:250,503:500,504:1200
+aldebaran,144,148,4	shop	Craft Shop#Ald	743,998:1000,999:5000,984:45000,985:55000
+
+
+//============================================================
+// Yuno = scholar / high-level prep
+//============================================================
+
+yuno,151,178,4	shop	Scholar Gem#Yun	837,715:800,716:800,717:800,523:2500
+yuno,173,188,4	shop	High Supply#Yun	851,601:500,602:1000,645:5000,656:5000,657:50000
+yuno,160,202,4	shop	Research Gear#Yun	700,501:50,502:250,503:500,504:1200
+yuno,184,196,4	shop	Magic Shop#Yun	706,1601:3000,1604:12000,1607:80000
+yuno,143,196,4	shop	Upgrade Shop#Yun	748,984:45000,985:55000,756:8000,757:9000
+
+
+//============================================================
+// Comodo = dancer / bard / leisure supplies
+//============================================================
+
+comodo,182,142,4	shop	Bard Shop#Com	732,1901:10000,1902:30000,1903:80000
+comodo,205,146,4	shop	Dancer Shop#Com	91,1950:10000,1951:30000,1952:80000
+comodo,194,164,4	shop	Arrow Shop#Com	725,1750:10,1751:20,1752:20,1753:20,1754:20
+comodo,215,164,4	shop	Beach Supply#Com	724,501:50,502:250,503:500,504:1200,601:500
+comodo,174,160,4	shop	Travel Shop#Com	721,601:500,602:1000,645:5000,656:5000

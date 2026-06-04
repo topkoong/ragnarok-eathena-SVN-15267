@@ -1,0 +1,90 @@
+//============================================================
+// Stylist NPC
+// eAthena SVN 15267
+//
+// Purpose:
+//   Change hairstyle, hair color, and clothes color.
+//
+// Location:
+//   prontera,163,82
+//
+// Notes:
+//   English/ASCII only. Safe to edit in VS Code.
+//   1 = Hair Style
+//   6 = Hair Color
+//   7 = Clothes Color
+//============================================================
+
+prontera,121,91,4	script	Stylist	727,{
+
+	mes "[Stylist]";
+	mes "I can change your hairstyle, hair color, or clothes color.";
+	next;
+
+	switch(select(
+		"Change Hairstyle",
+		"Change Hair Color",
+		"Change Clothes Color",
+		"Cancel"
+	)) {
+		case 1:
+			mes "[Stylist]";
+			mes "Enter hairstyle number.";
+			mes "Recommended range: 0 - 23";
+			next;
+			input .@style;
+
+			if (.@style < 0 || .@style > 23) {
+				mes "[Stylist]";
+				mes "Invalid hairstyle number.";
+				close;
+			}
+
+			setlook 1,.@style;
+
+			mes "[Stylist]";
+			mes "Your hairstyle has been changed.";
+			close;
+
+		case 2:
+			mes "[Stylist]";
+			mes "Enter hair color number.";
+			mes "Recommended range: 0 - 8";
+			next;
+			input .@color;
+
+			if (.@color < 0 || .@color > 8) {
+				mes "[Stylist]";
+				mes "Invalid hair color number.";
+				close;
+			}
+
+			setlook 6,.@color;
+
+			mes "[Stylist]";
+			mes "Your hair color has been changed.";
+			close;
+
+		case 3:
+			mes "[Stylist]";
+			mes "Enter clothes color number.";
+			mes "Recommended range: 0 - 4";
+			next;
+			input .@cloth;
+
+			if (.@cloth < 0 || .@cloth > 4) {
+				mes "[Stylist]";
+				mes "Invalid clothes color number.";
+				close;
+			}
+
+			setlook 7,.@cloth;
+
+			mes "[Stylist]";
+			mes "Your clothes color has been changed.";
+			close;
+
+		default:
+			close;
+	}
+}

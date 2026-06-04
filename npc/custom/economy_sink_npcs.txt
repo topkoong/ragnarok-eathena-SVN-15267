@@ -1,0 +1,133 @@
+//============================================================
+// Economy Sink NPCs
+// File: npc/custom/economy_sink_npcs.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Add controlled Zeny sinks.
+// - Does not sell MVP cards, God items, or +10 equipment.
+// - Tracks #EconomySinkZeny for achievement board.
+//============================================================
+
+prontera,133,91,4	script	EconomySink#main	742,{
+	mes "[เจ้าหน้าที่กองทุนเมือง]";
+	mes "ระบบนี้ช่วยดูด Zeny ออกจากระบบผ่านบริการเสริม";
+	mes "เหมาะสำหรับเซิร์ฟเวอร์ที่มีร้านสะดวกซื้อและตลาดพรีเมียมจำนวนมาก";
+	next;
+
+L_Main:
+	mes "[เจ้าหน้าที่กองทุนเมือง]";
+	mes "Zeny ที่คุณเคยใช้กับกองทุนเมือง:";
+	mes "^0000FF" + #EconomySinkZeny + "^000000 Zeny";
+	next;
+	switch(select(
+		"บริจาค Zeny เข้ากองทุนเมือง",
+		"Premium Warp - 250,000z",
+		"ซื้อ Quest Coin แบบจำกัดเวลา",
+		"ล้างบัฟเสี่ยงปัญหา - 50,000z",
+		"Cancel"
+	)) {
+	case 1: goto L_Donate;
+	case 2: goto L_Warp;
+	case 3: goto L_BuyCoin;
+	case 4: goto L_Clear;
+	default: close;
+	}
+
+L_Donate:
+	mes "[เจ้าหน้าที่กองทุนเมือง]";
+	mes "ใส่จำนวน Zeny ที่ต้องการบริจาค";
+	mes "ขั้นต่ำ 100,000 Zeny";
+	input .@amount;
+	if (.@amount < 100000) {
+		mes "[เจ้าหน้าที่กองทุนเมือง]";
+		mes "จำนวนต่ำกว่าขั้นต่ำ";
+		close;
+	}
+	if (Zeny < .@amount) {
+		mes "[เจ้าหน้าที่กองทุนเมือง]";
+		mes "Zeny ของคุณไม่พอ";
+		close;
+	}
+	set Zeny,Zeny-.@amount;
+	set #EconomySinkZeny,#EconomySinkZeny+.@amount;
+	specialeffect2 248;
+	mes "[เจ้าหน้าที่กองทุนเมือง]";
+	mes "ขอบคุณสำหรับการสนับสนุนเมือง";
+	close;
+
+L_Warp:
+	if (Zeny < 250000) {
+		mes "[เจ้าหน้าที่กองทุนเมือง]";
+		mes "Zeny ของคุณไม่พอ";
+		close;
+	}
+	mes "[เจ้าหน้าที่กองทุนเมือง]";
+	mes "เลือกจุด Premium Warp";
+	next;
+	switch(select("Prontera Rare Market:Morocc Quest Market:Payon Card Market:Dead Branch Room:MVP Room:Cancel")) {
+	case 1: set .@map$,"prontera"; set .@x,153; set .@y,190; break;
+	case 2: set .@map$,"morocc"; set .@x,102; set .@y,110; break;
+	case 3: set .@map$,"payon"; set .@x,165; set .@y,104; break;
+	case 4: set .@map$,"prontera"; set .@x,127; set .@y,91; break;
+	case 5: set .@map$,"prontera"; set .@x,182; set .@y,86; break;
+	default: close;
+	}
+	set Zeny,Zeny-250000;
+	set #EconomySinkZeny,#EconomySinkZeny+250000;
+	warp .@map$,.@x,.@y;
+	end;
+
+L_BuyCoin:
+	if (#EconCoinNext > gettimetick(2)) {
+		set .@remain,#EconCoinNext-gettimetick(2);
+		set .@min,.@remain/60;
+		if (.@min < 1) set .@min,1;
+		mes "[เจ้าหน้าที่กองทุนเมือง]";
+		mes "คุณยังติดคูลดาวน์อยู่";
+		mes "เหลือประมาณ " + .@min + " นาที";
+		close;
+	}
+	mes "[เจ้าหน้าที่กองทุนเมือง]";
+	mes "ซื้อ Quest Coin ได้สูงสุด 10 เหรียญต่อ 24 ชั่วโมง";
+	mes "ราคา 3,000,000 Zeny ต่อ 1 Quest Coin";
+	mes "ต้องการซื้อกี่เหรียญ?";
+	input .@amount;
+	if (.@amount <= 0 || .@amount > 10) {
+		mes "[เจ้าหน้าที่กองทุนเมือง]";
+		mes "จำนวนไม่ถูกต้อง";
+		close;
+	}
+	set .@cost,.@amount*3000000;
+	if (Zeny < .@cost) {
+		mes "[เจ้าหน้าที่กองทุนเมือง]";
+		mes "Zeny ของคุณไม่พอ";
+		close;
+	}
+	set Zeny,Zeny-.@cost;
+	set #QuestCoin,#QuestCoin+.@amount;
+	set #EconomySinkZeny,#EconomySinkZeny+.@cost;
+	set #EconCoinNext,gettimetick(2)+86400;
+	specialeffect2 248;
+	mes "[เจ้าหน้าที่กองทุนเมือง]";
+	mes "ซื้อ Quest Coin เรียบร้อย";
+	mes "Quest Coin ปัจจุบัน: " + #QuestCoin;
+	close;
+
+L_Clear:
+	if (Zeny < 50000) {
+		mes "[เจ้าหน้าที่กองทุนเมือง]";
+		mes "Zeny ของคุณไม่พอ";
+		close;
+	}
+	set Zeny,Zeny-50000;
+	set #EconomySinkZeny,#EconomySinkZeny+50000;
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[เจ้าหน้าที่กองทุนเมือง]";
+	mes "ล้างบัฟที่อาจทำให้เกิดปัญหาเรียบร้อย";
+	close;
+}

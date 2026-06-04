@@ -1,0 +1,2 @@
+// Test one fake player-looking mob first.
+prontera,150,150,0,0	monster	Swordman Lv28	2000,1,0,0,0

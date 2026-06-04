@@ -1,0 +1,60 @@
+//============================================================
+// alberta_utility_shops.txt
+// Note: F_TopBuyItem is now loaded from npc/custom/top_common_functions.txt
+//============================================================
+
+// Alberta Utility Shops
+// City identity: trade / general utility / travel preparation.
+//============================================================
+
+alberta,112,60,4	script	TravelUtilityDealer#alb	837,{
+	mes "[พ่อค้าอุปกรณ์เดินทาง]";
+	mes "อัลเบอร์ต้าเป็นเมืองท่า การเตรียมของเดินทางจึงสำคัญที่สุด";
+	mes "เลือกของใช้พื้นฐานสำหรับการผจญภัยได้เลย";
+	next;
+	switch(select("Fly Wing - 60z:Butterfly Wing - 300z:Magnifier - 40z:Yggdrasil Leaf - 4,000z:Empty Bottle - 50z:ยกเลิก")) {
+	case 1: callfunc "F_TopBuyItem",601,"Fly Wing",60;
+	case 2: callfunc "F_TopBuyItem",602,"Butterfly Wing",300;
+	case 3: callfunc "F_TopBuyItem",611,"Magnifier",40;
+	case 4: callfunc "F_TopBuyItem",610,"Yggdrasil Leaf",4000;
+	case 5: callfunc "F_TopBuyItem",713,"Empty Bottle",50;
+	case 6: close;
+	}
+}
+
+alberta,116,60,4	script	PotionTradeDealer#alb	837,{
+	mes "[พ่อค้ายาสามัญ]";
+	mes "ข้ามียาพื้นฐานสำหรับนักผจญภัยทุกระดับ";
+	mes "ราคาถูก ตั้งใจให้ใช้เตรียมตัวก่อนออกเรือหรือออกล่า";
+	next;
+	switch(select("Red Potion - 50z:Orange Potion - 200z:Yellow Potion - 550z:White Potion - 1,200z:Blue Potion - 5,000z:Green Potion - 40z:ยกเลิก")) {
+	case 1: callfunc "F_TopBuyItem",501,"Red Potion",50;
+	case 2: callfunc "F_TopBuyItem",502,"Orange Potion",200;
+	case 3: callfunc "F_TopBuyItem",503,"Yellow Potion",550;
+	case 4: callfunc "F_TopBuyItem",504,"White Potion",1200;
+	case 5: callfunc "F_TopBuyItem",505,"Blue Potion",5000;
+	case 6: callfunc "F_TopBuyItem",506,"Green Potion",40;
+	case 7: close;
+	}
+}
+
+alberta,120,60,4	script	TradeMaterialDealer#alb	837,{
+	mes "[พ่อค้าวัตถุดิบการค้า]";
+	mes "ของเล็กๆ เหล่านี้มักจำเป็นต่อการคราฟ การทำเควส และการเตรียมตัวของหลายอาชีพ";
+	next;
+	switch(select("Medicine Bowl - 500z:Empty Bottle - 50z:Trap - 100z:Blue Gemstone - 500z:Holy Water - 500z:ยกเลิก")) {
+	case 1: callfunc "F_TopBuyItem",7134,"Medicine Bowl",500;
+	case 2: callfunc "F_TopBuyItem",713,"Empty Bottle",50;
+	case 3: callfunc "F_TopBuyItem",1065,"Trap",100;
+	case 4: callfunc "F_TopBuyItem",717,"Blue Gemstone",500;
+	case 5: callfunc "F_TopBuyItem",523,"Holy Water",500;
+	case 6: close;
+	}
+}
+
+alberta,124,60,4	script	AlbertaGuide#alb	742,{
+	mes "[เจ้าหน้าที่ท่าเรืออัลเบอร์ต้า]";
+	mes "เมืองนี้เหมาะสำหรับซื้อของใช้ทั่วไปก่อนเดินทาง";
+	mes "ถ้าท่านกำลังจะลงดันเจี้ยนหรือออกเรือ แนะนำให้เตรียม Wing, Potion และของชุบชีวิตให้พร้อม";
+	close;
+}

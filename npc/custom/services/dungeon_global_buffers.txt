@@ -1,0 +1,13 @@
+//============================================================
+// dungeon_global_buffers.txt
+//
+// This file is intentionally disabled/replaced.
+// Use npc/custom/services/dun_buffers.txt instead.
+//
+// Keep this file commented in npc/scripts_main.conf:
+//
+// // npc: npc/custom/services/dungeon_global_buffers.txt
+//
+// Loading this file together with dun_buffers.txt will create duplicate
+// dungeon buffer NPCs.
+//============================================================

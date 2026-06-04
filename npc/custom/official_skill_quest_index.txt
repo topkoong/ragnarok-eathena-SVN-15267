@@ -1,0 +1,81 @@
+//============================================================
+// Official Skill Quest Index
+// File: npc/custom/official_skill_quest_index.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Guide players about classic Platinum / Quest skills.
+// - This is a guide NPC.
+// - It does not replace the convenience Platinum Skill NPC.
+//============================================================
+
+prontera,133,95,4	script	SkillQuestIndex#main	742,{
+	mes "[สารบัญเควสสกิล]";
+	mes "ฉันช่วยอธิบายสกิลเควส / Platinum Skill แบบดั้งเดิม";
+	mes "ถ้าอยากได้แบบสะดวก ให้ไปหา Platinum Skill NPC ได้";
+	next;
+
+L_Main:
+	mes "[สารบัญเควสสกิล]";
+	mes "เลือกหมวดที่ต้องการดู";
+	next;
+	switch(select(
+		"Beginner / Novice",
+		"1st Job Skill Quests",
+		"2nd Job Skill Quests",
+		"High-Class / Transcendent Notes",
+		"ไป Platinum Skill NPC",
+		"Cancel"
+	)) {
+	case 1: goto L_Beginner;
+	case 2: goto L_First;
+	case 3: goto L_Second;
+	case 4: goto L_High;
+	case 5: warp "prontera",166,82; end;
+	default: close;
+	}
+
+L_Beginner:
+	mes "[สารบัญเควสสกิล]";
+	mes "ตัวอย่างสกิลพื้นฐาน:";
+	mes "- First Aid";
+	mes "- Trick Dead";
+	mes "เหมาะกับผู้เล่นใหม่และ Novice";
+	next;
+	goto L_Main;
+
+L_First:
+	mes "[สารบัญเควสสกิล]";
+	mes "ตัวอย่างสกิลเควสของ 1st Job:";
+	mes "- Swordman: Moving HP Recovery, Fatal Blow, Auto Berserk";
+	mes "- Archer: Arrow Making, Charge Arrow";
+	mes "- Thief: Back Sliding, Throw Stone";
+	mes "- Merchant: Cart Revolution";
+	mes "- Acolyte: Holy Light";
+	mes "- Mage: Energy Coat";
+	next;
+	goto L_Main;
+
+L_Second:
+	mes "[สารบัญเควสสกิล]";
+	mes "ตัวอย่างสกิลเควสของ 2nd Job:";
+	mes "- Knight: Charge Attack";
+	mes "- Crusader: Shrink";
+	mes "- Assassin: Sonic Acceleration, Venom Knife";
+	mes "- Rogue: Close Confine";
+	mes "- Wizard: Sight Blaster";
+	mes "- Sage: Create Converter";
+	mes "- Bard/Dancer: Pang Voice, Wink of Charm";
+	mes "- Blacksmith: Greed";
+	mes "- Priest: Redemptio";
+	mes "- Alchemist: Bioethics";
+	next;
+	goto L_Main;
+
+L_High:
+	mes "[สารบัญเควสสกิล]";
+	mes "High-Class โดยทั่วไปยังใช้พื้นฐานสกิลเควสจากสายอาชีพเดิม";
+	mes "หากใช้ Platinum Skill NPC จะสะดวกกว่าและลดความสับสนในเซิร์ฟเวอร์เก่า";
+	next;
+	goto L_Main;
+}

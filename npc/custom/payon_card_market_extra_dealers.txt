@@ -1,0 +1,128 @@
+//============================================================
+// Payon Card Market - Extra Dealers
+// File: npc/custom/payon_card_market_extra_dealers.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal
+//
+// Purpose:
+// - Complete Payon as the card-market city.
+// - This file DOES NOT replace special_card_dealers.txt.
+// - It avoids MVP cards and mini-boss cards.
+// - MVP cards should remain in Prontera premium market.
+//
+// Layout:
+// - Existing special_card_dealers.txt may already use payon y=100.
+// - These extra dealers are placed at y=104 and y=108 to avoid overlap.
+// - Payon is 200x200 in this server, so x coordinates must stay below 200.
+//
+// Encoding note:
+// - Thai dialogue in the guide NPC should be saved as
+//   Windows-874 / CP874 / TIS-620.
+//============================================================
+
+
+//============================================================
+// Thai guide NPC
+//============================================================
+payon,165,104,4	script	CardGuide#payon	837,{
+	mes "[ผู้แนะนำตลาดการ์ด]";
+	mes "ยินดีต้อนรับสู่ตลาดการ์ดเมือง Payon ค่ะ";
+	mes "ที่นี่รวบรวมการ์ดใช้งานทั่วไป แยกตามประเภทเพื่อให้เลือกซื้อได้ง่าย";
+	next;
+
+	mes "[ผู้แนะนำตลาดการ์ด]";
+	mes "แถวนี้เป็นร้านการ์ดเพิ่มเติม เช่น:";
+	mes "- การ์ดใช้งานทั่วไป";
+	mes "- การ์ดอาวุธ";
+	mes "- การ์ดเพิ่มความเสียหายตามขนาด";
+	mes "- การ์ดสถานะ";
+	mes "- การ์ดชุดป้องกัน";
+	mes "- การ์ดรองเท้าและเครื่องประดับ";
+	next;
+
+	mes "[ผู้แนะนำตลาดการ์ด]";
+	mes "หมายเหตุ:";
+	mes "ร้านชุดนี้ไม่รวม MVP Card และ Mini Boss Card";
+	mes "การ์ดระดับพรีเมียมหรือ MVP ควรอยู่ที่ Prontera เพื่อรักษาสมดุลของตลาดค่ะ";
+	close;
+}
+
+
+//============================================================
+// Utility / convenience cards
+//============================================================
+// Creamy, Smokie, Yoyo, Vitata, Zerom, Phen, Mantis
+payon,169,104,4	shop	UtilCard#payon	837,4040:500000,4044:700000,4051:750000,4053:1000000,4064:800000,4077:1500000,4079:900000
+
+
+//============================================================
+// Basic weapon cards
+//============================================================
+// Useful normal weapon cards.
+// No MVP card, no mini-boss card.
+payon,173,104,4	shop	WeaponCard#payon	837,4004:300000,4029:500000,4043:800000,4035:3000000,4049:1500000,4094:2000000
+
+
+//============================================================
+// Element damage cards
+//============================================================
+// Common elemental damage cards for farming.
+payon,177,104,4	shop	ElemCard2#payon	837,4005:1500000,4030:1200000,4049:1500000,4069:1500000,4080:1500000,4085:1500000
+
+
+//============================================================
+// Race damage cards
+//============================================================
+// Common race damage cards.
+// Keep the list conservative for old eAthena compatibility.
+payon,181,104,4	shop	RaceCard2#payon	837,4035:3000000,4060:1500000,4063:1500000,4080:1500000
+
+
+//============================================================
+// Size damage cards
+//============================================================
+// Desert Wolf = Small
+// Skeleton Worker = Medium
+// Minorous = Large
+payon,185,104,4	shop	SizeCard2#payon	837,4082:8000000,4092:10000000,4126:12000000
+
+
+//============================================================
+// Status effect weapon cards
+//============================================================
+// Useful for fun builds, leveling, PvP experiments, and utility.
+payon,189,104,4	shop	StatusCard2#payon	837,4017:500000,4024:500000,4025:500000,4037:500000,4055:700000,4057:700000,4076:700000,4096:1000000
+
+
+//============================================================
+// Armor cards
+//============================================================
+// Basic defensive and elemental armor cards.
+payon,193,104,4	shop	ArmorCard#payon	837,4003:500000,4014:500000,4016:500000,4031:2000000,4098:3000000,4099:3000000,4101:3000000
+
+
+//============================================================
+// Shield cards
+//============================================================
+// General defensive shield cards.
+payon,197,104,4	shop	ShieldCard#payon	837,4032:500000,4045:2500000,4058:12000000,4061:1000000
+
+
+//============================================================
+// Garment cards
+//============================================================
+// Common garment cards, including useful farming/defensive options.
+payon,165,108,4	shop	GarmentCard#payon	837,4009:300000,4015:500000,4042:500000,4081:800000,4102:8000000,4133:25000000
+
+
+//============================================================
+// Shoes cards
+//============================================================
+// Useful shoes cards for AGI, SP recovery, HP/SP, etc.
+payon,169,108,4	shop	ShoesCard#payon	837,4050:500000,4070:700000,4097:4000000,4100:4000000,4107:5000000
+
+
+//============================================================
+// Accessory cards
+//============================================================
+// Common accessory cards for stats, utility, and casting.
+payon,173,108,4	shop	AccCard#payon	837,4027:500000,4051:750000,4053:1000000,4064:800000,4077:1500000,4079:900000,4091:1200000

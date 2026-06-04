@@ -1,0 +1,30 @@
+//============================================================
+// Top's eAthena Dungeon Pack
+// eAthena SVN 15267 compatible old-style scripts
+// Generated for separate monster files + Prontera dungeon hub + dungeon buffers
+//
+// Install:
+//   Add the npc: lines from conf/top_dungeon_pack_npc_lines.txt
+//   into npc/scripts_monsters.conf or npc/scripts_main.conf.
+//
+// Important:
+//   If your server already loads the original combined files, comment them
+//   out first to avoid duplicate monster spawns:
+//     npc: npc/mobs/dungeons/gld_dun.txt
+//     npc: npc/mobs/dungeons/gld_dunSE.txt
+//     npc: npc/mobs/dungeons/lhz_dun.txt
+//============================================================
+
+// Gonryun / Kunlun Dungeon
+gon_dun01,0,0,0,0	monster	Enchanted Peach Tree	1410,40,0,0,0
+gon_dun01,0,0,0,0	monster	Zipper Bear	1417,20,0,0,0
+gon_dun01,0,0,0,0	monster	Bloody Butterfly	1408,20,0,0,0
+
+gon_dun02,0,0,0,0	monster	Zipper Bear	1417,30,0,0,0
+gon_dun02,0,0,0,0	monster	Bloody Butterfly	1408,30,0,0,0
+gon_dun02,0,0,0,0	monster	Evil Nymph	1416,20,0,0,0
+gon_dun02,0,0,0,0	monster	Hermit Plant	1413,15,0,0,0
+
+gon_dun03,0,0,0,0	monster	Evil Nymph	1416,35,0,0,0
+gon_dun03,0,0,0,0	monster	Hermit Plant	1413,30,0,0,0
+gon_dun03,0,0,0,0	monster	Bloody Butterfly	1408,20,0,0,0

@@ -1,0 +1,243 @@
+//============================================================
+// Monster Hunter Board
+// File: npc/custom/monster_hunter_board.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal
+//
+// Purpose:
+// - Repeatable item-proof hunting board.
+// - Players collect monster drops and turn them in.
+// - Rewards Zeny + account-bound Quest Coins.
+//
+// Currency:
+// - #QuestCoin
+// - Quest Coin Shop uses this same account variable.
+//
+// Why item-proof instead of kill counter?
+// - Old eAthena versions can behave differently with kill events.
+// - Item turn-in is safer, easier to maintain, and works reliably.
+//============================================================
+
+payon,189,100,4	script	HunterBoard#payon	837,{
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "ยินดีต้อนรับ นักล่าทุกท่าน";
+	mes "เลือกภารกิจ เก็บวัตถุดิบจากมอนสเตอร์ แล้วนำมาส่งเพื่อรับรางวัล";
+	next;
+
+L_Main:
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "แต้มภารกิจของคุณ: ^0000FF" + #QuestCoin + "^000000 แต้ม";
+	mes "เลือกประเภทภารกิจที่ต้องการค่ะ";
+	next;
+	menu "ภารกิจเริ่มต้น",L_Beginner,"ภารกิจระดับกลาง",L_Mid,"ภารกิจระดับสูง",L_Advanced,"คำแนะนำ",L_Info,"ยกเลิก",L_Close;
+
+
+//============================================================
+// Beginner missions
+//============================================================
+L_Beginner:
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "ภารกิจเริ่มต้น เหมาะสำหรับผู้เล่นใหม่หรือการฟาร์มเบา ๆ";
+	next;
+	menu "Jellopy x100",B_Jellopy,"Fluff x80",B_Fluff,"Sticky Webfoot x60",B_Webfoot,"Feather x60",B_Feather,"ย้อนกลับ",L_Main;
+
+B_Jellopy:
+	set .@item,909;
+	set .@need,100;
+	set .@coin,2;
+	set .@zeny,5000;
+	set .@name$,"Jellopy";
+	goto L_TurnIn;
+
+B_Fluff:
+	set .@item,914;
+	set .@need,80;
+	set .@coin,2;
+	set .@zeny,5000;
+	set .@name$,"Fluff";
+	goto L_TurnIn;
+
+B_Webfoot:
+	set .@item,918;
+	set .@need,60;
+	set .@coin,3;
+	set .@zeny,8000;
+	set .@name$,"Sticky Webfoot";
+	goto L_TurnIn;
+
+B_Feather:
+	set .@item,949;
+	set .@need,60;
+	set .@coin,3;
+	set .@zeny,8000;
+	set .@name$,"Feather";
+	goto L_TurnIn;
+
+
+//============================================================
+// Mid missions
+//============================================================
+L_Mid:
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "ภารกิจระดับกลาง เหมาะสำหรับการฟาร์มจริงจังขึ้น";
+	next;
+	menu "Orcish Voucher x50",M_OrcishVoucher,"Skel-Bone x50",M_SkelBone,"Rotten Bandage x50",M_RottenBandage,"Venom Canine x40",M_VenomCanine,"Sticky Mucus x60",M_StickyMucus,"ย้อนกลับ",L_Main;
+
+M_OrcishVoucher:
+	set .@item,922;
+	set .@need,50;
+	set .@coin,5;
+	set .@zeny,20000;
+	set .@name$,"Orcish Voucher";
+	goto L_TurnIn;
+
+M_SkelBone:
+	set .@item,932;
+	set .@need,50;
+	set .@coin,5;
+	set .@zeny,20000;
+	set .@name$,"Skel-Bone";
+	goto L_TurnIn;
+
+M_RottenBandage:
+	set .@item,930;
+	set .@need,50;
+	set .@coin,5;
+	set .@zeny,20000;
+	set .@name$,"Rotten Bandage";
+	goto L_TurnIn;
+
+M_VenomCanine:
+	set .@item,937;
+	set .@need,40;
+	set .@coin,5;
+	set .@zeny,20000;
+	set .@name$,"Venom Canine";
+	goto L_TurnIn;
+
+M_StickyMucus:
+	set .@item,938;
+	set .@need,60;
+	set .@coin,5;
+	set .@zeny,20000;
+	set .@name$,"Sticky Mucus";
+	goto L_TurnIn;
+
+
+//============================================================
+// Advanced missions
+//============================================================
+L_Advanced:
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "ภารกิจระดับสูง ใช้เวลาฟาร์มนานขึ้น แต่ให้รางวัลดีกว่า";
+	next;
+	menu "Immortal Heart x40",A_ImmortalHeart,"Cactus Needle x80",A_CactusNeedle,"Horrendous Mouth x40",A_HorrendousMouth,"Nipper x60",A_Nipper,"Heart of Mermaid x40",A_Mermaid,"ย้อนกลับ",L_Main;
+
+A_ImmortalHeart:
+	set .@item,929;
+	set .@need,40;
+	set .@coin,8;
+	set .@zeny,50000;
+	set .@name$,"Immortal Heart";
+	goto L_TurnIn;
+
+A_CactusNeedle:
+	set .@item,952;
+	set .@need,80;
+	set .@coin,8;
+	set .@zeny,50000;
+	set .@name$,"Cactus Needle";
+	goto L_TurnIn;
+
+A_HorrendousMouth:
+	set .@item,958;
+	set .@need,40;
+	set .@coin,8;
+	set .@zeny,50000;
+	set .@name$,"Horrendous Mouth";
+	goto L_TurnIn;
+
+A_Nipper:
+	set .@item,960;
+	set .@need,60;
+	set .@coin,8;
+	set .@zeny,50000;
+	set .@name$,"Nipper";
+	goto L_TurnIn;
+
+A_Mermaid:
+	set .@item,950;
+	set .@need,40;
+	set .@coin,8;
+	set .@zeny,50000;
+	set .@name$,"Heart of Mermaid";
+	goto L_TurnIn;
+
+
+//============================================================
+// Shared turn-in logic
+//============================================================
+L_TurnIn:
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "ภารกิจที่เลือก:";
+	mes "^0000FF" + .@name$ + " x" + .@need + "^000000";
+	mes "รางวัล:";
+	mes "- Zeny: ^0000FF" + .@zeny + "^000000";
+	mes "- Quest Coin: ^0000FF" + .@coin + "^000000 แต้ม";
+	next;
+
+	if (countitem(.@item) < .@need) {
+		mes "[กระดานล่ามอนสเตอร์]";
+		mes "คุณยังมีไอเทมไม่ครบค่ะ";
+		mes "ต้องการ: ^FF0000" + .@name$ + " x" + .@need + "^000000";
+		mes "มีอยู่: ^0000FF" + countitem(.@item) + "^000000";
+		close;
+	}
+
+	menu "ส่งภารกิจ",L_Complete,"ยกเลิก",L_Close;
+
+L_Complete:
+	if (countitem(.@item) < .@need) {
+		mes "[กระดานล่ามอนสเตอร์]";
+		mes "ไอเทมไม่ครบค่ะ";
+		close;
+	}
+
+	delitem .@item,.@need;
+	set Zeny,Zeny+.@zeny;
+	set #QuestCoin,#QuestCoin+.@coin;
+	specialeffect2 248;
+
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "ส่งภารกิจเรียบร้อยค่ะ";
+	mes "ได้รับ Zeny: ^0000FF" + .@zeny + "^000000";
+	mes "ได้รับ Quest Coin: ^0000FF" + .@coin + "^000000 แต้ม";
+	next;
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "แต้มภารกิจคงเหลือของคุณตอนนี้:";
+	mes "^0000FF" + #QuestCoin + "^000000 แต้ม";
+	close;
+
+
+//============================================================
+// Info
+//============================================================
+L_Info:
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "กระดานนี้ใช้ระบบส่งวัตถุดิบจากมอนสเตอร์แทนการนับจำนวนฆ่า";
+	mes "เหมาะกับ eAthena รุ่นเก่า เพราะเสถียรกว่าและแก้ไขง่ายกว่า";
+	next;
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "เมื่อส่งภารกิจ คุณจะได้รับ:";
+	mes "- Zeny";
+	mes "- Quest Coin";
+	next;
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "Quest Coin สามารถนำไปแลกของรางวัลได้ที่ Prontera";
+	mes "NPC: Quest Coin Shop";
+	close;
+
+L_Close:
+	mes "[กระดานล่ามอนสเตอร์]";
+	mes "ขอให้ล่าได้ของดีนะคะ";
+	close;
+}

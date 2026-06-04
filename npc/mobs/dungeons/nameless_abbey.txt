@@ -1,0 +1,38 @@
+//============================================================
+// Top's eAthena Dungeon Pack
+// eAthena SVN 15267 compatible old-style scripts
+// Generated for separate monster files + Prontera dungeon hub + dungeon buffers
+//
+// Install:
+//   Add the npc: lines from conf/top_dungeon_pack_npc_lines.txt
+//   into npc/scripts_monsters.conf or npc/scripts_main.conf.
+//
+// Important:
+//   If your server already loads the original combined files, comment them
+//   out first to avoid duplicate monster spawns:
+//     npc: npc/mobs/dungeons/gld_dun.txt
+//     npc: npc/mobs/dungeons/gld_dunSE.txt
+//     npc: npc/mobs/dungeons/lhz_dun.txt
+//============================================================
+
+// Nameless Island / Cursed Abbey
+nameless_n,0,0,0,0	monster	Ghoul	1036,25,0,0,0
+nameless_n,0,0,0,0	monster	Zombie	1015,25,0,0,0
+nameless_n,0,0,0,0	monster	Flame Skull	1869,10,300000,120000,0
+nameless_n,0,0,0,0	monster	Banshee	1867,10,300000,120000,0
+
+abbey01,0,0,0,0	monster	Ragged Zombie	1864,35,0,0,0
+abbey01,0,0,0,0	monster	Zombie Slaughter	1865,25,0,0,0
+abbey01,0,0,0,0	monster	Hell Poodle	1866,15,0,0,0
+abbey01,0,0,0,0	monster	Flame Skull	1869,15,0,0,0
+
+abbey02,0,0,0,0	monster	Ragged Zombie	1864,25,0,0,0
+abbey02,0,0,0,0	monster	Zombie Slaughter	1865,35,0,0,0
+abbey02,0,0,0,0	monster	Banshee	1867,25,0,0,0
+abbey02,0,0,0,0	monster	Flame Skull	1869,15,0,0,0
+
+abbey03,0,0,0,0	monster	Necromancer	1870,35,0,0,0
+abbey03,0,0,0,0	monster	Banshee	1867,35,0,0,0
+abbey03,0,0,0,0	monster	Zombie Slaughter	1865,20,0,0,0
+abbey03,0,0,0,0	monster	Flame Skull	1869,20,0,0,0
+abbey03,0,0,0,0	boss_monster	Fallen Bishop Hibram	1871,1,7200000,3600000,1

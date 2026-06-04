@@ -1,0 +1,419 @@
+//============================================================
+// MVP Room
+// File: npc/custom/mvp_room.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Controlled MVP challenge room.
+// - One active MVP session at a time.
+// - Entry fee + account cooldown.
+// - Timeout cleanup if the MVP is not killed.
+// - No full Global Buffer inside the room.
+//
+// Default room map:
+// - guild_vs1
+//
+// If guild_vs1 does not exist on your server, change this value
+// in OnInit:
+//      set .room_map$,"guild_vs1";
+//
+// Balance:
+// - This NPC is intentionally not too convenient.
+// - MVP cards should remain rare.
+// - There is no free buff, no free repair, and no free healer inside.
+//============================================================
+
+
+//============================================================
+// MVP Room entrance NPC
+//============================================================
+prontera,182,86,4	script	MVP Room#main	837,{
+	mes "[ห้องท้าทาย MVP]";
+	mes "ยินดีต้อนรับสู่ห้องท้าทาย MVP";
+	mes "ที่นี่สำหรับผู้เล่นที่ต้องการท้าทายบอสแบบควบคุมเงื่อนไข";
+	next;
+
+	if (.busy == 1) {
+		mes "[ห้องท้าทาย MVP]";
+		mes "ตอนนี้มีผู้เล่นกำลังใช้ห้องอยู่ค่ะ";
+		mes "กรุณารอให้รอบปัจจุบันจบก่อนนะคะ";
+		mes "MVP ปัจจุบัน: ^FF0000" + .boss_name$ + "^000000";
+		close;
+	}
+
+	if (#MVPRoomNextTime > gettimetick(2)) {
+		set .@remain,#MVPRoomNextTime-gettimetick(2);
+		set .@min,.@remain/60;
+		if (.@min < 1) {
+			set .@min,1;
+		}
+		mes "[ห้องท้าทาย MVP]";
+		mes "คุณยังติดคูลดาวน์อยู่ค่ะ";
+		mes "กรุณารอประมาณ ^FF0000" + .@min + "^000000 นาที";
+		close;
+	}
+
+L_Main:
+	mes "[ห้องท้าทาย MVP]";
+	mes "กรุณาเลือกประเภท MVP ที่ต้องการท้าทาย";
+	mes "ห้องนี้ใช้ได้ครั้งละ 1 กลุ่มเท่านั้น";
+	next;
+	menu "Easy MVP",L_Easy,"Normal MVP",L_Normal,"Hard MVP",L_Hard,"กติกาห้อง MVP",L_Rules,"ยกเลิก",L_Close;
+
+
+//============================================================
+// Easy MVP list
+//============================================================
+L_Easy:
+	mes "[ห้องท้าทาย MVP]";
+	mes "Easy MVP";
+	mes "ค่าเข้า: ^0000FF" + .easy_fee + "^000000 Zeny";
+	mes "คูลดาวน์: ^0000FF" + (.easy_cd/60) + "^000000 นาที";
+	next;
+	menu "Osiris",E_Osiris,"Doppelganger",E_Doppel,"Mistress",E_Mistress,"Drake",E_Drake,"Eddga",E_Eddga,"Maya",E_Maya,"Moonlight Flower",E_Moonlight,"ย้อนกลับ",L_Main;
+
+E_Osiris:
+	set .@boss_id,1038;
+	set .@boss_name$,"Osiris";
+	set .@fee,.easy_fee;
+	set .@cooldown,.easy_cd;
+	goto L_Confirm;
+
+E_Doppel:
+	set .@boss_id,1046;
+	set .@boss_name$,"Doppelganger";
+	set .@fee,.easy_fee;
+	set .@cooldown,.easy_cd;
+	goto L_Confirm;
+
+E_Mistress:
+	set .@boss_id,1059;
+	set .@boss_name$,"Mistress";
+	set .@fee,.easy_fee;
+	set .@cooldown,.easy_cd;
+	goto L_Confirm;
+
+E_Drake:
+	set .@boss_id,1112;
+	set .@boss_name$,"Drake";
+	set .@fee,.easy_fee;
+	set .@cooldown,.easy_cd;
+	goto L_Confirm;
+
+E_Eddga:
+	set .@boss_id,1115;
+	set .@boss_name$,"Eddga";
+	set .@fee,.easy_fee;
+	set .@cooldown,.easy_cd;
+	goto L_Confirm;
+
+E_Maya:
+	set .@boss_id,1147;
+	set .@boss_name$,"Maya";
+	set .@fee,.easy_fee;
+	set .@cooldown,.easy_cd;
+	goto L_Confirm;
+
+E_Moonlight:
+	set .@boss_id,1150;
+	set .@boss_name$,"Moonlight Flower";
+	set .@fee,.easy_fee;
+	set .@cooldown,.easy_cd;
+	goto L_Confirm;
+
+
+//============================================================
+// Normal MVP list
+//============================================================
+L_Normal:
+	mes "[ห้องท้าทาย MVP]";
+	mes "Normal MVP";
+	mes "ค่าเข้า: ^0000FF" + .normal_fee + "^000000 Zeny";
+	mes "คูลดาวน์: ^0000FF" + (.normal_cd/60) + "^000000 นาที";
+	next;
+	menu "Baphomet",N_Baphomet,"Golden Thief Bug",N_GTB,"Orc Hero",N_OrcHero,"Orc Lord",N_OrcLord,"Pharaoh",N_Pharaoh,"Phreeoni",N_Phreeoni,"Stormy Knight",N_Stormy,"ย้อนกลับ",L_Main;
+
+N_Baphomet:
+	set .@boss_id,1039;
+	set .@boss_name$,"Baphomet";
+	set .@fee,.normal_fee;
+	set .@cooldown,.normal_cd;
+	goto L_Confirm;
+
+N_GTB:
+	set .@boss_id,1086;
+	set .@boss_name$,"Golden Thief Bug";
+	set .@fee,.normal_fee;
+	set .@cooldown,.normal_cd;
+	goto L_Confirm;
+
+N_OrcHero:
+	set .@boss_id,1087;
+	set .@boss_name$,"Orc Hero";
+	set .@fee,.normal_fee;
+	set .@cooldown,.normal_cd;
+	goto L_Confirm;
+
+N_OrcLord:
+	set .@boss_id,1190;
+	set .@boss_name$,"Orc Lord";
+	set .@fee,.normal_fee;
+	set .@cooldown,.normal_cd;
+	goto L_Confirm;
+
+N_Pharaoh:
+	set .@boss_id,1157;
+	set .@boss_name$,"Pharaoh";
+	set .@fee,.normal_fee;
+	set .@cooldown,.normal_cd;
+	goto L_Confirm;
+
+N_Phreeoni:
+	set .@boss_id,1159;
+	set .@boss_name$,"Phreeoni";
+	set .@fee,.normal_fee;
+	set .@cooldown,.normal_cd;
+	goto L_Confirm;
+
+N_Stormy:
+	set .@boss_id,1251;
+	set .@boss_name$,"Stormy Knight";
+	set .@fee,.normal_fee;
+	set .@cooldown,.normal_cd;
+	goto L_Confirm;
+
+
+//============================================================
+// Hard MVP list
+//============================================================
+L_Hard:
+	mes "[ห้องท้าทาย MVP]";
+	mes "Hard MVP";
+	mes "ค่าเข้า: ^0000FF" + .hard_fee + "^000000 Zeny";
+	mes "คูลดาวน์: ^0000FF" + (.hard_cd/60) + "^000000 นาที";
+	next;
+	menu "Dark Lord",H_DarkLord,"Dracula",H_Dracula,"Amon Ra",H_AmonRa,"Turtle General",H_Turtle,"Incantation Samurai",H_Samurai,"Evil Snake Lord",H_Snake,"ย้อนกลับ",L_Main;
+
+H_DarkLord:
+	set .@boss_id,1272;
+	set .@boss_name$,"Dark Lord";
+	set .@fee,.hard_fee;
+	set .@cooldown,.hard_cd;
+	goto L_Confirm;
+
+H_Dracula:
+	set .@boss_id,1389;
+	set .@boss_name$,"Dracula";
+	set .@fee,.hard_fee;
+	set .@cooldown,.hard_cd;
+	goto L_Confirm;
+
+H_AmonRa:
+	set .@boss_id,1511;
+	set .@boss_name$,"Amon Ra";
+	set .@fee,.hard_fee;
+	set .@cooldown,.hard_cd;
+	goto L_Confirm;
+
+H_Turtle:
+	set .@boss_id,1312;
+	set .@boss_name$,"Turtle General";
+	set .@fee,.hard_fee;
+	set .@cooldown,.hard_cd;
+	goto L_Confirm;
+
+H_Samurai:
+	set .@boss_id,1492;
+	set .@boss_name$,"Incantation Samurai";
+	set .@fee,.hard_fee;
+	set .@cooldown,.hard_cd;
+	goto L_Confirm;
+
+H_Snake:
+	set .@boss_id,1418;
+	set .@boss_name$,"Evil Snake Lord";
+	set .@fee,.hard_fee;
+	set .@cooldown,.hard_cd;
+	goto L_Confirm;
+
+
+//============================================================
+// Confirmation and spawn logic
+//============================================================
+L_Confirm:
+	mes "[ห้องท้าทาย MVP]";
+	mes "คุณเลือก:";
+	mes "^FF0000" + .@boss_name$ + "^000000";
+	mes "ค่าเข้า: ^0000FF" + .@fee + "^000000 Zeny";
+	mes "จำกัดเวลา: ^0000FF" + (.timeout_ms/60000) + "^000000 นาที";
+	next;
+
+	mes "[ห้องท้าทาย MVP]";
+	mes "กติกาสำคัญ:";
+	mes "- ห้องนี้มี MVP ได้ครั้งละ 1 ตัว";
+	mes "- ถ้าหมดเวลา ระบบจะล้างห้อง";
+	mes "- ไม่มีบัฟเต็ม ไม่มีฮีลฟรี และไม่มีซ่อมฟรีในห้อง";
+	mes "- ถ้าตายหรือออกจากห้อง ถือว่าต้องรับผิดชอบเอง";
+	next;
+
+	if (Zeny < .@fee) {
+		mes "[ห้องท้าทาย MVP]";
+		mes "Zeny ของคุณไม่พอค่ะ";
+		mes "ต้องใช้: ^FF0000" + .@fee + "^000000 Zeny";
+		close;
+	}
+
+	menu "ยืนยันเข้า MVP Room",L_Start,"ยกเลิก",L_Close;
+
+L_Start:
+	if (.busy == 1) {
+		mes "[ห้องท้าทาย MVP]";
+		mes "ขออภัยค่ะ มีคนเริ่มใช้ห้องไปก่อนแล้ว";
+		close;
+	}
+
+	if (Zeny < .@fee) {
+		mes "[ห้องท้าทาย MVP]";
+		mes "Zeny ของคุณไม่พอค่ะ";
+		close;
+	}
+
+	set Zeny,Zeny-.@fee;
+	set #MVPRoomNextTime,gettimetick(2)+.@cooldown;
+
+	set .busy,1;
+	set .boss_id,.@boss_id;
+	set .boss_name$,.@boss_name$;
+	set .challenger$,strcharinfo(0);
+
+	// Remove possible stale MVPs from previous failed sessions.
+	killmonster .room_map$,"MVP Room#main::OnMVPDead";
+
+	// Spawn selected MVP.
+	monster .room_map$,50,50,.boss_name$,.boss_id,1,"MVP Room#main::OnMVPDead";
+
+	// Start timeout timer.
+	stopnpctimer;
+	setnpctimer 0;
+	initnpctimer;
+
+	warp .room_map$,50,45;
+	end;
+
+
+//============================================================
+// Rules
+//============================================================
+L_Rules:
+	mes "[ห้องท้าทาย MVP]";
+	mes "กติกาห้อง MVP";
+	next;
+	mes "[ห้องท้าทาย MVP]";
+	mes "1. ใช้ได้ครั้งละ 1 รอบเท่านั้น";
+	mes "2. ผู้เริ่มรอบจะติดคูลดาวน์ตามระดับ MVP";
+	mes "3. ถ้าหมดเวลา MVP จะถูกล้างออก";
+	mes "4. ไม่มีการคืนเงินถ้าแพ้ ตาย หรือออกจากห้อง";
+	mes "5. ไม่ควรใส่ NPC บัฟเต็มไว้ในห้องนี้ เพราะจะทำให้ MVP Card ฟาร์มง่ายเกินไป";
+	next;
+	mes "[ห้องท้าทาย MVP]";
+	mes "ถ้าต้องการปรับสมดุล ให้แก้ไขค่าที่ OnInit ด้านล่างของไฟล์:";
+	mes "- ค่าเข้า";
+	mes "- คูลดาวน์";
+	mes "- เวลาจำกัด";
+	mes "- แผนที่ห้อง";
+	close;
+
+L_Close:
+	mes "[ห้องท้าทาย MVP]";
+	mes "พร้อมเมื่อไหร่ค่อยกลับมาท้าทายใหม่นะคะ";
+	close;
+
+
+//============================================================
+// MVP killed event
+//============================================================
+OnMVPDead:
+	stopnpctimer;
+	set .busy,0;
+	announce "[MVP Room] " + .challenger$ + " has defeated " + .boss_name$ + "!",bc_all;
+	set .boss_id,0;
+	set .boss_name$,"";
+	set .challenger$,"";
+	end;
+
+
+//============================================================
+// Timeout cleanup
+//============================================================
+OnTimer900000:
+	stopnpctimer;
+	if (.busy == 1) {
+		killmonster .room_map$,"MVP Room#main::OnMVPDead";
+		announce "[MVP Room] The MVP challenge has ended because the time limit expired.",bc_all;
+		set .busy,0;
+		set .boss_id,0;
+		set .boss_name$,"";
+		set .challenger$,"";
+	}
+	end;
+
+
+//============================================================
+// Initial configuration
+//============================================================
+OnInit:
+	// Change this if guild_vs1 does not exist in your server.
+	set .room_map$,"guild_vs1";
+
+	// Entry fees.
+	set .easy_fee,1000000;
+	set .normal_fee,2500000;
+	set .hard_fee,5000000;
+
+	// Cooldowns in seconds.
+	set .easy_cd,3600;      // 1 hour
+	set .normal_cd,7200;    // 2 hours
+	set .hard_cd,10800;     // 3 hours
+
+	// Timeout in milliseconds.
+	set .timeout_ms,900000; // 15 minutes
+
+	set .busy,0;
+	set .boss_id,0;
+	set .boss_name$,"";
+	set .challenger$,"";
+	end;
+}
+
+
+//============================================================
+// MVP Room Exit NPC
+//============================================================
+// If you change .room_map$ above, also move this NPC to the same map.
+//============================================================
+guild_vs1,50,40,4	script	MVP Room Exit#main	837,{
+	mes "[ทางออกห้อง MVP]";
+	mes "ต้องการออกจากห้อง MVP หรือไม่?";
+	next;
+	menu "กลับ Prontera",L_Exit,"ยกเลิก",L_Close;
+
+L_Exit:
+	warp "prontera",156,187;
+	end;
+
+L_Close:
+	mes "[ทางออกห้อง MVP]";
+	mes "ขอให้โชคดีค่ะ";
+	close;
+}
+
+
+//============================================================
+// Optional map flags
+//============================================================
+// These map flags help reduce abuse.
+// If any mapflag causes an error in your old eAthena, comment it out.
+//============================================================
+guild_vs1	mapflag	nomemo
+guild_vs1	mapflag	nobranch
+guild_vs1	mapflag	nosave	prontera,156,187

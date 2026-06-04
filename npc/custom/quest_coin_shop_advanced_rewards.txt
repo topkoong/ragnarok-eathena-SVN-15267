@@ -1,0 +1,119 @@
+//============================================================
+// Quest Coin Advanced Rewards
+// File: npc/custom/quest_coin_shop_advanced_rewards.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Higher-tier reward shop for long-term Quest Coin usage.
+// - Uses #QuestCoin account variable from quest_coin_shop.txt.
+// - Also tracks #AdvRewardSpent for achievement board.
+//============================================================
+
+prontera,127,87,4	script	AdvReward#questcoin	726,{
+	mes "[ร้านรางวัลขั้นสูง]";
+	mes "ที่นี่ใช้ Quest Coin สำหรับแลกของรางวัลระดับสูง";
+	mes "ของบางอย่างราคาแพงเพื่อป้องกันเศรษฐกิจเสียสมดุล";
+	next;
+
+L_Main:
+	mes "[ร้านรางวัลขั้นสูง]";
+	mes "Quest Coin ของคุณ: ^0000FF" + #QuestCoin + "^000000";
+	next;
+	switch(select(
+		"Box / Album Rewards",
+		"Branch / Event Rewards",
+		"Refine Materials",
+		"Premium Utility",
+		"ตรวจสอบแต้มที่เคยใช้",
+		"Cancel"
+	)) {
+	case 1: goto L_Box;
+	case 2: goto L_Branch;
+	case 3: goto L_Refine;
+	case 4: goto L_Utility;
+	case 5: goto L_Info;
+	default: close;
+	}
+
+L_Box:
+	mes "[ร้านรางวัลขั้นสูง]";
+	mes "เลือกของรางวัล";
+	next;
+	switch(select("Gift Box x1 - 8 Coins:Old Blue Box x1 - 25 Coins:Old Purple Box x1 - 45 Coins:Old Card Album x1 - 180 Coins:ย้อนกลับ")) {
+	case 1: set .@item,644; set .@amount,1; set .@cost,8; goto L_Buy;
+	case 2: set .@item,603; set .@amount,1; set .@cost,25; goto L_Buy;
+	case 3: set .@item,617; set .@amount,1; set .@cost,45; goto L_Buy;
+	case 4: set .@item,616; set .@amount,1; set .@cost,180; goto L_Buy;
+	default: goto L_Main;
+	}
+
+L_Branch:
+	mes "[ร้านรางวัลขั้นสูง]";
+	mes "เลือกของรางวัล";
+	next;
+	switch(select("Dead Branch x1 - 12 Coins:Bloody Branch x1 - 250 Coins:Poring Box x1 - 40 Coins:ย้อนกลับ")) {
+	case 1: set .@item,604; set .@amount,1; set .@cost,12; goto L_Buy;
+	case 2: set .@item,12103; set .@amount,1; set .@cost,250; goto L_Buy;
+	case 3: set .@item,12109; set .@amount,1; set .@cost,40; goto L_Buy;
+	default: goto L_Main;
+	}
+
+L_Refine:
+	mes "[ร้านรางวัลขั้นสูง]";
+	mes "เลือกวัตถุดิบตีบวก";
+	next;
+	switch(select("Oridecon x3 - 25 Coins:Elunium x3 - 25 Coins:Phracon x20 - 10 Coins:Emveretarcon x20 - 15 Coins:ย้อนกลับ")) {
+	case 1: set .@item,984; set .@amount,3; set .@cost,25; goto L_Buy;
+	case 2: set .@item,985; set .@amount,3; set .@cost,25; goto L_Buy;
+	case 3: set .@item,1010; set .@amount,20; set .@cost,10; goto L_Buy;
+	case 4: set .@item,1011; set .@amount,20; set .@cost,15; goto L_Buy;
+	default: goto L_Main;
+	}
+
+L_Utility:
+	mes "[ร้านรางวัลขั้นสูง]";
+	mes "เลือกของ Premium Utility";
+	next;
+	switch(select("Bubble Gum x1 - 80 Coins:Giant Fly Wing x3 - 30 Coins:Kafra Card x3 - 30 Coins:Convex Mirror x1 - 60 Coins:ย้อนกลับ")) {
+	case 1: set .@item,12210; set .@amount,1; set .@cost,80; goto L_Buy;
+	case 2: set .@item,12212; set .@amount,3; set .@cost,30; goto L_Buy;
+	case 3: set .@item,12211; set .@amount,3; set .@cost,30; goto L_Buy;
+	case 4: set .@item,12214; set .@amount,1; set .@cost,60; goto L_Buy;
+	default: goto L_Main;
+	}
+
+L_Buy:
+	if (#QuestCoin < .@cost) {
+		mes "[ร้านรางวัลขั้นสูง]";
+		mes "Quest Coin ของคุณไม่พอ";
+		mes "ต้องใช้: ^FF0000" + .@cost + "^000000";
+		close;
+	}
+	mes "[ร้านรางวัลขั้นสูง]";
+	mes "ยืนยันการแลกหรือไม่?";
+	mes "ใช้ Quest Coin: ^FF0000" + .@cost + "^000000";
+	next;
+	menu "ยืนยัน",L_Confirm,"ยกเลิก",L_Main;
+
+L_Confirm:
+	if (#QuestCoin < .@cost) {
+		mes "[ร้านรางวัลขั้นสูง]";
+		mes "Quest Coin ของคุณไม่พอ";
+		close;
+	}
+	set #QuestCoin,#QuestCoin-.@cost;
+	set #AdvRewardSpent,#AdvRewardSpent+.@cost;
+	getitem .@item,.@amount;
+	specialeffect2 248;
+	mes "[ร้านรางวัลขั้นสูง]";
+	mes "แลกของรางวัลเรียบร้อย";
+	mes "Quest Coin คงเหลือ: ^0000FF" + #QuestCoin + "^000000";
+	close;
+
+L_Info:
+	mes "[ร้านรางวัลขั้นสูง]";
+	mes "คุณเคยใช้ Quest Coin กับร้านขั้นสูงไปแล้ว:";
+	mes "^0000FF" + #AdvRewardSpent + "^000000 Coins";
+	next;
+	goto L_Main;
+}

@@ -1,0 +1,29 @@
+//===== eAthena Script =======================================
+//= Endless Tower Static Monster Spawns
+//= Simple non-instance version for eAthena SVN 15267.
+//= Map: 1@tower
+//============================================================
+
+// Floor-like starter section.
+// This does not replicate the full official instance.
+// It only fills 1@tower so the map is usable/alive.
+
+1@tower,0,0,0,0	monster	Poring	1002,15,0,0,0
+1@tower,0,0,0,0	monster	Lunatic	1063,15,0,0,0
+1@tower,0,0,0,0	monster	Fabre	1007,15,0,0,0
+1@tower,0,0,0,0	monster	Willow	1010,15,0,0,0
+1@tower,0,0,0,0	monster	Poporing	1031,15,0,0,0
+1@tower,0,0,0,0	monster	Thief Bug	1051,20,0,0,0
+1@tower,0,0,0,0	monster	Rocker	1052,20,0,0,0
+1@tower,0,0,0,0	monster	Spore	1014,20,0,0,0
+1@tower,0,0,0,0	monster	Skeleton	1076,20,0,0,0
+1@tower,0,0,0,0	monster	Zombie	1015,20,0,0,0
+1@tower,0,0,0,0	monster	Soldier Skeleton	1028,15,0,0,0
+1@tower,0,0,0,0	monster	Archer Skeleton	1016,15,0,0,0
+1@tower,0,0,0,0	monster	Mummy	1041,10,0,0,0
+1@tower,0,0,0,0	monster	Isis	1029,10,0,0,0
+1@tower,0,0,0,0	monster	Ancient Mummy	1297,5,600000,300000,0
+
+// Mini boss / MVP style fillers.
+1@tower,0,0,0,0	monster	Golden Thief Bug	1086,1,7200000,3600000,1
+1@tower,0,0,0,0	monster	Eddga	1115,1,7200000,3600000,1

@@ -1,0 +1,1163 @@
+prt_castle,46,169,4	script	หัวหน้า Crusader	752,{
+		mes "[^000080Lothar^000000]";
+	if (Class > 0) goto NEXT_0;
+		if (Class == 0) goto NOV;
+				mes " สวัสดี "+ strcharinfo(0);
+				mes " ข้าเห็นท่านได้ละทะเบียนเพื่อเป็น ^008000Swordsman's ของสมาคม^000000";
+		TALK:
+			next;
+				mes "[^000080Lothar^000000]";
+				mes " เมื่อท่านเป็น ^800000Swordsman^000000 ท่านจะสามารถเลื่อนขั้นเป็น ^800000Knight^000000 หรือ ^800000Crusader^000000 ได้";
+			next;
+				mes "[^000080Lothar^000000]";
+				mes " แต่ถ้าท่านตัดสินใจจะเป็น ^800000Crusader^000000 ท่านควรกลับมาที่นี่";
+				mes " เพียงแค่ท่านมีระดับจ๊อบที่เลเวล 40 ข้าจะสามารถทำให้ทำเลื่อนขั้นเป็น Class 2nd ได้";
+			close;
+		NOV:
+				mes " สวัสดี ทุกๆ ท่าน";
+			goto TALK;
+NEXT_0:
+	if (Class > 1) goto NEXT0;
+		if (Job_CR == 1) goto CONT;
+		if (Job_CR == 2) goto CONT0;
+		if (Job_CR == 3) goto CONT1;
+		if (Job_CR == 4) goto CONT2;
+		if (Job_CR > 4) goto CONT3;
+				mes " ยินดีต้อนรับ ท่านมีอะไรให้ช่วยมั้ย?";
+			next;
+				menu " ข้าต้องการจะเป็น ^800000Crusader^000000.",JOB," จะเป็น ^800000Crusader^000000 ต้องทำอย่างไร?",ASK," อะไรคือสิ่งสำคัญของ ^800000Crusader^000000?",ASK0," ข้าแค่มาเดินรอบๆ",-;
+						mes "[^000080Lothar^000000]";
+						mes " โอ้ เอาล่ะ";
+					next;
+						mes "[^000080Lothar^000000]";
+						mes " หากท่านตัดสินใจที่จะเป็น ^800000Crusader^000000 เมื่อไหร่ก็ควรกลับมา";
+					close;
+				JOB:
+						mes "[^000080Lothar^000000]";
+						mes " เอาล่ะ ก่อนอื่นข้าจะขอดูความเรีบบร้อยของท่านเสียก่อน";
+					next;						
+					if (readparam(55) != 50) goto SKIP;
+							set JLCC,1;
+							set Job_CR,5;
+						goto TEST1;
+				SKIP:
+					if (readparam(55) > 39) goto OKAY;
+							mes "[^000080Lothar^000000]";
+							mes " ข้าเสียใจแต่อย่างน้อยท่านควรจะมีเลเวลจ๊อบที่ 40 ขึ้นไป";
+						next;
+							mes "[^000080Lothar^000000]";
+							mes " นี่คือพื้นฐานที่ คลาส 2nd ต้องการ";
+						close;
+					OKAY:
+						if (SkillPoint == 0) goto OKAY0;
+							JOB0:
+									mes "[^000080Lothar^000000]";
+									mes " หากท่านต้องการจะเป็น ^800000Crusader^000000 ท่านจำเป็นจะต้องใช้สกิลพ้อยท์ที่มีอยู่ให้หมดเสียก่อน";
+								close;
+							OKAY0:
+									mes "[^000080Lothar^000000]";
+									mes " ทุกๆ อย่างเจ้าดูเรียบร้อย";
+									set Job_CR,1;
+								next;
+									mes "[^000080Lothar^000000]";
+									mes " ข้าจะขอเริ่มการทดสอบ ณ บัดนี้ ท่านคงพร้อมแล้วนะ?";
+								next;
+									menu " ใช่ แน่นอน",OKAY1," ไม่ดีกว่า",-;
+											mes "[^000080Lothar^000000]";
+											mes " โอ้ หากท่านพร้อม ท่านก็ควรกลับมาหาข้า";
+										close;
+								OKAY1:
+									if (SkillPoint != 0) goto JOB0;
+											set Job_CR,2;
+											mes "[^000080Lothar^000000]";
+											mes " ท่านต้องนำของเหล่านี้มาให้ข้า";
+										next;
+											set Job_CR, rand (2);
+											set Job_CR,Job_CR + 3;
+										if (Job_CR != 3) goto IT;
+										mes "- 10 ^FF0000Decayed Nail^000000";
+										mes "- 10 ^FF0000Danggies^000000";
+										mes "- 10 ^FF0000Stinky Scales^000000";
+										mes "- 10 ^FF0000Mementos^000000";
+										close;
+								IT:
+										mes "- 10 ^FF0000Skel-Bones^000000";
+										mes "- 10 ^FF0000Orc Claws^000000";
+										mes "- 1 ^FF0000Ball 'n Chain^000000";
+										mes "- 10 ^FF0000Danggie^000000";
+										close;
+				
+				ASK:
+						mes "[^000080Lothar^000000]";
+						mes " เพื่อที่จะเป็น ^800000Crusader^000000 คิอการต่อสู้เพื่อคุณธรรม";
+						mes " ไม่จำเป็นต้องใช้อำนาจและพลังเพื่อให้ความยุติธรรมเสมอไป";
+					next;
+						mes "[^000080Lothar^000000]";
+						mes " ข้าหวังว่าท่านคงจะพิจารณาเราเป็นหนึ่งในตัวเลือก";
+						mes " ของท่าน ที่จะต่อสู้ด้วยความดีและทำให้ทุกคนมีขอบเขตอย่างพอเหมาะ";
+					close;
+				ASK0:
+						mes "[^000080Lothar^000000]";
+						mes " จุดประสงค์ของ ^800000Crusader^000000 คือการทำความดีให้แก่โลก";
+						mes " ^800000Crusader^000000 เป็นคนที่มีคุณธรรมในการทำงาน";
+					close;
+		CONT:
+				mes " ท่านกำลังคิดสิ่งใด?";
+			next;
+				menu " ข้าต้องการเป็น ^800000Crusader^000000.",JOB," ข้าเสียใจ แต่ข้าไม่ได้อยากจะเป็น",-;
+						mes "[^000080Lothar^000000]";
+						mes " มันเป็นเรื่องที่น่าเสียดาย...";
+					next;
+						mes "[^000080Lothar^000000]";
+						mes " หากท่านต้องการ ท่านก็กลับมาหาข้าได้ทุกเมื่อ";
+					close;
+		CONT0:
+				mes " ดี  อืมม...";
+			next;
+				mes "[^000080Lothar^000000]";
+				mes " ข้าคาดหวังไว้ว่าท่านคงจะผ่านการดสอบ";
+			next;
+				mes "[^000080Lothar^000000]";
+				mes " ท่านคงต้องการจะลองใหม่อีกครั้ง?";
+			next;
+				menu " ใช่ แน่นอน",OKAY1," ไม่แล้ว ข้าพอแล้ว",-;
+						mes "[^000080Lothar^000000]";
+						mes " โอ้ เอางั้นเหรอ";
+					close;
+		CONT1:
+			set @item,0;
+			if(countitem(957)>=10) goto ITEM7;//Items: Decayed Nail,
+			mes "- 10 ^FF0000Decayed Nails^000000";
+			set @item, item +1;
+		ITEM7:
+			if(countitem(901)>=10) goto ITEM8;//Items: Danggie,
+			mes " ท่านยังไม่มีของเหล่านี้";
+			mes "- 10 ^FF0000Danggies^000000";
+			set @item, item +1;
+		ITEM8:
+			if(countitem(959)>=10) goto ITEM9;//Items: Stinky Scale,
+			mes " ท่านยังไม่มีของเหล่านี้";
+			mes "- 10 ^FF0000Stinky Scales^000000";
+			set @item, item +1;
+		ITEM9:
+			if(countitem(934)>=10) goto ITEM10;//Items: Memento,
+			mes " ท่านยังไม่มีของเหล่านี้";
+			mes "- 10 ^FF0000Mementos^000000";
+			set @item, item +1;
+		ITEM10:
+			if (@item == 0) goto DONE;
+			close;
+		DONE:
+					mes " ยอดเยี่ยม!";
+					mes " ข้าจะเก็บมันไว้!";
+					delitem 957,10;//Items: Decayed Nail,
+					delitem 901,10;//Items: Danggie,
+					delitem 959,10;//Items: Stinky Scale,
+					delitem 934,10;//Items: Memento,
+					set Job_CR,5;
+		TEST1:
+				next;
+					mes "[^000080Lothar^000000]";
+					mes " เอาล่ะ ข้าจะเริ่มการทดสอบที่ 2";
+				next;
+					mes "[^000080Lothar^000000]";
+					mes " ไปที่คุกชั้นใต้ดิน ที่นั่นซะ";
+					mes " ก่อนที่ท่านจะไป ท่านควรจะสวม ^FF0000Rosary^000000 ไปด้วย";
+				close;
+		CONT2:
+			set @item, 0;
+			if(countitem(932)>=10) goto ITEM11;//Items: Skel-Bone,
+			mes " ท่านยังไม่มีของเหล่านี้";
+			mes "- 10 ^FF0000Skel-Bones^000000";
+			set @item, item +1;
+		ITEM11:
+			if(countitem(1043)>=10) goto ITEM12;//Items: Orc Claw,
+			mes " ท่านยังไม่มีของเหล่านี้";
+			mes "- 10 ^FF0000Orc Claws^000000";
+			set @item, item +1;
+		ITEM12:
+			if(countitem(2408)>=1) goto ITEM13;//Items: Ball'n'Chain,
+			mes " ท่านยังไม่มีของเหล่านี้";
+			mes "- 1 ^FF0000Ball 'n Chain^000000";
+			set @item, item +1;
+		ITEM13:
+			if(countitem(901)>=10) goto ITEM14;//Items: Danggie,
+			mes " ท่านยังไม่มีของเหล่านี้";
+			mes "- 10 ^FF0000Danggie^000000";
+			set @item, item +1;
+		ITEM14:
+			if (@item== 0) GOTO DONE0;
+				close;
+		DONE0:
+					mes " ยอดเยี่ยม!";
+					mes " ข้าจะเก็บมันไว้!";
+					delitem 932,10;//Items: Skel-Bone,
+					delitem 1043,10;//Items: Orc Claw,
+					delitem 2408,1;//Items: Ball'n'Chain,
+					delitem 901,10;//Items: Danggie,
+					set Job_CR,5;
+				goto TEST1;
+		CONT3:
+			if (Job_CR == 8) goto CONT4;
+			if (Job_CR > 8) goto CONT5;
+					mes " ท่านควรไปที่คุกใต้ดิน ไปพูดคุยกับชายคนหนึ่งที่นั่นเพื่อดำเนินการต่อ";
+					mes " ก่อนที่ท่านจะไป ท่านควรจะสวม ^FF0000Rosary^000000 ไปด้วย";
+				close;
+		CONT4:
+				mes " ท่านทำได้ดีมาก สามารถบรรลุการทดสอบ ^FF8000ความอดทน^000000 ไปได้!";
+			next;
+				mes "[^000080Lothar^000000]";
+				mes " ตอนนี้ท่านควรไปสู่การทดสอบ ^FF8000ความรู้^000000";
+				mes " ท่านต้องไปพูดคุยกับ Knight ที่อยู่ในวิหารเข้าจะทดสอบความรู้ของท่าน";
+				set Job_CR,9;
+			close;
+		CONT5:
+			if (Job_CR == 13) goto CONT6;
+			if (Job_CR == 14) goto CONT7;
+					mes " พูดคุยกับ Knight ที่โบสถ์เพื่อดำเนินการต่อ";
+				close;
+			CONT6:
+					mes " ยินดีด้วย! ท่านผ่านการดสอบทั้งหมดแล้ว";
+					mes " ท่านเป็นสมาชิกของเราแล้ว โปรดเตรียมตัวสำหรับสงครามศักดิ์สิทธ์";
+				next;
+					set Job_CR,14;
+					mes "[^000080Lothar^000000]";
+			CONT7:
+				if (SkillPoint == 0) goto GOOD;
+						mes " ข้าเสียใจ แต่ท่านใครใช้สกิลพ้อยทืให้หมด";
+					close;
+				GOOD:
+							mes " ข้าขออวยพรท่านเกี่ยวกับการเปลี่ยนแปลงของท่าน";
+					if (JLCC != 1) goto OTHR;
+							getitem (1408),1;
+						goto END_0;
+					OTHR:
+							getitem (1409),1;
+					END_0:
+							jobchange 14;// Job: Job_Crusader
+							set JobLevel,JobLevel+1;
+							callfunc "F_ClearJobVar";	// clears all job variables for the current player
+						close;
+NEXT0:
+	if (Class != 2) goto NEXT1;
+			mes " สวัสดียินต้อนรับสู่ ^008000ปราสาทแห่ง Prontera^000000.";
+			mes " ข้าหวังว่านี่คงจะเป็นวันที่ดี!";
+		close;
+NEXT1:
+	if (Class != 3) goto NEXT2;
+			mes " ขอให้โชคดีกับการล่า";
+		close;
+NEXT2:
+	if (Class != 4) goto NEXT3;
+			mes " วันนี้เป็นวันที่ดีสำหรับท่าน!";
+			mes " หวังว่าท่านจะพบเส้นทางของท่าน";
+		close;
+NEXT3:
+	if (Class != 5) goto NEXT4;
+			mes " สวัสดีตอนนี้ข้ายังไม่ต้องการอะไร ข้าเสียใจ";
+		close;
+NEXT4:
+	if (Class != 6) goto NEXT5;
+			mes " ท่านดูดีมาก";
+		close;
+NEXT5:
+	if (Class != 7) goto NEXT6;
+			mes " วันที่ดีของ " + strcharinfo(0);
+		close;
+NEXT6:
+	if (Class != 8) goto NEXT7;
+			mes " วันที่ดีของ "+ strcharinfo(0);
+			mes " ข้าเชื่อว่าทั้งหมดจะผ่านไปด้วยดี";
+		close;
+NEXT7:
+	if (Class != 9) goto NEXT8;
+			mes " ยินดีต้อนรับสู่ ^008000ปราสาทแห่ง Prontera^000000.";
+			mes " ยินดีที่มีท่านอยู่";
+		close;
+NEXT8:
+	if (Class != 10) goto NEXT9;
+			mes " สวัสดี แต่ข้ายังไม่ได้ต้องการอาวุธหรือชุดเกราะตอนนี้ แต่ยังไงข้าก็ขอบคุณ";
+		close;
+NEXT9:
+	if (Class != 11) goto NEXT10;
+			mes " ขอให้ท่านโชคดีกับความสำเร็จของท่าน";
+		close;
+NEXT10:
+	if (Class != 12) goto NEXT11;
+			mes " พักจากปัญหา ให้เจ้าหน้าที่ช่วยเหลือท่านมั้ย?";
+		close;
+NEXT11:
+	if (Class != 14) goto NEXT12;
+			mes " วันที่ของ "+ strcharinfo(0);
+		close;
+NEXT12:
+	if (Class != 15) goto NEXT13;
+			mes " สวัสดีนี่คือ ^008000ปราสาทแห่ง Prontera^000000.";
+		close;
+NEXT13:
+	if (Class != 16) goto NEXT14;
+			mes " สวัสดีนี่คือ ^008000ปราสาทแห่ง Prontera^000000.";
+		close;
+NEXT14:
+	if (Class != 17) goto NEXT15;
+			mes " สวัสดีนี่คือ ^008000ปราสาทแห่ง Prontera^000000.";
+		close;
+NEXT15:
+	if (Class != 18) goto NEXT16;
+			mes " สวัสดีนี่คือ ^008000ปราสาทแห่ง Prontera^000000.";
+		close;
+NEXT16:
+	if (Class != 19) goto NEXT17;
+			mes " สวัสดีนี่คือ ^008000ปราสาทแห่ง Prontera^000000.";
+		close;
+NEXT17:
+	if (Class != 20) goto NEXT18;
+			mes " สวัสดีนี่คือ ^008000ปราสาทแห่ง Prontera^000000.";
+		close;
+NEXT18:
+	if (Class != 22) goto NEXT19;
+		if (Gender != 0) goto MALE;
+			mes " สวัสดีนี่คือ ^008000ปราสาทแห่ง Prontera^000000.";
+		close;
+	MALE:
+			mes " ยินดีต้อนรับ ท่านชาย!";
+		close;
+NEXT19:
+		mes " สวัสดีนี่คงเป็นวันที่ดี!";
+	close;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// Man in Pain - Crusader Job Quest - 2nd Test
+// By Black Dragon based on the information at RagnaInfo
+//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+prt_castle,163,33,0	script	ชายผู้ทนทาน	107,{
+
+	if (Job_CR == 7) goto CONT;
+	if (Job_CR > 7) goto CONT0;
+		mes "[^000080Man in Pain^000000]";
+		mes " ใคร เจ้าคือใคร?";
+	next;
+		if (Job_CR == 5) goto CHECK;
+
+	OTHER:
+		if (Job_CR == 6) goto EXIT1;
+			mes "[^000080Man in Pain^000000]";
+			mes " ท่านกำลังจะทำอะไร?";
+			mes " ออกไปจากที่นี่ ที่นี่คือที่ของข้า~!";
+		close;
+	CHECK:		
+			if (countitem(2608) == 0) goto NOT;//Items: Rosary,
+
+					mes "[^000080Man in Pain^000000]";
+					mes " ข้าเห็นท่านต้องการจะเปลี่ยนอาชีพ";
+				next;
+					mes "[^000080Man in Pain^000000]";
+					mes " มันทรมาน";
+					mes " ที่พวกเขาส่งข้ามาที่นี่อีกครั้ง";
+				next;
+					mes "[^000080Man in Pain^000000]";
+					mes " ข้าได้เติบโตจากความอ่อนแอในตัวข้า";
+				next;
+					mes "[^000080Man in Pain^000000]";
+					mes " อะไรกัน...";
+					mes " อยากพูดอะไรกับข้าอย่างนั่นรึ นักดาบ?";
+				next;
+					menu " ข้าต้องการเข้ารับการทดสอบเพื่อเปลี่ยนอาชีพเป็น Crusader",-," ไม่มีไรหรอก",EXIT;
+							mes "[^000080Man in Pain^000000]";
+							mes " ถูกต้อง ข้าจะบอกสิ่งที่ท่านควรจะไป";
+					GO:
+						next;
+							savepoint "prt_castle",162,27;
+							if (getmapusers("job_cru") > 0) goto EXIT0;
+								set Job_CR,6;
+								set @CR_etmp,1;
+								warp "job_cru",23,42;
+					EXIT0:
+								mes "[^000080Man in Pain^000000]";
+								mes " ข้าเสียใจ แต่มีคนอยู่ในข้างในนั้นก่อนข้าแล้ว";
+								mes " ข้าว่าท่านควรจะรอสักเดี๋ยว";
+							close;
+					EXIT:
+							mes "[^000080Man in Pain^000000]";
+							mes " อย่ามารบกวนข้า!";
+						close;
+		NOT:
+				mes "[^000080Man in Pain^000000]";
+				mes " อย่ามายุ่งกับข้า!";
+				mes " ข้าไม่สามารถปล่อยให้คนอื่นต้องเจ็บปวดเช่นข้า?";
+			close;
+
+	CONT:
+				mes "[^000080Man in Pain^000000]";
+				mes " ข้าเห็นท่านผ่านการทดสอบ ท่านทำงานได้ดี";
+				set Job_CR,8;
+				close;
+		EXIT1:
+				mes "[^000080Man in Pain^000000]";
+				mes " ข้าเสียใจ แต่ท่านจะต้องทำมันอีกครั้ง";
+			goto GO;
+	CONT0:
+			mes "[^000080Man in Pain^000000]";
+			mes " มีอะไรอื่นอีกเหรอ ที่ท่านต้องการนอกจากข้า";
+		close;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// Arthur - Crusader Job Quest - Knowledge Test
+// By Black Dragon based on the information at RagnaInfo
+//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+prt_church,94,116,0	script	อัศวินแห่งวิหาร	56,{
+		mes "[^000080Arthur^000000]";
+	if (Class != 0) goto NEXT_o;
+			mes " สวัสดีนักผจญภัยวัยรุ่น";
+		close;
+NEXT_o:
+	if (Class != 1) goto NEXT0;
+			mes " สวัสดี " + strcharinfo(0);
+		next;
+			if (Job_CR != 9) goto EXIT;
+		BEGIN:
+				menu " ข้าต้องการทดสอบความรู้",-," ไม่มีอะไร",EXIT;
+						mes "[^000080Arthur^000000]";
+						mes " โอ้ ท่านคงจะเลือกเดินไปในทางแห่ง ^800000Crusader^000000 ใช่มั้ย?";
+						mes " โอเค...";
+					next;
+				START:
+						set @Q , 0;
+						set @Q1 , 0;
+						set @Q2 , 0;
+						set @Q3 , 0;
+						set @Q4 , 0;
+						set @Q5 , 0;
+						set @Q6 , 0;
+						set @Q7 , 0;
+						set @Q8 , 0;
+						set @Q9 , 0;
+						set @Q10 , 0;
+						set @Q11 , 0;
+						set @Q12 , 0;
+						set @Q13 , 0;
+						set @Q14 , 0;
+						set @Q15 , 0;
+						set @Q16 , 0;
+						set @Q17 , 0;
+						set @Q18 , 0;
+						set @Q19 , 0;
+						set @Q20 , 0;
+						set @ANS , 0;
+				RND:
+					if (@Q > 10) goto DONE;
+						set @RND, rand(20);
+					if (@RND > 9) goto G1;
+						if (@RND > 4) goto G1A;
+							if (@RND > 3) goto G1A1;
+								if (@RND == 0) goto Q1;
+								if (@RND == 1) goto Q2;
+								if (@RND != 1) goto Q3;
+							G1A1:
+								if (@RND == 3) goto Q4;
+								if (@RND != 3) goto Q5;
+						G1A:
+							if (@RND > 8) goto G1A2;
+								if (@RND == 5) goto Q6;
+								if (@RND == 6) goto Q7;
+								if (@RND != 6) goto Q8;
+							G1A2:
+								if (@RND == 8) goto Q9;
+								if (@RND != 8) goto Q10;
+					G1:
+						if (@RND > 14) goto G2A;
+							if (@RND > 13) goto G2A1;
+								if (@RND == 10) goto Q11;
+								if (@RND == 11) goto Q12;
+								if (@RND == 12) goto Q13;
+							G2A1:
+								if (@RND == 13) goto Q14;
+								if (@RND == 14) goto Q15;
+						G2A:
+							if (@RND > 18) goto G2A2;
+								if (@RND == 15) goto Q16;
+								if (@RND == 16) goto Q17;
+								if (@RND == 17) goto Q18;
+							G2A2:
+								if (@RND == 18) goto Q19;
+								if (@Q20 != 0) goto RND;
+										set @Q20,1;
+										set @Q,@Q + 1;
+										mes "[^000080Arthur^000000]";
+										mes " ท่านยินดีที่จะเสี่ยงชีวิตของท่านเพื่อผู้อื่นหรือไม่?";
+									next;
+										menu " ใช่",-," ไม่",RND;
+												set @ANS,@ANS + 1;
+											goto RND;
+					Q1:
+						if (@Q1 != 0) goto RND;
+								set @Q1,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ถ้ามีคนมาถามท่านเพื่อให้ท่านช่วยเหลือเขา ท่านจะยอมทำมันหรือไม่?";
+							next;
+								menu "ใช่",-,"ไม่",RND;
+										set @ANS, @ANS + 1;
+									goto RND;
+					Q2:
+						if (@Q2 != 0) goto RND;
+								set @Q2, 1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านจะช่วยเหลือโจร ที่ขโมยสินค้าไปหรือไม่?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q3:
+						if (@Q3 != 0) goto RND;
+								set @Q3,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านต้องการให้โลกมีความสามัคคีหรือเปล่า?";
+							next;
+								menu "ใช่",-,"ไม่",RND;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q4:
+						if (@Q4 != 0) goto RND;
+								set @Q4,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านเคยคิดที่จะฆ่าตัวตาย?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q5:
+						if (@Q5 != 0) goto RND;
+								set @Q5,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านต้องการจะทำกิจกรรมเกี่ยวกับของมึนเมา?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q6:
+						if (@Q6 != 0) goto RND;
+								set @Q6,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านควรจะเปิดเผยการสังหารหมู่?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q7:
+						if (@Q7 != 0) goto RND;
+								set @Q7,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ควรจะระงับอารมณ์ในระหว่างการขัดแย้ง?";
+							next;
+								menu "ใช่",-,"ไม่",RND;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q8:
+						if (@Q8 != 0) goto RND;
+								set @Q8,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านจะช่วย Alchemist ทำการทดลองที่ผิดกฏหมาย?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q9:
+						if (@Q9 != 0) goto RND;
+								set @Q9,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านจะโกรธมาก หากมีคนโยนก้อนหินหนักใส่ท่าน?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q10:
+						if (@Q10 != 0) goto RND;
+								set @Q10,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ถ้ามีคนมามอบเงินให้ท่าน โดยเป็นเงินที่ได้มาจากการทำผิดกฏหมายท่านจะใช้มันหรือไม่?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q11:
+						if (@Q11 != 0) goto RND;
+								set @Q11,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านคิดว่าท่านอยู่เหนือทุกๆ คน?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q12:
+						if (@Q12 != 0) goto RND;
+								set @Q12,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านควรมีความอ่อนน้มถ่อมตนต่อผู้อื่น";
+							next;
+								menu "ใช่",-,"ไม่",RND;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q13:
+						if (@Q13 != 0) goto RND;
+								set @Q13,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านสามารถตอบคำถามแก่คนอื่นๆ ด้วยความเคารพและเมตตา";
+							next;
+								menu "ใช่",-,"ไม่",RND;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q14:
+						if (@Q14 != 0) goto RND;
+								set @Q14,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านจะต่อสู้เมื่อท่านมีความรู้สึกอยากจะสู่?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q15:
+						if (@Q15 != 0) goto RND;
+								set @Q15,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านไปเที่ยวกลางคืนทุกๆ คืน?";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q16:
+						if (@Q16 != 0) goto RND;
+								set @Q16,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านเชื่อในวิญญาณของพระบิดา พระบุตร และพระจิต";
+							next;
+								menu "ใช่",-,"ไม่",RND;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q17:
+						if (@Q17 != 0) goto RND;
+								set @Q17,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านเชื่อว่าปีศาจและความชั่วร้ายจะได้รับการรักษาเช่นเดียวกับคนทั่วไป";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q18:
+						if (@Q18 != 0) goto RND;
+								set @Q18,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ท่านเชื่อว่าการพูดคุยด้วย แซ่หรือดาบ จะมีทำให้โลกพบกับความสงบสุข";
+							next;
+								menu "ใช่",RND,"ไม่",-;
+										set @ANS,@ANS + 1;
+									goto RND;
+					Q19:
+						if (@Q19 != 0) goto RND;
+								set @Q19,1;
+								set @Q,@Q + 1;
+								mes "[^000080Arthur^000000]";
+								mes " ถ้าทุกๆ วิธีที่ท่านใช้เพื่อรักษาสันติภาพล้มเหลว ท่านจะยังคงเดินหน้าต่อไปโดยไม่ใช้ความรุนแรงหรือไม่";
+							next;
+								menu "ใช่",-,"ไม่",RND;
+										set @ANS,@ANS + 1;
+									goto RND;
+				DONE:
+						mes "[^000080Arthur^000000]";
+						mes " ท่านมีคะแนน "+ @ANS +" / 10";
+					next;
+						if (Job_CR != 10) goto secND;
+							if (@ANS < 8) goto NO;
+						PASS:
+									mes "[^000080Arthur^000000]";
+									mes " ท่านทำงานได้ยอดเยี่ยม!  ท่านผ่านการทดสอบเกี่ยวกับ ^FF8000ความรู้^000000!";
+									mes " แต่ตอนนี้ท่านยังเหลือการทดสอบเกี่ยวกับ ^FF8000ความแข็งแรง^000000 ตามหา Harrison ใน ^008000Prontera Chivalry^000000.";
+									set Job_CR, 11;
+								close;
+							NO:
+									set Job_CR, 10;
+									mes "[^000080Arthur^000000]";
+									mes " ข้าเสียใจ แต่ท่านไม่มีคุณสมบัติเพียงพอ";
+								next;
+									mes "[^000080Arthur^000000]";
+									mes " ข้าจะให้เจ้าลองดูอีกครั้งเมื่อท่านพร้อม";
+									mes " ข้าหวังว่าอย่างน้อยท่านควรจะตอบถูกต้อง 8 ข้อเป็นอย่างต่ำ";
+								close;
+						secND:
+							if (@ANS > 7) goto PASS;
+									mes "[^000080Arthur^000000]";
+									mes " ข้าเสียใจ แต่ท่านตอบถูกน้อยกว่า 8 ข้อ";
+								close;
+			EXIT:
+				if (Job_CR == 10) goto BEGIN;
+				if (Job_CR > 10) goto FINISH;
+					close;
+		FINISH:
+				mes "[^000080Arthur^000000]";
+				mes " ไปพบกับ อัศวินผู้พิทักษ์ ใน^008000ปราสาท Prontera^000000 เขาจะให้ดำเนินการต่อไปเกี่ยวกับการทดสอบ ^FF8000ความแข็งแรง^000000.";
+			close;
+NEXT0:
+	if (Class != 2) goto NEXT1;
+			mes " สวัสดี ยินดีต้อนรับสู่ ^008000Prontera ChivalryY^000000.";
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT1:
+	if (Class != 3) goto NEXT2;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT2:
+	if (Class != 4) goto NEXT3;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT3:
+	if (Class != 5) goto NEXT4;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT4:
+	if (Class != 6) goto NEXT5;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT5:
+	if (Class != 7) goto NEXT6;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT6:
+	if (Class != 8) goto NEXT7;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT7:
+	if (Class != 9) goto NEXT8;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT8:
+	if (Class != 10) goto NEXT9;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT9:
+	if (Class != 11) goto NEXT10;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT10:
+	if (Class != 12) goto NEXT11;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT11:
+	if (Class != 14) goto NEXT12;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT12:
+	if (Class != 15) goto NEXT13;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT13:
+	if (Class != 16) goto NEXT14;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT14:
+	if (Class != 17) goto NEXT15;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT15:
+	if (Class != 18) goto NEXT16;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT16:
+	if (Class != 19) goto NEXT17;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT17:
+	if (Class != 20) goto NEXT18;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+NEXT18:
+	if (Class != 22) goto NEXT19;
+		if (Gender != 0) goto MALE;
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+		close;
+	MALE:
+			mes " ยินดีต้อนรับ!";
+		close;
+NEXT19:
+			mes " หวังว่าคุณจะมีวันที่ดี!";
+	close;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// Harrison - Crusader Job Quest - Purification Test
+// By Black Dragon based on the information at RagnaInfo
+//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+prt_in,83,97,0	script	อัศวินผู้พิทักษ์	734,{
+		mes "[^000080Harrison^000000]";
+	if (Class != 0) goto NEXT_o;
+			mes " สวัสดีท่านนักผจญรุ่นเล็ก";
+			mes " ยินดีต้อนรับ";
+		close;
+NEXT_o:
+	if (Class != 1) goto NEXT0;
+		if (Job_CR == 11) goto PART1;
+		if (Job_CR == 12) goto PART2;
+		if (Job_CR != 13) goto EXIT;
+				mes " ทำได้ดี!";
+				mes " พูดคุยกับ ^000080Lothar^000000 เขาจะเปลี่ยนให้ท่านเป็น ^800000Crusader^000000.";
+			close;
+	PART2:
+		if (@cru2 == 43) goto EXIT2;
+	PART2A:
+			mes " ท่านต้องการจะเริ่มใหม่อีกครั้ง?";
+		next;
+			menu " ใช่",TEST," ไม่",-;
+					mes "[^000080Harrison^000000]";
+					mes " โอ้ โอเค โอเค";
+				close;
+	PART1:
+				mes "Hello, " + strcharinfo(0);
+				mes " ข้าเห็นท่านผ่านการทดสอบมาไกล";
+			next;
+				mes "[^000080Harrison^000000]";
+				mes " อย่าปล่อยให้ข้าต้องทิ้งการทดสอบนี้่";
+				mes " นี่การทดสอบของ ^FF8000ความแข็งแรง^000000.";
+			next;
+				mes "[^000080Harrison^000000]";
+				mes " ต้องการเข้ารับการทดสอบเลยไหม?";
+				mes " หรือ... ต้องการเตรียมตัวก่อน?";
+			next;
+				menu " เริ่มการทดสอบเลย",-," ขอเวลาเตรียมตัวก่อน",EXIT0;
+					TEST:
+							mes "[^000080Harrison^000000]";
+							mes " ข้าต้องแน่ใจก่อน ว่าที่ที่จะไปนั่นไม่มีผู้อื่นอยู่";
+						next;
+							if( getmapusers("job_cru")>0 ) goto EXIT1;
+								killmonster "job_cru","CR_KILL::OnMobDied";
+								savepoint "prt_in",81,100;
+								set Job_CR, 12;
+								warp "job_cru",167,175;
+							EXIT1:
+									mes "[^000080Harrison^000000]";
+									mes " ข้าเสียใจ แต่มีผู้อื่นอยู่ภายในตอนนนี้";
+								close;
+				EXIT0:
+						mes "[^000080Harrison^000000]";
+						mes " ไม่มีปัญหา ท่านจะใช้เวลาเท่าไหร่ก็ได้";
+					close;
+		EXIT:
+				mes " สวัสดี " + strcharinfo(0);
+				mes " นี่จะเป็นวิธีที่จะสร้างความสามารถให้เพิ่มขึ้นแก่ท่าน?";
+				mes " เพื่อให้ท่านแข็งแรงพอที่จะเป็น ^800000Crusader^000000?";
+			next;
+				mes "[^000080Harrison^000000]";
+				mes " ถ้าท่านตามหาตัวเองจนพบแล้วให้กลับมาข้า ข้าจะมีอีกหนึ่งการทดสอบ";
+			close;
+		EXIT2:
+				if( getmapusers("job_cru") != 0 ) goto PART2A;
+					mes "Well done!";
+					set Job_CR,13;
+				next;
+					mes " กลับไปที่ ^000080Lothar^000000 เข้าจะทำให้ท่านเป็น ^800000Crusader^000000.";
+				close;
+NEXT0:
+	if (Class != 2) goto NEXT1;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT1:
+	if (Class != 3) goto NEXT2;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT2:
+	if (Class != 4) goto NEXT3;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT3:
+	if (Class != 5) goto NEXT4;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT4:
+	if (Class != 6) goto NEXT5;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT5:
+	if (Class != 7) goto NEXT6;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT6:
+	if (Class != 8) goto NEXT7;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT7:
+	if (Class != 9) goto NEXT8;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT8:
+	if (Class != 10) goto NEXT9;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT9:
+	if (Class != 11) goto NEXT10;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT10:
+	if (Class != 12) goto NEXT11;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT11:
+	if (Class != 14) goto NEXT12;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT12:
+	if (Class != 15) goto NEXT13;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT13:
+	if (Class != 16) goto NEXT14;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT14:
+	if (Class != 17) goto NEXT15;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT15:
+	if (Class != 18) goto NEXT16;
+						mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT16:
+	if (Class != 19) goto NEXT17;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT17:
+	if (Class != 20) goto NEXT18;
+			mes " ยินดีที่ได้เห็นท่าน";
+			mes " หวังว่าเราคงจะทำงานร่วมกันได้เพื่อให้ ^00FF00Prontera^000000 ปลอดภัย";
+		close;
+NEXT18:
+	if (Class != 22) goto NEXT19;
+		if (Gender != 0) goto MALE;
+				mes " ว้าว!  ยินดีด้วยเรื่องการแต่งานของคุณ!";
+			close;
+	MALE:
+			mes " ว้าว!  ยินดีด้วยเรื่องการแต่งานของท่าน!";
+		close;
+NEXT19:
+		mes " วันนี้มันช่างดีจรีงๆ!";
+	close;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// Entry A - Crusader Job Quest - Patience Test
+// By Black Dragon based on the information at RagnaInfo
+//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+job_cru,23,42,0	script	CR_DEAD	-1,{
+
+OnMobDied:
+	killmonster "job_cru","CR_DEAD::OnMobDied";
+	enablenpc "Test_2";
+	warp "prt_castle",162,27;
+	end;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// Entry - Crusader Job Quest - Patience Test
+// By Black Dragon based on the information at RagnaInfo
+//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+job_cru,23,42,0	script	Test_2	139,8,8,{
+
+		if (Job_CR != 6) goto EXIT;
+				set @CR_etmp,1;
+				areaannounce "job_cru",0,0,23,42,"กรุณาใช้ความอดทนเพื่อไปสู่ทางออก",8;
+
+				monster "job_cru",10,43,"Ghoul",1423,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",14,47,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",26,46,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",31,46,"Requium",1468,1,"CR_DEAD::OnMobDied";
+				//monster "job_cru",16,52,"Raydric Archer",1453,0,"CR_DEAD::OnMobDied";
+				monster "job_cru",22,53,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",28,49,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",12,54,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",17,55,"Ghoul",1423,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",21,57,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",30,58,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				//monster "job_cru",11,64,"Raydric Archer",1453,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",19,67,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",24,62,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",13,70,"Ghoul",1423,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",18,69,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",29,67,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",32,68,"Requium",1468,1,"CR_DEAD::OnMobDied";
+				//monster "job_cru",16,75,"Raydric Archer",1453,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",21,74,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",27,76,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",14,78,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",19,76,"Ghoul",1423,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",24,79,"Requium",1468,1,"CR_DEAD::OnMobDied";
+				//monster "job_cru",14,83,"Raydric Archer",1453,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",18,85,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",22,84,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",33,86,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",13,89,"Ghoul",1423,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",17,92,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",23,90,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",26,88,"Ghoul",1423,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",17,97,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",23,100,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",31,101,"Ghoul",1423,1,"CR_DEAD::OnMobDied";
+				//monster "job_cru",13,103,"Raydric Archer",1453,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",22,105,"Injustice",1446,1,"CR_DEAD::OnMobDied";
+				monster "job_cru",30,107,"Khalitzburg",1438,1,"CR_DEAD::OnMobDied";
+	disablenpc "Test_2";
+	end;
+	EXIT:
+	warp "prt_castle",162,27;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// Exit - Crusader Job Quest - Patience Test
+// By Black Dragon based on the information at RagnaInfo
+//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+job_cru,23,109,0	script	Exit_1	139,1,1,{
+
+if (@CR_etmp == 0) goto JUMP;
+	set Job_CR,7;
+	killmonster "job_cru","CR_DEAD::OnMobDied";
+	enablenpc "Test_2";
+JUMP:
+	warp "prt_castle",162,28;
+}
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// Fighting Area - Crusader Job Quest - 4th Test
+// By Black Dragon based on the information at RagnaInfo
+//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+job_cru,167,175,0	script	CR_KILL	-1,{
+
+OnMobDied:
+	if (@cru2 == 43) goto good;
+
+		set @cru2,@cru2 +1;
+		announce " ท่านต้องฆ่ามอนสเตอร์ตัวอื่นอีก",3;
+		end;
+
+	good:
+		announce " ท่านจัดการมอนสเตอร์ทั้งหมดแล้ว ผ่านการทดสอบ",3;
+		end;
+}
+
+
+job_cru,167,175,0	script	Test_4	139,1,1,{
+
+		if(Job_CR != 12) goto EXIT;
+				set @CRU2,1;
+				announce "Defeat all the enemies.",3;
+				monster "job_cru",163,42,"Bongun",1188,1,"CR_KILL::OnMobDied";
+				monster "job_cru",171,66,"Bongun",1188,1,"CR_KILL::OnMobDied";
+				monster "job_cru",163,89,"Bongun",1188,1,"CR_KILL::OnMobDied";
+				monster "job_cru",171,115,"Bongun",1188,1,"CR_KILL::OnMobDied";
+				monster "job_cru",166,141,"Bongun",1188,1,"CR_KILL::OnMobDied";
+				monster "job_cru",168,166,"Bongun",1188,1,"CR_KILL::OnMobDied";
+				monster "job_cru",164,170,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",173,153,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",164,138,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",166,128,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",171,117,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",163,102,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",172,84,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",162,76,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",167,65,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",171,58,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",162,48,"Munak",1026,1,"CR_KILL::OnMobDied";
+				monster "job_cru",170,33,"Munak",1026,1,"CR_KILL::OnMobDied";				
+				monster "job_cru",170,26,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",166,37,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",171,47,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",165,61,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",172,65,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",163,77,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",164,86,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",165,98,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",170,101,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",163,110,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",164,117,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",166,129,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",165,139,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",166,151,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",168,160,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",162,169,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",171,171,"Skeleton",1076,1,"CR_KILL::OnMobDied";
+				monster "job_cru",162,32,"Zombie",1015,1,"CR_KILL::OnMobDied";
+				monster "job_cru",165,51,"Zombie",1015,1,"CR_KILL::OnMobDied";
+				monster "job_cru",172,73,"Zombie",1015,1,"CR_KILL::OnMobDied";
+				monster "job_cru",170,92,"Zombie",1015,1,"CR_KILL::OnMobDied";
+				monster "job_cru",173,111,"Zombie",1015,1,"CR_KILL::OnMobDied";
+				monster "job_cru",170,124,"Zombie",1015,1,"CR_KILL::OnMobDied";
+				monster "job_cru",171,147,"Zombie",1015,1,"CR_KILL::OnMobDied";
+				monster "job_cru",163,162,"Zombie",1015,1,"CR_KILL::OnMobDied";
+		disablenpc "Test_4";
+		EXIT:
+			end;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//
+// Test 4 Exit - Crusader Job Quest - 4th Test
+// By Black Dragon based on the information at RagnaInfo
+//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+job_cru,167,17,0	script	Exit4	139,2,2,{
+enablenpc "Test_4";
+warp "prt_in",81,100;
+}

@@ -1,0 +1,80 @@
+alde_alche,24,188,3	script	Guild Dealer	740,{
+	if (checkweight(1201,1) == 0) {
+		mes "- เจ้าไม่สามารถทำได้... -";
+		mes "- น้ำหนักในตัวละครมากกว่าที่กำหนด -";
+		mes "- กลับไป.... -";
+		close;
+	}
+	mes "[Gever Al Sharp]";
+	mes "ยินดีต้อนรับ...";
+	mes "ท่านมาที่แห่งนี้....";
+	mes "วันนี้ท่านต้องการทำอะไร..?";
+	next;
+	switch(select("ซื้อ Medicine Bowl:ออก")) {
+	case 1:
+		mes "[Gever Al Sharp]";
+		mes "คุณต้องการเลือกอะไร..?";
+		next;
+		if (select("Medicine Bowl - 8 Zeny:ยกเลิก") == 1) {
+			mes "[Gever Al Sharp]";
+			mes "แล้วคุณต้องการจำนวนเท่าไหร่?";
+			mes "ถ้าใส่ '0' คือต้องการออกจากระบบ";
+			next;
+			while(1) {
+				input .@input,0,2001;
+				if (.@input == 0) {
+					mes "[Gever Al Sharp]";
+					mes "จริง ๆ แล้วฉันต้องการยกเลิก";
+					mes "ขอเป็นโอกาสหน้าละกัน...";
+					close;
+				}
+				else if (.@input < 1 || .@input > 2000) {
+					mes "[Gever Al Sharp]";
+					mes "ในการแลกขวดนั้น..";
+					mes "ไม่สามารถแลกได้เกิน 2000 ขวด";
+					next;
+				}
+				else {
+					break;
+				}
+			}
+			set .@sell,.@input * 8;
+			set .@item_weight,.@input * 10;
+			if (Zeny < .@sell) {
+				mes "[Gever Al Sharp]";
+				mes "คุณไม่สามารถซื้อได้";
+				mes "เนื่องจากเงินของคุณมีไม่เพียงพอ";
+				mes "โปรดกลับไปเช็คเงินในตัวละครคุณเสียก่อน";
+				mes "แล้วค่อยกลับมาหาฉัน..";
+				close;
+			}
+			if ((MaxWeight - Weight) < .@item_weight) {
+				mes "[Gever Al Sharp]";
+				mes "คุณไม่สามารถทำรายการนี้ได้";
+				mes "เนื่องจากตัวละครของท่าน..";
+				mes "มีของหรือน้ำหนักที่มากเกินกว่ากำหนด";
+				mes "ไปเก็บของที่ Kafra ก่อนสิ..";
+				close;
+			}
+			set zeny,zeny-.@sell;
+			getitem 7134,.@input; //Medicine_Bowl
+			mes "[Gever Al Sharp]";
+			mes "ขอบคุณมาก..";
+			mes "แล้วกลับมาหาใหม่น่ะ";
+			close;
+		}
+		mes "[Gever Al Sharp]";
+		mes "แล้วแต่ท่านน่ะ..";
+		mes "ถ้าคิดจะเปลี่ยนใจ..";
+		mes "ก็มาหาฉันได้ที่นี่..";
+		mes "ฉันรอคุณอยู่เสมอเพราะ..";
+		mes "ฉันเฉ๋ง...?";
+		close;
+
+	case 2:
+		mes "[Gever Al Sharp]";
+		mes "ไม่เป็นไร....";
+		mes "สงสัยท่านอาจจะไม่มีธุระกับฉัน";
+		close;
+	}
+}

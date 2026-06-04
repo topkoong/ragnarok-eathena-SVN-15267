@@ -1,0 +1,422 @@
+//============================================================
+// Official Headgear Quests 2006 - Thai Practical Port
+// File: npc/custom/official_headgear_quests_2006.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Add useful official-style 2006 headgear quests.
+// - Recipes and broad locations are based on rAthena 2006 Headgear Quests.
+// - Ported to simple old eAthena style: mes, next, menu, countitem,
+//   delitem, getitem, set Zeny, close.
+// - Thai dialogue is rewritten for clarity.
+// - Long official state-machine behavior is simplified for maintainability.
+//
+// Included:
+// - Censor Bar
+// - Feather Beret
+// - Valkyrie Helm
+// - Hahoe Mask
+// - Mythical Lion Mask
+// - Bride Mask
+// - Magistrate Hat
+// - Ayam
+//
+// Encoding note:
+// - Because Thai dialogue is included, save this file as
+//   Windows-874 / CP874 / TIS-620.
+//============================================================
+
+
+//============================================================
+// 1) Censor Bar
+// Official-style location: rachel,91,273
+// Reward: 5175 Censor Bar / Anonymity Request
+//============================================================
+rachel,91,273,8	script	CensorMaker#2006	930,{
+	if (checkweight(1201,1) == 0) {
+		mes "[คนลึกลับ]";
+		mes "ของในตัวคุณมากเกินไป";
+		mes "ถ้าต้องการของสำหรับปกปิดตัวตน ต้องมีช่องว่างพอด้วยนะ...";
+		close;
+	}
+
+	mes "[คนลึกลับ]";
+	mes "ชู่ว... อย่าเสียงดัง";
+	mes "ถ้าคุณอยากปกปิดตัวตน ฉันช่วยทำ Censor Bar ให้ได้";
+	next;
+	mes "[คนลึกลับ]";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Black Dyestuffs x1";
+	mes "- Slick Paper x100";
+	mes "- Sticky Mucus x99";
+	mes "- 100,000 Zeny";
+	next;
+
+	if (countitem(983) < 1 || countitem(7111) < 100 || countitem(938) < 99 || Zeny < 100000) {
+		mes "[คนลึกลับ]";
+		mes "วัตถุดิบหรือ Zeny ยังไม่ครบ";
+		close;
+	}
+
+	menu "สร้าง Censor Bar",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(983) < 1 || countitem(7111) < 100 || countitem(938) < 99 || Zeny < 100000) {
+		mes "[คนลึกลับ]";
+		mes "วัตถุดิบหรือ Zeny ยังไม่ครบ";
+		close;
+	}
+	delitem 983,1;
+	delitem 7111,100;
+	delitem 938,99;
+	set Zeny,Zeny-100000;
+	getitem 5175,1;
+	specialeffect2 248;
+	mes "[คนลึกลับ]";
+	mes "เสร็จแล้ว... รับ Censor Bar ไป";
+	mes "อย่าให้ใครรู้ว่าได้มาจากฉันล่ะ";
+	close;
+
+L_Close:
+	mes "[คนลึกลับ]";
+	mes "ชู่ว... กลับไปเงียบ ๆ";
+	close;
+}
+
+
+//============================================================
+// 2) Feather Beret
+// Official-style location: rachel,152,131
+// Reward: 5170 Feather Beret
+//============================================================
+rachel,152,131,3	script	Sakjul#2006	928,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Sakjul]";
+		mes "ผู้มีวินัยต้องจัดกระเป๋าให้เรียบร้อยก่อน!";
+		close;
+	}
+
+	mes "[Sakjul]";
+	mes "ยืนตัวตรง! มองไปข้างหน้า!";
+	mes "Feather Beret เป็นหมวกของผู้มีระเบียบและศักดิ์ศรี";
+	next;
+	mes "[Sakjul]";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Beret x1";
+	mes "- Soft Feather x100";
+	mes "- White Dyestuffs x1";
+	next;
+	mes "[Sakjul]";
+	mes "^FF0000คำเตือน:^000000 ถ้า Beret มีการตีบวกหรือใส่การ์ด คุณสมบัติเหล่านั้นจะหายไป";
+	next;
+
+	if (countitem(5172) < 1 || countitem(7063) < 100 || countitem(982) < 1) {
+		mes "[Sakjul]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+
+	menu "สร้าง Feather Beret",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(5172) < 1 || countitem(7063) < 100 || countitem(982) < 1) {
+		mes "[Sakjul]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 5172,1;
+	delitem 7063,100;
+	delitem 982,1;
+	getitem 5170,1;
+	specialeffect2 248;
+	mes "[Sakjul]";
+	mes "ยอดเยี่ยม! นี่คือ Feather Beret ของคุณ";
+	close;
+
+L_Close:
+	mes "[Sakjul]";
+	mes "กลับมาเมื่อคุณพร้อมกว่านี้!";
+	close;
+}
+
+
+//============================================================
+// 3) Valkyrie Helm
+// Official-style location: hugel,147,103
+// Reward: 5171 Valkyrie Helm
+//============================================================
+hugel,147,103,3	script	Ghenirhemin#2006	897,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Ghenirhemin]";
+		mes "คุณถือของมากเกินไป";
+		mes "ของศักดิ์สิทธิ์เช่นนี้ต้องมีพื้นที่รับอย่างเหมาะสม";
+		close;
+	}
+
+	mes "[Ghenirhemin]";
+	mes "Valkyrie Helm เป็นหมวกในตำนานที่ต้องใช้วัตถุดิบจำนวนมาก";
+	mes "ถ้าคุณพร้อม ข้าจะช่วยฟื้นฟูพลังของมัน";
+	next;
+	mes "[Ghenirhemin]";
+	mes "วัตถุดิบที่ต้องใช้:";
+	mes "- Sage Worm Card x1";
+	mes "- Argiope Card x1";
+	mes "- Dryad Card x1";
+	mes "- Wooden Golem Card x1";
+	mes "- Bongun Card x1";
+	mes "- Pirate Skeleton Card x1";
+	mes "- Marduk Card x1";
+	mes "- Hode Card x1";
+	mes "- Elder Card x1";
+	mes "- Nightmare Terror Card x1";
+	next;
+	mes "[Ghenirhemin]";
+	mes "- Rune of Darkness x1000";
+	mes "- Bloody Rune x1000";
+	mes "- 10,000,000 Zeny";
+	next;
+
+	if (countitem(4219) < 1 || countitem(4114) < 1 || countitem(4177) < 1 || countitem(4259) < 1 || countitem(4212) < 1 || countitem(4073) < 1 || countitem(4112) < 1 || countitem(4081) < 1 || countitem(4251) < 1 || countitem(4166) < 1 || countitem(7511) < 1000 || countitem(7563) < 1000 || Zeny < 10000000) {
+		mes "[Ghenirhemin]";
+		mes "วัตถุดิบหรือ Zeny ยังไม่ครบ";
+		close;
+	}
+
+	menu "สร้าง Valkyrie Helm",L_Make,"ยกเลิก",L_Close;
+
+L_Make:
+	if (countitem(4219) < 1 || countitem(4114) < 1 || countitem(4177) < 1 || countitem(4259) < 1 || countitem(4212) < 1 || countitem(4073) < 1 || countitem(4112) < 1 || countitem(4081) < 1 || countitem(4251) < 1 || countitem(4166) < 1 || countitem(7511) < 1000 || countitem(7563) < 1000 || Zeny < 10000000) {
+		mes "[Ghenirhemin]";
+		mes "วัตถุดิบหรือ Zeny ยังไม่ครบ";
+		close;
+	}
+	delitem 4219,1;
+	delitem 4114,1;
+	delitem 4177,1;
+	delitem 4259,1;
+	delitem 4212,1;
+	delitem 4073,1;
+	delitem 4112,1;
+	delitem 4081,1;
+	delitem 4251,1;
+	delitem 4166,1;
+	delitem 7511,1000;
+	delitem 7563,1000;
+	set Zeny,Zeny-10000000;
+	getitem 5171,1;
+	specialeffect2 248;
+	mes "[Ghenirhemin]";
+	mes "สำเร็จแล้ว... นี่คือ Valkyrie Helm";
+	mes "จงใช้มันอย่างสมเกียรติ";
+	close;
+
+L_Close:
+	mes "[Ghenirhemin]";
+	mes "หากพร้อมแล้วค่อยกลับมา";
+	close;
+}
+
+
+//============================================================
+// 4) Hahoe / Bride / Mythical Lion Mask
+// Official-style location: payon,135,320
+// Rewards: 5176 Hahoe Mask, 5169 Bride Mask, 5177 Mythical Lion Mask
+//============================================================
+payon,170,106,3	script	MaskMaster#2006	97,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Chungwolmang]";
+		mes "ช่องเก็บของหรือน้ำหนักของคุณไม่พอ";
+		close;
+	}
+
+	mes "[Chungwolmang]";
+	mes "ข้าคือช่างทำหน้ากากแบบดั้งเดิม";
+	mes "เลือกหน้ากากที่ต้องการ แล้วเตรียมวัตถุดิบมาให้ครบ";
+	next;
+	menu "Hahoe Mask",L_Hahoe,"Bride Mask",L_Bride,"Mythical Lion Mask",L_Lion,"ยกเลิก",L_Close;
+
+L_Hahoe:
+	mes "[Chungwolmang]";
+	mes "Hahoe Mask ต้องใช้:";
+	mes "- Bookclip in Memory x20";
+	mes "- Cactus Needle x100";
+	mes "- Mane x100";
+	next;
+	if (countitem(7015) < 20 || countitem(952) < 100 || countitem(1028) < 100) {
+		mes "[Chungwolmang]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	menu "สร้าง Hahoe Mask",L_MakeHahoe,"ยกเลิก",L_Close;
+
+L_MakeHahoe:
+	if (countitem(7015) < 20 || countitem(952) < 100 || countitem(1028) < 100) {
+		mes "[Chungwolmang]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 7015,20;
+	delitem 952,100;
+	delitem 1028,100;
+	getitem 5176,1;
+	specialeffect2 248;
+	mes "[Chungwolmang]";
+	mes "เสร็จแล้ว นี่คือ Hahoe Mask";
+	close;
+
+L_Bride:
+	mes "[Chungwolmang]";
+	mes "Bride Mask ต้องใช้:";
+	mes "- Skirt of Virgin x20";
+	mes "- Fabric x500";
+	mes "- Ancient Lips x2";
+	mes "- Chinese Ink x100";
+	next;
+	if (countitem(1049) < 20 || countitem(1059) < 500 || countitem(1054) < 2 || countitem(1024) < 100) {
+		mes "[Chungwolmang]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	menu "สร้าง Bride Mask",L_MakeBride,"ยกเลิก",L_Close;
+
+L_MakeBride:
+	if (countitem(1049) < 20 || countitem(1059) < 500 || countitem(1054) < 2 || countitem(1024) < 100) {
+		mes "[Chungwolmang]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 1049,20;
+	delitem 1059,500;
+	delitem 1054,2;
+	delitem 1024,100;
+	getitem 5169,1;
+	specialeffect2 248;
+	mes "[Chungwolmang]";
+	mes "เสร็จแล้ว นี่คือ Bride Mask";
+	close;
+
+L_Lion:
+	mes "[Chungwolmang]";
+	mes "Mythical Lion Mask ต้องใช้:";
+	mes "- Horrendous Hair x500";
+	mes "- Ancient Tooth x2";
+	mes "- Orange Dyestuffs x1";
+	next;
+	if (countitem(1048) < 500 || countitem(1053) < 2 || countitem(980) < 1) {
+		mes "[Chungwolmang]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	menu "สร้าง Mythical Lion Mask",L_MakeLion,"ยกเลิก",L_Close;
+
+L_MakeLion:
+	if (countitem(1048) < 500 || countitem(1053) < 2 || countitem(980) < 1) {
+		mes "[Chungwolmang]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 1048,500;
+	delitem 1053,2;
+	delitem 980,1;
+	getitem 5177,1;
+	specialeffect2 248;
+	mes "[Chungwolmang]";
+	mes "เสร็จแล้ว นี่คือ Mythical Lion Mask";
+	close;
+
+L_Close:
+	mes "[Chungwolmang]";
+	mes "ถ้าต้องการหน้ากากดี ๆ ค่อยกลับมา";
+	close;
+}
+
+
+//============================================================
+// 5) Magistrate Hat / Ayam
+// Official-style location: payon_in03,139,124
+// Rewards: 5173 Magistrate Hat, 5174 Ayam
+//============================================================
+payon_in03,139,124,3	script	HanGaram#2006	88,{
+	if (checkweight(1201,1) == 0) {
+		mes "[Han Garam]";
+		mes "คุณถือของมากเกินไป";
+		mes "กรุณาจัดกระเป๋าก่อนนะ";
+		close;
+	}
+
+	mes "[Han Garam]";
+	mes "ข้าคือช่างทำหมวกแบบดั้งเดิม";
+	mes "ข้าสามารถทำ Ayam และ Magistrate Hat ได้ ถ้าคุณมีวัตถุดิบครบ";
+	next;
+	menu "Ayam",L_Ayam,"Magistrate Hat",L_Magistrate,"ยกเลิก",L_Close;
+
+L_Ayam:
+	mes "[Han Garam]";
+	mes "Ayam ต้องใช้:";
+	mes "- Shining Scale x300";
+	mes "- Cracked Diamond x5";
+	mes "- Scarlet Dyestuffs x1";
+	mes "- Soft Silk x50";
+	next;
+	if (countitem(954) < 300 || countitem(733) < 5 || countitem(975) < 1 || countitem(7166) < 50) {
+		mes "[Han Garam]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	menu "สร้าง Ayam",L_MakeAyam,"ยกเลิก",L_Close;
+
+L_MakeAyam:
+	if (countitem(954) < 300 || countitem(733) < 5 || countitem(975) < 1 || countitem(7166) < 50) {
+		mes "[Han Garam]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 954,300;
+	delitem 733,5;
+	delitem 975,1;
+	delitem 7166,50;
+	getitem 5174,1;
+	specialeffect2 248;
+	mes "[Han Garam]";
+	mes "เสร็จแล้ว นี่คือ Ayam ของคุณ";
+	close;
+
+L_Magistrate:
+	mes "[Han Garam]";
+	mes "Magistrate Hat ต้องใช้:";
+	mes "- Shining Scale x300";
+	mes "- Cracked Diamond x5";
+	mes "- Black Dyestuffs x1";
+	mes "- Hat [1] x1";
+	next;
+	mes "[Han Garam]";
+	mes "^FF0000คำเตือน:^000000 Hat [1] ที่ตีบวกหรือใส่การ์ดแล้วจะสูญเสียคุณสมบัติเมื่อใช้เป็นวัตถุดิบ";
+	next;
+	if (countitem(954) < 300 || countitem(733) < 5 || countitem(983) < 1 || countitem(2221) < 1) {
+		mes "[Han Garam]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	menu "สร้าง Magistrate Hat",L_MakeMagistrate,"ยกเลิก",L_Close;
+
+L_MakeMagistrate:
+	if (countitem(954) < 300 || countitem(733) < 5 || countitem(983) < 1 || countitem(2221) < 1) {
+		mes "[Han Garam]";
+		mes "วัตถุดิบยังไม่ครบ";
+		close;
+	}
+	delitem 954,300;
+	delitem 733,5;
+	delitem 983,1;
+	delitem 2221,1;
+	getitem 5173,1;
+	specialeffect2 248;
+	mes "[Han Garam]";
+	mes "เสร็จแล้ว นี่คือ Magistrate Hat ของคุณ";
+	close;
+
+L_Close:
+	mes "[Han Garam]";
+	mes "หากมีวัตถุดิบครบแล้วค่อยกลับมา";
+	close;
+}

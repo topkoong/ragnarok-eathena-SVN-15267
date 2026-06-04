@@ -1,0 +1,41 @@
+//============================================================
+// Common manual shop function
+// File: npc/custom/top_common_functions.txt
+// Load this once before any custom shop files that call F_TopBuyItem.
+// Safe for old eAthena-style script usage.
+//============================================================
+function	script	F_TopBuyItem	{
+	set .@item_id, getarg(0);
+	set .@item_name$, getarg(1);
+	set .@price, getarg(2);
+
+	mes "[" + strnpcinfo(1) + "]";
+	mes "ท่านต้องการซื้อ ^0000FF" + .@item_name$ + "^000000";
+	mes "ราคา ^FF0000" + .@price + " Zeny^000000 ต่อชิ้น";
+	mes "กรุณาใส่จำนวนที่ต้องการซื้อ";
+	input .@amount;
+
+	if (.@amount <= 0) {
+		mes "ยกเลิกการซื้อเรียบร้อยแล้ว";
+		close;
+	}
+	if (.@amount > 30000) {
+		mes "เพื่อความปลอดภัย ระบบจำกัดการซื้อครั้งละไม่เกิน 30,000 ชิ้น";
+		close;
+	}
+
+	set .@cost, .@price * .@amount;
+	if (Zeny < .@cost) {
+		mes "Zeny ของท่านไม่เพียงพอ";
+		mes "ต้องใช้ทั้งหมด " + .@cost + " Zeny";
+		close;
+	}
+
+	set Zeny, Zeny - .@cost;
+	getitem .@item_id, .@amount;
+	mes "ซื้อสินค้าเรียบร้อยแล้ว";
+	mes "ขอให้โชคดีในการผจญภัย";
+	close;
+}
+
+//============================================================

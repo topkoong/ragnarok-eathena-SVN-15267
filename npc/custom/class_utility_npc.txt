@@ -1,0 +1,242 @@
+//============================================================
+// Class Utility NPC
+// File: npc/custom/class_utility_npc.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Convenience NPC for class-related utilities.
+// - Supports Cart, Falcon, Peco/Grand Peco riding, and Monk spheres.
+// - Also provides Thai guidance for class systems.
+//
+// Important:
+// - This NPC uses old eAthena script commands:
+//      checkcart(), setcart
+//      checkfalcon(), setfalcon
+//      checkriding(), setriding
+// - It checks required skills before giving Cart/Falcon/Riding.
+// - Spirit sphere uses atcommand "@spiritball 5", same approach as
+//   the previous Global Buffer logic.
+//
+// Encoding note:
+// - Because Thai dialogue is included, save this file as
+//   Windows-874 / CP874 / TIS-620 when using it on old eAthena.
+//============================================================
+
+prontera,161,187,4	script	Class Util#Prt	813,{
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "สวัสดีค่ะ นักผจญภัย";
+	mes "ฉันช่วยดูแลระบบพื้นฐานของแต่ละอาชีพ เช่น รถเข็น เหยี่ยว สัตว์ขี่ และลูกแก้วพลังจิต";
+	next;
+
+L_Main:
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "ต้องการใช้บริการใดคะ?";
+	next;
+	menu "เรียกรถเข็น",L_Cart,"เรียกเหยี่ยว",L_Falcon,"เรียกสัตว์ขี่",L_Riding,"เติมลูกแก้วพลังจิต",L_Sphere,"ถอด/ล้างพาหนะและอุปกรณ์อาชีพ",L_Remove,"คำแนะนำระบบอาชีพ",L_Info,"ยกเลิก",L_Close;
+
+
+//============================================================
+// Cart service
+//============================================================
+L_Cart:
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "บริการรถเข็นสำหรับสาย Merchant";
+	mes "ต้องมีสกิล Pushcart ก่อนจึงจะใช้ได้ค่ะ";
+	next;
+
+	if (checkcart()) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "คุณมีรถเข็นอยู่แล้วค่ะ";
+		close;
+	}
+
+	if (getskilllv(39) < 1) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "คุณยังไม่มีสกิล Pushcart";
+		mes "กรุณาเรียนสกิล Pushcart ก่อนนะคะ";
+		close;
+	}
+
+	setcart 1;
+	specialeffect2 248;
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "เรียกรถเข็นเรียบร้อยแล้วค่ะ";
+	close;
+
+
+//============================================================
+// Falcon service
+//============================================================
+L_Falcon:
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "บริการเรียกเหยี่ยวสำหรับสาย Hunter";
+	mes "ต้องมีสกิล Falconry Mastery ก่อนจึงจะใช้ได้ค่ะ";
+	next;
+
+	if (checkfalcon()) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "คุณมีเหยี่ยวอยู่แล้วค่ะ";
+		close;
+	}
+
+	if (getskilllv(127) < 1) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "คุณยังไม่มีสกิล Falconry Mastery";
+		mes "กรุณาเรียนสกิล Falconry Mastery ก่อนนะคะ";
+		close;
+	}
+
+	setfalcon 1;
+	specialeffect2 248;
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "เรียกเหยี่ยวเรียบร้อยแล้วค่ะ";
+	close;
+
+
+//============================================================
+// Riding service
+//============================================================
+L_Riding:
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "บริการเรียกสัตว์ขี่สำหรับสาย Knight / Crusader";
+	mes "ต้องมีสกิล Riding ก่อนจึงจะใช้ได้ค่ะ";
+	next;
+
+	if (checkriding()) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "คุณกำลังขี่สัตว์อยู่แล้วค่ะ";
+		close;
+	}
+
+	if (getskilllv(63) < 1) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "คุณยังไม่มีสกิล Riding";
+		mes "กรุณาเรียนสกิล Riding ก่อนนะคะ";
+		close;
+	}
+
+	setriding 1;
+	specialeffect2 248;
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "เรียกสัตว์ขี่เรียบร้อยแล้วค่ะ";
+	close;
+
+
+//============================================================
+// Monk / Champion spirit sphere service
+//============================================================
+L_Sphere:
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "บริการเติมลูกแก้วพลังจิตสำหรับ Monk / Champion";
+	mes "ระบบนี้เหมาะสำหรับช่วยเตรียมตัวก่อนเก็บเลเวลหรือเข้าดันเจี้ยน";
+	next;
+
+	// Normal Monk = 15
+	// Champion = 4016
+	if (Class != 15 && Class != 4016) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "บริการนี้ใช้ได้เฉพาะ Monk หรือ Champion เท่านั้นค่ะ";
+		close;
+	}
+
+	atcommand "@spiritball 5";
+	specialeffect2 248;
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "เติมลูกแก้วพลังจิต 5 ลูกเรียบร้อยแล้วค่ะ";
+	close;
+
+
+//============================================================
+// Remove utility
+//============================================================
+L_Remove:
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "ต้องการถอดหรือล้างอะไรคะ?";
+	next;
+	menu "ถอดรถเข็น",R_Cart,"ถอดเหยี่ยว",R_Falcon,"ลงจากสัตว์ขี่",R_Riding,"ล้างทั้งหมด",R_All,"ย้อนกลับ",L_Main;
+
+R_Cart:
+	if (!checkcart()) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "คุณไม่มีรถเข็นอยู่ค่ะ";
+		close;
+	}
+	setcart 0;
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "ถอดรถเข็นเรียบร้อยแล้วค่ะ";
+	close;
+
+R_Falcon:
+	if (!checkfalcon()) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "คุณไม่มีเหยี่ยวอยู่ค่ะ";
+		close;
+	}
+	setfalcon 0;
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "ถอดเหยี่ยวเรียบร้อยแล้วค่ะ";
+	close;
+
+R_Riding:
+	if (!checkriding()) {
+		mes "[ผู้ช่วยระบบอาชีพ]";
+		mes "คุณไม่ได้ขี่สัตว์อยู่ค่ะ";
+		close;
+	}
+	setriding 0;
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "ลงจากสัตว์ขี่เรียบร้อยแล้วค่ะ";
+	close;
+
+R_All:
+	if (checkcart()) {
+		setcart 0;
+	}
+	if (checkfalcon()) {
+		setfalcon 0;
+	}
+	if (checkriding()) {
+		setriding 0;
+	}
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "ล้างรถเข็น เหยี่ยว และสัตว์ขี่เท่าที่พบเรียบร้อยแล้วค่ะ";
+	close;
+
+
+//============================================================
+// Class information
+//============================================================
+L_Info:
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "คำแนะนำระบบอาชีพ:";
+	next;
+
+	mes "[Merchant / Blacksmith / Alchemist]";
+	mes "ใช้รถเข็นได้เมื่อมีสกิล Pushcart";
+	mes "ถ้าเรียกรถเข็นไม่ได้ ให้ตรวจสอบว่าสกิลถูกเรียนแล้วหรือยัง";
+	next;
+
+	mes "[Hunter / Sniper]";
+	mes "ใช้เหยี่ยวได้เมื่อมีสกิล Falconry Mastery";
+	mes "เหมาะสำหรับสายที่ใช้ Blitz Beat หรือสกิลที่เกี่ยวข้องกับเหยี่ยว";
+	next;
+
+	mes "[Knight / Crusader]";
+	mes "ใช้สัตว์ขี่ได้เมื่อมีสกิล Riding";
+	mes "Knight จะขี่ Peco Peco ส่วน Crusader จะขี่ Grand Peco ตามระบบของเซิร์ฟเวอร์";
+	next;
+
+	mes "[Monk / Champion]";
+	mes "สามารถเติมลูกแก้วพลังจิตได้จากเมนูนี้";
+	mes "เหมาะสำหรับเตรียมใช้สกิลที่ต้องใช้ Spirit Sphere";
+	next;
+
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "ถ้าต้องการสกิลพิเศษของอาชีพ เช่น Platinum Skill ให้ไปที่ NPC Platinum Skill ใน Prontera";
+	close;
+
+L_Close:
+	mes "[ผู้ช่วยระบบอาชีพ]";
+	mes "ขอให้สนุกกับการผจญภัยนะคะ";
+	close;
+}

@@ -1,0 +1,406 @@
+//============================================================
+// Field Support NPCs
+// File: npc/custom/field_support_npcs.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal
+//
+// Purpose:
+// - Add light farming/dungeon entrance support.
+// - This is NOT a full Global Buffer.
+// - Avoid dangerous/overpowered buffs such as Steel Body, EDP,
+//   Soul Link, Provoke, or class-specific offensive buffs.
+//
+// Encoding note:
+// - Because Thai dialogue is included, save this file as
+//   Windows-874 / CP874 / TIS-620 when using it on old eAthena.
+//============================================================
+
+
+//============================================================
+// Orc Area Field Support
+//============================================================
+gef_fild10,72,340,4	script	Field Support#orc	837,{
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "สวัสดีค่ะ นักผจญภัย";
+	mes "ที่นี่เป็นพื้นที่ล่ามอนสเตอร์ ถ้าต้องการพัก ฟื้นฟู หรือรับบัฟพื้นฐาน ฉันช่วยได้ค่ะ";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal,"รับบัฟพื้นฐาน",L_Buff,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear,"กลับเมือง Geffen",L_Return,"ยกเลิก",L_Close;
+
+L_Heal:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "ฟื้นฟูเรียบร้อยแล้วค่ะ";
+	mes "ขอให้ล่าอย่างปลอดภัยนะคะ";
+	close;
+
+L_Buff:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยภาคสนาม]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ฉันให้เฉพาะบัฟที่ปลอดภัย ไม่รบกวนการใช้สกิลของอาชีพอื่นค่ะ";
+	close;
+
+L_Clear:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "ล้างบัฟที่อาจทำให้เกิดปัญหาเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Return:
+	warp "geffen",120,62;
+	end;
+
+L_Close:
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "เดินทางปลอดภัยนะคะ";
+	close;
+}
+
+
+//============================================================
+// Payon Forest Field Support
+//============================================================
+pay_fild08,82,120,4	script	Field Support#payon	837,{
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "สวัสดีค่ะ นักผจญภัย";
+	mes "ถ้ากำลังเก็บเลเวลหรือล่าของแถวป่า Payon ฉันช่วยฟื้นฟูและให้บัฟพื้นฐานได้ค่ะ";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal,"รับบัฟพื้นฐาน",L_Buff,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear,"กลับเมือง Payon",L_Return,"ยกเลิก",L_Close;
+
+L_Heal:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "ฟื้นฟูเรียบร้อยแล้วค่ะ";
+	mes "ระวังมอนสเตอร์รอบ ๆ ด้วยนะคะ";
+	close;
+
+L_Buff:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยภาคสนาม]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "บัฟชุดนี้ออกแบบให้เหมาะกับการฟาร์มทั่วไปค่ะ";
+	close;
+
+L_Clear:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "ล้างบัฟที่อาจทำให้เกิดปัญหาเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Return:
+	warp "payon",160,98;
+	end;
+
+L_Close:
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "โชคดีกับการผจญภัยนะคะ";
+	close;
+}
+
+
+//============================================================
+// Mt. Mjolnir Field Support
+//============================================================
+mjolnir_02,85,360,4	script	Field Support#mjo	837,{
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "สวัสดีค่ะ นักผจญภัย";
+	mes "เส้นทางภูเขาอาจใช้เวลานาน ถ้าต้องการฟื้นฟูหรือเตรียมตัวก่อนลุยต่อ ฉันช่วยได้ค่ะ";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal,"รับบัฟพื้นฐาน",L_Buff,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear,"กลับเมือง Prontera",L_Return,"ยกเลิก",L_Close;
+
+L_Heal:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "ฟื้นฟูเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยภาคสนาม]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "ล้างบัฟที่อาจทำให้เกิดปัญหาเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Return:
+	warp "prontera",156,187;
+	end;
+
+L_Close:
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "เดินทางปลอดภัยค่ะ";
+	close;
+}
+
+
+//============================================================
+// Beach Area Field Support
+//============================================================
+cmd_fild02,190,80,4	script	Field Support#beach	837,{
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "สวัสดีค่ะ นักผจญภัย";
+	mes "บริเวณชายหาดเหมาะกับการฟาร์ม แต่ถ้าต้องการพักสักครู่ ฉันช่วยได้ค่ะ";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal,"รับบัฟพื้นฐาน",L_Buff,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear,"กลับเมือง Comodo",L_Return,"ยกเลิก",L_Close;
+
+L_Heal:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "ฟื้นฟูเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยภาคสนาม]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "ล้างบัฟที่อาจทำให้เกิดปัญหาเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Return:
+	warp "comodo",195,150;
+	end;
+
+L_Close:
+	mes "[ผู้ช่วยภาคสนาม]";
+	mes "ขอให้ฟาร์มได้ของดีนะคะ";
+	close;
+}
+
+
+//============================================================
+// Geffen Dungeon Entrance Support
+//============================================================
+gef_dun00,104,58,4	script	Dungeon Support#gefdun	837,{
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ยินดีต้อนรับสู่ทางเข้าดันเจี้ยน Geffen";
+	mes "ฉันช่วยฟื้นฟูและให้บัฟพื้นฐานก่อนเข้าดันเจี้ยนได้ค่ะ";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal,"รับบัฟพื้นฐาน",L_Buff,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear,"กลับเมือง Geffen",L_Return,"ยกเลิก",L_Close;
+
+L_Heal:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ฟื้นฟูเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ระวังตัวในดันเจี้ยนด้วยนะคะ";
+	close;
+
+L_Clear:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้เกิดปัญหาเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Return:
+	warp "geffen",120,62;
+	end;
+
+L_Close:
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "เตรียมตัวให้พร้อมก่อนลุยนะคะ";
+	close;
+}
+
+
+//============================================================
+// Pyramid Dungeon Entrance Support
+//============================================================
+moc_pryd01,94,100,4	script	Dungeon Support#pyramid	837,{
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ที่นี่คือทางเข้าพีระมิด";
+	mes "ก่อนเข้าไปลึกกว่านี้ อย่าลืมฟื้นฟูและเตรียมตัวให้พร้อมนะคะ";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal,"รับบัฟพื้นฐาน",L_Buff,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear,"กลับเมือง Morocc",L_Return,"ยกเลิก",L_Close;
+
+L_Heal:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ฟื้นฟูเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Clear:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้เกิดปัญหาเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Return:
+	warp "morocc",156,93;
+	end;
+
+L_Close:
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ขอให้โชคดีค่ะ";
+	close;
+}
+
+
+//============================================================
+// Glast Heim Entrance Support
+//============================================================
+glast_01,199,294,4	script	Dungeon Support#glast	837,{
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ยินดีต้อนรับสู่ Glast Heim";
+	mes "ที่นี่อันตรายกว่าพื้นที่ทั่วไป ควรเตรียมตัวให้พร้อมก่อนเข้าไปค่ะ";
+	next;
+	menu "ฟื้นฟู HP/SP",L_Heal,"รับบัฟพื้นฐาน",L_Buff,"ล้างบัฟที่อาจทำให้ใช้สกิลไม่ได้",L_Clear,"กลับเมือง Geffen",L_Return,"ยกเลิก",L_Close;
+
+L_Heal:
+	heal 999999,999999;
+	specialeffect2 312;
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ฟื้นฟูเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Buff:
+	if (Zeny < 500) {
+		mes "[ผู้ช่วยดันเจี้ยน]";
+		mes "ค่าบริการบัฟพื้นฐานคือ 500 Zeny ค่ะ";
+		close;
+	}
+	set Zeny,Zeny-500;
+	sc_start SC_BLESSING,600000,10;
+	sc_start SC_INCREASEAGI,600000,10;
+	sc_start SC_MAGNIFICAT,600000,5;
+	sc_start SC_GLORIA,300000,5;
+	sc_start SC_IMPOSITIO,300000,5;
+	specialeffect2 338;
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "บัฟพื้นฐานเรียบร้อยแล้วค่ะ";
+	mes "ฉันไม่ได้ให้บัฟที่แรงเกินไป เพื่อให้การล่ายังสมดุลค่ะ";
+	close;
+
+L_Clear:
+	sc_end SC_STEELBODY;
+	sc_end SC_PROVOKE;
+	sc_end SC_SPIRIT;
+	sc_end SC_EDP;
+	sc_end SC_ENCPOISON;
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ล้างบัฟที่อาจทำให้เกิดปัญหาเรียบร้อยแล้วค่ะ";
+	close;
+
+L_Return:
+	warp "geffen",120,62;
+	end;
+
+L_Close:
+	mes "[ผู้ช่วยดันเจี้ยน]";
+	mes "ขอให้ปลอดภัยใน Glast Heim ค่ะ";
+	close;
+}

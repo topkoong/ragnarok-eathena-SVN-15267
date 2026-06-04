@@ -1,0 +1,86 @@
+//============================================================
+// Event Manager
+// File: npc/custom/event_manager.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Central event information board.
+// - Does not automate risky events yet.
+// - Good for manual GM-hosted events.
+//============================================================
+
+prontera,106,91,4	script	EventManager#main	726,{
+	mes "[ผู้จัดการกิจกรรม]";
+	mes "ฉันเป็นผู้ประกาศและแนะนำกิจกรรมของเซิร์ฟเวอร์";
+	mes "ตอนนี้ระบบยังเป็นแบบ Manual Event เพื่อความปลอดภัย";
+	next;
+
+L_Main:
+	mes "[ผู้จัดการกิจกรรม]";
+	mes "เลือกหัวข้อที่ต้องการ";
+	next;
+	switch(select(
+		"Dead Branch Room Event",
+		"MVP Challenge Event",
+		"Card Hunting Event",
+		"Headgear Quest Week",
+		"ประกาศกิจกรรมปัจจุบัน",
+		"Cancel"
+	)) {
+	case 1: goto L_DB;
+	case 2: goto L_MVP;
+	case 3: goto L_Card;
+	case 4: goto L_Headgear;
+	case 5: goto L_Announcement;
+	default: close;
+	}
+
+L_DB:
+	mes "[ผู้จัดการกิจกรรม]";
+	mes "Dead Branch Room Event:";
+	mes "- รวมปาร์ตี้";
+	mes "- ใช้ Dead Branch ผ่าน NPC Controller";
+	mes "- GM อาจแจกของรางวัลหลังจบกิจกรรม";
+	next;
+	switch(select("ไป Dead Branch Room:ย้อนกลับ")) {
+	case 1: warp "prontera",127,91; end;
+	default: goto L_Main;
+	}
+
+L_MVP:
+	mes "[ผู้จัดการกิจกรรม]";
+	mes "MVP Challenge Event:";
+	mes "- ใช้ MVP Room แบบควบคุม";
+	mes "- ห้ามใช้บัฟหรือไอเทมที่ GM ไม่อนุญาต ถ้ามีกฎพิเศษ";
+	next;
+	switch(select("ไป MVP Room:ย้อนกลับ")) {
+	case 1: warp "prontera",182,86; end;
+	default: goto L_Main;
+	}
+
+L_Card:
+	mes "[ผู้จัดการกิจกรรม]";
+	mes "Card Hunting Event:";
+	mes "- เลือกมอนสเตอร์เป้าหมาย";
+	mes "- ส่งหลักฐานหรือ item drop ตามที่ GM กำหนด";
+	mes "- รางวัลควรเป็น Quest Coin หรือกล่อง ไม่ใช่ MVP Card ฟรี";
+	next;
+	goto L_Main;
+
+L_Headgear:
+	mes "[ผู้จัดการกิจกรรม]";
+	mes "Headgear Quest Week:";
+	mes "- เพิ่มกิจกรรมช่วยฟาร์มวัตถุดิบ";
+	mes "- แนะนำให้ใช้ EquipQuestIndex เพื่อดูตำแหน่ง";
+	next;
+	switch(select("ไป EquipQuestIndex:ย้อนกลับ")) {
+	case 1: warp "prontera",130,95; end;
+	default: goto L_Main;
+	}
+
+L_Announcement:
+	mes "[ผู้จัดการกิจกรรม]";
+	mes "ยังไม่มีประกาศกิจกรรมอัตโนมัติ";
+	mes "GM สามารถแก้ข้อความส่วนนี้เพื่อประกาศกิจกรรมล่าสุดได้";
+	close;
+}

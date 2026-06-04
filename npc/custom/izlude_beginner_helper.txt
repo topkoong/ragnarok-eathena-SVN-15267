@@ -1,0 +1,60 @@
+//============================================================
+// izlude_beginner_helper.txt
+// Note: F_TopBuyItem is now loaded from npc/custom/top_common_functions.txt
+//============================================================
+
+// Izlude Beginner Helper
+// City identity: beginner support / first-time player guidance.
+//============================================================
+
+izlude,128,116,4	script	BeginnerHelper#izl	742,{
+	mes "[ผู้ช่วยนักผจญภัยหน้าใหม่]";
+	mes "ยินดีต้อนรับสู่โลกแห่งการผจญภัย";
+	mes "ข้าจะช่วยแนะนำพื้นฐานและมอบของเริ่มต้นให้หนึ่งครั้งต่อบัญชี";
+	next;
+	switch(select("รับกล่องเริ่มต้น:คำแนะนำสำหรับมือใหม่:วาร์ปไปสนามฝึก:ยกเลิก")) {
+	case 1:
+		if (#top_beginner_pack) {
+			mes "ท่านรับกล่องเริ่มต้นไปแล้ว";
+			close;
+		}
+		set #top_beginner_pack,1;
+		getitem 501,50;
+		getitem 502,30;
+		getitem 601,30;
+		getitem 602,5;
+		set Zeny,Zeny+5000;
+		mes "มอบของเริ่มต้นเรียบร้อยแล้ว";
+		mes "ขอให้เติบโตเป็นนักผจญภัยที่แข็งแกร่ง";
+		close;
+	case 2:
+		mes "คำแนะนำสำหรับมือใหม่:";
+		mes "- พก Potion และ Fly Wing เสมอ";
+		mes "- เปลี่ยนอาชีพให้เหมาะกับสไตล์การเล่น";
+		mes "- เมื่อเลเวลสูงขึ้น ให้ไป Prontera เพื่อใช้บริการหลัก";
+		mes "- หากต้องการ High-Class ให้ไปหา Valkyrie เมื่อพร้อม";
+		close;
+	case 3:
+		mes "ข้าจะส่งท่านไปยังพื้นที่ฝึกใกล้ Prontera";
+		close2;
+		warp "prt_fild08",170,330;
+		end;
+	case 4:
+		close;
+	}
+}
+
+izlude,132,116,4	script	BeginnerSupply#izl	837,{
+	mes "[ร้านของมือใหม่]";
+	mes "ของใช้ราคาประหยัดสำหรับผู้เริ่มต้น";
+	mes "ซื้อเท่าที่จำเป็น แล้วออกไปฝึกฝนอย่างระมัดระวัง";
+	next;
+	switch(select("Red Potion - 50z:Orange Potion - 200z:Fly Wing - 60z:Butterfly Wing - 300z:Magnifier - 40z:ยกเลิก")) {
+	case 1: callfunc "F_TopBuyItem",501,"Red Potion",50;
+	case 2: callfunc "F_TopBuyItem",502,"Orange Potion",200;
+	case 3: callfunc "F_TopBuyItem",601,"Fly Wing",60;
+	case 4: callfunc "F_TopBuyItem",602,"Butterfly Wing",300;
+	case 5: callfunc "F_TopBuyItem",611,"Magnifier",40;
+	case 6: close;
+	}
+}

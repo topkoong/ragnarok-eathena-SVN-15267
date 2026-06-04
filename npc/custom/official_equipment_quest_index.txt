@@ -1,0 +1,116 @@
+//============================================================
+// Official Equipment Quest Index
+// File: npc/custom/official_equipment_quest_index.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Guide players to official-style equipment/headgear quest content.
+// - This is an index/guide NPC, not a reward NPC.
+// - Helps avoid confusion between custom dealers and real quest progression.
+//============================================================
+
+prontera,130,95,4	script	EquipQuestIndex#main	742,{
+	mes "[สารบัญเควสอุปกรณ์]";
+	mes "ที่นี่คือสารบัญเควสอุปกรณ์และหมวกแบบ Official-style";
+	mes "ฉันช่วยแนะนำตำแหน่งและพาไปยังพื้นที่หลักได้";
+	next;
+
+L_Main:
+	mes "[สารบัญเควสอุปกรณ์]";
+	mes "ต้องการดูหมวดไหน?";
+	next;
+	switch(select(
+		"Official-style Headgear 2004",
+		"Official-style Headgear 2005",
+		"Official-style Headgear 2006",
+		"Morocc Quest Gear Dealers",
+		"Prontera Rare Gear Market",
+		"คำอธิบาย Dealer vs Quest",
+		"Cancel"
+	)) {
+	case 1: goto L_2004;
+	case 2: goto L_2005;
+	case 3: goto L_2006;
+	case 4: goto L_Morocc;
+	case 5: goto L_Rare;
+	case 6: goto L_Info;
+	default: close;
+	}
+
+L_2004:
+	mes "[สารบัญเควสอุปกรณ์]";
+	mes "กลุ่ม 2004 มีหลายจุด เช่น Payon, Geffen, Yuno, Prontera, Comodo, Lutie และ Xmas Inn";
+	next;
+	switch(select("Guide ที่ Prontera:Payon Neko Neko:Geffen Argen:Yuno Blacksmith:Xmas Inn Mad Hatter:ย้อนกลับ")) {
+	case 1: warp "prontera",186,86; end;
+	case 2: warp "payon",115,131; end;
+	case 3: warp "geffen",129,148; end;
+	case 4: warp "yuno",241,52; end;
+	case 5: warp "xmas_in",35,30; end;
+	default: goto L_Main;
+	}
+
+L_2005:
+	mes "[สารบัญเควสอุปกรณ์]";
+	mes "กลุ่ม 2005 มี Lighthalzen, Einbech, Glast Heim Prison และ Yuno";
+	next;
+	switch(select("Crunch Toast - Yuno:Detective Cap - Lighthalzen:Red Bonnet - Lighthalzen:Baby Pacifier - Lighthalzen:Winter Hat - Einbech:Mystic Rose - LHZ Inn:Zealotus Mask - Prison:ย้อนกลับ")) {
+	case 1: warp "yuno",222,116; end;
+	case 2: warp "lighthalzen",143,68; end;
+	case 3: warp "lighthalzen",182,89; end;
+	case 4: warp "lighthalzen",360,313; end;
+	case 5: warp "einbech",70,222; end;
+	case 6: warp "lhz_in02",91,38; end;
+	case 7: warp "gl_prison1",137,138; end;
+	default: goto L_Main;
+	}
+
+L_2006:
+	mes "[สารบัญเควสอุปกรณ์]";
+	mes "กลุ่ม 2006 มี Rachel, Hugel และ Payon";
+	next;
+	switch(select("Censor Bar - Rachel:Feather Beret - Rachel:Valkyrie Helm - Hugel:Traditional Masks - Payon:Ayam / Magistrate Hat - Payon Inn:ย้อนกลับ")) {
+	case 1: warp "rachel",91,273; end;
+	case 2: warp "rachel",152,131; end;
+	case 3: warp "hugel",147,103; end;
+	case 4: warp "payon",135,320; end;
+	case 5: warp "payon_in03",139,124; end;
+	default: goto L_Main;
+	}
+
+L_Morocc:
+	mes "[สารบัญเควสอุปกรณ์]";
+	mes "Morocc เป็นเมืองของ Quest Gear Dealer และ Headgear Quest NPC";
+	next;
+	switch(select("ไป Quest Gear Market:ไป Headgear Quest NPC:ย้อนกลับ")) {
+	case 1: warp "morocc",102,110; end;
+	case 2: warp "morocc",118,110; end;
+	default: goto L_Main;
+	}
+
+L_Rare:
+	mes "[สารบัญเควสอุปกรณ์]";
+	mes "Prontera Rare Market เป็นร้านขายของพรีเมียม ราคาแพง";
+	mes "ไม่ใช่เควส Official-style แต่เป็น Zeny sink และตลาด end-game";
+	next;
+	switch(select("ไป Rare Gear Market:ย้อนกลับ")) {
+	case 1: warp "prontera",153,190; end;
+	default: goto L_Main;
+	}
+
+L_Info:
+	mes "[สารบัญเควสอุปกรณ์]";
+	mes "ความแตกต่าง:";
+	next;
+	mes "[Official-style Quest]";
+	mes "- ต้องฟาร์มวัตถุดิบ";
+	mes "- ใช้เวลา";
+	mes "- ให้ความรู้สึกเหมือน RO ดั้งเดิม";
+	next;
+	mes "[Dealer / Shop]";
+	mes "- ใช้ Zeny ซื้อโดยตรง";
+	mes "- สะดวก";
+	mes "- เหมาะเป็น Zeny sink";
+	next;
+	goto L_Main;
+}

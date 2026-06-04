@@ -1,0 +1,52 @@
+//============================================================
+// aldebaran_upgrade_npcs.txt
+// Note: F_TopBuyItem is now loaded from npc/custom/top_common_functions.txt
+//============================================================
+
+// Aldebaran Upgrade NPCs
+// City identity: upgrade / refine material / socket-enchant guide.
+// These NPCs avoid risky custom refine commands and only sell materials
+// plus provide Thai guidance. Use official refine NPCs for actual refine.
+//============================================================
+
+aldebaran,138,120,4	script	UpgradeOreDealer#alde	837,{
+	mes "[พ่อค้าแร่ตีบวก]";
+	mes "อัลเดบารันคือเมืองแห่งการพัฒนาอุปกรณ์";
+	mes "ข้ามีแร่พื้นฐานสำหรับเตรียมตีบวกและคราฟอุปกรณ์";
+	next;
+	switch(select("Phracon - 200z:Emveretarcon - 1,000z:Oridecon - 50,000z:Elunium - 50,000z:Steel - 5,000z:Star Crumb - 10,000z:Star Dust - 5,000z:ยกเลิก")) {
+	case 1: callfunc "F_TopBuyItem",1010,"Phracon",200;
+	case 2: callfunc "F_TopBuyItem",1011,"Emveretarcon",1000;
+	case 3: callfunc "F_TopBuyItem",984,"Oridecon",50000;
+	case 4: callfunc "F_TopBuyItem",985,"Elunium",50000;
+	case 5: callfunc "F_TopBuyItem",999,"Steel",5000;
+	case 6: callfunc "F_TopBuyItem",1000,"Star Crumb",10000;
+	case 7: callfunc "F_TopBuyItem",1001,"Star Dust",5000;
+	case 8: close;
+	}
+}
+
+aldebaran,142,120,4	script	RefineAdvisor#alde	742,{
+	mes "[ผู้แนะนำการตีบวก]";
+	mes "การตีบวกมีความเสี่ยง อุปกรณ์อาจเสียหายได้หากล้มเหลว";
+	mes "NPC นี้ทำหน้าที่อธิบายและขายวัตถุดิบเท่านั้น เพื่อไม่ให้ขัดกับระบบตีบวกเดิมของเซิร์ฟเวอร์";
+	next;
+	mes "แนวทางแนะนำ:";
+	mes "- อาวุธระดับต่ำใช้ Phracon หรือ Emveretarcon";
+	mes "- อาวุธระดับสูงมักใช้ Oridecon";
+	mes "- ชุดเกราะและอุปกรณ์ป้องกันใช้ Elunium";
+	mes "- ควรทดสอบราคากับระบบเศรษฐกิจของเซิร์ฟเวอร์ก่อนเปิดจริง";
+	close;
+}
+
+aldebaran,146,120,4	script	SocketEnchantGuide#alde	742,{
+	mes "[ผู้เชี่ยวชาญช่องและเอนชานท์]";
+	mes "ระบบ Socket และ Enchant ของ eAthena เก่าแต่ละเซิร์ฟเวอร์อาจไม่เหมือนกัน";
+	mes "เพื่อความปลอดภัย NPC นี้จึงเป็นตัวแนะนำก่อน ยังไม่แก้ไขไอเท็มโดยตรง";
+	next;
+	mes "ข้อเสนอแนะสำหรับขั้นต่อไป:";
+	mes "- ถ้าต้องการเพิ่มช่อง ควรทำเป็นเควสแยกตามไอเท็ม";
+	mes "- ถ้าต้องการเอนชานท์ ควรกำหนดรายการไอเท็มและโอกาสสำเร็จชัดเจน";
+	mes "- หลีกเลี่ยงคำสั่งใหม่ของ rAthena ที่ eAthena เก่าอาจไม่รองรับ";
+	close;
+}

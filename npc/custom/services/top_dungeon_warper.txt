@@ -1,0 +1,373 @@
+//===== eAthena Script =======================================
+//= Top Dungeon Warper
+//= Compatible With: eAthena SVN 15267
+//= Notes:
+//=   - NPC names are short to avoid npc_parsename errors.
+//=   - If your server/client does not have some episode towns,
+//=     comment out that town's NPC line.
+//============================================================
+
+//==================================================
+// Main city placements - aligned / human NPC sprites
+//==================================================
+
+prontera,166,196,4	script	Dun Warp#Prt	753,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+morocc,159,97,4	script	Dun Warp#Mor	753,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+payon,190,112,4	script	Dun Warp#Pay	725,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+geffen,140,72,4	script	Dun Warp#Gef	706,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+izlude,144,130,4	script	Dun Warp#Iz	724,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+alberta,60,232,4	script	Dun Warp#Alb	721,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+aldebaran,160,130,4	script	Dun Warp#Ald	731,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+yuno,176,198,4	script	Dun Warp#Yun	837,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+comodo,212,154,4	script	Dun Warp#Com	732,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+
+//==================================================
+// Episode city placements - human NPC sprites
+//==================================================
+
+umbala,94,160,4	script	Dun Warp#Umb	700,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+amatsu,200,86,4	script	Dun Warp#Ama	725,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+louyang,210,104,4	script	Dun Warp#Lou	753,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+ayothaya,200,169,4	script	Dun Warp#Ayo	706,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+einbroch,64,200,4	script	Dun Warp#Ein	748,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+lighthalzen,160,100,4	script	Dun Warp#Lhz	47,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+rachel,130,144,4	script	Dun Warp#Ra	930,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+veins,208,128,4	script	Dun Warp#Vei	743,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+moscovia,220,191,4	script	Dun Warp#Mos	91,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+niflheim,202,174,4	script	Dun Warp#Nif	1180,{
+	callfunc "F_TopDunWarp";
+	end;
+}
+
+
+//==================================================
+// Shared warper function
+//==================================================
+function	script	F_TopDunWarp	{
+
+L_Menu:
+	mes "[Dungeon Warper]";
+	mes "Where do you want to go?";
+	next;
+
+	switch(select(
+		"Main Dungeons",
+		"Episode Dungeons",
+		"Moscovia",
+		"Thanatos / Ice / Thor / Abyss",
+		"Fields",
+		"Guild Dungeons",
+		"Special Maps",
+		"Cancel"
+	)) {
+	case 1:
+		goto L_Main;
+	case 2:
+		goto L_Episode;
+	case 3:
+		goto L_Moscovia;
+	case 4:
+		goto L_HighLevel;
+	case 5:
+		goto L_Fields;
+	case 6:
+		goto L_Guild;
+	case 7:
+		goto L_Special;
+	default:
+		close;
+	}
+
+
+//==================================================
+// Main classic dungeons
+//==================================================
+L_Main:
+	mes "[Dungeon Warper]";
+	mes "Main Dungeons";
+	next;
+
+	switch(select(
+		"Morocc Pyramid F1",
+		"Sphinx F1",
+		"Payon Dungeon F1",
+		"Izlude Undersea Tunnel F1",
+		"Prontera Culvert F1",
+		"Geffen Dungeon F1",
+		"Orc Dungeon F1",
+		"Clock Tower F1",
+		"Glast Heim Entrance",
+		"Turtle Island Dungeon",
+		"Toy Factory",
+		"Back"
+	)) {
+	case 1: warp "moc_pryd01",192,9; end;
+	case 2: warp "in_sphinx1",288,9; end;
+	case 3: warp "pay_dun00",21,183; end;
+	case 4: warp "iz_dun00",168,168; end;
+	case 5: warp "prt_sewb1",131,247; end;
+	case 6: warp "gef_dun00",104,99; end;
+	case 7: warp "orcsdun01",32,170; end;
+	case 8: warp "c_tower1",199,159; end;
+	case 9: warp "glast_01",370,304; end;
+	case 10: warp "tur_dun01",154,49; end;
+	case 11: warp "xmas_dun01",205,15; end;
+	default: goto L_Menu;
+	}
+
+
+//==================================================
+// Episode dungeons
+//==================================================
+L_Episode:
+	mes "[Dungeon Warper]";
+	mes "Episode Dungeons";
+	next;
+
+	switch(select(
+		"Amatsu Dungeon F1",
+		"Gonryun Dungeon F1",
+		"Louyang Dungeon F1",
+		"Ayothaya Dungeon F1",
+		"Umbala Passage",
+		"Niflheim Town",
+		"Niflheim Field 1",
+		"Niflheim Field 2",
+		"Einbroch Mine F1",
+		"Kiel Robot Factory F1",
+		"Bio Lab F1",
+		"Rachel Sanctuary F1",
+		"Back"
+	)) {
+	case 1: warp "ama_dun01",228,11; end;
+	case 2: warp "gon_dun01",153,53; end;
+	case 3: warp "lou_dun01",218,196; end;
+	case 4: warp "ayo_dun01",275,19; end;
+	case 5: warp "um_dun02",48,30; end;
+	case 6: warp "niflheim",202,174; end;
+	case 7: warp "nif_fild01",215,229; end;
+	case 8: warp "nif_fild02",167,234; end;
+	case 9: warp "ein_dun01",22,14; end;
+	case 10: warp "kh_dun01",28,226; end;
+	case 11: warp "lhz_dun01",150,288; end;
+	case 12: warp "ra_san01",140,11; end;
+	default: goto L_Menu;
+	}
+
+
+//==================================================
+// Moscovia
+//==================================================
+L_Moscovia:
+	mes "[Dungeon Warper]";
+	mes "Moscovia";
+	next;
+
+	switch(select(
+		"Moscovia Town",
+		"Moscovia Dungeon F1 - Les Forest",
+		"Moscovia Dungeon F2 - Temny Forest",
+		"Moscovia Dungeon F3 - Dremuci Forest",
+		"Back"
+	)) {
+	case 1: warp "moscovia",220,191; end;
+	case 2: warp "mosk_dun01",189,45; end;
+	case 3: warp "mosk_dun02",165,30; end;
+	case 4: warp "mosk_dun03",27,131; end;
+	default: goto L_Menu;
+	}
+
+
+//==================================================
+// High-level dungeons
+//==================================================
+L_HighLevel:
+	mes "[Dungeon Warper]";
+	mes "High Level Dungeons";
+	next;
+
+	switch(select(
+		"Thanatos Tower F1",
+		"Thanatos Tower F2",
+		"Thanatos Tower F3",
+		"Thanatos Tower F4",
+		"Thanatos Tower F5",
+		"Thanatos Tower F6",
+		"Ice Cave F1",
+		"Ice Cave F2",
+		"Ice Cave F3",
+		"Thor Volcano F1",
+		"Thor Volcano F2",
+		"Thor Volcano F3",
+		"Abyss Lake F1",
+		"Abyss Lake F2",
+		"Abyss Lake F3",
+		"Back"
+	)) {
+	case 1: warp "tha_t01",149,78; end;
+	case 2: warp "tha_t02",150,44; end;
+	case 3: warp "tha_t03",220,158; end;
+	case 4: warp "tha_t04",59,143; end;
+	case 5: warp "tha_t05",62,11; end;
+	case 6: warp "tha_t06",89,221; end;
+	case 7: warp "ice_dun01",157,14; end;
+	case 8: warp "ice_dun02",151,142; end;
+	case 9: warp "ice_dun03",149,22; end;
+	case 10: warp "thor_v01",21,228; end;
+	case 11: warp "thor_v02",75,205; end;
+	case 12: warp "thor_v03",35,272; end;
+	case 13: warp "abyss_01",261,272; end;
+	case 14: warp "abyss_02",275,270; end;
+	case 15: warp "abyss_03",116,27; end;
+	default: goto L_Menu;
+	}
+
+
+//==================================================
+// Fields
+//==================================================
+L_Fields:
+	mes "[Dungeon Warper]";
+	mes "Fields";
+	next;
+
+	switch(select(
+		"Amatsu Field",
+		"Umbala Field 1 - Luluka",
+		"Umbala Field 2",
+		"Umbala Field 3",
+		"Umbala Field 4",
+		"Niflheim Field 1",
+		"Niflheim Field 2",
+		"Back"
+	)) {
+	case 1: warp "ama_fild01",190,197; end;
+	case 2: warp "um_fild01",217,206; end;
+	case 3: warp "um_fild02",223,221; end;
+	case 4: warp "um_fild03",237,215; end;
+	case 5: warp "um_fild04",202,197; end;
+	case 6: warp "nif_fild01",215,229; end;
+	case 7: warp "nif_fild02",167,234; end;
+	default: goto L_Menu;
+	}
+
+
+//==================================================
+// Guild Dungeons
+//==================================================
+L_Guild:
+	mes "[Dungeon Warper]";
+	mes "Guild Dungeons";
+	next;
+
+	switch(select(
+		"Baldur GD - gld_dun01",
+		"Luina GD - gld_dun02",
+		"Valkyrie GD - gld_dun03",
+		"Britoniah GD - gld_dun04",
+		"Schwaltz GD - schg_dun01",
+		"Arunafeltz GD - arug_dun01",
+		"Back"
+	)) {
+	case 1: warp "gld_dun01",120,120; end;
+	case 2: warp "gld_dun02",120,120; end;
+	case 3: warp "gld_dun03",120,120; end;
+	case 4: warp "gld_dun04",120,120; end;
+	case 5: warp "schg_dun01",120,120; end;
+	case 6: warp "arug_dun01",120,120; end;
+	default: goto L_Menu;
+	}
+
+
+//==================================================
+// Special Maps
+//==================================================
+L_Special:
+	mes "[Dungeon Warper]";
+	mes "Special Maps";
+	next;
+
+	switch(select(
+		"Endless Tower",
+		"Yggdrasil",
+		"Back"
+	)) {
+	case 1: warp "1@tower",50,355; end;
+	case 2: warp "yggdrasil01",204,78; end;
+	default: goto L_Menu;
+	}
+
+	close;
+}

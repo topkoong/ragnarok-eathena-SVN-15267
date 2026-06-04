@@ -1,0 +1,104 @@
+//============================================================
+// New Player Guide Board
+// File: npc/custom/new_player_guide_board.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal / High-Class
+//
+// Purpose:
+// - Help new joiners understand the server flow.
+// - Guide to services, buffs, job change, rebirth, quests, card market.
+//============================================================
+
+prontera,106,95,4	script	NewGuide#main	742,{
+	mes "[คู่มือผู้เล่นใหม่]";
+	mes "ยินดีต้อนรับสู่เซิร์ฟเวอร์";
+	mes "ฉันช่วยสรุปจุดสำคัญให้ผู้เล่นใหม่ได้";
+	next;
+
+L_Main:
+	mes "[คู่มือผู้เล่นใหม่]";
+	mes "ต้องการดูเรื่องไหน?";
+	next;
+	switch(select(
+		"เริ่มต้นควรทำอะไร",
+		"บริการหลักอยู่ที่ไหน",
+		"เปลี่ยนอาชีพ / Rebirth",
+		"Quest Coin คืออะไร",
+		"ตลาดการ์ด / ตลาดของ",
+		"Official-style Headgear Quests",
+		"วาร์ปไป Izlude Beginner Helper",
+		"Cancel"
+	)) {
+	case 1: goto L_Start;
+	case 2: goto L_Service;
+	case 3: goto L_Job;
+	case 4: goto L_Coin;
+	case 5: goto L_Market;
+	case 6: goto L_Quest;
+	case 7: warp "izlude",128,116; end;
+	default: close;
+	}
+
+L_Start:
+	mes "[คู่มือผู้เล่นใหม่]";
+	mes "แนะนำสำหรับเริ่มต้น:";
+	mes "1. ไป Izlude รับ Beginner Pack";
+	mes "2. เปลี่ยนอาชีพ 1st Job";
+	mes "3. ใช้ Healer / Warper / Buffer ที่ Prontera";
+	mes "4. เก็บวัตถุดิบเพื่อทำ Quest Coin";
+	mes "5. เมื่อ 99/50 ให้ไป Valkyrie เพื่อ Rebirth";
+	next;
+	goto L_Main;
+
+L_Service:
+	mes "[คู่มือผู้เล่นใหม่]";
+	mes "บริการหลักอยู่แถว Prontera 115,95:";
+	mes "- Healer";
+	mes "- Warper";
+	mes "- Global Buffer";
+	mes "- Reset / Identify / Repair";
+	mes "- Card Remover";
+	mes "- Stylist";
+	mes "- Quest Coin Shop";
+	next;
+	goto L_Main;
+
+L_Job:
+	mes "[คู่มือผู้เล่นใหม่]";
+	mes "ระบบอาชีพ:";
+	mes "- เปลี่ยน 1st/2nd Job ตาม NPC ดั้งเดิม";
+	mes "- เมื่อ 2nd Class ปกติ Base 99 / Job 50 ให้ไป Valkyrie";
+	mes "- Rebirth เป็น High Novice";
+	mes "- ใช้ HighClassNPC เปลี่ยนเป็น High 1st และ Transcendent";
+	next;
+	goto L_Main;
+
+L_Coin:
+	mes "[คู่มือผู้เล่นใหม่]";
+	mes "Quest Coin คือแต้มรางวัลแบบบัญชี";
+	mes "ใช้แลกของที่ Quest Coin Shop และ Advanced Reward Shop";
+	mes "หาได้จาก Daily Quest, Monster Hunter หรือระบบอื่น ๆ ที่เพิ่มไว้";
+	next;
+	goto L_Main;
+
+L_Market:
+	mes "[คู่มือผู้เล่นใหม่]";
+	mes "ตลาดหลัก:";
+	mes "- Payon = Card Market";
+	mes "- Morocc = Quest Gear / Battle Supplies";
+	mes "- Prontera = Rare Gear / MVP Card / Services";
+	mes "- Geffen = Magic Supplies";
+	mes "- Alberta = Pet / Cooking / Utility";
+	mes "- Aldebaran = Upgrade / Refine materials";
+	next;
+	goto L_Main;
+
+L_Quest:
+	mes "[คู่มือผู้เล่นใหม่]";
+	mes "Official-style Headgear Quests ที่เพิ่มแล้ว:";
+	mes "- 2004";
+	mes "- 2005";
+	mes "- 2006";
+	mes "ใช้ EquipQuestIndex ที่ Prontera เพื่อดูตำแหน่ง";
+	next;
+	goto L_Main;
+}

@@ -1,0 +1,61 @@
+npc: npc/other/Global_Functions.txt
+npc: npc/custom/top_common_functions.txt
+npc: npc/custom/thai_rebirth_valkyrie.txt
+npc: npc/custom/thai_highclass_jobchanger.txt
+npc: npc/custom/global_buffer.txt
+npc: npc/custom/rare_gear_shops.txt
+npc: npc/custom/quest_gear_dealers.txt
+npc: npc/custom/special_card_dealers.txt
+npc: npc/custom/service_npcs.txt
+npc: npc/custom/platinum_skill_npc.txt
+npc: npc/custom/card_remover.txt
+npc: npc/custom/stylist.txt
+npc: npc/custom/battle_supply_shops.txt
+npc: npc/custom/geffen_magic_shops.txt
+npc: npc/custom/alberta_utility_shops.txt
+npc: npc/custom/aldebaran_upgrade_npcs.txt
+npc: npc/custom/izlude_beginner_helper.txt
+npc: npc/custom/yuno_advanced_helper.txt
+npc: npc/custom/daily_quest_board.txt
+npc: npc/custom/monster_hunter_board.txt
+npc: npc/custom/headgear_quest_npc.txt
+npc: npc/custom/field_support_npcs.txt
+npc: npc/custom/quest_coin_shop.txt
+npc: npc/custom/class_utility_npc.txt
+npc: npc/custom/payon_card_market_extra_dealers.txt
+npc: npc/custom/pet_and_cooking_shops.txt
+npc: npc/custom/dungeon_entrance_support.txt
+npc: npc/custom/mvp_room.txt
+npc: npc/custom/official_headgear_quests_2004.txt
+npc: npc/custom/official_headgear_quests_2004_part2.txt
+npc: npc/custom/official_headgear_quests_2005.txt
+npc: npc/custom/official_headgear_quests_2006.txt
+npc: npc/custom/dead_branch_room.txt
+npc: npc/custom/woe_supply_shop.txt
+npc: npc/custom/official_equipment_quest_index.txt
+npc: npc/custom/official_skill_quest_index.txt
+npc: npc/custom/quest_coin_shop_advanced_rewards.txt
+npc: npc/custom/economy_sink_npcs.txt
+npc: npc/custom/rental_utility_npc.txt
+npc: npc/custom/achievement_title_board.txt
+npc: npc/custom/new_player_guide_board.txt
+npc: npc/custom/event_manager.txt
+
+// npc: npc/custom/services/dungeon_global_buffers.txt
+npc: npc/custom/services/top_dungeon_warper.txt
+npc: npc/custom/services/dun_buffers.txt
+
+// npc: npc/custom/fake_activity/fake_players_real.txt
+// npc: npc/custom/fake_activity/fake_vending_real.txt
+// npc: npc/custom/fake_activity/fake_buying_real.txt
+// npc: npc/custom/fake_activity/fake_warp_sellers_real.txt
+// npc: npc/custom/fake_activity/fake_leveling_scenes.txt
+
+npc: npc/custom/fake_activity/test_one_vendor.txt
+
+import: npc/scripts_mapflags.conf
+import: npc/scripts_warps.conf
+import: npc/scripts_guild.conf
+import: npc/scripts_monsters.conf
+import: npc/scripts_athena.conf
+import: npc/scripts_jobs.conf

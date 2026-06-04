@@ -1,0 +1,122 @@
+//============================================================
+// Card Remover / Decarder
+// eAthena SVN 15267
+//
+// Purpose:
+//   Removes cards from equipped items.
+//   Uses successremovecards, which returns the cards and keeps the item.
+//
+// Location:
+//   prontera,166,89
+//============================================================
+
+prontera,118,91,4	script	Card Remover	813,{
+
+	set .NormalBaseFee, 5000000;
+	set .NormalPerCardFee, 1000000;
+	set .MvpBaseFee, 50000000;
+	set .MvpPerCardFee, 10000000;
+
+	mes "[Card Remover]";
+	mes "I can remove cards from your equipped items.";
+	mes "The equipment and cards will be returned safely.";
+	next;
+
+	mes "[Card Remover]";
+	mes "Normal card removal starts from 5,000,000 Zeny.";
+	mes "MVP card removal starts from 50,000,000 Zeny.";
+	next;
+
+	switch(select(
+		"Headgear",
+		"Armor",
+		"Weapon",
+		"Shield",
+		"Garment",
+		"Shoes",
+		"Accessory Left",
+		"Accessory Right",
+		"Cancel"
+	)) {
+		case 1: set .@slot, EQI_HEAD_TOP; break;
+		case 2: set .@slot, EQI_ARMOR; break;
+		case 3: set .@slot, EQI_HAND_R; break;
+		case 4: set .@slot, EQI_HAND_L; break;
+		case 5: set .@slot, EQI_GARMENT; break;
+		case 6: set .@slot, EQI_SHOES; break;
+		case 7: set .@slot, EQI_ACC_L; break;
+		case 8: set .@slot, EQI_ACC_R; break;
+		default: close;
+	}
+
+	if (getequipid(.@slot) <= 0) {
+		mes "[Card Remover]";
+		mes "You do not have equipment in that slot.";
+		close;
+	}
+
+	set .@card_count, 0;
+	set .@has_mvp_card, 0;
+
+	// Common MVP card list.
+	// Add/remove card IDs later if needed.
+	setarray .@mvp_cards[0],
+		4121,4123,4128,4131,4142,4143,4144,4145,4146,4147,
+		4168,4302,4403,4407,4408;
+
+	for (set .@i,0; .@i < 4; set .@i,.@i+1) {
+		set .@card_id, getequipcardid(.@slot,.@i);
+
+		if (.@card_id > 0) {
+			set .@card_count, .@card_count + 1;
+
+			for (set .@j,0; .@j < getarraysize(.@mvp_cards); set .@j,.@j+1) {
+				if (.@card_id == .@mvp_cards[.@j]) {
+					set .@has_mvp_card, 1;
+				}
+			}
+		}
+	}
+
+	if (.@card_count <= 0) {
+		mes "[Card Remover]";
+		mes "This equipment has no cards.";
+		close;
+	}
+
+	if (.@has_mvp_card) {
+		set .@fee, .MvpBaseFee + (.MvpPerCardFee * .@card_count);
+	} else {
+		set .@fee, .NormalBaseFee + (.NormalPerCardFee * .@card_count);
+	}
+
+	mes "[Card Remover]";
+	mes "Equipment:";
+	mes getequipname(.@slot);
+	mes "Cards found: " + .@card_count;
+	next;
+
+	mes "[Card Remover]";
+	mes "Removal fee: " + .@fee + " Zeny.";
+	mes "Do you want to continue?";
+	next;
+
+	if (select("Yes, remove cards", "Cancel") == 2) {
+		close;
+	}
+
+	if (Zeny < .@fee) {
+		mes "[Card Remover]";
+		mes "You do not have enough Zeny.";
+		close;
+	}
+
+	set Zeny, Zeny - .@fee;
+
+	successremovecards .@slot;
+
+	mes "[Card Remover]";
+	mes "Done.";
+	mes "Your cards have been removed safely.";
+	close;
+}

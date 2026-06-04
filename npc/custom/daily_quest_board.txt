@@ -1,0 +1,55 @@
+//============================================================
+// Daily Quest Board
+// Safe item turn-in daily quests for old eAthena.
+// Uses account variable #top_daily_reset.
+//============================================================
+
+prontera,170,86,4	script	DailyQuestBoard#main	742,{
+	mes "[กระดานภารกิจประจำวัน]";
+	mes "ภารกิจนี้ทำได้วันละ 1 ครั้งต่อบัญชี";
+	mes "เป็นภารกิจส่งของแบบปลอดภัย ไม่ผูกกับระบบ kill quest รุ่นใหม่";
+	next;
+	if (#top_daily_reset > gettimetick(2)) {
+		set .@remain,#top_daily_reset-gettimetick(2);
+		mes "วันนี้ท่านทำภารกิจไปแล้ว";
+		mes "กรุณากลับมาใหม่ในอีกประมาณ " + (.@remain / 3600) + " ชั่วโมง";
+		close;
+	}
+	switch(select("ส่ง Jellopy 30 ชิ้น:ส่ง Empty Bottle 20 ชิ้น:ส่ง Blue Gemstone 10 ชิ้น:ยกเลิก")) {
+	case 1:
+		if (countitem(909) < 30) {
+			mes "ต้องใช้ Jellopy 30 ชิ้น";
+			close;
+		}
+		delitem 909,30;
+		getitem 504,20;
+		set Zeny,Zeny+10000;
+		set #top_daily_reset,gettimetick(2)+86400;
+		mes "สำเร็จ ได้รับ White Potion 20 ชิ้น และ 10,000 Zeny";
+		close;
+	case 2:
+		if (countitem(713) < 20) {
+			mes "ต้องใช้ Empty Bottle 20 ชิ้น";
+			close;
+		}
+		delitem 713,20;
+		getitem 505,5;
+		set Zeny,Zeny+15000;
+		set #top_daily_reset,gettimetick(2)+86400;
+		mes "สำเร็จ ได้รับ Blue Potion 5 ชิ้น และ 15,000 Zeny";
+		close;
+	case 3:
+		if (countitem(717) < 10) {
+			mes "ต้องใช้ Blue Gemstone 10 ชิ้น";
+			close;
+		}
+		delitem 717,10;
+		getitem 610,3;
+		set Zeny,Zeny+20000;
+		set #top_daily_reset,gettimetick(2)+86400;
+		mes "สำเร็จ ได้รับ Yggdrasil Leaf 3 ชิ้น และ 20,000 Zeny";
+		close;
+	case 4:
+		close;
+	}
+}

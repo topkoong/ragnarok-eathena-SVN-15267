@@ -1,0 +1,1471 @@
+//========================================================
+//===== eAthena Script =======================================
+//===== Current Version: ===================================== 
+//= 1
+//===== Compatible With: ===================================== 
+//= eAthena SVN 3422+(Requires jA Script System)
+//=========================================================
+//=========================================================
+new_1-1,66,114,4	script	Bulletin Board	111,{
+	mes "^FF0000=================================^000000";
+	mes "^E40CAAยินดีต้อนรับสู่^FF8040 Training Ground^000000";
+	mes "^0000FFโปรดเดินไปตามทางเพื่อรับภารกิจ^000000";
+	mes "^0000FFและทดสอบความสามารถของท่านค่ะ^000000";
+	mes "^E40CAAขอให้สนุกนะค่ะ^_^^000000";
+	mes "^FF0000=================================^000000";
+close;
+}
+
+new_1-1,144,116,2	script	Guard#01	105,{
+	if(class != 0) goto L_no2;
+	mes "[Training Grounds Guard]";
+	mes "ยินดีต้อนรับสู่ Training Grounds.";
+	mes "คุณน่าจะลองสำรวจสถานที่นี้ดูรอบๆนะ แต่ถ้าเบื่อแล้วอยากจะลองฝึกละก็เชิญเข้าไปในปราสาทได้เลย";
+	close;
+L_no2:
+	mes "[Training Grounds Guard]";
+	mes "ทำไมคุณถึงมาอยู่ที่นี่ได้ละ ตรงนี้ไม่ใช่ที่ๆของเจ้านะ";
+	close;
+}
+
+new_1-1,144,107,2	script	Guard#02	105,{
+if(class != 0) goto L_no2;
+mes "[Training Grounds Guard]";
+mes "เข้ามาเลย";
+mes "ฉันภูมิใจทุกๆครั้งที่ได้เห็นนักผจญภัยหน้าใหม่";
+mes "ยินดีต้อนรับคุณเข้าสู่";
+mes "the Training Grounds!";
+next;
+mes "[Training Grounds Guard]";
+mes "ข้างในนี้ เป็นสถานที่ฝึกฝนของ Novice หน้าใหม่ อย่างดีเยี่ยมเลย";
+mes "ที่นี่ มีความปลอดภัยมาก พร้อมที่จะให้เจ้าได้ฝึก";
+mes "เพื่อรับมือกับความยากลำบากที่อาจพบได้ในอนาคตของ";
+next;
+mes "[Training Grounds Guard]";
+mes "Ragnarok world!";
+close;
+
+L_no2:
+	mes "[Training Grounds Guard]";
+	mes "ที่นี่เป็นสถานที่ของ Novice เท่านั้น เจ้าควรจะไปที่ๆเจ้าควรอยู่";
+	close;
+}
+
+//Receptionist
+new_1-2,100,29,4	script	Receptionist::des1	86,{
+	if(Class != Job_Novice || Upper) goto L_Fail;
+	if(TrainDes >= 1) goto L_Fail;
+	mes "[Training Grounds Receptionist]";
+	mes "ยินดีต้อนรับ";
+	mes "เข้าสู่การฝึกของ ^3355FFTraining Grounds^000000.";
+	next;
+	mes "[Training Grounds Receptionist]";
+	mes "ถ้าอย่างนั้น เจ้าต้องลงทะเบียนก่อนจึงจะเข้าฝึกได้";
+	mes "สงสัยอะไรหรือเปล่า";
+		L_loop:
+	next;
+		menu "ลงทะเบียนเข้าฝึก",vix,"ส่งฉันเข้าสู่โลก Ragnarok Online",vic;
+		vix:
+		mes "[Training Grounds Receptionist]";
+		mes "ขอบคุณที่ต้องการฝึก Novice ทั้งหลายควรได้รับการฝึกฝนจากที่นี่";
+		next;
+		mes "[Training Grounds Receptionist]";
+		mes "ดังนั้นเราจึงขอมอบเงิน 50 Zeny เอาไว้ให้เจ้าใช้การเดินทาง";
+		next;
+		mes "[Training Grounds Receptionist]";
+		mes "เอาละ อย่ามัวเสียเวลาเลย ฉันจะส่งคุณไปยัง";
+		mes "ภายในของ Training Grounds";
+		close2;
+		set TrainDes,1;
+		set Zeny,Zeny+50;
+		savepoint "new_1-2",100,70;
+		warp "new_1-2",100,70;
+		end;	
+vic:	
+		mes "[Training Grounds Receptionist]";
+		mes "ฉันเข้าใจแล้ว";
+		mes "กรุณารอสักครู่";
+		mes "คงมีสักวันที่เราได้พบกันอีก";
+		mes "ขอให้โชคดี";
+		close2;
+		set TrainDes,0;
+		savepoint "morocc",160,50;
+		warp "morocc",160,50;
+		end;
+L_Fail:
+	mes "[Training Grounds Receptionist]";
+	mes "คุณไม่ควรมาอยู่ที่นี่";
+	close2;
+	savepoint "prontera",273,354;
+	warp "prontera",273,354;
+	end;
+}
+
+//Interfaces Instructor
+new_1-2,99,105,4	script	Interfaces Instructor	751,{
+	if(TrainDes < 1) goto L_Fail;
+	if(TrainDes == 2) goto L1_Fail;
+	if(TrainDes == 3) goto L2_Fail;
+
+		mes "[Chris]";
+		mes "ยินดีที่ได้พบกัน คุณนักผจญภัยหน้าใหม่";
+		next;
+		mes "[Chris]";
+		mes "เอาละ ผมมีหน้าที่สอนเกี่ยวกับ ระบบหน้าต่างพื้นฐาน";
+		mes "ซึ่งคุณ"+strcharinfo(0)+" สามารถเลือกได้ว่าอยากจะเข้ารับการฝึกกับใคร หรือไม่รับการฝึกจากใคร";
+		mes "เพราะทั้งหมดนั้นผลที่ได้ขึ้นอยู่กับตัวของคุณเอง พวกเราทำตามหน้าที่เท่านั้น";
+		next;
+		switch( select("ฉันอยากฟังการบรรยายของคุณ","ฉันไม่อยากฟังเรื่องไร้สาระหรอกนะ พาฉันไปสนามฝึกที","Cancel.") ) {
+		case 1:	mes "[Chris]";
+			mes "คุณสามารถปรับเปลี่ยนมุมมองของเกมด้วยการ คลิกขวา แล้วหมุน mouse ได้ตามอัตธยาศัย";
+			mes "แต่บางพื้นที่ก็ไม่สามารถทำได้";
+			next;
+			mes "[Chris]";
+			mes "เริ่มสอนขั้นแรกเลยละกัน มองไปที่ด้านบนขวาของหน้าจอ";
+			mes "คุณจะเห็นชื่อและข้อมูลของคุณในหน้าต่างเล็กๆ";
+			mes "และแถบ EXP ของคุณ";
+			mes "ตรงนี้เป็นหน้าต่างแสดง ^0000FFข้อมูลทั่วไปของคุณ^000000.";
+			next;
+			mes "[Chris]";
+			mes "ผมจะให้ EXP แก้คุณแล้วกัน";
+			mes "ลองสังเกตความเปลี่ยนแปลงที่เกิดขึ้น";
+			set BaseExp,BaseExp+19;
+			next;
+			mes "[Chris]";
+			mes "คุณเห็นมันหรือเปล่า";
+			next;
+			mes "[Chris]";
+			mes "คุณสามารถย่อหรือขยายหน้าต่างนี้ได้ หากทำการขยายหน้าต่างนี้";
+			mes "คุณจะเห็นแถบ EXP 2 อย่าง นั้นคือ Base EXP กับ Job EXP";
+			mes "ในการเรียนรู้ ^0000FFSkill^000000 คุณจะต้องมี skill point.";
+			mes "ซึ่งได้มากจาก Job EXP level.";
+			next;
+			mes "[Chris]";
+			mes "ในการสนทนากับผู้อื่น ให้คุณลองมองหน้าต่างข้างล่างสุด";
+			mes "คุณสามารถพิมพ์อะไรลงไปก็ได้ แล้วกด Enter เพียงเท่านี้ก็สามารถสนทนากับผู้อื่นได้แล้ว";
+			mes "ในกรณีที่ต้องการสนทนาเป็นกลุ่มคุณอาจจะคลิกปุ่มกลมๆสีฟ้าที่ช่องแชทแล้วเลือก 'ส่งไปให้สมาชิกใน party' and 'ส่งไปที่สมาชิก guild'";
+			mes "เพียงเท่านี้คุณก็สามารถสนทนากับผู้อื่นที่อยู่ไกลๆได้ และบุคคลที่ไม่ได้อยู่ในกลุ่มก็จะไม่เห็นข้อความของคุณด้วย";
+			next;
+			mes "[Chris]";
+			mes "ต่อไปคือ หน้าต่างด้านบนขวา";
+			mes "เรียกอีกอย่างว่า minimap มีไว้เพื่อประโยชน์ในหลายๆกรณี ซึ่งมันสามารถบอกตำแหน่งของเพื่อนๆในParty หรือ Guild ได้ด้วย";
+			mes "ส่วน ^0000FF จุดกลมๆสีแดงในแผนที่นั่นคือทางออก^000000.";
+			next;
+			mes "[Chris]";
+			mes "กลับมาที่หน้าต่างด้านบนซ้ายของหน้าจอมันสามารถ";
+			mes "เชื่อมไปยังหน้าต่างอื่นๆได้อีกเช่น ของสวมใส่, สถานะ, อื่นๆ";
+			next;
+			mes "[Chris]";
+			mes "เอาละเรียนรู้กันมาพอสมควรแล้ว";
+			mes "นี้คือ Job EXP ที่คุณได้จากการเรียนรู้ครั้งนี้";
+			set JobExp,JobExp+11;
+			next;
+			mes "[Chris]";
+			mes "ลองกด Alt+S เพื่อกดอัพ Basic Skill ดูสิ";
+			next;
+			mes "[Chris]";
+			mes "เอาละผมจะมอบของขวัญให้คุณอย่างหนึ่งแล้วกัน คิดว่าน่าจะมีประโยชน์ทีเดียว";
+			set TrainDes,2;
+			getitem 2352,1;
+			close;
+		case 2:	mes "[Chris]";
+			mes "ผมเข้าใจเมื่อก่อนผมก็เป็นแบบคุณ";
+			close2;
+			warp "new_1-2",28,178;
+			end;
+		case 3:	emotion e_swt2;
+			close;
+		}
+ L1_Fail:
+		mes "[Chris]";
+		mes "คุณต้องการอะไรอีกอย่างนั้นหรือ";
+		mes "อืม....";
+		mes "หากคุณต้องการเรียนเกี่ยวกับ Skill ละก็";
+		mes "ผมสามารถส่งคุณไปหาคนสอนได้นะ.";
+		next;
+		switch( select("Thanks!","ส่งฉันไปฝึกที","Cancel") ) {
+		case 1:	mes "[Chris]";
+			mes "ถ้าคุณต้องการเรียนรู้เกี่ยวกับ Skill";
+			mes "งั้นผมจะส่งคุณไปหาผู้เชี่ยวชาญเอง";
+			close2;
+			warp "new_1-2",84,107;
+			end;
+		case 2:	mes "[Chris]";
+			mes "คุณต้องการไปฝึกแล้วสินะ";
+			next;
+			if ( select("ขออยู่ตรงนี้สักพัก","ใช่แล้ว") == 1 ) {
+				mes "[Chris]";
+				mes "ตามสบาย";
+				close;
+			} else {
+				mes "[Chris]";
+				mes "ขอให้โชคดี";
+				close2;
+				warp "new_1-2",28,178;
+				end;
+			}
+		case 3:	emotion e_swt2;
+			close;
+		}
+L2_Fail:
+	mes "[Chris]";
+	mes "คุณได้เรียนทฤษฎีพอสมควรแล้ว อยากลองไปล่ามอนสเตอร์ดูไหมละ";
+	next;
+	switch( select("แน่นอน","ฉันอยากสำรวจดูรอบๆก่อน","พาฉันเข้าเมือง") ) {
+	case 1:	mes "[Chris]";
+		mes "ขอให้โชคดี";
+		close2;
+		warp "new_1-2",28,178;
+		end;
+	case 2:	mes "[Chris]";
+		mes "ก็ดีเหมือนกัน แต่ถ้าไปไหนไม่ถูก มาถามผมได้";
+		close;
+	case 3:	mes "[Chris]";
+		mes "คุณแน่ใจแล้วนะ ว่าต้องการไปที่เมือง";
+		mes "คุณสามารถไปที่เมืองโดยผ่านบริการ";
+		mes "^0000FFKafra Service.^000000";
+		next;
+		mes "[Chris]";
+		mes "ซึ่งบริการของ Kafra มีหลายอย่างมากเช่น";
+		mes "'บริการ Teleportation'";
+		mes "'เปิดคลังเก็บของ '";
+		mes "และอีกมากมาย";
+		next;
+		mes "[Chris]";
+		mes "ถ้าคุณออกจากที่นี่แล้วจะไม่สามารถกลับมาได้อีก";
+		mes "แต่";
+		mes "ผมว่าสักวันเราคงได้พบกันอีก";
+		mes "โชคดี";
+		close;
+	}
+L_Fail:
+mes "[Chris]";
+mes "คุณไม่ได้ลงทะเบียนมานี้น่ากรุณากลับไปลงทะเบียน";
+close2;
+warp "new_1-2",100,25;
+close;
+
+}
+
+new_1-2,83,111,4	script	Skill Instructor	753,{
+if(TrainDes < 2) goto L_Fail;
+if(TrainDes == 3) goto L1_Fail;
+if(TrainDes > 3) goto L1_Fail;
+		mes "[Shecil]";
+		mes ""+strcharinfo(0)+"";
+		mes "มาได้เวลาพอดีเลย";
+		mes "จะเริ่มเรียนเลยไหม";
+		next;
+		switch( select("คุณจะสอนอะไรฉัน","ส่งข้าไปฝึกที","Cancel") ) {
+		case 1:	mes "[Shecil]";
+			mes "เราอาจจะตายได้ในการต่อสู้!";	
+			mes "ดังนั้นเราจำเป็นจะต้องมี Skill เพื่อให้มีชีวิตรอด";
+			mes "เพื่อไม่ให้เสียเวลา เรามาเริ่มกันเลยดีกว่า";
+			next;
+			mes "[Shecil]";
+			mes "ในหน้าต่างของข้อมูลทั่วไป คุณสามารถคลิกคำว่า";	
+			mes "^0000FFทักษะ^000000.";
+			mes "ก็จะพบหน้าต่างใหม่ หรืออาจจะใช้ปุ่มลัดโดยการกด";
+			mes "'Alt+S'";
+			mes "งั้นข้าขอมอบ Job EXP แก่เจ้าก่อน";
+			set JobExp,JobExp+20;
+			next;
+			mes "[Shecil]";
+			mes "ไหนตอนนี้คุณเปิดอยู่หรือเปล่า";	
+			mes "มองไปที่ Basic Skill";
+			mes "ตอนนี้ คุณได้ Job EXP เพิ่มมาอีกหนึ่งแล้ว";
+			mes "เห็นปุ่ม 'Lv Up Button' ไหม ลองคลิกดู";
+			next;
+			mes "[Shecil]";
+			mes "ตอนนี้หากคุณได้กดมัน LevelSkill ของทักษะนั้น ก็จะเพิ่มขึ้น";	
+			next;
+			mes "[Shecil]";
+			mes "อ่อ ใช่แล้ว";	
+			mes "ข้าควรสอนสกิล First Aid แก่เจ้า";
+			mes "มันสามารถทำให้เจ้ามีชีวิตรอดได้ในเวลาที่อับจน";
+			skill 142,1,0;
+			set skill_nov,3;
+			next;
+			mes "^0000FF-คุณได้รับ First Aid Skill-^000000";
+			next;
+			mes "[Shecil]";
+			mes "หากตอนนี้คุณยังเปิดหน้าต่าง Skill อยู่ คุณจะพบกับทักษะใหม่";	
+			mes "^0000FFFirst Aid^000000";
+			mes "ลอง ดับเบิ้ลคลิกมันเพื่อใช้สกิล";
+			next;
+			mes "^0000FF-คุณได้รับ Job Exp.-^000000";
+			set JobExp,JobExp+20;
+			next;
+			mes "[Shecil]";
+			mes "เป็นอย่างไรบ้าง";
+			mes "เมื่อไรที่คุณใช้สกิล SP ของคุณจะลดลงไป";
+			mes "ถ้าคุณใช้ First Aid ค่า HP ของคุณจะเพิ่มขึ้น";
+			mes "มันเหมาะมากสำหรับ Novice หน้าใหม่";
+			next;
+			mes "[Shecil]";
+			mes "ขอบคุณที่ตั้งใจเรียน";	
+			mes "หวังว่าน่าจะได้อะไรดีๆจากข้าไป";
+			mes "เพื่อเป็นรางวัลแก่ความตั้งใจ ข้าขอมอบ";
+			mes "EXP แก่เจ้า";
+			set BaseExp,BaseExp+15;
+			set TrainDes,3;
+			next;
+			mes "[Shecil]";
+			mes "การเรียนจบแล้ว";	
+			mes "ต่อไปเจ้าจะทำอะไรหรือ";
+			next;
+			switch( select("ข้าอยากเดินดูรอบๆก่อน","ส่งข้าไปฝึกที","Cancel.") ) {
+			case 1:	mes "[Shecil]";
+				mes "ถ้าคุณยังไม่ได้ศึกษาจากใคร ข้าแนะนำว่าเจ้าควรคุยกับทุกๆคน";	
+				mes "เพราะพวกเขาช่วยเจ้าได้ทั้งหมด";
+				close;
+			case 2:	goto L_battle;
+			case 3:	emotion e_omg;
+			}
+			close;
+		case 2:	goto L_battle;
+		case 3:	emotion e_omg;
+		}
+		close;
+
+	mes "[Shecil]";
+	mes "ต้องการให้ช่วยอะไรงั้นหรือ";
+	next;
+	switch( select("ส่งข้าไปฝึกที","ข้าต้องไปที่เมือง") ) {
+	case 1:	mes "[Shecil]";
+		mes "เอาละ";
+		mes "ข้าจะส่งเจ้าไปหาเจ้าหน้าที่สนามฝึก";
+		mes "ที่นั่นมี Monster ให้เจ้าได้ฝึกฝนมากมาย";
+		close2;
+		warp "new_1-2",28,178;
+		end;
+	case 2:	mes "[Shecil]";
+		mes "หากคุณต้องการไปที่เมือง";
+		mes "ทำไมไม่ใช้บริการของ Kafra services ดูล่ะ";
+		close;
+	}
+	end;
+L_battle:
+	mes "[Shecil]";
+	mes "ขอให้โชคดี";
+	close2;
+	warp "new_1-2",28,178;
+	end;
+
+L_Fail:
+	mes "[Shecil]";
+	mes "คุณควรได้รับการฝึกจาก Chris อ๋อ เขายืนตรงกลางนะ";
+	close;
+
+L1_Fail:
+		mes "[Shecil]";
+		mes "ต้องการให้ช่วยอะไรงั้นหรือ";
+		next;
+		switch( select("ข้าควรไปที่ไหนต่อ","ข้าเบื่อแล้ว ส่งข้าไปฝึกที","Cancel.") ) {
+		case 1:	mes "[Shecil]";
+			mes "ใช่แล้วเป็นคำถามที่ดี เจ้าควรได้เรียนรู้เกี่ยวกับการใช่ไอเทม";
+			close2;
+			warp "new_1-2",115,107;
+			break;
+		case 2:	goto L_battle;
+		case 3:	emotion e_omg;
+		}
+		close;
+}
+
+new_1-2,115,111,4	script	Item Instructor	726,{
+if(TrainDes < 3) goto L_Fail;
+if(TrainDes > 3) goto L1_Fail;
+	disable_items;
+		mes "[Alice]";
+		mes "เบื่อจริงๆ";
+		mes "ฮะ? ต้องการให้ข้าสอนเจ้างั้นหรือ";
+		next;
+		menu "ใช่",-,"ไม่",L_battle,"เมืองอยู่ไหน",L_kafra;
+			mes "[Alice]";
+			mes "งั้นข้าจะสอนสั้นๆแล้วกันเพราะข้าเบื่อมากกับการยืนทั้งวันทั้งคืน";
+			mes "ขั้นแรก ให้เจ้าคลิกคำว่า 'ไอเท็ม'ที่หน้าต่างข้อมูลทั่วไป";
+			mes "มันจะแสดงหน้าต่างสิ่งของขึ้นมา 3 อย่าง ได้แก่ item, equip และ etc.";
+			next;
+			mes "[Alice]";
+			mes "ตอนนี้ให้คุณคลิกที่คำว่า item (ไอเท็ม) ในหน้าต่างนั้น";
+			mes "ตอนนี้มันไม่มีอะไรใช่ไหม";
+			mes "ข้าจะมอบสิ่งของให้แก่เจ้านั่นคือ Novice Potion";
+			mes "คุณสามารถดื่มมันได้โดยการ ดับเบิ้ลคลิกที่สิ่งของนั้น";
+			mes "ไหนลองทำสิ";
+			set @potion,countitem(569);
+			getitem 569,1;
+			enable_items;
+			next;
+			if ( @potion >= countitem(569) ) {
+				mes "[Alice]";
+				mes "เยี่ยม";
+				mes "แสดงว่าฟังที่ข้าสอนรู้เรื่อง";
+				set BaseExp,BaseExp+15;
+				next;
+			} else {
+				mes "[Alice]";
+				mes "อืมเจ้ายังไม่ดื่มมันอีกเหรอ";
+				next;
+			}
+			disable_items;	
+			mes "[Alice]";
+			mes "ต่อไปลองมองไปที่";
+			mes "^0000FFequip^000000";
+			mes "ในหน้าต่างของ ไอเท็ม";
+			next;
+			mes "[Alice]";
+			mes "คุณจะเห็นเครื่องสวมใส่ของคุณ";
+			mes "ตอนนี้ข้าจะให้เครื่องสวมใส่แก่เจ้า";
+			next;
+			getitem 2510,1;
+			getitem 2414,1;
+			getitem 5055,1;
+			enable_items;
+			mes "[Alice]";
+			mes "ว่าไง มันยอดไปเลยใช่ไหมละ";
+			mes "วิธีสวมใส่ก็คือ ดับเบิ้ลคลิกนั่นแหละ";
+			next;
+			if ( getequipisequiped(6) ) {
+				mes "[Alice]";
+				mes "ฮู้เล่~~!";
+				mes "แสดงว่าตั้งใจฟังข้า";
+				mes "ประสบการณ์เจ้าเพิ่มขึ้นอีกขั้นแล้ว";
+				set BaseExp,BaseExp+20;
+				next;
+			}
+			disable_items;
+			mes "[Alice]";
+			mes "ต่อไป ให้คุณกดปุ่ม";
+			mes "^0000FF'F12'^000000";
+			mes "เพื่อเรียก หน้าต่าง HotKey ออกมา";
+			next;
+			mes "[Alice]";
+			mes "ซึ่งจะมี 9 ช่องตั้งแต่ 1- 9^0000FFF1 to F9^000000";
+			mes "ถ้าคุณเอาสิ่งของหรือสกิลไปว่างในนั้น คุณจะสามารถใช้สิ่งนั้นๆได้คล่องขึ้น";
+			mes "ตอนนี้คุณน่าจะมีสกิล 'First Aid'.";
+			mes "ลองคลิกเม้าท์ลากสกิลนี้ไปวางบนหน้าต่าง Hot key ดูสิ";
+			next;
+			mes "[Alice]";
+			mes "คุณเข้าใจหรือเปล่า";
+			mes "บางสกิลหรือไอเทมบางอย่างจะไม่สามารถ";
+			mes "จะไม่สามรถนำขึ้น HoyKeyได้ เช่น สกิลติดตัวทั้งหลาย";
+			set JobExp,JobExp+20;
+			next;
+			getitem 601,10;
+			getitem 602,2;
+			getitem 569,50;
+			next;
+			mes "[Alice]";
+			mes "^FF0000คุณไม่สามารถใช้ Fly Wing หรือ Butterfly Wing ^000000ในบางสถานที่ได้ เช่นTraining Grounds ";
+			next;
+			mes "[Alice]";
+			mes "สุดท้ายแล้ว ข้าขอมอบของขวัญแก่เจ้าแล้วกัน";
+			set JobExp,JobExp+11;
+			set TrainDes,4;
+			close;
+L_Fail:
+	mes "[Alice]";
+	mes "คุณควรได้รับการฝึกเรื่องระบบพื้นฐานและการใช้สกิลก่อนนะ";
+	close;
+
+L1_Fail:
+	mes "[Alice]";
+	mes "หืม";
+	next;
+	menu "ข้าไม่รู้ว่าควรไปที่ไหน",-,"ข้าอยากเข้าเมือง",L_kafra,"Cancel.",L_bye;
+		mes "[Alice]";
+		mes "ถ้าคุณได้เรียนเกี่ยวกับ ระบบพื้นฐาน , สกิล ,ไอเทมแล้ว";
+		mes "เจ้าควรได้รับการฝึกภาคสนาม";
+		next;
+		if ( select("พาข้าไปที","มันคืออะไร") == 1 ) {
+			mes "[Alice]";
+			mes "ได้เลย";
+			close2;
+			warp "new_1-2",28,178;
+			end;
+		} else {
+			mes "[Alice]";
+			mes "ไปถึงเจ้าก็จะรู้เอง";
+			close;
+		}
+		end;
+L_battle:
+		warp "new_1-2",28,178;
+		end;
+L_kafra:
+	mes "[Alice]";
+	mes "ถ้าต้องการไปที่เมืองให้คุยกับ kafra Employee";  
+	mes "บอกเธอว่า อยากไปที่ไหน เช่นProntera, Morroc, Payon, etc...";
+	close;
+L_bye:
+	mes "[Alice]";
+	mes "อืม...";
+	close;
+}
+
+new_1-2,118,108,4	script	Kafra Employee	94,{
+	mes "[Kafra Employee]";
+	mes "ยินดีต้อนรับสู่บริการของ";
+	mes "Kafra Corporation.";
+	next;
+	mes "[Kafra Employee]";
+	mes "หน้าที่ของฉันคือ แนะนำผู้เล่นใหม่เกี่ยวกับบริการของ Kafra";
+	next;
+	mes "[Kafra Employee]";
+	mes "เอาละเลือกหัวข้อที่ต้องการเลย!";
+	mes "ถ้าเลือกไปเมืองขอเตือนเลยว่า";
+	mes "^4d4dffเมื่อคุณออกจาก TrainingGround ไปแล้วจะไม่สามารถกลับเข้ามาได้อีก^000000.";
+	next;
+	menu "Teleport Service",-,"สอบถามเกี่ยวกับ Kafra services",service;
+		mes "[Kafra Employee]";
+		mes "คุณสามารถพบเราได้เกือบทุกๆที่ เราจะอยู่ตามเมืองต่างๆ คอยให้บริการกับคุณ";
+		next;
+		mes "[Kafra Employee]";
+		mes "^000084Izlude^000000 เมือง Izlude สมาคม Swordman";
+		next;
+		mes "[Kafra Employee]";
+		mes "^00FF00Prontera^000000 เมืองหลวงแห่ง อณาจักร Rune-Midgard มีเมือง izlude เป็นเมืองบริวาร";
+		next;
+		mes "[Kafra Employee]";
+		mes "^996633Morroc^000000 อยู่กลางทะเลทรายทางตอนใต้ของ Rune-Midgard สมาคม Assassin ก็อยู่ที่นั่น";
+		next;
+		mes "[Kafra Employee]";
+		mes "^006600Payon^000000 เมืองที่ ป่าไม้และภูเขา ล้อมรอบ ทางตอนเหนือของเมืองมีหมู่บ้านนักธนู";
+		next;
+		mes "[Kafra Employee]";
+		mes "เมืองแห่งเวทย์มนต์, ^993300Geffen^000000 ผู้คนมากมาย มาที่นี่เพื่อเป็น Mage และ Wizard";
+		next;
+		mes "[Kafra Employee]";
+		mes "^003399Alberta^000000 เมืองท่าเรือที่สำคัญ มีสมาคมพ่อค้าแม่ค้าตั้งอยู่";
+		next;
+		mes "[Kafra Employee]";
+		mes "เลือกสถานที่ที่ต้องการไป";
+		next;
+			menu "Izlude",izlude,"Prontera",pron,"Morroc",moc,"Payon",yon,"Alberta",berta,"Geffen",fen;
+		izlude:
+			mes "[Kafra Employee]";
+			close2;
+			callsub L_prewarp;
+			savepoint "izlude",96,107;
+			warp "izlude",91,105;
+			end;
+		pron:	
+			mes "[Kafra Employee]";
+			close2;
+			callsub L_prewarp;
+			savepoint "prontera",118,72;
+			warp "prontera",150,50;
+			end;
+		moc:	
+			mes "[Kafra Employee]";
+			close2;
+			callsub L_prewarp;
+			savepoint "morocc",151,98;
+			warp "morocc",155,110;
+			end;
+		yon:	
+			mes "[Kafra Employee]";
+			close2;
+			callsub L_prewarp;
+			savepoint "payon",160,58;
+			warp "payon",166,67;
+			end;
+		berta:	
+			mes "[Kafra Employee]";
+			close2;
+			callsub L_prewarp;
+			savepoint "alberta",31,233;
+			warp "alberta",114,58;
+			end;
+		fen:	
+			mes "[Kafra Employee]";
+			close2;
+			callsub L_prewarp;
+			savepoint "geffen",118,37;
+			warp "geffen",121,65;
+			end;
+
+service:
+		mes "[Kafra Employee]";
+		mes "เรายินดีให้คำแนะนำเกี่ยวกับบริการของ Kafra Services";
+		next;
+		menu "Save service",savv,"Storage service",storage,"Cancel",cano;
+		savv:	
+			mes "[Kafra Employee]";
+			mes "คุณสามารถพบ Kafra Employee ได้เกือบทุกที่ และสามารถเซฟเพื่อความสะดวกในการเดินทาง";
+			next;
+			mes "[Kafra Employee]";
+			mes "คุณสามารถกลับมายังจุดเซฟของคุณได้ด้วยการกดใช้ Butterfly Wing";
+			next;
+			if (blvlkafra == 0 ) {
+			set BaseExp,BaseExp+25;
+			set blvlkafra,blvlkafra+1;
+			}
+			next;
+			mes "[Kafra Employee]";
+			mes "เพื่อความสะดวก บริการนี้ฟรีค่ะ";
+			mes "และ ข้าขออธิบายเกี่ยว การฝากของเลยละกันนะค่ะ";
+
+		storage:	
+			mes "[Kafra Employee]";
+			mes "The Kafra Corporation อยู่ในทุกที่ที่คุณไป";
+			next;
+			mes "[Kafra Employee]";
+			mes "คุณสามารถฝากสิ่งของไว้กับเราได้ตลอดเวลา";
+			mes "โดยสามารถใช้ร่วมกับตัวละครทุกตัวได้ในหนึ่ง ID";
+			next;
+			mes "[Kafra Employee]";
+			mes "แต่การจะเปิดคลังเก็บของนั้น";
+			mes "จำเป็นจะต้องเรียนรู้^3355FFBasic Skill Level 6^000000";
+			next;
+			mes "[Kafra Employee]";
+			mes "โดยสามารถฝากได้ถึง 300 ชนิด";
+			next;
+			mes "[Kafra Employee]";
+			if (jlvlkafra == 0 ) {
+			set JobExp,JobExp+151;
+			set jlvlkafra,jlvlkafra+1;}
+			close2;
+			
+		cano:
+			close;
+
+L_prewarp:
+	if(TrainDes > 4) {
+		getitem 569,100;
+		getitem 1243,1;
+		getitem 2414,1;
+		getitem 2510,1;
+		getitem 2352,1;
+		getitem 2112,1;
+		getitem 601,10;
+		getitem 602,2;
+	}
+	getitem 7059,5;	//Free Storage Ticket
+	getitem 7060,5;	//Free Warp Ticket
+	set NEW_MES_FLAG0,0;
+	set NEW_MES_FLAG1,0;
+	set NEW_MES_FLAG2,0;
+	set NEW_MES_FLAG3,0;
+	set NEW_MES_FLAG4,0;
+	set NEW_MES_FLAG5,0;
+	set NEW_LVUP0,0;
+	set NEW_LVUP1,0;
+	set NEW_JOBLVUP,0;
+	set jlvlkafra,0;
+	set blvlkafra,0;
+	return;
+}
+
+new_1-2,17,182,6	script	Helper#2	84,{
+	if(TrainDes < 4) goto L_Fail;
+	if(TrainDes >= 5) goto L_Fail2;
+		mes "[Elmeen]";
+		mes "เอาละข้าไม่มีอะไรจะสอนเจ้ามากนัก";
+		mes "ตั้งใจฟังให้ดี ข้าจะสอนเกี่ยวกับการโจมตี";
+		next;
+	mes "[Elmeen]";
+	mes "ขั้นแรก เจ้าต้องเลื่อนเม้าท์ไปที่มอนสเตอร์";
+	mes "monster แล้วคลิกซ้ายที่ตัวของมอนสเตอร์";
+	mes "ตัวละครของคุณก็จะทำการโจมตีมอนสเตอร์";
+	next;
+	mes "[Elmeen]";
+	mes "ถ้าหากคุณไม่อยากคลิกที่ละหนึ่งครั้งต่อการโจมตี";
+	mes "คุณก็สามารถกดปุ่ม ^4D4DFF'CTRL'^000000 ";
+	mes "คุณจะสามารถโจมตีมอนสเอตร์ได้อย่างต่อเนื่อง";
+	mes "จนกว่าคุณหรือมอนสเตอร์จะตาย หรือไม่ก็เพราะคุณหนี";
+	next;
+	mes "[Elmeen]";
+	mes "นอกจากนี้คุณยังสามารถพิมพ์";
+	mes "^E79E29/nc^000000 ลงในช่อง Chat";
+	mes "จากนั้นตัวละครของคุณจะโจมตีต่อเนื่องทุกครั้ง";
+	next;
+	mes "[Elmeen]";
+	mes "ในการต่อสู้กับ มอนสเตอร์ที่เป็น";
+	mes "Undead property คุณสามารถใช้ Skill";
+	mes "'Heal' ในการโจมตีได้";
+	next;
+	mes "[Elmeen]";
+	mes "โดยการกด";
+	mes "^4D4DFF'Shift'^000000";
+	mes "ค้างไว้แล้วใช้ Skill";
+	mes "Heal เพื่อทำ damage แก่มอนสเตอร์";
+	next;
+	mes "[Elmeen]";
+	mes "หรือเพื่อความสะดวก สามารถพิมพ์";
+	mes "^E79E29/ns^000000 ลงในช่อง Chat จะสามารถใช้ Heal โจมตี";
+	mes "มอนสเตอร์ Undead ได้ตลอด";
+	set BaseExp,BaseExp+30;
+	set TrainDes,5;
+	next;
+L_monster:
+	mes "[Elmeen]";
+	mes "รอบๆโลก Ragnarok คุณสามารถพบกับ monsters.";
+	mes "ได้ทั่วไปบางพวกก็เป็น monster ที่ไม่ดุร้ายไม่มีพิษภัยอะไร";
+	mes "แต่บางประเภทก็โจมตีใส่ผู้เล่นก่อน";
+	mes "และควรระวังการถูกขโมยสิ่ง เพราะ monster บางประเภทมักชอบเก็บสิ่งของที่นักเดินทางทำตกไว้";
+	next;
+	mes "[Elmeen]";
+	mes "monster ทุกตัวมีคุณสมบัติพิเศษ ต่างกันไป";
+	mes "เช่น ธาตุ ขนาด ประเภท";
+	mes "ธาตุ ก็เช่น ไฟ น้ำ ดิน ลม ศักดิ์สิทธิ์ ความมืด ผีดิบ วิญญาณ และไร้ธาตุ";
+	mes "ประเภทก็เช่น: demi-human, brute, immortal";
+	mes "หรือ devil";
+	next;
+	set BaseExp,BaseExp+20;
+	mes "[Elmeen]";
+	mes "จึงควรศึกษาคุณสมบัติของ monster ให้ดีเพื่อความสะดวกในการล่า";
+	close;
+
+L_Fail:
+mes "[Elmeen]";
+mes "เจ้าควรได้รับการเรียนรู้จากห้องแรกเสียก่อน";
+close;
+
+L_Fail2:
+mes "[Elmeen]";
+mes "ขออภัยแต่ข้าจะสอนเพียงครั้งเดียวเท่านั้น";
+close;
+}
+
+//Potato Merchant
+new_1-2,28,185,4	shop	Potato Merchant#des1	90,516:15
+
+new_1-2,38,182,4	script	Helper	92,{
+			if(TrainDes < 5) goto L_Fail;
+			if(TrainDes == 6) goto L_Fail2;
+			mes "[Kane]";
+			mes "ในการฝึกภาคสนาม";
+			mes "การฝึกนั้นง่ายๆ เพียงแค่ให้คุณได้ลองล่า Monster ด้วยตนเอง";
+			mes "เราไม่สนใจว่าคุณจะล่า Monster ได้มากแค่ไหน";
+			next;
+			mes "[Kane]";
+			mes "ขอเพียงคุณทำให้ดีที่สุด พยายามเดินขึ้นไปจนสุดทางทิศเหนือ";
+			mes "เพื่อจบการฝึกภาคสนาม";
+			next;
+			menu "ฉันต้องการฝึกเดี๋ยวนี้",-,"ฉันอยากพักที่นี่สักครู่",cano;
+				mes "[Kane]";
+				mes "งั้นไปลุยกัน ข้าจะให้อุปกรณ์นี่ติดตัวเจ้าละกัน";
+				set TrainDes,6;
+				getitem 602,1;
+				getitem 601,9;
+				getitem 1243,1;
+				getitem 2112,1;
+				getitem 611,2;
+				getitem 569,300;
+				close2;
+				savepoint "new_1-3",96,21;
+				warp "new_1-3",96,21;
+				end;
+	L_Fail2:	
+	mes "[Kane]";
+	mes "ในการต่อสู้ก็เป็นอย่างนี้แหละ อาจจะตายได้ตลอดเวลา";
+	mes "เมื่อตายตัวละครของเจ้าก็จะกลับมายังจุดเซฟ";
+	mes "และแน่นอน EXP ของเจ้าก็จะลดลงไปส่วนหนึ่งด้วย";
+	next;
+	mes "[Kane]";
+	mes "ต้องการเข้าไปอีกครั้งหรือไม่";
+	next;
+	menu "แน่นอน",-,"ข้าอยากพักเหนื่อยก่อน",cano;
+		if(TrainDes >= 7) goto L_Fail3;
+			mes "[Kane]";
+			mes "ความพยายามเป็นจุดเริ่มต้นของความสำเร็จ";
+			next;
+				set TrainDes,7;
+				set BaseExp,BaseExp+35;
+				getitem 569,50;
+				percentheal 100,100;
+			close2;
+				savepoint "new_1-3",96,21;
+				warp "new_1-3",96,21;
+                              
+				end;
+		L_Fail3:
+			mes "[Kane]";
+			mes "พยายามต่อไปนะ";
+		next;
+			percentheal 100,100;
+		close2;
+		savepoint "new_1-3",96,21;
+		warp "new_1-3",96,21;
+		end;
+	cano:
+		mes "[Kane]";
+		mes "พักผ่อนตามสบาย เมื่อพร้อมแล้วก็อย่าลืมมาหาข้าละ";
+		close;
+
+L_Fail:
+		mes "[Kane]";
+		mes "ก่อนที่จะออกไปล่า Monster คุณน่าจะได้รับฟังการบรรยายเกี่ยวการต่อสู้ก่อนนะ";
+		close;
+
+}
+
+new_1-3,96,174,4	script	Keyman#1	85,{
+if (TrainDes < 6) goto L_Fail;
+if (TrainDes == 10) goto L_Finish;
+	mes "[Keyman]";
+	mes "อืมมม...";
+	mes "เจ้าคงเหนื่อยจากการฝึกมากแล้วละสิ";
+	mes "งั้นข้าจะพาเจ้าเข้าสู่ห้องสุดท้ายเลยละกัน";
+	next;
+	if(select("ตกลง","ข้ายังไม่เหนื่อย ข้าอยากฝึกต่อ")==1){
+		mes "[Keyman]";
+		mes "ได้เลย";
+		close2;
+		set TrainDes,8;
+		warp "new_zone04",99,10;
+		end;
+	}
+	mes "[Keyman]";
+	mes "งั้นก็ไม่เป็นไร";
+	close;
+L_Fail:
+	mes "[Keyman]";
+	mes "ทำไมเจ้าดูเหมือนยังขาดประสบการณ์อยู่นะ ไม่ได้เรียนอะไรมาแน่เลย";
+	mes "ข้าจะส่งเจ้ากลับไปเรียนใหม่";
+	close2;
+	warp "new_1-2",28,178;
+	end;
+L_Finish:
+	mes "[Keyman]";
+	mes "^A62A2A' "+strcharinfo(0)+" '^000000,";
+	mes "ข้าว่าเจ้าไม่ใช่นักเรียนที่นี่แล้วนี่น่า";
+	close2;
+	savepoint "prontera",116,72;
+	warp "prontera",212,68;
+	end;
+}
+
+new_zone04,100,29,4	script	Final Instructor	46,{
+	if(TrainDes < 8 ) goto L_Fail;
+	if(TrainDes == 10 ) goto L_Finish;
+		mes "[Hanson]";
+		mes "ยินดีที่พบคุณ";
+		mes "ฉันชื่อ 'Hanson'";
+		mes "เอาละมาถึงการทดสอบสุดท้ายแล้ว";
+		mes "เป็นการทดสอบง่ายๆ เพื่อหาว่าคุณเหมาะกับอาชีพใด";
+		mes "ชื่อคุณคือ ^A62A2A'"+strcharinfo(0)+"'^000000 อย่างนั้นสินะ";
+		next;
+		mes "[Hanson]";
+		mes "แต่ถ้าเลือกที่จะสอบคุณจะได้รับรางวัลเล็กน้อย";
+		next;
+		menu "ฉันพร้อมจะสอบแล้ว",test,"พาฉันเข้าสู่ Ragnarok Online",goro;
+	goro:
+		mes "[Hanson]";
+		mes "ฉันเข้าใจแล้ว";
+		mes "ฉันจะพาคุณเข้าสู่เกมกันเสียที";
+		next;
+		mes "[Hanson]";
+		mes "ขอให้โชคดี";
+	close2;
+savepoint "morocc",160,50;
+warp "morocc",160,50;
+end;
+	test:
+	mes "[Hanson]";
+	mes "งั้นก็จะเริ่มกันเลย";
+	mes "ทำตัวตามสบาย ไม่ต้องเครียดกับคำถาม ไม่มีผลต่อเนื้อเรื่องในเกมแต่อย่างใด";
+	mes "เป็นเพียงการสอบถามเพื่อแนะนำคุณเท่านั้น";
+	next;
+	mes "[Hanson]";
+	mes "เอาละนี่คือบททดสอบที่ 1 ";
+	next;
+	mes "[Hanson]";
+	mes "ขอเตือนว่า ควรเลือกสิ่งที่เป็นตัวคุณที่สุด โดยไม่โกหกตัวเอง";
+	next;
+	mes "[Hanson]";
+	mes "อะไรคือสิ่งที่คุณคิดว่าเป็นตัวคุณที่สุด";
+	next;
+	switch ( select("เรียน","ออกกำลัง","ความรุนแรง") ) {
+	case 1:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;
+		set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;
+		set NOV_3_MERCHANT,NOV_3_MERCHANT+1;break;
+	case 2:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;
+		set NOV_3_THIEF,NOV_3_THIEF+1;break;
+		set NOV_3_ARCHER,NOV_3_ARCHER+1;
+	case 3:	set NOV_3_THIEF,NOV_3_THIEF+1;
+		set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;break;
+	}
+	switch ( select("เปลี่ยนแปลง","มั่นคง") ) {
+	case 1:	set NOV_3_ARCHER,NOV_3_ARCHER+1;
+		set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;break;
+	case 2:	set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;
+	}
+	switch ( select("ผู้บริโภค","ผู้ขาย","ผู้ผลิต") ) {
+	case 1:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;
+		set NOV_3_THIEF,NOV_3_THIEF+1;
+		set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;break;
+	case 2:	set NOV_3_MERCHANT,NOV_3_MERCHANT+2;break;
+	case 3:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;
+		set NOV_3_MERCHANT,NOV_3_MERCHANT+1;
+	}
+	switch ( select("รวดเร็ว","รอบคอบ") ) {
+	case 1:	set NOV_3_THIEF,NOV_3_THIEF+1;break;
+	case 2:	set NOV_3_ARCHER,NOV_3_ARCHER+1;
+	}
+	switch ( select("ทฤษฎี","ประสบการณ์") ) {
+	case 1:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;break;
+	case 2:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;
+	}
+	switch ( select("อดีต","ปัจจุบัน","อนาคต") ) {
+	case 1:	set NOV_3_ARCHER,NOV_3_ARCHER+1;break;
+	case 2:	set NOV_3_MERCHANT,NOV_3_MERCHANT+1;
+		set NOV_3_THIEF,NOV_3_THIEF+1;break;
+	case 3: set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;
+	}
+	mes "[Hanson]";
+	mes "มาถึงคำถามชุดที่ 2 เลือกตอบเพียงแค่ใช่หรือไม่ใช่เท่านั้น";
+	next;
+	mes "[Hanson]";
+	mes "คุณเลือกที่จะตายมากกว่าที่จะยอมจำนน";
+	next;
+	switch ( select("ใช่","ไม่ใช่") ) {
+	case 1:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;break;
+	case 2:	set NOV_3_THIEF,NOV_3_THIEF+1;
+		set NOV_3_MERCHANT,NOV_3_MERCHANT+1;
+	}
+	mes "[Hanson]";
+	mes "มีหลายครั้งที่คุณอิจฉาเมื่อเห็นใครดีกว่าคุณ";
+	next;
+	switch ( select("ใช่","ไม่ใช่") ) {
+	case 1:	set NOV_3_MERCHANT,NOV_3_MERCHANT+1;break;
+	case 2:	set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;
+	}
+	mes "[Hanson]";
+	mes "คุณพร้อมที่จะเสี่ยงอันตราย";
+	next;
+	switch ( select("ใช่","ไม่ใช่") ) {
+	case 1:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;break;
+	case 2:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;
+	}
+	mes "[Hanson]";
+	mes "คุณมีความเป็นผู้นำ";
+	next;
+	switch ( select("ใช่","ไม่ใช่") ) {
+	case 1:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;break;
+	case 2:	set NOV_3_ARCHER,NOV_3_ARCHER+1;
+	}
+	mes "[Hanson]";
+	mes "เมื่อคุณติดอยู่ใน ดันเจี้ยน คุณไม่สามารถขยับไปไหนได้";
+	mes "และมองไม่เห็นทางออก มีเพียงปุ่มหนึ่งที่เขียนว่า ห้ามกด";
+	next;
+	mes "[Hanson]";
+	mes "แต่มันกลับทำให้คุณรู้สึกว่าอยากกดมัน";
+	next;
+	switch ( select("ใช่","ไม่") ) {
+	case 1:	set NOV_3_THIEF,NOV_3_THIEF+1;break;
+	case 2:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;
+	}
+	mes "[Hanson]";
+	mes "คุณมักเห็นในสิ่งที่ใครๆไม่เห็น";
+	next;
+	switch ( select("ใช่","ไม่") ) {
+	case 1:	set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;break;
+	case 2:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;
+	}
+	mes "[Hanson]";
+	mes "คุณรู้สึกว่าคุณน่าจะบินได้หากคุณตกจากหน้าผา";
+	next;
+	switch ( select("ใช่","ไม่") ) {
+	case 1:	set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;break;
+	case 2:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;
+	}
+	mes "[Hanson]";
+	mes "คุณจะขายสินค้าแก่ผู้ที่ขาดแคลนก่อน";
+	next;
+	switch ( select("ใช่","ไม่") ) {
+	case 1:	set NOV_3_MERCHANT,NOV_3_MERCHANT+1;break;
+	case 2:	set NOV_3_ARCHER,NOV_3_ARCHER+1;
+	}
+	mes "[Hanson]";
+	mes "เอาละ คำถามชุดสุดท้ายแล้ว";
+	mes "ทำตัวตามสบาย ไม่ต้องรีบตอบ";
+	next;
+	mes "[Hanson]";
+	mes "เมื่อต้องทำงานตามตารางที่วางไว้";
+	next;
+	switch ( select("รู้สึกเหมือนเป็นหุ่นยนต์","มันช่วยให้ทำงานได้ราบรื่นขึ้น","ตาราง กำหนด ....อะไรกัน") ) {
+	case 1:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;
+		set NOV_3_THIEF,NOV_3_THIEF+1;break;
+	case 2:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;
+		set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;break;
+	case 3:	set NOV_3_ARCHER,NOV_3_ARCHER+1;
+		set NOV_3_MERCHANT,NOV_3_MERCHANT+1;
+	}
+	mes "[Hanson]";
+	mes "เมื่อคุณพบของสิ่งหนึ่งในร้านค้า";
+	next;
+	switch ( select("ไม่ซื้อ","ดูราคา","ซื้อในทันที") ) {
+	case 1:	set NOV_3_ARCHER,NOV_3_ARCHER+1;break;
+	case 2:	set NOV_3_MERCHANT,NOV_3_MERCHANT+1;break;
+	case 3:	set NOV_3_THIEF,NOV_3_THIEF+1;
+	}
+	mes "[Hanson]";
+	mes "คุณ (____รู้สึก___) เมื่อต้องแข่งขันกับผู้อื่น";
+	mes "เติมคำในช่องว่าง";
+	next;
+	switch ( select("ไม่กังวล...","ไม่ชอบ...","ไม่สนใจ...") ) {
+	case 1:	set NOV_3_MERCHANT,NOV_3_MERCHANT+1;break;
+	case 2:	set NOV_3_THIEF,NOV_3_THIEF+1;break;
+	case 3:	set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;
+		set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;
+	}
+	mes "[Hanson]";
+	mes "เมื่อคุณต้องทำงานอย่างหนึ่งที่ยากมาก";
+	next;
+	switch ( select("จะทำด้วยตัวเอง","ขอความช่วยเหลือจากเพื่อน") ) {
+	case 1:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;break;
+	case 2:	set NOV_3_MERCHANT,NOV_3_MERCHANT+1;
+	}
+	mes "[Hanson]";
+	mes "มีผู้หญิงคนหนึ่งได้รับบาดเจ็บ";
+	next;
+	switch ( select("พาเธอไปส่งโรงพยาบาล","คิดว่าควรช่วยอย่างไร","ไม่สนใจ") ) {
+	case 1:	set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;break;
+	case 2:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;
+		set NOV_3_ARCHER,NOV_3_ARCHER+1;break;
+	case 3:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;
+		set NOV_3_THIEF,NOV_3_THIEF+1;
+		set NOV_3_MERCHANT,NOV_3_MERCHANT+1;	
+	}
+	mes "[Hanson]";
+	mes "คุณเก็บเสื้อตัวหนึ่งได้";
+	next;
+	switch ( select("ดูยี่ห้อ","สงสัยว่าเป็นของใคร","หาเจ้าของ","ทิ้งมันไว้อย่างนั้น") ) {
+	case 1:	set NOV_3_MERCHANT,NOV_3_MERCHANT+1;break;
+	case 2:	set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;break;
+	case 3:	set NOV_3_MERCHANT,NOV_3_MERCHANT+1;break;
+	case 4:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;
+	}
+	mes "[Hanson]";
+	mes "ขณะที่กำลังคุยกันในกลุ่มเพื่อน";
+	mes "คุณเผลอพูดอะไรที่ไม่ดีออกไป";
+	next;
+	switch ( select("ทำเป็นเรื่องตลก","เปลี่ยนเรื่องคุย","พิจรณาสิ่งที่พูดไป","ขอโทษ") ) {
+	case 1:	set NOV_3_THIEF,NOV_3_THIEF+1;break;
+	case 2:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;break;
+	case 3:	set NOV_3_MAGICIAN,NOV_3_MAGICIAN+1;break;
+	case 4:	set NOV_3_ACOLYTE,NOV_3_ACOLYTE+1;
+	}
+	mes "[Hanson]";
+	mes "เมื่อคุณเดินอยู่กับแฟนของคุณ แฟนคุณบอกว่าอยากได้ของสิ่งหนึ่ง";
+	mes "แต่คุณรู้ว่ามันไม่ดีหรอก คุณจะทำอย่างไร";
+	next;
+	switch ( select("ซื้อให้","ปฏิเสธ","บอกว่าจะซื้อให้คราวหน้า") ) {
+	case 1:	set NOV_3_SWORDMAN,NOV_3_SWORDMAN+1;break;
+	case 2:	set NOV_3_MERCHANT,NOV_3_MERCHANT+1;break;
+	case 3:	set NOV_3_THIEF,NOV_3_THIEF+1;
+	}
+	mes "[Hanson]";
+	mes "Ok สิ้นสุดการทดสอบแล้ว";
+	mes "เราขอขอบคุณที่ร่วมทดสอบจนเสร็จ";
+	next;
+	mes "[Hanson]";
+	mes "ฉันมีของที่จะมอบให้ เพื่อเป็นการขอบคุณ";
+	next;
+	set NEW_GETITEM,1;
+	set TrainDes,10;
+	getitem 501,4;
+	getitem 503,2;
+	getitem 506,2;
+	next;
+	mes "[Hanson]";
+	mes "คุณ ^A62A2A'"+strcharinfo(0)+"'^000000!";
+	mes "กรุณารอสักครู่";
+	mes "ทางเราของพิจารณาเลือกอาชีพที่เหมาะสมกับคุณ";
+	next;
+	mes "[Hanson]";
+	mes ". . . . . . . . . . . . .";
+	next;
+	mes "[Hanson]";
+	mes ". . . . . . . . . . . . . . . . . .";
+	next;
+	mes "[Hanson]";
+	mes ". . . . . . . . . . . . . . . . . . . . . . . .";
+	next;
+	mes "[Hanson]";
+	mes ". . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+	next;
+	mes "[Hanson]";
+	mes "เอาละผลการสอบออกมาแล้ว";
+	mes "คุณ ^A62A2A'"+strcharinfo(0)+"'^000000!!";
+	next;
+	set @JOB_NUMBER,1;
+	set @JOB_WITH_C,0;
+	set @JOB_NUMBER_CHK,0;
+	set @JOB_WITH,NOV_3_SWORDMAN;
+L_loop1:
+	switch ( @JOB_NUMBER ) {
+	case 1:		set @JOB_WITH_C,NOV_3_ARCHER;break;
+	case 2:		set @JOB_WITH_C,NOV_3_THIEF;break;
+	case 3:		set @JOB_WITH_C,NOV_3_MAGICIAN;break;
+	case 4:		set @JOB_WITH_C,NOV_3_ACOLYTE;break;
+	default:	set @JOB_WITH_C,NOV_3_MERCHANT;
+	}
+	if (@JOB_WITH >= @JOB_WITH_C) goto L_loop2;
+	set @JOB_NUMBER_CHK,@JOB_NUMBER;
+	switch ( @JOB_NUMBER ) {
+	case 1:		set @JOB_WITH,NOV_3_ARCHER;break;
+	case 2:		set @JOB_WITH,NOV_3_THIEF;break;
+	case 3:		set @JOB_WITH,NOV_3_MAGICIAN;break;
+	case 4:		set @JOB_WITH,NOV_3_ACOLYTE;break;
+	default:	set @JOB_WITH,NOV_3_MERCHANT;
+	}
+L_loop2:
+	set @JOB_NUMBER,@JOB_NUMBER+1;
+	while ( @JOB_NUMBER < 6 ) goto L_loop1;
+	mes "[Hanson]";
+	switch ( @JOB_NUMBER_CHK ) {
+	case 0:	set @JOB_NAME$,"Swordsman";
+		next;
+		mes "[Hanson]";
+		mes "จากคำตอบของคุณทั้งหมด คุณเหมาะสมกับอาชีพ";
+		mes "^696969Swordsman^000000.";
+		break;
+	case 1:	set @JOB_NAME$,"Archer";
+		next;
+		mes "[Hanson]";
+		mes "จากคำตอบของคุณทั้งหมด คุณเหมาะสมกับอาชีพ";
+		mes "^696969Archer^000000.";
+		break;
+	case 2:	set @JOB_NAME$,"Thief";
+		next;
+		mes "[Hanson]";
+		mes "จากคำตอบของคุณทั้งหมด คุณเหมาะสมกับอาชีพ";
+		mes "^696969Thief^000000.";
+		break;
+	case 3:	set @JOB_NAME$,"Mage";
+		next;
+		mes "[Hanson]";
+		mes "จากคำตอบของคุณทั้งหมด คุณเหมาะสมกับอาชีพ";
+		mes "^696969Mage^000000.";
+		break;
+	case 4:	set @JOB_NAME$,"Acolyte";
+		next;
+		mes "[Hanson]";
+		mes "จากคำตอบของคุณทั้งหมด คุณเหมาะสมกับอาชีพ";
+		mes "^696969Acolyte^000000s.";
+		break;
+	case 5:	set @JOB_NAME$,"Merchant";
+		next;
+		mes "[Hanson]";
+		mes "จากคำตอบของคุณทั้งหมด คุณเหมาะสมกับอาชีพ";
+		mes "^696969Merchant^000000.";
+	}
+	next;
+	
+	mes "[Hanson]";
+	mes "แต่ทั้งหมดนี้เราไม่ได้บังคับว่าคุณจะต้องเป็นอาชีพนั้นจริงๆ";
+	mes "เพียงแต่เราคิดว่าน่าจะเหมาะสมกับคุณที่สุด";
+	mes "คุณว่าอย่างไร";
+	next;
+	if ( select(@JOB_NAME$+"!","ไม่ ฉันขอเลือกทางเดินด้วยตัวเอง") == 1 ) {
+		mes "[Hanson]";
+		mes "เยี่ยม ขอมอบสิ่งนี้ให้แก่เจ้า เจ้าจะได้ใช้มันอย่างแน่นอน";
+		next;
+		mes "^882420Item Offer List^000099";
+		switch( @JOB_NUMBER_CHK ) {
+		case 0:	mes "1 Falchion";
+			getitem 1104,1;
+			break;
+		case 1:	mes "1 Composite Bow";
+			getitem 1704,1;
+			break;
+		case 2:	mes "1 Main Gauche";
+			getitem 1207,1;
+			break;
+		case 3:	mes "1 Rod";
+			mes "1 Cutter";
+			getitem 1601,1;
+			getitem 1204,1;
+			break;
+		case 4:	mes "1 Mace";
+			getitem 1504,1;
+			break;
+		case 5:	mes "1 Battle Axe";
+			getitem 1351,1;
+		}
+		if( @JOB_NUMBER_CHK == 5 ){
+			mes "^0000304 Free Tickets for Kafra Storage";
+			mes "4 Free Tickets for Kafra Transportation";
+			mes "4 Free Tickets for the Cart Service";
+			getitem 7059,4;
+			getitem 7060,4;
+			getitem 7061,4;
+		}else{
+			mes "^0000305 Free Tickets for Kafra Storage";
+			mes "5 Free Tickets for Kafra Transportation";
+			getitem 7059,5;
+			getitem 7060,5;
+		}
+		mes "^0000997 Phracons";
+		mes "10 Novices Red Potions^000000";
+		mes "^00003010000 Zeny^000000";
+		getitem 1010,7;
+		getitem 569,10;
+		set Zeny,Zeny+10000;
+		next;
+		mes "[Hanson]";
+		mes "เมื่อคุณเปลี่ยนอาชีพ";
+		switch( @JOB_NUMBER_CHK ) {
+		case 0:
+			mes "คุณสามารถใช้ 'Falchion'"; break;
+		case 1:
+			mes "คุณสามารถใช้ 'Composite Bow'"; break;
+		case 2:
+			mes "คุณสามารถใช้ 'Main Gauche'"; break;
+		case 3:
+			mes "คุณสามารถใช้ 'Rod' หรือ 'Cutter'"; break;
+		case 4:
+			mes "คุณสามารถใช้ 'Mace'"; break;
+		case 5:	
+			mes "คุณสามารถใช้ 'Battle Axe'";
+		}
+		next;
+		mes "[Hanson]";
+		mes "'Phracon' ใช้ในการอัพเกรดอาวุธ Lv.1 ของคุณ";
+		callsub L_place;
+		next;
+		goto L_warp;
+	}
+	mes "[Hanson]";
+	mes "ใช่แล้ว";
+	mes "เจ้าไม่จำเป็นต้องใส่ใจคำแนะนำของเรา ควรเลือกทางเดินด้วยตัวเอง";
+	mes "เว้นแต่ทางเดินที่เจ้าเลือกนั้นบังเอิญเป็นอย่างเดียวกับที่เราแนะนำ";
+	next;
+	switch( @JOB_NUMBER_CHK ) {
+	case 0:	switch( select("Mage","Merchant","Thief","Archer","Acolyte") ) {
+		case 1:	set @JOB_NUMBER_CHK,3;
+			set @JOB_NAME$,"Mage";
+			break;
+		case 2:	set @JOB_NUMBER_CHK,5;
+			set @JOB_NAME$,"Merchant";
+			break;
+		case 3:	set @JOB_NUMBER_CHK,2;
+			set @JOB_NAME$,"Thief";
+			break;
+		case 4:	set @JOB_NUMBER_CHK,1;
+			set @JOB_NAME$,"Archer";
+			break;
+		case 5:	set @JOB_NUMBER_CHK,4;
+			set @JOB_NAME$,"Acolyte";
+		}
+		break;
+	case 1:	switch( select("Swordsman","Mage","Merchant","Thief","Acolyte") ) {
+		case 1:	set @JOB_NUMBER_CHK,0;
+			set @JOB_NAME$,"Swordsman";
+			break;
+		case 2:	set @JOB_NUMBER_CHK,3;
+			set @JOB_NAME$,"Mage";
+			break;
+		case 3:	set @JOB_NUMBER_CHK,5;
+			set @JOB_NAME$,"Merchant";
+			break;
+		case 4:	set @JOB_NUMBER_CHK,2;
+			set @JOB_NAME$,"Thief";
+			break;
+		case 5:	set @JOB_NUMBER_CHK,4;
+			set @JOB_NAME$,"Acolyte";
+		}
+		break;
+	case 2:	switch( select("Swordsman","Mage","Merchant","Archer","Acolyte") ) {
+		case 1:	set @JOB_NUMBER_CHK,0;
+			set @JOB_NAME$,"Swordsman";
+			break;
+		case 2:	set @JOB_NUMBER_CHK,3;
+			set @JOB_NAME$,"Mage";
+			break;
+		case 3:	set @JOB_NUMBER_CHK,5;
+			set @JOB_NAME$,"Merchant";
+			break;
+		case 4:	set @JOB_NUMBER_CHK,1;
+			set @JOB_NAME$,"Archer";
+			break;
+		case 5:	set @JOB_NUMBER_CHK,4;
+			set @JOB_NAME$,"Acolyte";
+		}
+		break;
+	case 3:	switch( select("Swordsman","Merchant","Thief","Archer","Acolyte") ) {
+		case 1:	set @JOB_NUMBER_CHK,0;
+			set @JOB_NAME$,"Swordsman";
+			break;
+		case 2:	set @JOB_NUMBER_CHK,5;
+			set @JOB_NAME$,"Merchant";
+			break;
+		case 3:	set @JOB_NUMBER_CHK,2;
+			set @JOB_NAME$,"Thief";
+			break;
+		case 4:	set @JOB_NUMBER_CHK,1;
+			set @JOB_NAME$,"Archer";
+			break;
+		case 5:	set @JOB_NUMBER_CHK,4;
+			set @JOB_NAME$,"Acolyte";
+		}
+		break;
+	case 4:	switch( select("Swordsman","Mage","Merchant","Thief","Archer") ) {
+		case 1:	set @JOB_NUMBER_CHK,0;
+			set @JOB_NAME$,"Swordsman";
+			break;
+		case 2:	set @JOB_NUMBER_CHK,3;
+			set @JOB_NAME$,"Mage";
+			break;
+		case 3:	set @JOB_NUMBER_CHK,5;
+			set @JOB_NAME$,"Merchant";
+			break;
+		case 4:	set @JOB_NUMBER_CHK,2;
+			set @JOB_NAME$,"Thief";
+			break;
+		case 5:	set @JOB_NUMBER_CHK,1;
+			set @JOB_NAME$,"Archer";
+		}
+		break;
+	case 5:	switch( select("Swordsman","Mage","Thief","Archer","Acolyte") ) {
+		case 1:	set @JOB_NUMBER_CHK,0;
+			set @JOB_NAME$,"Swordsman";
+			break;
+		case 2:	set @JOB_NUMBER_CHK,3;
+			set @JOB_NAME$,"Mage";
+			break;
+		case 3:	set @JOB_NUMBER_CHK,2;
+			set @JOB_NAME$,"Thief";
+			break;
+		case 4:	set @JOB_NUMBER_CHK,1;
+			set @JOB_NAME$,"Archer";
+			break;
+		case 5:	set @JOB_NUMBER_CHK,4;
+			set @JOB_NAME$,"Acolyte";
+		}
+	}
+	mes "[Hanson]";
+	mes @JOB_NAME$+" แน่ใจแล้วสินะ";
+	callsub L_place;
+	next;
+	mes "[Hanson]";
+	mes "เอาละข้าจะส่งเจ้าไปที่เมืองที่เจ้าเลือก";
+	mes "ข้าจะให้ของเจ้าเอาไว้ติดตัว คิดว่าเจ้าจะได้ใช้มันแน่ๆ";
+	next;
+	mes "^882420Item Offer List";
+	mes "^0000301 Adventurer's Suit";
+	mes "^00009910 Novices Red Potions";
+	mes "^0000305 Free Tickets for Kafra Storage";
+	mes "^0000995 Free Tickets for Kafra Transportation";
+	mes "^00003010000 Zeny^000000";
+	getitem 7059,5;
+	getitem 7060,5;
+	getitem 2305,1;
+	getitem 569,10;
+	set Zeny,Zeny+10000;
+	next;
+L_warp:
+	mes "[Hanson]";
+	mes "ขอให้โชคดี, ^A62A2A' "+strcharinfo(0)+" '^000000,";
+	close2;
+	callsub L_cleararg;
+	switch( @JOB_NUMBER_CHK ) {
+	case 0:	savepoint "izlude",96,107;
+		warp "izlude",91,105;
+		break;
+	case 1:	savepoint "payon",160,58;
+		warp "payon",166,67;
+		break;
+	case 2:	savepoint "morocc",151,98;
+		warp "morocc",155,110;
+		break;
+	case 3:	savepoint "geffen",118,37;
+		warp "geffen",121,65;
+		break;
+	case 4:	savepoint "prontera",118,72;
+		warp "prontera",150,50;
+		break;
+	case 5:	savepoint "alberta",31,233;
+		warp "alberta",114,58;
+	}
+	end;
+L_place:
+	mes "ตำแหน่งของสมาคมที่ท่านควรรู้จัก";
+	switch( @JOB_NUMBER_CHK ) {
+	case 0:
+		mes "'Izlude";
+		mes "เมืองแห่ง Swordsman สมาคมนักดาบอยู่ทิศตะวันตก";
+		break;
+	case 1:
+		mes "'Payon";
+		mes "หมู่บ้านนักธนูอยู่เหนือเมืองแห่งนี้";
+		break;
+	case 2:
+		mes "'Morroc";
+		mes "สมาคมโจร อยู่ใต้ดินของพีระมิด ทางตะวันตกเฉียงเหนือ";
+		mes "ของเมือง 'Morroc'.";
+		break;
+	case 3:
+		mes "'Geffen สมาคมนักเวทอยู่ทิศตะวันตกเฉียงเหนือของเมือง";
+		break;
+	case 4:
+		mes "'Prontera";
+		mes "โบสถ์ ทางทิศตะวันออกเฉียงเหนือของเมือง";
+		break;
+	case 5:
+		mes "'Alberta";
+		mes "สมาคมพ่อค้า อยู่ทางทิศใต้ของเมือง";
+	}
+	mes "โปรดจำเอาไว้ให้ดี";
+	return;
+L_cleararg:
+	set NEW_MES_FLAG0,0;
+	set NEW_MES_FLAG1,0;
+	set NEW_MES_FLAG2,0;
+	set NEW_MES_FLAG3,0;
+	set NEW_MES_FLAG4,0;
+	set NEW_MES_FLAG5,0;
+	set NEW_MES_FLAG6,0;
+	set NEW_LVUP0,0;
+	set NEW_LVUP1,0;
+	set NEW_JOBLVUP,0;
+	set NEW_GETITEM,0;
+	set NOV_3_SWORDMAN,0;
+	set NOV_3_ARCHER,0;
+	set NOV_3_THIEF,0;
+	set NOV_3_MAGICIAN,0;
+	set NOV_3_ACOLYTE,0;
+	set NOV_3_MERCHANT,0;
+	set jlvlkafra,0;
+	set blvlkafra,0;
+	set TrainDes,10;
+	return;
+
+L_Fail:
+	mes "[Hanson]";
+	mes "^A62A2A' "+strcharinfo(0)+" '^000000,";
+	mes "เจ้าควรฝึกให้มากกว่านี้";
+	close2;
+	warp "new_1-3",96,21;
+	end;
+
+L_Finish:
+	mes "[Hanson]";
+	mes "^A62A2A' "+strcharinfo(0)+" '^000000,";
+	mes "ข้าเคยพบเจ้าแล้วนี้น่า อยากจะมาสอบใหม่เหรอ ไม่ไหวหรอกข้าไม่ว่าง กลับไปได้แล้ว";
+	close2;
+	savepoint "prontera",116,72;
+	warp "prontera",212,68;
+	end;
+}
+
+// Training Ground Mobs
+new_1-3,0,0,0,0	monster	Fabre	1184,10,0,0,0
+new_1-3,0,0,0,0	monster	Poring	1002,30,0,0,0
+new_1-3,0,0,0,0	monster	ChonChon	1011,10,0,0,0
+new_1-3,0,0,0,0	monster	Lunatic	1063,15,0,0,0
+new_1-3,0,0,0,0	monster	Drops	1113,10,0,0,0
+// Unsure about the following mobs
+new_1-3,0,0,0,0	monster	Condor	1009,5,0,0,0
+new_1-3,0,0,0,0	monster	Willow	1010,5,0,0,0
+new_1-3,0,0,0,0	monster	Roda Frog	1012,5,0,0,0
+new_1-3,0,0,0,0	monster	Picky	1050,8,0,0,0
+new_1-3,0,0,0,0	monster	Spore	1014,8,0,0,0
+new_1-3,0,0,0,0	monster	Thief Bug	1051,5,0,0,0
+new_1-3,0,0,0,0	monster	Rocker	1052,5,0,0,0
+new_1-3,0,0,0,0	monster	Thief Bug Female	1053,5,0,0,0
+

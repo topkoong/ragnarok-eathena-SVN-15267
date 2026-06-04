@@ -1,0 +1,195 @@
+//============================================================
+// Pet and Cooking Shops
+// File: npc/custom/pet_and_cooking_shops.txt
+// Server target: eAthena SVN 15267 / Pre-Renewal
+//
+// Purpose:
+// - Make Alberta the trade / utility / lifestyle supply city.
+// - Add pet supplies, basic taming items, cooking kits,
+//   and common cooking ingredients.
+// - Avoid modern pet evolution items because this server is old
+//   eAthena SVN 15267 / High-Class era.
+//
+// Important balance note:
+// - Pet supplies and basic taming items are convenience items.
+// - This file does NOT give pet eggs directly.
+// - Players still need to tame monsters normally.
+//
+// Encoding note:
+// - Because Thai dialogue is included, save this file as
+//   Windows-874 / CP874 / TIS-620 when using it on old eAthena.
+//============================================================
+
+
+//============================================================
+// Alberta Pet & Cooking Guide
+//============================================================
+alberta,108,60,4	script	UtilGuide#alb	837,{
+	mes "[ผู้แนะนำร้านค้า Alberta]";
+	mes "ยินดีต้อนรับสู่เมืองท่า Alberta ค่ะ";
+	mes "เมืองนี้เหมาะสำหรับซื้อของใช้ทั่วไป วัตถุดิบการค้า อุปกรณ์สัตว์เลี้ยง และอุปกรณ์ทำอาหาร";
+	next;
+
+	mes "[ผู้แนะนำร้านค้า Alberta]";
+	mes "ร้านค้าที่อยู่ใกล้ ๆ มีดังนี้:";
+	mes "- Pet Supply Dealer";
+	mes "- Basic Taming Dealer";
+	mes "- Cooking Kit Dealer";
+	mes "- Cooking Ingredient Dealer";
+	mes "- Food Material Dealer";
+	next;
+
+	mes "[ผู้แนะนำร้านค้า Alberta]";
+	mes "หมายเหตุเรื่องสัตว์เลี้ยง:";
+	mes "ร้านนี้ขายเพียงอาหารสัตว์เลี้ยง อุปกรณ์ฟักไข่ และไอเทมจับสัตว์เลี้ยงพื้นฐาน";
+	mes "ไม่ได้ขายไข่สัตว์เลี้ยงโดยตรง เพื่อให้ระบบจับสัตว์เลี้ยงยังมีคุณค่าอยู่ค่ะ";
+	next;
+
+	mes "[ผู้แนะนำร้านค้า Alberta]";
+	mes "หมายเหตุเรื่องทำอาหาร:";
+	mes "ระบบทำอาหารต้องใช้ Cooking Kit, Cookbook และวัตถุดิบตามสูตร";
+	mes "ร้านนี้ช่วยให้หาวัตถุดิบพื้นฐานได้ง่ายขึ้น แต่ไม่ได้แจกอาหารสำเร็จรูปค่ะ";
+	close;
+}
+
+
+//============================================================
+// Pet Supply Dealer
+//============================================================
+// Pet Food      = 537
+// Monster Feed  = 528
+// Pet Incubator = 643
+//
+// Pet Incubator is used to hatch pet eggs.
+// Pet Food is common food for many pets.
+// Monster's Feed is also kept as a classic monster/pet-related food.
+//============================================================
+alberta,112,60,4	shop	PetSupply#alb	837,537:1000,528:60,643:3000
+
+
+//============================================================
+// Basic Taming Dealer
+//============================================================
+// Classic taming items only.
+// Does not include modern/evolved pet taming items.
+// Prices are intentionally higher than normal drops because this is convenience.
+//
+// Common classic taming item IDs:
+// 619 Unripe Apple
+// 620 Orange Juice
+// 621 Bitter Herb
+// 622 Rainbow Carrot
+// 623 Earthworm the Dude
+// 624 Rotten Fish
+// 625 Rusty Iron
+// 626 Monster Juice
+// 627 Sweet Milk
+// 628 Well-dried Bone
+// 629 Singing Flower
+// 630 Dew Laden Moss
+// 631 Deadly Noxious Herb
+// 632 Fatty Chubby Earthworm
+// 633 Baked Yam
+// 634 Tropical Banana
+// 635 Horror of Tribe
+// 636 No Recipient
+// 637 Old Broom
+//============================================================
+alberta,116,60,4	shop	TamingShop#alb	837,619:20000,620:20000,621:20000,622:30000,623:30000,624:30000,625:35000,626:35000,627:35000,628:40000,629:40000,630:40000,631:45000,632:45000,633:45000,634:50000,635:60000,636:60000,637:60000
+
+
+//============================================================
+// Cooking Kit Dealer
+//============================================================
+// 12125 Outdoor Cooking Kit
+// 12126 Home Cooking Kit
+// 12127 Professional Cooking Kit
+// 12128 Royal Cooking Kit
+//
+// Royal / Professional are more expensive for balance.
+//============================================================
+alberta,120,60,4	shop	CookKit#alb	837,12125:500,12126:1000,12127:5000,12128:15000
+
+
+//============================================================
+// Cooking Ingredient Dealer
+//============================================================
+// Common low-level cooking ingredients.
+// These are mostly normal foods and herbs.
+//============================================================
+alberta,124,60,4	shop	CookIngr#alb	837,501:50,503:550,507:18,508:40,509:1200,511:40,512:15,513:15,514:200,515:15,517:50,518:500,519:25,521:300,522:7500,523:500
+
+
+//============================================================
+// Food Material Dealer
+//============================================================
+// Monster-drop ingredients commonly used in low/mid cooking.
+// These prices are convenience prices and should be higher than pure farming value.
+//============================================================
+alberta,128,60,4	shop	FoodMat#alb	837,908:300,940:300,942:500,950:1000,960:1000,1024:1000,7031:1500,577:1500,7451:2000
+
+
+//============================================================
+// Pet Care Advisor
+//============================================================
+// Thai dialogue-only advisor.
+// No direct item reward; purely guidance.
+//============================================================
+alberta,132,60,4	script	PetAdvisor#alb	837,{
+	mes "[ผู้ดูแลสัตว์เลี้ยง]";
+	mes "สัตว์เลี้ยงใน Rune-Midgard ไม่ใช่แค่ของตกแต่งนะคะ";
+	mes "บางตัวอาจให้โบนัสเล็ก ๆ เมื่อสนิทกับเจ้าของ";
+	next;
+
+	mes "[ผู้ดูแลสัตว์เลี้ยง]";
+	mes "ขั้นตอนพื้นฐาน:";
+	mes "1. เตรียมไอเทมจับสัตว์เลี้ยง";
+	mes "2. ใช้กับมอนสเตอร์เป้าหมาย";
+	mes "3. ถ้าสำเร็จ จะได้รับไข่สัตว์เลี้ยง";
+	mes "4. ใช้ Pet Incubator เพื่อฟักไข่";
+	mes "5. ให้อาหารอย่างสม่ำเสมอ";
+	next;
+
+	mes "[ผู้ดูแลสัตว์เลี้ยง]";
+	mes "คำเตือน:";
+	mes "อย่าปล่อยให้สัตว์เลี้ยงหิวบ่อย ๆ";
+	mes "ความสัมพันธ์อาจลดลง และสัตว์เลี้ยงอาจหนีไปได้";
+	next;
+
+	mes "[ผู้ดูแลสัตว์เลี้ยง]";
+	mes "ถ้าต้องการเริ่มต้นง่าย ๆ ลองจับ Poring ด้วย Unripe Apple ดูก่อนก็ได้ค่ะ";
+	close;
+}
+
+
+//============================================================
+// Cooking Advisor
+//============================================================
+// Thai dialogue-only advisor.
+// No direct item reward; purely guidance.
+//============================================================
+alberta,136,60,4	script	CookAdvisor#alb	837,{
+	mes "[ผู้แนะนำการทำอาหาร]";
+	mes "การทำอาหารช่วยให้ตัวละครได้รับบัฟค่าสเตตัสชั่วคราว";
+	mes "เหมาะสำหรับเตรียมตัวก่อนล่าบอส ลงดันเจี้ยน หรือเก็บเลเวลจริงจัง";
+	next;
+
+	mes "[ผู้แนะนำการทำอาหาร]";
+	mes "สิ่งที่ควรมี:";
+	mes "- Cookbook ตามระดับอาหาร";
+	mes "- Cooking Kit";
+	mes "- วัตถุดิบตามสูตร";
+	next;
+
+	mes "[ผู้แนะนำการทำอาหาร]";
+	mes "Cooking Kit แต่ละชนิดมีคุณภาพต่างกัน";
+	mes "Outdoor Kit เหมาะสำหรับเริ่มต้น";
+	mes "Home Kit ใช้ง่ายขึ้น";
+	mes "Professional และ Royal Kit เหมาะกับผู้เล่นที่จริงจังกับการทำอาหาร";
+	next;
+
+	mes "[ผู้แนะนำการทำอาหาร]";
+	mes "ร้านใน Alberta จะช่วยขายวัตถุดิบพื้นฐานให้";
+	mes "แต่ถ้าต้องการสูตรขั้นสูง อาจต้องออกไปฟาร์มวัตถุดิบด้วยตัวเองค่ะ";
+	close;
+}
