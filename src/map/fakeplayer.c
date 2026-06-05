@@ -36,9 +36,19 @@
 
 // Per-fake action cadence (ms). Each fake gets a randomised gap in this window
 // between actions, so the crowd never walks/sits/emotes all on the same beat.
-#define FP_ACT_MIN  4000
-#define FP_ACT_MAX 14000
-#define FP_SPREAD  12000     // initial random delay so spawns desync on startup
+// Longer = calmer crowd + far less CPU (fewer pathfinds/target-scans per sec).
+#define FP_ACT_MIN  6000
+#define FP_ACT_MAX 20000
+#define FP_SPREAD  15000     // initial random delay so spawns desync on startup
+
+// Per-driver-tick budget for EXPENSIVE actions only: A* pathfinding (wander
+// steps) and monster target scans. Cheap actions (sit/stand/emote/talk) are
+// never budgeted. With FP_TICK=1000ms this caps heavy work to ~FP_MOVE_BUDGET
+// operations per second across the WHOLE world, which is what keeps a 10k-fake
+// population from spiking the main thread and lagging real players. When the
+// budget is spent, a fake simply defers its move a little and tries next tick.
+// Tune up for livelier movement, down if the box still struggles.
+#define FP_MOVE_BUDGET 250
 
 // A registry entry. We keep the behaviour flag, the home/anchor cell (so
 // wanderers drift around a fixed spot instead of crossing the whole map) and a
@@ -78,26 +88,35 @@ static const char* FP_NAMES[] = {
 };
 #define FP_NNAME ((int)(sizeof(FP_NAMES)/sizeof(FP_NAMES[0])))
 
-// Realistic vending-board titles. These travel in the REAL player vend board
-// packet (clif_showvendingboard via vending_openvending), so nearby clients see
-// a normal blue vend sign - never a monster name. Mix of S>/B>/WTS/WTB styles.
+// Fallback vending-board titles. Normally a vendor's board is built from the
+// ACTUAL items in its cart (see fp_build_vend_title) so the sign matches the
+// stock - exactly like a real player's shop. This list is only used when an
+// item happens to be missing from this server's item_db. These travel in the
+// REAL vend board packet (clif_showvendingboard), so nearby clients always see
+// a normal blue vend sign, never a monster name.
 static const char* FP_VEND_TITLES[] = {
-	"WTS Ori & Elu cheap","S> White Potion x99","Ygg Berry / Seed stock",
-	"S> OBB / OPB / OCA","Old Card Album here","S> MVP Cards (PM me)",
-	"Bloody Branch in stock","S> Slotted gear +refine","Refine mats - fair price",
-	"WTS rare cards","Buff pots & supplies","S> Treasure Box","B> Cards & gears",
-	"WTB Elunium any amt","S> leftover loot","Pricecheck inside ^^",
+	"S> cheap loots","WTS misc items","B> cards pm","S> supplies","deals inside ^^",
 };
 #define FP_NVEND ((int)(sizeof(FP_VEND_TITLES)/sizeof(FP_VEND_TITLES[0])))
 
-// Overhead chat-room titles (real player-owned chat room, chat_createpcchat).
-static const char* FP_CHAT_TITLES[] = {
-	"LFP party - any job","Need HP & Bragi","ET 1/12 LFM","MVP hunt later?",
-	"WoE guild recruiting","Leveling party here","Newbie friendly party",
-	"Looking for tank","Card trade - PM","Selling/buying chat","AFK back soon",
-	"Quest party LFM",
+// Town chat-room titles: the social/trade banter you see standing in a city.
+static const char* FP_CITY_CHAT_TITLES[] = {
+	"B> Cards - PM me","S> gears cheap, nego","WTB Elu/Ori bulk",
+	"trade hub - offers","newbie help, ask here","LF active guild",
+	"S> loots & collects","duo lvl partner?","AFK - alt vending",
+	"price check corner","WTT cards 1:1","chill & chat ^^",
+	"S> refines + mats","LF ET run later","buying pet eggs",
 };
-#define FP_NCHAT ((int)(sizeof(FP_CHAT_TITLES)/sizeof(FP_CHAT_TITLES[0])))
+#define FP_NCITYCHAT ((int)(sizeof(FP_CITY_CHAT_TITLES)/sizeof(FP_CITY_CHAT_TITLES[0])))
+
+// Field/dungeon chat-room titles: party recruitment shouted while grinding.
+static const char* FP_PARTY_TITLES[] = {
+	"LFM party, any job","LF FS Priest pls","need tank + heals",
+	"party 3/6 - join","grind party LFM","exp share party",
+	"LF DD for MVP","leeching ok, pm","LF duo here",
+	"no KS pls ^^","buffs ready - come","farming party LFM",
+};
+#define FP_NPARTY ((int)(sizeof(FP_PARTY_TITLES)/sizeof(FP_PARTY_TITLES[0])))
 
 // Short lines a fake player may "say" (overhead chat bubble, clif_message).
 // Kept generic so they fit any map/situation and look like idle player banter.
@@ -516,21 +535,27 @@ static void fp_emote(struct map_session_data* sd)
 	clif_emotion(&sd->bl, FP_EMOTES[rnd() % FP_NEMOTE]);
 }
 
+// Short, jittered "try again soon" delay used when a fake wants to do an
+// expensive action (walk/fight-scan) but the per-tick budget is already spent.
+static int fp_defer(void) { return 700 + (int)(rnd() % 1500); }
+
 // Run one behaviour step for a single fake; returns the delay (ms) until it
-// should act again.
-static int fp_act(struct fp_node* node)
+// should act again. `budget` points at the driver's per-tick allowance for
+// EXPENSIVE actions (pathfinding + monster scans); it is decremented when one
+// is performed and the action is deferred when it hits zero.
+static int fp_act(struct fp_node* node, int* budget)
 {
 	struct map_session_data* sd = node->sd;
 	int flag = node->flag;
 	int r;
 
-	// Vendors keep their shop anchored; just look alive once in a while.
+	// Vendors keep their shop anchored; just look alive once in a while. (cheap)
 	if (sd->state.vending) {
 		if (rnd() % 100 < 15) fp_emote(sd);
 		return FP_ACT_MIN + (int)(rnd() % (FP_ACT_MAX - FP_ACT_MIN));
 	}
 
-	// Chat-room hosts: the "talkers". Stay in the room, banter and emote.
+	// Chat-room hosts: the "talkers". Stay in the room, banter and emote. (cheap)
 	if (sd->chatID) {
 		r = rnd() % 100;
 		if (r < 55)      fp_say(sd);
@@ -538,13 +563,17 @@ static int fp_act(struct fp_node* node)
 		return FP_ACT_MIN + (int)(rnd() % (FP_ACT_MAX - FP_ACT_MIN));
 	}
 
-	// Still mid-walk or mid-swing: let the action finish, re-check shortly.
+	// Still mid-walk or mid-swing: let the action finish, re-check shortly. (cheap)
 	if (sd->ud.walktimer != INVALID_TIMER || sd->ud.attacktimer != INVALID_TIMER)
 		return 1500 + (int)(rnd() % 1500);
 
-	// Fighters: engage the nearest monster if one is in range.
+	// Fighters: engage the nearest monster if one is in range. The range scan
+	// is expensive, so it is budgeted; when we're out of budget, just retry soon.
 	if (flag & FP_FIGHT) {
 		int target = 0;
+		if (*budget <= 0)
+			return fp_defer();
+		(*budget)--;
 		map_foreachinrange(fp_pick_target, &sd->bl, FP_FIGHT_RANGE, BL_MOB, &target);
 		if (target) {
 			if (sd->vd.dead_sit) { pc_setstand(sd); clif_standing(&sd->bl); }
@@ -554,7 +583,7 @@ static int fp_act(struct fp_node* node)
 		// nothing to hit: drift around like a player looking for mobs
 	}
 
-	// Stand up if we had been resting.
+	// Stand up if we had been resting. (cheap)
 	if (sd->vd.dead_sit) {
 		pc_setstand(sd);
 		clif_standing(&sd->bl);
@@ -564,19 +593,23 @@ static int fp_act(struct fp_node* node)
 	if (flag & FP_WANDER) {
 		r = rnd() % 100;
 		if (r < 60) {                          // short stroll near the anchor
-			short nx = (short)(node->ax - FP_WANDER_RANGE + (rnd() % (FP_WANDER_RANGE * 2 + 1)));
-			short ny = (short)(node->ay - FP_WANDER_RANGE + (rnd() % (FP_WANDER_RANGE * 2 + 1)));
+			short nx, ny;
+			if (*budget <= 0)                  // pathfinding is the pricey bit
+				return fp_defer();
+			(*budget)--;
+			nx = (short)(node->ax - FP_WANDER_RANGE + (rnd() % (FP_WANDER_RANGE * 2 + 1)));
+			ny = (short)(node->ay - FP_WANDER_RANGE + (rnd() % (FP_WANDER_RANGE * 2 + 1)));
 			unit_walktoxy(&sd->bl, nx, ny, 0);
-		} else if (r < 78) {                   // sit down for a breather
+		} else if (r < 78) {                   // sit down for a breather (cheap)
 			pc_setsit(sd);
 			clif_sitting(&sd->bl);
-		} else if (r < 92) {                   // emote
+		} else if (r < 92) {                   // emote (cheap)
 			fp_emote(sd);
-		} else {                               // chat
+		} else {                               // chat (cheap)
 			fp_say(sd);
 		}
 	} else {
-		// "Still" fakes with no wander flag: occasional emote / chat only.
+		// "Still" fakes with no wander flag: occasional emote / chat only. (cheap)
 		if (rnd() % 100 < 50) fp_emote(sd);
 		else                  fp_say(sd);
 	}
@@ -586,14 +619,76 @@ static int fp_act(struct fp_node* node)
 
 static int fakeplayer_driver(int tid, unsigned int tick, int id, intptr_t data)
 {
-	int i;
-	for (i = 0; i < fp_count; i++) {
-		struct fp_node* node = &fp_list[i];
+	// Rotating scan start so the move budget isn't always consumed by the same
+	// low-index fakes; over time every fake gets a fair share of movement.
+	static int rot = 0;
+	int k, budget = FP_MOVE_BUDGET;
+
+	if (fp_count <= 0)
+		return 0;
+	if (rot >= fp_count)
+		rot = 0;
+
+	for (k = 0; k < fp_count; k++) {
+		int i = rot + k;
+		struct fp_node* node;
+		if (i >= fp_count) i -= fp_count;   // wrap (cheaper than modulo per node)
+		node = &fp_list[i];
 		if (node->sd == NULL) continue;
 		if (DIFF_TICK(tick, node->next_tick) < 0) continue; // not its turn yet
-		node->next_tick = tick + (unsigned int)fp_act(node);
+		node->next_tick = tick + (unsigned int)fp_act(node, &budget);
 	}
+
+	rot += FP_MOVE_BUDGET;                   // advance the fairness window
 	return 0;
+}
+
+// Format a zeny amount the way players write it on vend boards: "950z",
+// "28k", "1.5m". Keeps signs short and believable.
+static void fp_zeny_str(char* out, size_t sz, int z)
+{
+	if (z >= 1000000) {
+		int mm = z / 1000000;
+		int frac = (z % 1000000) / 100000; // one decimal
+		if (frac) safesnprintf(out, sz, "%d.%dm", mm, frac);
+		else      safesnprintf(out, sz, "%dm", mm);
+	} else if (z >= 1000) {
+		safesnprintf(out, sz, "%dk", z / 1000);
+	} else {
+		safesnprintf(out, sz, "%dz", z);
+	}
+}
+
+// Build a realistic vend board title from the items actually in the cart, so
+// the sign matches the stock (e.g. "S> Oridecon 22k", "S> Elunium & Yggdrasil
+// Berry"). Falls back to a generic title only if the item_db lookup fails.
+static void fp_build_vend_title(char* out, size_t sz, const int* it, const int* pr, int num)
+{
+	struct item_data* a = (num > 0) ? itemdb_exists(it[0]) : NULL;
+	struct item_data* b = (num > 1) ? itemdb_exists(it[1]) : NULL;
+	char ps[16];
+
+	if (a == NULL) { // shouldn't happen, but never show a broken board
+		safestrncpy(out, FP_VEND_TITLES[rnd() % FP_NVEND], sz);
+		return;
+	}
+
+	fp_zeny_str(ps, sizeof(ps), pr[0]);
+
+	if (b != NULL) {
+		switch (rnd() % 3) {
+		case 0:  safesnprintf(out, sz, "S> %s & %s", a->jname, b->jname); break;
+		case 1:  safesnprintf(out, sz, "S> %s %s +more", a->jname, ps);  break;
+		default: safesnprintf(out, sz, "S> %s, %s..", a->jname, b->jname); break;
+		}
+	} else {
+		switch (rnd() % 4) {
+		case 0:  safesnprintf(out, sz, "S> %s %s", a->jname, ps);      break;
+		case 1:  safesnprintf(out, sz, "%s %s/ea", a->jname, ps);      break;
+		case 2:  safesnprintf(out, sz, "WTS %s %s", a->jname, ps);     break;
+		default: safesnprintf(out, sz, "%s - %s nego", a->jname, ps);  break;
+		}
+	}
 }
 
 // ---------------------------------------------------------------------------
@@ -634,12 +729,16 @@ int fakeplayer_populate_city(int m, int count)
 				pr[k] = v->price * (75 + (int)(rnd() % 51)) / 100;
 				if (pr[k] < 1) pr[k] = 1;
 			}
-			fakeplayer_openvend(gid, FP_VEND_TITLES[rnd() % FP_NVEND], it, pr, num);
+			{   // board title built from the real cart contents
+				char vtitle[80];
+				fp_build_vend_title(vtitle, sizeof(vtitle), it, pr, num);
+				fakeplayer_openvend(gid, vtitle, it, pr, num);
+			}
 		}
 		else if (roll < 40) {     // chat-room owner: still
 			gid = fakeplayer_create(name, class_, m, x, y, FP_STILL);
 			if (!gid) continue;
-			fakeplayer_openchat(gid, FP_CHAT_TITLES[rnd() % FP_NCHAT], 12);
+			fakeplayer_openchat(gid, FP_CITY_CHAT_TITLES[rnd() % FP_NCITYCHAT], 12);
 		}
 		else {                     // ordinary wanderer
 			gid = fakeplayer_create(name, class_, m, x, y, FP_WANDER);
@@ -683,7 +782,7 @@ int fakeplayer_populate_field(int m, int count)
 		if (roll < 5) {            // a party host shouting for members
 			gid = fakeplayer_create(name, class_, m, x, y, FP_STILL);
 			if (!gid) continue;
-			fakeplayer_openchat(gid, FP_CHAT_TITLES[rnd() % FP_NCHAT], 12);
+			fakeplayer_openchat(gid, FP_PARTY_TITLES[rnd() % FP_NPARTY], 6);
 		}
 		else if (roll < 20) {      // roamer (wander only)
 			gid = fakeplayer_create(name, class_, m, x, y, FP_WANDER);
