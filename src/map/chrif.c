@@ -269,6 +269,14 @@ int chrif_save(struct map_session_data *sd, int flag)
 {
 	nullpo_retr(-1, sd);
 
+	// Fake players are synthetic, in-memory BL_PC units with no char-server
+	// record. Sending their data to the char-server produces the
+	// "non-existant/offline character" errors and "mapindex_id2name [0]"
+	// warnings, and the resulting traffic storm can drop the inter-server
+	// link. Never persist them.
+	if (sd->state.fakeplayer)
+		return 0;
+
 	pc_makesavestatus(sd);
 
 	if (flag && sd->state.active) //Store player data which is quitting.

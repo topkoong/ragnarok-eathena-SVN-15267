@@ -1,0 +1,131 @@
+//===== eAthena Script ===========================================
+//= Fake Players (source-driven population controller)
+//================================================================
+//= Requires the fakeplayer.c source feature (compiled into the
+//= map-server). These are REAL BL_PC units, NOT mobs:
+//=   - real player names (no HP bar, not monster-targetable)
+//=   - real player-owned vend shops (real blue vend board packet)
+//=   - real player-owned overhead chat rooms
+//=   - real movement, sitting, emotes, chatting and melee combat,
+//=     all driven server-side with staggered, per-player timing so
+//=     the crowd never moves/acts in unison.
+//=
+//= Script commands exported by fakeplayer.c (see src/map/script.c):
+//=   fakecity  "<map>",<count>;
+//=        City crowd: wanderers + vendors (merchant line only) +
+//=        chat-room hosts. No fighters.
+//=   fakefield "<map>",<count>;
+//=        Field/dungeon crowd: geared wander+fight grinders, a few
+//=        roamers, a couple of party-chat hosts. No vendors.
+//=   fakeplayer "<name>",<class>,"<map>",<x>,<y>{,<flag>};  // -> GID
+//=        flag: 0 = stand still, 1 = wander, 2 = fight,
+//=              3 = wander + fight
+//=   fakevend <gid>,"<title>",<nameid>,<price>{,<nameid>,<price>...};
+//=   fakechat <gid>,"<title>"{,<limit>};
+//=   fakeplayerremove <gid>;
+//=   fakeplayerremoveall {"<map>"};
+//=
+//= TUNING / PERFORMANCE NOTES
+//=   * Total fake players is capped at FP_MAX (20000) in fakeplayer.c.
+//=   * Each fake is a full map_session_data; on a 32-bit (Win32)
+//=     build, keep an eye on memory if you push counts very high.
+//=   * Lower .@percity / .@perfield / .@perdun below if your box
+//=     struggles; raise them if you want even denser maps.
+//================================================================
+
+-	script	FakePlayerController	-1,{
+	end;
+
+OnInit:
+	// ----------------------------------------------------------------
+	// Per-map population sizes. Tune freely.
+	// ----------------------------------------------------------------
+	set .@percity, 800;   // fake players per town
+	set .@perfield, 25;   // fake players per outdoor field map
+	set .@perdun, 25;     // fake players per dungeon map
+
+	// ----------------------------------------------------------------
+	// 1) TOWNS - shopping/social crowd (vendors + chatters + walkers).
+	// ----------------------------------------------------------------
+	setarray .@cities$[0],
+		"prontera","morocc","payon","geffen","izlude",
+		"alberta","aldebaran","yuno","comodo";
+	for( set .@i,0; .@i < getarraysize(.@cities$); set .@i,.@i+1 )
+		fakecity .@cities$[.@i], .@percity;
+
+	// ----------------------------------------------------------------
+	// 2) FIELDS - outdoor leveling crowd (geared wander+fight).
+	//    Invalid/missing maps are skipped automatically, so this list
+	//    is safe to trim or extend.
+	// ----------------------------------------------------------------
+	setarray .@fields$[0],
+		"prt_fild00","prt_fild01","prt_fild02","prt_fild03","prt_fild06","prt_fild08","prt_fild11",
+		"moc_fild01","moc_fild02","moc_fild03","moc_fild11","moc_fild12","moc_fild18","moc_fild22",
+		"gef_fild00","gef_fild01","gef_fild03","gef_fild04","gef_fild10",
+		"pay_fild01","pay_fild04","pay_fild06","pay_fild08","pay_fild10",
+		"mjolnir_01","mjolnir_02","mjolnir_06","mjolnir_09",
+		"cmd_fild01","cmd_fild04","cmd_fild07","cmd_fild09",
+		"yuno_fild01","yuno_fild03","yuno_fild07","yuno_fild09",
+		"ein_fild04","ein_fild07","ein_fild09",
+		"hu_fild01","hu_fild05","hu_fild06",
+		"ra_fild01","ra_fild04","ra_fild05",
+		"ve_fild01","ve_fild02","um_fild01","um_fild04",
+		"nif_fild01","ama_fild01","gon_fild01","lou_fild01";
+	for( set .@i,0; .@i < getarraysize(.@fields$); set .@i,.@i+1 )
+		fakefield .@fields$[.@i], .@perfield;
+
+	// ----------------------------------------------------------------
+	// 3) DUNGEONS - indoor grinding crowd (geared wander+fight).
+	// ----------------------------------------------------------------
+	setarray .@duns$[0],
+		"prt_sewb1","prt_sewb2","prt_sewb3",
+		"gef_dun00","gef_dun01","gef_dun02",
+		"pay_dun00","pay_dun01","pay_dun03",
+		"moc_pryd01","moc_pryd02","moc_pryd04",
+		"in_sphinx1","in_sphinx2","in_sphinx3",
+		"iz_dun00","iz_dun01","iz_dun03",
+		"ice_dun01","ice_dun02","ice_dun03",
+		"mjo_dun01","mjo_dun02",
+		"orcsdun01","orcsdun02",
+		"anthell01","anthell02",
+		"c_tower1","c_tower2","c_tower3",
+		"tur_dun01","tur_dun02","tur_dun03",
+		"mag_dun01","mag_dun02",
+		"abyss_01","abyss_02","abyss_03",
+		"thor_v01","thor_v02",
+		"ra_san01","ra_san02",
+		"ama_dun01","ama_dun02",
+		"ayo_dun01","ayo_dun02",
+		"gon_dun01","gon_dun02","gon_dun03",
+		"lhz_dun01","lhz_dun02","lhz_dun03",
+		"juperos_01","juperos_02",
+		"tha_t01","tha_t02";
+	for( set .@i,0; .@i < getarraysize(.@duns$); set .@i,.@i+1 )
+		fakefield .@duns$[.@i], .@perdun;
+
+	// ----------------------------------------------------------------
+	// 4) Hand-placed examples of the granular commands.
+	//    Only Merchant/Blacksmith/Alchemist/Whitesmith/Creator vend;
+	//    prices below are realistic market values.
+	// ----------------------------------------------------------------
+	set .@v, fakeplayer("CheapSmith",JOB_BLACKSMITH,"prontera",152,180,0);
+	fakevend .@v,"WTS Ori & Elu",985,30000,984,22000,607,4500;
+
+	set .@c, fakeplayer("Need_HW",JOB_HIGH_WIZARD,"prontera",158,182,0);
+	fakechat .@c,"ET 1/12 LFP",12;
+
+	// A few hand-placed fighters on a starter field (wander + fight):
+	fakeplayer "Hunter_A",JOB_HUNTER,"prt_fild08",170,180,3;
+	fakeplayer "Sniper_B",JOB_SNIPER,"prt_fild08",174,182,3;
+	fakeplayer "Assassin_C",JOB_ASSASSIN_CROSS,"prt_fild08",168,176,3;
+	end;
+}
+
+// Optional GM-clickable to wipe & repopulate Prontera during testing.
+// A level 60+ GM stepping on this cell resets Prontera's crowd.
+prontera,155,155,3	script	#FakeReset	-1,{
+	if( getgmlevel() < 60 ) end;
+	fakeplayerremoveall "prontera";
+	fakecity "prontera",800;
+	end;
+}
