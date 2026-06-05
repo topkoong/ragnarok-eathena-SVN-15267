@@ -1,7 +1,0 @@
-// Enable gradually. Restart map-server after DB append.
-npc: npc/custom/fake_activity/test_mob_fake_player.txt
-// After the test works, comment the test line and enable these:
-// npc: npc/custom/fake_activity/fake_player_mob_spawns.txt
-// npc: npc/custom/fake_activity/fake_leveling_mob_scenes.txt
-// Optional invisible chat-room boxes. Not true player chat rooms:
-// npc: npc/custom/fake_activity/fake_hidden_chatroom_overlays.txt

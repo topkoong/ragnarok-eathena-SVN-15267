@@ -6,9 +6,9 @@
   grfio.c
   lock.c
   malloc.c
-c:\users\topkoong\documents\game\eathena svn 15267\src\common\malloc.c(748): warning C4267: 'function': conversion from 'size_t' to 'unsigned short', possible loss of data
   mapindex.c
   md5calc.c
+c:\users\topkoong\documents\game\eathena svn 15267\src\common\malloc.c(748): warning C4267: 'function': conversion from 'size_t' to 'unsigned short', possible loss of data
   nullpo.c
   plugins.c
   random.c

@@ -43,6 +43,7 @@
 #include "mercenary.h"
 #include "atcommand.h"
 #include "log.h"
+#include "fakeplayer.h"
 #ifndef TXT_ONLY
 #include "mail.h"
 #endif
@@ -3437,6 +3438,7 @@ void do_final(void)
 	do_final_storage();
 	do_final_guild();
 	do_final_party();
+	do_final_fakeplayer();
 	do_final_pc();
 	do_final_pet();
 	do_final_mob();
@@ -3759,6 +3761,7 @@ int do_init(int argc, char *argv[])
 	do_init_script();
 	do_init_itemdb();
 	do_init_skill();
+	do_init_fakeplayer();
 	do_init_mob();
 	do_init_pc();
 	do_init_status();
