@@ -42,9 +42,9 @@
 //============================================================
 // lhz_dun01 - Bio-life Labs 1F
 //============================================================
-lhz_dun01,0,0,0,0	monster	Metaling	1613,50,0,0,0
-lhz_dun01,0,0,0,0	monster	Anopheles	1627,70,0,0,0
-lhz_dun01,0,0,0,0	monster	Remover	1682,100,0,0,0
+lhz_dun01,0,0,0,0	monster	Metaling	1613,100,0,0,0
+lhz_dun01,0,0,0,0	monster	Anopheles	1627,140,0,0,0
+lhz_dun01,0,0,0,0	monster	Remover	1682,200,0,0,0
 
 lhz_dun01,0,0,0,0	monster	Egnigem Cenia	1652,1,0,0,0
 lhz_dun01,0,0,0,0	monster	Wickebine Tres	1653,1,0,0,0
@@ -56,23 +56,23 @@ lhz_dun01,0,0,0,0	monster	Laurell Weinder	1657,1,0,0,0
 lhz_dun01,150,50,16,18	monster	Egnigem Cenia	1652,1,900000,800000,0
 lhz_dun01,150,50,16,18	monster	Wickebine Tres	1653,1,900000,800000,0
 lhz_dun01,150,50,16,18	monster	Armeyer Dinze	1654,1,900000,800000,0
-lhz_dun01,150,50,16,18	monster	Errende Ebecee	1655,5,900000,800000,0
-lhz_dun01,150,50,16,18	monster	Kavach Icarus	1656,5,600000,300000,0
-lhz_dun01,150,50,16,18	monster	Laurell Weinder	1657,5,600000,300000,0
+lhz_dun01,150,50,16,18	monster	Errende Ebecee	1655,10,900000,800000,0
+lhz_dun01,150,50,16,18	monster	Kavach Icarus	1656,10,600000,300000,0
+lhz_dun01,150,50,16,18	monster	Laurell Weinder	1657,10,600000,300000,0
 
-lhz_dun01,250,150,18,30	monster	Egnigem Cenia	1652,4,900000,800000,0
-lhz_dun01,250,150,18,30	monster	Wickebine Tres	1653,4,600000,300000,0
-lhz_dun01,250,150,18,30	monster	Armeyer Dinze	1654,4,900000,800000,0
-lhz_dun01,250,150,18,30	monster	Errende Ebecee	1655,2,900000,800000,0
-lhz_dun01,250,150,18,30	monster	Kavach Icarus	1656,2,900000,800000,0
-lhz_dun01,250,150,18,30	monster	Laurell Weinder	1657,2,600000,300000,0
+lhz_dun01,250,150,18,30	monster	Egnigem Cenia	1652,8,900000,800000,0
+lhz_dun01,250,150,18,30	monster	Wickebine Tres	1653,8,600000,300000,0
+lhz_dun01,250,150,18,30	monster	Armeyer Dinze	1654,8,900000,800000,0
+lhz_dun01,250,150,18,30	monster	Errende Ebecee	1655,4,900000,800000,0
+lhz_dun01,250,150,18,30	monster	Kavach Icarus	1656,4,900000,800000,0
+lhz_dun01,250,150,18,30	monster	Laurell Weinder	1657,4,600000,300000,0
 
 lhz_dun01,50,150,11,35	monster	Egnigem Cenia	1652,1,600000,300000,0
-lhz_dun01,50,150,11,35	monster	Wickebine Tres	1653,4,900000,800000,0
+lhz_dun01,50,150,11,35	monster	Wickebine Tres	1653,8,900000,800000,0
 lhz_dun01,50,150,11,35	monster	Armeyer Dinze	1654,1,900000,800000,0
-lhz_dun01,50,150,11,35	monster	Errende Ebecee	1655,4,900000,800000,0
-lhz_dun01,50,150,11,35	monster	Kavach Icarus	1656,4,900000,800000,0
-lhz_dun01,50,150,11,35	monster	Laurell Weinder	1657,2,600000,300000,0
+lhz_dun01,50,150,11,35	monster	Errende Ebecee	1655,8,900000,800000,0
+lhz_dun01,50,150,11,35	monster	Kavach Icarus	1656,8,900000,800000,0
+lhz_dun01,50,150,11,35	monster	Laurell Weinder	1657,4,600000,300000,0
 
 lhz_dun01,192,61,18,30	monster	Egnigem Cenia	1652,1,900000,800000,0
 lhz_dun01,192,61,18,30	monster	Wickebine Tres	1653,1,900000,800000,0
@@ -87,36 +87,36 @@ lhz_dun01,0,0,0,0	monster	Gemini-S58	1681,1,7200000,5400000,0
 //============================================================
 // lhz_dun02 - Bio-life Labs 2F
 //============================================================
-lhz_dun02,0,0,0,0	monster	Egnigem Cenia	1652,26,0,0,0
-lhz_dun02,0,0,0,0	monster	Wickebine Tres	1653,26,0,0,0
-lhz_dun02,0,0,0,0	monster	Armeyer Dinze	1654,26,0,0,0
-lhz_dun02,0,0,0,0	monster	Errende Ebecee	1655,26,0,0,0
-lhz_dun02,0,0,0,0	monster	Kavach Icarus	1656,26,0,0,0
-lhz_dun02,0,0,0,0	monster	Laurell Weinder	1657,26,0,0,0
+lhz_dun02,0,0,0,0	monster	Egnigem Cenia	1652,52,0,0,0
+lhz_dun02,0,0,0,0	monster	Wickebine Tres	1653,52,0,0,0
+lhz_dun02,0,0,0,0	monster	Armeyer Dinze	1654,52,0,0,0
+lhz_dun02,0,0,0,0	monster	Errende Ebecee	1655,52,0,0,0
+lhz_dun02,0,0,0,0	monster	Kavach Icarus	1656,52,0,0,0
+lhz_dun02,0,0,0,0	monster	Laurell Weinder	1657,52,0,0,0
 
-lhz_dun02,150,150,56,54	monster	Egnigem Cenia	1652,4,120000,60000,0
-lhz_dun02,150,150,56,54	monster	Wickebine Tres	1653,4,120000,60000,0
-lhz_dun02,150,150,56,54	monster	Armeyer Dinze	1654,4,120000,60000,0
-lhz_dun02,150,150,56,54	monster	Errende Ebecee	1655,4,120000,60000,0
-lhz_dun02,150,150,56,54	monster	Kavach Icarus	1656,4,120000,60000,0
-lhz_dun02,150,150,56,54	monster	Laurell Weinder	1657,4,120000,60000,0
+lhz_dun02,150,150,56,54	monster	Egnigem Cenia	1652,8,120000,60000,0
+lhz_dun02,150,150,56,54	monster	Wickebine Tres	1653,8,120000,60000,0
+lhz_dun02,150,150,56,54	monster	Armeyer Dinze	1654,8,120000,60000,0
+lhz_dun02,150,150,56,54	monster	Errende Ebecee	1655,8,120000,60000,0
+lhz_dun02,150,150,56,54	monster	Kavach Icarus	1656,8,120000,60000,0
+lhz_dun02,150,150,56,54	monster	Laurell Weinder	1657,8,120000,60000,0
 
-lhz_dun02,150,150,105,90	monster	Egnigem Cenia	1652,10,120000,60000,0
-lhz_dun02,150,150,105,90	monster	Wickebine Tres	1653,10,120000,60000,0
-lhz_dun02,150,150,105,90	monster	Armeyer Dinze	1654,10,120000,60000,0
-lhz_dun02,150,150,105,90	monster	Errende Ebecee	1655,10,120000,60000,0
-lhz_dun02,150,150,105,90	monster	Kavach Icarus	1656,10,120000,60000,0
-lhz_dun02,150,150,105,90	monster	Laurell Weinder	1657,10,120000,60000,0
+lhz_dun02,150,150,105,90	monster	Egnigem Cenia	1652,20,120000,60000,0
+lhz_dun02,150,150,105,90	monster	Wickebine Tres	1653,20,120000,60000,0
+lhz_dun02,150,150,105,90	monster	Armeyer Dinze	1654,20,120000,60000,0
+lhz_dun02,150,150,105,90	monster	Errende Ebecee	1655,20,120000,60000,0
+lhz_dun02,150,150,105,90	monster	Kavach Icarus	1656,20,120000,60000,0
+lhz_dun02,150,150,105,90	monster	Laurell Weinder	1657,20,120000,60000,0
 
-lhz_dun02,0,0,0,0	monster	Egnigem Cenia	1652,10,300000,150000,0
-lhz_dun02,0,0,0,0	monster	Wickebine Tres	1653,10,300000,150000,0
-lhz_dun02,0,0,0,0	monster	Armeyer Dinze	1654,10,300000,150000,0
-lhz_dun02,0,0,0,0	monster	Errende Ebecee	1655,10,300000,150000,0
-lhz_dun02,0,0,0,0	monster	Kavach Icarus	1656,10,300000,150000,0
-lhz_dun02,0,0,0,0	monster	Laurell Weinder	1657,10,300000,150000,0
-lhz_dun02,0,0,0,0	monster	Remover	1682,20,300000,150000,0
+lhz_dun02,0,0,0,0	monster	Egnigem Cenia	1652,20,300000,150000,0
+lhz_dun02,0,0,0,0	monster	Wickebine Tres	1653,20,300000,150000,0
+lhz_dun02,0,0,0,0	monster	Armeyer Dinze	1654,20,300000,150000,0
+lhz_dun02,0,0,0,0	monster	Errende Ebecee	1655,20,300000,150000,0
+lhz_dun02,0,0,0,0	monster	Kavach Icarus	1656,20,300000,150000,0
+lhz_dun02,0,0,0,0	monster	Laurell Weinder	1657,20,300000,150000,0
+lhz_dun02,0,0,0,0	monster	Remover	1682,40,300000,150000,0
 lhz_dun02,0,0,0,0	monster	Eremes Guile	1635,1,180000,120000,0
-lhz_dun02,0,0,0,0	monster	Gemini-S58	1681,10,5400000,180000,0
+lhz_dun02,0,0,0,0	monster	Gemini-S58	1681,20,5400000,180000,0
 
 lhz_dun02,0,0,0,0	boss_monster	Egnigem Cenia	1658,1,7200000,600000,1
 
@@ -124,12 +124,12 @@ lhz_dun02,0,0,0,0	boss_monster	Egnigem Cenia	1658,1,7200000,600000,1
 //============================================================
 // lhz_dun03 - Bio-life Labs 3F
 //============================================================
-lhz_dun03,140,235,116,30	monster	Seyren Windsor	1634,4,180000,120000,0
-lhz_dun03,140,235,116,30	monster	Eremes Guile	1635,4,180000,120000,0
-lhz_dun03,140,235,116,30	monster	Howard Alt-Eisen	1636,4,180000,120000,0
-lhz_dun03,140,235,116,30	monster	Margaretha Sorin	1637,4,180000,120000,0
-lhz_dun03,140,235,116,30	monster	Cecil Damon	1638,4,180000,120000,0
-lhz_dun03,140,235,116,30	monster	Kathryne Keyron	1639,4,180000,120000,0
+lhz_dun03,140,235,116,30	monster	Seyren Windsor	1634,8,180000,120000,0
+lhz_dun03,140,235,116,30	monster	Eremes Guile	1635,8,180000,120000,0
+lhz_dun03,140,235,116,30	monster	Howard Alt-Eisen	1636,8,180000,120000,0
+lhz_dun03,140,235,116,30	monster	Margaretha Sorin	1637,8,180000,120000,0
+lhz_dun03,140,235,116,30	monster	Cecil Damon	1638,8,180000,120000,0
+lhz_dun03,140,235,116,30	monster	Kathryne Keyron	1639,8,180000,120000,0
 
 lhz_dun03,40,214,16,16	monster	Seyren Windsor	1634,1,120000,60000,0
 lhz_dun03,40,214,16,16	monster	Eremes Guile	1635,1,120000,60000,0
@@ -145,19 +145,19 @@ lhz_dun03,240,213,16,17	monster	Margaretha Sorin	1637,1,120000,60000,0
 lhz_dun03,240,213,16,17	monster	Cecil Damon	1638,1,120000,60000,0
 lhz_dun03,240,213,16,17	monster	Kathryne Keyron	1639,1,120000,60000,0
 
-lhz_dun03,140,65,108,38	monster	Seyren Windsor	1634,7,120000,160000,0
-lhz_dun03,140,65,108,38	monster	Eremes Guile	1635,7,120000,160000,0
-lhz_dun03,140,65,108,38	monster	Howard Alt-Eisen	1636,7,120000,160000,0
-lhz_dun03,140,65,108,38	monster	Margaretha Sorin	1637,7,180000,120000,0
-lhz_dun03,140,65,108,38	monster	Cecil Damon	1638,7,120000,60000,0
-lhz_dun03,140,65,108,38	monster	Kathryne Keyron	1639,7,120000,60000,0
+lhz_dun03,140,65,108,38	monster	Seyren Windsor	1634,14,120000,160000,0
+lhz_dun03,140,65,108,38	monster	Eremes Guile	1635,14,120000,160000,0
+lhz_dun03,140,65,108,38	monster	Howard Alt-Eisen	1636,14,120000,160000,0
+lhz_dun03,140,65,108,38	monster	Margaretha Sorin	1637,14,180000,120000,0
+lhz_dun03,140,65,108,38	monster	Cecil Damon	1638,14,120000,60000,0
+lhz_dun03,140,65,108,38	monster	Kathryne Keyron	1639,14,120000,60000,0
 
-lhz_dun03,138,138,36,34	monster	Seyren Windsor	1634,3,120000,60000,0
-lhz_dun03,138,138,36,34	monster	Eremes Guile	1635,3,120000,60000,0
-lhz_dun03,138,138,36,34	monster	Howard Alt-Eisen	1636,3,120000,60000,0
-lhz_dun03,138,138,36,34	monster	Margaretha Sorin	1637,3,180000,120000,0
-lhz_dun03,138,138,36,34	monster	Cecil Damon	1638,4,0,0,0
-lhz_dun03,138,138,36,34	monster	Kathryne Keyron	1639,4,0,0,0
+lhz_dun03,138,138,36,34	monster	Seyren Windsor	1634,6,120000,60000,0
+lhz_dun03,138,138,36,34	monster	Eremes Guile	1635,6,120000,60000,0
+lhz_dun03,138,138,36,34	monster	Howard Alt-Eisen	1636,6,120000,60000,0
+lhz_dun03,138,138,36,34	monster	Margaretha Sorin	1637,6,180000,120000,0
+lhz_dun03,138,138,36,34	monster	Cecil Damon	1638,8,0,0,0
+lhz_dun03,138,138,36,34	monster	Kathryne Keyron	1639,8,0,0,0
 
 // Simplified Bio3 MVP/mini-boss spawns.
 // Full official/rAthena-style behavior uses a randomized controller.

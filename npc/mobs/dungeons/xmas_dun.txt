@@ -16,20 +16,20 @@
 //==================================================
 // xmas_dun01 - Toy Factory Warehouse
 //==================================================
-xmas_dun01,0,0,0,0	monster	Poring	1002,10,0,0,0
-xmas_dun01,0,0,0,0	monster	Poporing	1031,20,0,0,0
+xmas_dun01,0,0,0,0	monster	Poring	1002,20,0,0,0
+xmas_dun01,0,0,0,0	monster	Poporing	1031,40,0,0,0
 xmas_dun01,0,0,0,0	monster	Mastering	1090,1,3600000,0,0
 xmas_dun01,0,0,0,0	monster	Angeling	1096,1,1800000,0,0
-xmas_dun01,0,0,0,0	monster	Drops	1113,10,0,0,0
-xmas_dun01,0,0,0,0	monster	Marin	1242,20,0,0,0
-xmas_dun01,0,0,0,0	monster	Cookie	1246,30,0,0,0
-xmas_dun01,0,0,0,0	monster	Myst Case	1249,5,0,0,0
+xmas_dun01,0,0,0,0	monster	Drops	1113,20,0,0,0
+xmas_dun01,0,0,0,0	monster	Marin	1242,40,0,0,0
+xmas_dun01,0,0,0,0	monster	Cookie	1246,60,0,0,0
+xmas_dun01,0,0,0,0	monster	Myst Case	1249,10,0,0,0
 xmas_dun01,0,0,0,0	monster	Chepet	1250,1,1200000,900000,0
-xmas_dun01,0,0,0,0	monster	Cookie	1265,15,0,0,0
+xmas_dun01,0,0,0,0	monster	Cookie	1265,30,0,0,0
 //==================================================
 // xmas_dun02 - Toy Monitoring Room
 //==================================================
-xmas_dun02,0,0,0,0	monster	Cookie	1246,20,0,0,0
-xmas_dun02,0,0,0,0	monster	Cruiser	1248,35,0,0,0
-xmas_dun02,0,0,0,0	monster	Myst Case	1249,60,0,0,0
+xmas_dun02,0,0,0,0	monster	Cookie	1246,40,0,0,0
+xmas_dun02,0,0,0,0	monster	Cruiser	1248,70,0,0,0
+xmas_dun02,0,0,0,0	monster	Myst Case	1249,120,0,0,0
 xmas_dun02,0,0,0,0	monster	Knight of Windstorm	1251,1,3600000,0,0

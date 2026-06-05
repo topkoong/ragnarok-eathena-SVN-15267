@@ -9,11 +9,11 @@
 //==================================================
 // ama_fild01 - Amatsu Field
 //==================================================
-ama_fild01,0,0,0,0	monster	Karakasa	1400,50,0,0,0
-ama_fild01,174,207,20,20	monster	Kapha	1406,5,1200000,600000,0
-ama_fild01,241,310,10,10	monster	Kapha	1406,5,600000,300000,0
-ama_fild01,114,230,10,10	monster	Kapha	1406,5,600000,300000,0
-ama_fild01,174,253,10,10	monster	Kapha	1406,5,600000,300000,0
+ama_fild01,0,0,0,0	monster	Karakasa	1400,100,0,0,0
+ama_fild01,174,207,20,20	monster	Kapha	1406,10,1200000,600000,0
+ama_fild01,241,310,10,10	monster	Kapha	1406,10,600000,300000,0
+ama_fild01,114,230,10,10	monster	Kapha	1406,10,600000,300000,0
+ama_fild01,174,253,10,10	monster	Kapha	1406,10,600000,300000,0
 
 ama_fild01,177,315,0,0	monster	Hydra	1068,1,60000,30000,0
 ama_fild01,175,315,0,0	monster	Hydra	1068,1,63000,31500,0
@@ -30,9 +30,9 @@ ama_fild01,173,313,0,0	monster	Hydra	1068,1,60000,30000,0
 ama_fild01,175,313,0,0	monster	Hydra	1068,1,66000,33000,0
 ama_fild01,173,310,0,0	monster	Hydra	1068,1,60000,30000,0
 
-ama_fild01,0,0,0,0	monster	Kapha	1406,20,60000,30000,0
-ama_fild01,174,306,20,20	monster	Kapha	1406,10,300000,150000,0
-ama_fild01,0,0,0,0	monster	Miyabi Doll	1404,2,180000,90000,0
+ama_fild01,0,0,0,0	monster	Kapha	1406,40,60000,30000,0
+ama_fild01,174,306,20,20	monster	Kapha	1406,20,300000,150000,0
+ama_fild01,0,0,0,0	monster	Miyabi Doll	1404,4,180000,90000,0
 ama_fild01,0,0,0,0	monster	Poison Toad	1402,1,180000,90000,0
-ama_fild01,0,0,0,0	monster	Poporing	1031,15,0,0,0
-ama_fild01,0,0,0,0	monster	Bigfoot	1060,15,60000,30000,0
+ama_fild01,0,0,0,0	monster	Poporing	1031,30,0,0,0
+ama_fild01,0,0,0,0	monster	Bigfoot	1060,30,60000,30000,0

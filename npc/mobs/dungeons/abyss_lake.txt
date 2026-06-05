@@ -4,20 +4,20 @@
 //= eAthena SVN 15267
 //============================================================
 
-abyss_01,0,0,0,0	monster	Dragon Egg	1721,20,0,0,0
-abyss_01,0,0,0,0	monster	Blue Acidus	1713,15,0,0,0
-abyss_01,0,0,0,0	monster	Green Ferus	1714,25,0,0,0
-abyss_01,0,0,0,0	monster	Gold Acidus	1716,15,0,0,0
-abyss_01,0,0,0,0	monster	Red Ferus	1717,20,0,0,0
+abyss_01,0,0,0,0	monster	Dragon Egg	1721,40,0,0,0
+abyss_01,0,0,0,0	monster	Blue Acidus	1713,30,0,0,0
+abyss_01,0,0,0,0	monster	Green Ferus	1714,50,0,0,0
+abyss_01,0,0,0,0	monster	Gold Acidus	1716,30,0,0,0
+abyss_01,0,0,0,0	monster	Red Ferus	1717,40,0,0,0
 
-abyss_02,0,0,0,0	monster	Dragon Egg	1721,10,0,0,0
-abyss_02,0,0,0,0	monster	Blue Acidus	1713,30,0,0,0
-abyss_02,0,0,0,0	monster	Green Ferus	1714,25,0,0,0
-abyss_02,0,0,0,0	monster	Gold Acidus	1716,30,0,0,0
-abyss_02,0,0,0,0	monster	Red Ferus	1717,25,0,0,0
+abyss_02,0,0,0,0	monster	Dragon Egg	1721,20,0,0,0
+abyss_02,0,0,0,0	monster	Blue Acidus	1713,60,0,0,0
+abyss_02,0,0,0,0	monster	Green Ferus	1714,50,0,0,0
+abyss_02,0,0,0,0	monster	Gold Acidus	1716,60,0,0,0
+abyss_02,0,0,0,0	monster	Red Ferus	1717,50,0,0,0
 
-abyss_03,0,0,0,0	monster	Blue Acidus	1713,35,0,0,0
-abyss_03,0,0,0,0	monster	Green Ferus	1714,25,0,0,0
-abyss_03,0,0,0,0	monster	Gold Acidus	1716,35,0,0,0
-abyss_03,0,0,0,0	monster	Red Ferus	1717,25,0,0,0
+abyss_03,0,0,0,0	monster	Blue Acidus	1713,70,0,0,0
+abyss_03,0,0,0,0	monster	Green Ferus	1714,50,0,0,0
+abyss_03,0,0,0,0	monster	Gold Acidus	1716,70,0,0,0
+abyss_03,0,0,0,0	monster	Red Ferus	1717,50,0,0,0
 abyss_03,0,0,0,0	monster	Detardeurus	1719,1,10800000,3600000,1

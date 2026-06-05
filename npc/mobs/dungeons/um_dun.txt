@@ -9,16 +9,16 @@
 //==================================================
 // um_dun02 - Passage to a Foreign World
 //==================================================
-um_dun02,0,0,0,0	monster	Red Plant	1078,5,180000,90000,0
-um_dun02,0,0,0,0	monster	Yellow Plant	1081,5,180000,90000,0
-um_dun02,0,0,0,0	monster	Shining Plant	1083,6,180000,90000,0
-um_dun02,0,0,0,0	monster	Driller	1380,5,0,0,0
-um_dun02,0,0,0,0	monster	Dryad	1493,25,0,0,0
-um_dun02,0,0,0,0	monster	Wooden Golem	1497,50,0,0,0
-um_dun02,0,0,0,0	monster	Wootan Shooter	1498,10,0,0,0
+um_dun02,0,0,0,0	monster	Red Plant	1078,10,180000,90000,0
+um_dun02,0,0,0,0	monster	Yellow Plant	1081,10,180000,90000,0
+um_dun02,0,0,0,0	monster	Shining Plant	1083,12,180000,90000,0
+um_dun02,0,0,0,0	monster	Driller	1380,10,0,0,0
+um_dun02,0,0,0,0	monster	Dryad	1493,50,0,0,0
+um_dun02,0,0,0,0	monster	Wooden Golem	1497,100,0,0,0
+um_dun02,0,0,0,0	monster	Wootan Shooter	1498,20,0,0,0
 
 // Extra fixed groups to make the map feel alive.
-um_dun02,60,92,20,20	monster	Wooden Golem	1497,8,240000,60000,0
-um_dun02,100,208,20,20	monster	Wooden Golem	1497,8,240000,60000,0
-um_dun02,180,38,20,20	monster	Wootan Shooter	1498,4,180000,60000,0
-um_dun02,219,261,20,20	monster	Dryad	1493,6,180000,60000,0
+um_dun02,60,92,20,20	monster	Wooden Golem	1497,16,240000,60000,0
+um_dun02,100,208,20,20	monster	Wooden Golem	1497,16,240000,60000,0
+um_dun02,180,38,20,20	monster	Wootan Shooter	1498,8,180000,60000,0
+um_dun02,219,261,20,20	monster	Dryad	1493,12,180000,60000,0

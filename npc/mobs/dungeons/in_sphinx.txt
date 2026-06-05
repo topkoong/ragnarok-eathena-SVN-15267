@@ -16,46 +16,46 @@
 //==================================================
 // In_sphinx1 - Sphinx F1
 //==================================================
-in_sphinx1,0,0,0,0	monster	Anacondaq	1030,35,0,0,0
-in_sphinx1,0,0,0,0	monster	Drainliar	1111,20,0,0,0
-in_sphinx1,0,0,0,0	monster	Requiem	1164,45,0,0,0
-in_sphinx1,0,0,0,0	monster	Zerom	1178,75,0,0,0
+in_sphinx1,0,0,0,0	monster	Anacondaq	1030,70,0,0,0
+in_sphinx1,0,0,0,0	monster	Drainliar	1111,40,0,0,0
+in_sphinx1,0,0,0,0	monster	Requiem	1164,90,0,0,0
+in_sphinx1,0,0,0,0	monster	Zerom	1178,150,0,0,0
 
 //==================================================
 // In_sphinx2 - Sphinx F2
 //==================================================
-in_sphinx2,0,0,0,0	monster	Drainliar	1111,25,0,0,0
-in_sphinx2,0,0,0,0	monster	Matyr	1146,55,0,0,0
-in_sphinx2,0,0,0,0	monster	Requiem	1164,75,0,0,0
-in_sphinx2,0,0,0,0	monster	Zerom	1178,90,0,0,0
-in_sphinx2,0,0,0,0	monster	Whisper	1179,15,0,0,0
+in_sphinx2,0,0,0,0	monster	Drainliar	1111,50,0,0,0
+in_sphinx2,0,0,0,0	monster	Matyr	1146,110,0,0,0
+in_sphinx2,0,0,0,0	monster	Requiem	1164,150,0,0,0
+in_sphinx2,0,0,0,0	monster	Zerom	1178,180,0,0,0
+in_sphinx2,0,0,0,0	monster	Whisper	1179,30,0,0,0
 
 //==================================================
 // In_sphinx3 - Sphinx F3
 //==================================================
-in_sphinx3,0,0,0,0	monster	Drainliar	1111,20,0,0,0
-in_sphinx3,0,0,0,0	monster	Marduk	1140,20,0,0,0
-in_sphinx3,0,0,0,0	monster	Matyr	1146,40,0,0,0
-in_sphinx3,0,0,0,0	monster	Requiem	1164,75,0,0,0
-in_sphinx3,0,0,0,0	monster	Whisper	1179,10,0,0,0
-in_sphinx3,0,0,0,0	monster	Mimic	1191,2,600000,300000,1
+in_sphinx3,0,0,0,0	monster	Drainliar	1111,40,0,0,0
+in_sphinx3,0,0,0,0	monster	Marduk	1140,40,0,0,0
+in_sphinx3,0,0,0,0	monster	Matyr	1146,80,0,0,0
+in_sphinx3,0,0,0,0	monster	Requiem	1164,150,0,0,0
+in_sphinx3,0,0,0,0	monster	Whisper	1179,20,0,0,0
+in_sphinx3,0,0,0,0	monster	Mimic	1191,4,600000,300000,1
 
 //==================================================
 // In_sphinx4 - Sphinx F4
 //==================================================
-in_sphinx4,0,0,0,0	monster	Side Winder	1037,15,0,0,0
+in_sphinx4,0,0,0,0	monster	Side Winder	1037,30,0,0,0
 in_sphinx4,0,0,0,0	monster	Evil Druid	1117,1,600000,300000,1
-in_sphinx4,0,0,0,0	monster	Marduk	1140,25,0,0,0
-in_sphinx4,0,0,0,0	monster	Minorous	1149,85,0,0,0
-in_sphinx4,0,0,0,0	monster	Mimic	1191,4,600000,300000,1
+in_sphinx4,0,0,0,0	monster	Marduk	1140,50,0,0,0
+in_sphinx4,0,0,0,0	monster	Minorous	1149,170,0,0,0
+in_sphinx4,0,0,0,0	monster	Mimic	1191,8,600000,300000,1
 
 //==================================================
 // In_sphinx5 - Sphinx F5
 //==================================================
-in_sphinx5,0,0,0,0	monster	Side Winder	1037,30,0,0,0
-in_sphinx5,0,0,0,0	monster	Marduk	1140,30,0,0,0
-in_sphinx5,0,0,0,0	monster	Matyr	1146,30,0,0,0
-in_sphinx5,0,0,0,0	monster	Requiem	1164,45,0,0,0
-in_sphinx5,0,0,0,0	monster	Whisper	1179,10,0,0,0
-in_sphinx5,0,0,0,0	monster	Mimic	1191,7,600000,300000,1
+in_sphinx5,0,0,0,0	monster	Side Winder	1037,60,0,0,0
+in_sphinx5,0,0,0,0	monster	Marduk	1140,60,0,0,0
+in_sphinx5,0,0,0,0	monster	Matyr	1146,60,0,0,0
+in_sphinx5,0,0,0,0	monster	Requiem	1164,90,0,0,0
+in_sphinx5,0,0,0,0	monster	Whisper	1179,20,0,0,0
+in_sphinx5,0,0,0,0	monster	Mimic	1191,14,600000,300000,1
 in_sphinx5,0,0,0,0	monster	Wraith	1192,1,3600000,1800000,1

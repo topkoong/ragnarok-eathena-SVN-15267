@@ -11,31 +11,31 @@
 //==================================================
 // mosk_dun01 - Les Forest
 //==================================================
-mosk_dun01,0,0,0,0	monster	Poporing	1031,20,10000,0,0
-mosk_dun01,0,0,0,0	monster	Mantis	1139,10,20000,0,0
-mosk_dun01,0,0,0,0	monster	Wood Goblin	1880,66,10000,0,0
-mosk_dun01,0,0,0,0	monster	Les	1881,33,10000,0,0
+mosk_dun01,0,0,0,0	monster	Poporing	1031,40,10000,0,0
+mosk_dun01,0,0,0,0	monster	Mantis	1139,20,20000,0,0
+mosk_dun01,0,0,0,0	monster	Wood Goblin	1880,132,10000,0,0
+mosk_dun01,0,0,0,0	monster	Les	1881,66,10000,0,0
 
 
 //==================================================
 // mosk_dun02 - Temny Forest
 //==================================================
-mosk_dun02,0,0,0,0	monster	Wood Goblin	1880,30,10000,10000,0
-mosk_dun02,0,0,0,0	monster	Les	1881,40,10000,10000,0
-mosk_dun02,0,0,0,0	monster	Baba Yaga	1882,20,20000,10000,0
-mosk_dun02,0,0,0,0	monster	Uzhas	1883,5,20000,10000,0
+mosk_dun02,0,0,0,0	monster	Wood Goblin	1880,60,10000,10000,0
+mosk_dun02,0,0,0,0	monster	Les	1881,80,10000,10000,0
+mosk_dun02,0,0,0,0	monster	Baba Yaga	1882,40,20000,10000,0
+mosk_dun02,0,0,0,0	monster	Uzhas	1883,10,20000,10000,0
 
 
 //==================================================
 // mosk_dun03 - Dremuci Forest
 //==================================================
-mosk_dun03,0,0,0,0	monster	Yellow Plant	1081,10,0,0,0
-mosk_dun03,0,0,0,0	monster	White Plant	1082,10,0,0,0
-mosk_dun03,0,0,0,0	monster	Shining Plant	1083,5,10000,0,0
+mosk_dun03,0,0,0,0	monster	Yellow Plant	1081,20,0,0,0
+mosk_dun03,0,0,0,0	monster	White Plant	1082,20,0,0,0
+mosk_dun03,0,0,0,0	monster	Shining Plant	1083,10,10000,0,0
 
-mosk_dun03,0,0,0,0	monster	Baba Yaga	1882,60,10000,10000,0
-mosk_dun03,0,0,0,0	monster	Uzhas	1883,35,20000,10000,0
-mosk_dun03,0,0,0,0	monster	Mavka	1884,15,20000,10000,0
+mosk_dun03,0,0,0,0	monster	Baba Yaga	1882,120,10000,10000,0
+mosk_dun03,0,0,0,0	monster	Uzhas	1883,70,20000,10000,0
+mosk_dun03,0,0,0,0	monster	Mavka	1884,30,20000,10000,0
 
 // MVP: 120~130 minutes
 mosk_dun03,207,221,5,5	monster	Gopinich	1885,1,7200000,600000,1

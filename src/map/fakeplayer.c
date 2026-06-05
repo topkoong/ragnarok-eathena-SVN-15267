@@ -608,7 +608,7 @@ int fakeplayer_populate_city(int m, int count)
 		}
 		if (tries == 30) continue; // give up on this one
 
-		snprintf(name, NAME_LENGTH, "%s%d", FP_NAMES[rnd() % FP_NNAME], rnd() % 1000);
+		safesnprintf(name, NAME_LENGTH, "%s%d", FP_NAMES[rnd() % FP_NNAME], rnd() % 1000);
 
 		if (roll < 25) {            // vendor: still + cart shop (merchant line only)
 			int it[MAX_VENDING], pr[MAX_VENDING], k, num = 2 + rnd() % 5;
@@ -667,7 +667,7 @@ int fakeplayer_populate_field(int m, int count)
 		}
 		if (tries == 30) continue;
 
-		snprintf(name, NAME_LENGTH, "%s%d", FP_NAMES[rnd() % FP_NNAME], rnd() % 1000);
+		safesnprintf(name, NAME_LENGTH, "%s%d", FP_NAMES[rnd() % FP_NNAME], rnd() % 1000);
 
 		if (roll < 5) {            // a party host shouting for members
 			gid = fakeplayer_create(name, class_, m, x, y, FP_STILL);

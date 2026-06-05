@@ -15,53 +15,53 @@
 //==================================================
 // moc_pryd01 - Inside Pyramid F1
 //==================================================
-moc_pryd01,0,0,0,0	monster	Farmiliar	1005,20,0,0,0
-moc_pryd01,0,0,0,0	monster	Spore	1014,40,0,0,0
-moc_pryd01,0,0,0,0	monster	Poporing	1031,20,0,0,0
+moc_pryd01,0,0,0,0	monster	Farmiliar	1005,40,0,0,0
+moc_pryd01,0,0,0,0	monster	Spore	1014,80,0,0,0
+moc_pryd01,0,0,0,0	monster	Poporing	1031,40,0,0,0
 
 //==================================================
 // moc_pryd02 - Inside Pyramid F2
 //==================================================
-moc_pryd02,0,0,0,0	monster	Archer Skeleton	1016,35,0,0,0
-moc_pryd02,0,0,0,0	monster	Soldier Skeleton	1028,70,0,0,0
-moc_pryd02,0,0,0,0	monster	Poporing	1031,20,0,0,0
-moc_pryd02,0,0,0,0	monster	Drainliar	1111,30,0,0,0
+moc_pryd02,0,0,0,0	monster	Archer Skeleton	1016,70,0,0,0
+moc_pryd02,0,0,0,0	monster	Soldier Skeleton	1028,140,0,0,0
+moc_pryd02,0,0,0,0	monster	Poporing	1031,40,0,0,0
+moc_pryd02,0,0,0,0	monster	Drainliar	1111,60,0,0,0
 
 //==================================================
 // moc_pryd03 - Inside Pyramid F3
 //==================================================
-moc_pryd03,0,0,0,0	monster	Archer Skeleton	1016,15,0,0,0
-moc_pryd03,0,0,0,0	monster	Soldier Skeleton	1028,10,0,0,0
-moc_pryd03,0,0,0,0	monster	Mummy	1041,65,0,0,0
-moc_pryd03,0,0,0,0	monster	Drainliar	1111,15,0,0,0
-moc_pryd03,0,0,0,0	monster	Mimic	1191,2,600000,300000,1
+moc_pryd03,0,0,0,0	monster	Archer Skeleton	1016,30,0,0,0
+moc_pryd03,0,0,0,0	monster	Soldier Skeleton	1028,20,0,0,0
+moc_pryd03,0,0,0,0	monster	Mummy	1041,130,0,0,0
+moc_pryd03,0,0,0,0	monster	Drainliar	1111,30,0,0,0
+moc_pryd03,0,0,0,0	monster	Mimic	1191,4,600000,300000,1
 
 
 //==================================================
 // moc_pryd04 - Inside Pyramid F4
 //==================================================
-moc_pryd04,0,0,0,0	monster	Isis	1029,50,150000,75000,0
-moc_pryd04,0,0,0,0	monster	Ghoul	1036,20,0,0,0
+moc_pryd04,0,0,0,0	monster	Isis	1029,100,150000,75000,0
+moc_pryd04,0,0,0,0	monster	Ghoul	1036,40,0,0,0
 moc_pryd04,0,0,0,0	monster	Osiris	1038,1,3600000,0,0
-moc_pryd04,0,0,0,0	monster	Mummy	1041,55,0,0,0
-moc_pryd04,0,0,0,0	monster	Matyr	1146,30,0,0,0
-moc_pryd04,0,0,0,0	monster	Mimic	1191,5,600000,300000,1
+moc_pryd04,0,0,0,0	monster	Mummy	1041,110,0,0,0
+moc_pryd04,0,0,0,0	monster	Matyr	1146,60,0,0,0
+moc_pryd04,0,0,0,0	monster	Mimic	1191,10,600000,300000,1
 
 
 //==================================================
 // moc_pryd05 - Inside Pyramid B1
 //==================================================
-moc_pryd05,0,0,0,0	monster	Verit	1032,30,0,0,0
-moc_pryd05,0,0,0,0	monster	Ghoul	1036,5,300000,150000,1
-moc_pryd05,0,0,0,0	monster	Mummy	1041,35,0,0,0
-moc_pryd05,0,0,0,0	monster	Minorous	1149,90,0,0,0
+moc_pryd05,0,0,0,0	monster	Verit	1032,60,0,0,0
+moc_pryd05,0,0,0,0	monster	Ghoul	1036,10,300000,150000,1
+moc_pryd05,0,0,0,0	monster	Mummy	1041,70,0,0,0
+moc_pryd05,0,0,0,0	monster	Minorous	1149,180,0,0,0
 
 
 //==================================================
 // moc_pryd06 - Inside Pyramid B2
 //==================================================
-moc_pryd06,0,0,0,0	monster	Isis	1029,30,0,0,0
-moc_pryd06,0,0,0,0	monster	Verit	1032,20,0,0,0
-moc_pryd06,0,0,0,0	monster	Mummy	1041,50,0,0,0
-moc_pryd06,100,90,80,50	monster	Mimic	1191,20,0,0,0
-moc_pryd06,100,90,80,50	monster	Ancient Mummy	1297,25,0,0,0
+moc_pryd06,0,0,0,0	monster	Isis	1029,60,0,0,0
+moc_pryd06,0,0,0,0	monster	Verit	1032,40,0,0,0
+moc_pryd06,0,0,0,0	monster	Mummy	1041,100,0,0,0
+moc_pryd06,100,90,80,50	monster	Mimic	1191,40,0,0,0
+moc_pryd06,100,90,80,50	monster	Ancient Mummy	1297,50,0,0,0

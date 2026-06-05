@@ -16,30 +16,30 @@
 //==================================================
 // beach_dun - Karu, the West Cave
 //==================================================
-beach_dun,0,0,0,0	monster	Medusa	1148,120,0,0,0
-beach_dun,0,0,0,0	monster	Neraid	1255,25,0,0,0
-beach_dun,0,0,0,0	monster	Pest	1256,25,0,0,0
-beach_dun,0,0,0,0	monster	Merman	1264,15,10000,20,0
-beach_dun,0,0,0,0	monster	Megalith	1274,8,0,0,0
-beach_dun,0,0,0,0	monster	Trijoint	1279,8,0,0,0
+beach_dun,0,0,0,0	monster	Medusa	1148,240,0,0,0
+beach_dun,0,0,0,0	monster	Neraid	1255,50,0,0,0
+beach_dun,0,0,0,0	monster	Pest	1256,50,0,0,0
+beach_dun,0,0,0,0	monster	Merman	1264,30,10000,20,0
+beach_dun,0,0,0,0	monster	Megalith	1274,16,0,0,0
+beach_dun,0,0,0,0	monster	Trijoint	1279,16,0,0,0
 beach_dun,0,0,0,0	monster	Chimera	1283,1,7200000,3600000,0
 //==================================================
 // beach_dun2 - Ruande, the North Cave
 //==================================================
-beach_dun2,0,0,0,0	monster	Hydra	1068,15,0,0,0
-beach_dun2,0,0,0,0	monster	Neraid	1255,5,0,0,0
-beach_dun2,0,0,0,0	monster	Merman	1264,5,0,0,0
-beach_dun2,0,0,0,0	monster	Megalith	1274,30,0,0,0
-beach_dun2,0,0,0,0	monster	Stalactic Golem	1278,100,5000,0,0
-beach_dun2,0,0,0,0	monster	Trijoint	1279,20,0,0,0
+beach_dun2,0,0,0,0	monster	Hydra	1068,30,0,0,0
+beach_dun2,0,0,0,0	monster	Neraid	1255,10,0,0,0
+beach_dun2,0,0,0,0	monster	Merman	1264,10,0,0,0
+beach_dun2,0,0,0,0	monster	Megalith	1274,60,0,0,0
+beach_dun2,0,0,0,0	monster	Stalactic Golem	1278,200,5000,0,0
+beach_dun2,0,0,0,0	monster	Trijoint	1279,40,0,0,0
 
 //==================================================
 // beach_dun3 - Mao, the East Cave
 //==================================================
-beach_dun3,0,0,0,0	monster	Megalodon	1064,30,0,0,0
-beach_dun3,0,0,0,0	monster	Cornutus	1067,30,0,0,0
-beach_dun3,0,0,0,0	monster	Hydra	1068,40,0,0,0
-beach_dun3,0,0,0,0	monster	Shellfish	1074,25,0,0,0
-beach_dun3,0,0,0,0	monster	Neraid	1255,2,0,0,0
-beach_dun3,0,0,0,0	monster	Pest	1256,2,60000,0,0
-beach_dun3,0,0,0,0	monster	Trijoint	1279,5,0,0,0
+beach_dun3,0,0,0,0	monster	Megalodon	1064,60,0,0,0
+beach_dun3,0,0,0,0	monster	Cornutus	1067,60,0,0,0
+beach_dun3,0,0,0,0	monster	Hydra	1068,80,0,0,0
+beach_dun3,0,0,0,0	monster	Shellfish	1074,50,0,0,0
+beach_dun3,0,0,0,0	monster	Neraid	1255,4,0,0,0
+beach_dun3,0,0,0,0	monster	Pest	1256,4,60000,0,0
+beach_dun3,0,0,0,0	monster	Trijoint	1279,10,0,0,0

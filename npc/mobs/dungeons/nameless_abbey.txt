@@ -16,23 +16,23 @@
 //============================================================
 
 // Nameless Island / Cursed Abbey
-nameless_n,0,0,0,0	monster	Ghoul	1036,25,0,0,0
-nameless_n,0,0,0,0	monster	Zombie	1015,25,0,0,0
-nameless_n,0,0,0,0	monster	Flame Skull	1869,10,300000,120000,0
-nameless_n,0,0,0,0	monster	Banshee	1867,10,300000,120000,0
+nameless_n,0,0,0,0	monster	Ghoul	1036,50,0,0,0
+nameless_n,0,0,0,0	monster	Zombie	1015,50,0,0,0
+nameless_n,0,0,0,0	monster	Flame Skull	1869,20,300000,120000,0
+nameless_n,0,0,0,0	monster	Banshee	1867,20,300000,120000,0
 
-abbey01,0,0,0,0	monster	Ragged Zombie	1864,35,0,0,0
-abbey01,0,0,0,0	monster	Zombie Slaughter	1865,25,0,0,0
-abbey01,0,0,0,0	monster	Hell Poodle	1866,15,0,0,0
-abbey01,0,0,0,0	monster	Flame Skull	1869,15,0,0,0
+abbey01,0,0,0,0	monster	Ragged Zombie	1864,70,0,0,0
+abbey01,0,0,0,0	monster	Zombie Slaughter	1865,50,0,0,0
+abbey01,0,0,0,0	monster	Hell Poodle	1866,30,0,0,0
+abbey01,0,0,0,0	monster	Flame Skull	1869,30,0,0,0
 
-abbey02,0,0,0,0	monster	Ragged Zombie	1864,25,0,0,0
-abbey02,0,0,0,0	monster	Zombie Slaughter	1865,35,0,0,0
-abbey02,0,0,0,0	monster	Banshee	1867,25,0,0,0
-abbey02,0,0,0,0	monster	Flame Skull	1869,15,0,0,0
+abbey02,0,0,0,0	monster	Ragged Zombie	1864,50,0,0,0
+abbey02,0,0,0,0	monster	Zombie Slaughter	1865,70,0,0,0
+abbey02,0,0,0,0	monster	Banshee	1867,50,0,0,0
+abbey02,0,0,0,0	monster	Flame Skull	1869,30,0,0,0
 
-abbey03,0,0,0,0	monster	Necromancer	1870,35,0,0,0
-abbey03,0,0,0,0	monster	Banshee	1867,35,0,0,0
-abbey03,0,0,0,0	monster	Zombie Slaughter	1865,20,0,0,0
-abbey03,0,0,0,0	monster	Flame Skull	1869,20,0,0,0
+abbey03,0,0,0,0	monster	Necromancer	1870,70,0,0,0
+abbey03,0,0,0,0	monster	Banshee	1867,70,0,0,0
+abbey03,0,0,0,0	monster	Zombie Slaughter	1865,40,0,0,0
+abbey03,0,0,0,0	monster	Flame Skull	1869,40,0,0,0
 abbey03,0,0,0,0	boss_monster	Fallen Bishop Hibram	1871,1,7200000,3600000,1

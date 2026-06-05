@@ -14,23 +14,23 @@
 // c_tower1 - Clock Tower F1
 //==================================================
 c_tower1,0,0,0,0	monster	Clock Tower Manager	1270,1,1800000,0,0
-c_tower1,205,210,85,90	monster	Bathory	1102,10,0,0,0
-c_tower1,250,345,110,35	monster	Archer Skeleton	1016,8,0,0,0
-c_tower1,250,345,110,35	monster	Baphomet Jr.	1101,3,0,0,0
-c_tower1,250,345,110,35	monster	Punk	1199,15,0,0,0
-c_tower1,250,60,140,50	monster	Archer Skeleton	1016,30,0,0,0
-c_tower1,250,60,140,50	monster	Baphomet Jr.	1101,20,0,0,0
-c_tower1,250,60,140,50	monster	Punk	1199,15,0,0,0
+c_tower1,205,210,85,90	monster	Bathory	1102,20,0,0,0
+c_tower1,250,345,110,35	monster	Archer Skeleton	1016,16,0,0,0
+c_tower1,250,345,110,35	monster	Baphomet Jr.	1101,6,0,0,0
+c_tower1,250,345,110,35	monster	Punk	1199,30,0,0,0
+c_tower1,250,60,140,50	monster	Archer Skeleton	1016,60,0,0,0
+c_tower1,250,60,140,50	monster	Baphomet Jr.	1101,40,0,0,0
+c_tower1,250,60,140,50	monster	Punk	1199,30,0,0,0
 c_tower1,60,197,40,177	monster	Archer Skeleton	1016,1,0,0,0
-c_tower1,60,197,40,177	monster	Baphomet Jr.	1101,3,0,0,0
-c_tower1,60,197,40,177	monster	Punk	1199,35,0,0,0
+c_tower1,60,197,40,177	monster	Baphomet Jr.	1101,6,0,0,0
+c_tower1,60,197,40,177	monster	Punk	1199,70,0,0,0
 //==================================================
 // c_tower2 - Clock Tower F2
 //==================================================
-c_tower2,0,0,0,0	monster	Archer Skeleton	1016,30,0,0,0
-c_tower2,0,0,0,0	monster	Archer Skeleton	1016,30,0,0,0
-c_tower2,0,0,0,0	monster	Punk	1199,45,0,0,0
-c_tower2,0,0,0,0	monster	Clock	1269,80,0,0,0
+c_tower2,0,0,0,0	monster	Archer Skeleton	1016,60,0,0,0
+c_tower2,0,0,0,0	monster	Archer Skeleton	1016,60,0,0,0
+c_tower2,0,0,0,0	monster	Punk	1199,90,0,0,0
+c_tower2,0,0,0,0	monster	Clock	1269,160,0,0,0
 c_tower2,0,0,0,0	monster	Clock Tower Manager	1270,1,1800000,0,0
 c_tower2,100,233,0,0	monster	Clock	1269,1,355000,150000,1
 c_tower2,100,233,0,0	monster	Clock	1269,1,420000,150000,1
@@ -56,10 +56,10 @@ c_tower2,239,94,0,0	monster	Archer Skeleton	1016,1,300000,150000,1
 c_tower2,243,80,0,0	monster	Archer Skeleton	1016,1,300000,150000,1
 c_tower2,247,93,0,0	monster	Archer Skeleton	1016,1,300000,150000,1
 c_tower2,251,80,0,0	monster	Archer Skeleton	1016,1,300000,150000,1
-c_tower2,39,236,5,5	monster	Archer Skeleton	1016,2,300000,150000,1
-c_tower2,40,269,12,12	monster	Archer Skeleton	1016,2,300000,150000,1
-c_tower2,52,249,15,15	monster	Archer Skeleton	1016,2,300000,150000,1
-c_tower2,60,263,15,15	monster	Archer Skeleton	1016,2,300000,150000,1
+c_tower2,39,236,5,5	monster	Archer Skeleton	1016,4,300000,150000,1
+c_tower2,40,269,12,12	monster	Archer Skeleton	1016,4,300000,150000,1
+c_tower2,52,249,15,15	monster	Archer Skeleton	1016,4,300000,150000,1
+c_tower2,60,263,15,15	monster	Archer Skeleton	1016,4,300000,150000,1
 c_tower2,95,234,0,0	monster	Archer Skeleton	1016,1,370000,150000,1
 c_tower2,95,237,0,0	monster	Clock	1269,1,475000,150000,1
 c_tower2,95,238,0,0	monster	Clock	1269,1,480000,150000,1
@@ -73,17 +73,17 @@ c_tower2,99,242,0,0	monster	Clock	1269,1,400000,150000,1
 //==================================================
 // c_tower3 - Clock Tower F3
 //==================================================
-c_tower3,0,0,0,0	monster	Archer Skeleton	1016,40,0,0,0
-c_tower3,0,0,0,0	monster	Alarm	1193,160,0,0,0
+c_tower3,0,0,0,0	monster	Archer Skeleton	1016,80,0,0,0
+c_tower3,0,0,0,0	monster	Alarm	1193,320,0,0,0
 c_tower3,0,0,0,0	monster	Clock Tower Manager	1270,1,1800000,0,0
 
 //==================================================
 // c_tower4 - Clock Tower F4
 //==================================================
-c_tower4,0,0,0,0	monster	Archer Skeleton	1016,30,0,0,0
-c_tower4,0,0,0,0	monster	Alarm	1193,180,0,0,0
+c_tower4,0,0,0,0	monster	Archer Skeleton	1016,60,0,0,0
+c_tower4,0,0,0,0	monster	Alarm	1193,360,0,0,0
 c_tower4,0,0,0,0	monster	Clock Tower Manager	1270,1,3600000,0,0
-c_tower4,0,0,0,0	monster	Clock Tower Manager	1270,2,1800000,0,0
+c_tower4,0,0,0,0	monster	Clock Tower Manager	1270,4,1800000,0,0
 c_tower4,104,14,0,0	monster	Mimic	1191,1,1800000,900000,1
 c_tower4,104,27,0,0	monster	Mimic	1191,1,900000,400000,1
 c_tower4,105,24,0,0	monster	Mimic	1191,1,900000,400000,1

@@ -14,46 +14,46 @@
 //==================================================
 // iz_dun00 - Undersea Tunnel F1
 //==================================================
-iz_dun00,0,0,0,0	monster	Vadon	1066,55,0,0,0
-iz_dun00,0,0,0,0	monster	Hydra	1068,55,0,0,0
-iz_dun00,0,0,0,0	monster	Kukre	1070,55,0,0,0
-iz_dun00,0,0,0,0	monster	Marina	1141,20,0,0,0
-iz_dun00,0,0,0,0	monster	Plankton	1161,65,0,0,0
+iz_dun00,0,0,0,0	monster	Vadon	1066,110,0,0,0
+iz_dun00,0,0,0,0	monster	Hydra	1068,110,0,0,0
+iz_dun00,0,0,0,0	monster	Kukre	1070,110,0,0,0
+iz_dun00,0,0,0,0	monster	Marina	1141,40,0,0,0
+iz_dun00,0,0,0,0	monster	Plankton	1161,130,0,0,0
 
 
 //==================================================
 // iz_dun01 - Undersea Tunnel F2
 //==================================================
-iz_dun01,0,0,0,0	monster	Vadon	1066,60,0,0,0
-iz_dun01,0,0,0,0	monster	Cornutus	1067,15,300000,150000,1
-iz_dun01,0,0,0,0	monster	Hydra	1068,40,0,0,0
-iz_dun01,0,0,0,0	monster	Kukre	1070,35,0,0,0
-iz_dun01,0,0,0,0	monster	Marina	1141,55,0,0,0
-iz_dun01,0,0,0,0	monster	Plankton	1161,10,0,0,0
-iz_dun01,117,145,30,30	monster	Thara Frog	1034,20,15000,30000,0
+iz_dun01,0,0,0,0	monster	Vadon	1066,120,0,0,0
+iz_dun01,0,0,0,0	monster	Cornutus	1067,30,300000,150000,1
+iz_dun01,0,0,0,0	monster	Hydra	1068,80,0,0,0
+iz_dun01,0,0,0,0	monster	Kukre	1070,70,0,0,0
+iz_dun01,0,0,0,0	monster	Marina	1141,110,0,0,0
+iz_dun01,0,0,0,0	monster	Plankton	1161,20,0,0,0
+iz_dun01,117,145,30,30	monster	Thara Frog	1034,40,15000,30000,0
 
 
 
 //==================================================
 // iz_dun02 - Undersea Tunnel F3
 //==================================================
-iz_dun02,0,0,0,0	monster	Thara Frog	1034,50,0,0,0
-iz_dun02,0,0,0,0	monster	Obeaune	1044,60,0,0,0
-iz_dun02,0,0,0,0	monster	Cornutus	1067,60,0,0,0
-iz_dun02,0,0,0,0	monster	Hydra	1068,50,0,0,0
-iz_dun02,0,0,0,0	monster	Marse	1144,50,0,0,0
+iz_dun02,0,0,0,0	monster	Thara Frog	1034,100,0,0,0
+iz_dun02,0,0,0,0	monster	Obeaune	1044,120,0,0,0
+iz_dun02,0,0,0,0	monster	Cornutus	1067,120,0,0,0
+iz_dun02,0,0,0,0	monster	Hydra	1068,100,0,0,0
+iz_dun02,0,0,0,0	monster	Marse	1144,100,0,0,0
 
 //==================================================
 // iz_dun03 - Undersea Tunnel F4
 //==================================================
-iz_dun03,0,0,0,0	monster	Obeaune	1044,40,0,0,0
-iz_dun03,0,0,0,0	monster	Marc	1045,30,0,0,0
-iz_dun03,0,0,0,0	monster	Hydra	1068,20,0,0,0
-iz_dun03,0,0,0,0	monster	Sword Fish	1069,50,0,0,0
-iz_dun03,0,0,0,0	monster	Marine Sphere	1142,20,0,0,0
-iz_dun03,0,0,0,0	monster	Marse	1144,15,0,0,0
-iz_dun03,0,0,0,0	monster	Phen	1158,55,0,0,0
-iz_dun03,0,0,0,0	monster	Merman	1264,3,0,0,0
+iz_dun03,0,0,0,0	monster	Obeaune	1044,80,0,0,0
+iz_dun03,0,0,0,0	monster	Marc	1045,60,0,0,0
+iz_dun03,0,0,0,0	monster	Hydra	1068,40,0,0,0
+iz_dun03,0,0,0,0	monster	Sword Fish	1069,100,0,0,0
+iz_dun03,0,0,0,0	monster	Marine Sphere	1142,40,0,0,0
+iz_dun03,0,0,0,0	monster	Marse	1144,30,0,0,0
+iz_dun03,0,0,0,0	monster	Phen	1158,110,0,0,0
+iz_dun03,0,0,0,0	monster	Merman	1264,6,0,0,0
 iz_dun03,108,249,0,0	monster	Hydra	1068,1,300000,150000,0
 iz_dun03,176,260,0,0	monster	Hydra	1068,1,300000,150000,0
 iz_dun03,178,253,0,0	monster	Hydra	1068,1,300000,150000,0
@@ -88,13 +88,13 @@ iz_dun03,80,163,0,0	monster	Hydra	1068,1,300000,150000,0
 //==================================================
 // iz_dun04 - Undersea Tunnel F5
 //==================================================
-iz_dun04,0,0,0,0	monster	Obeaune	1044,30,0,0,0
-iz_dun04,0,0,0,0	monster	Marc	1045,65,0,0,0
-iz_dun04,0,0,0,0	monster	Sword Fish	1069,40,0,0,0
-iz_dun04,0,0,0,0	monster	Marine Sphere	1142,10,0,0,0
-iz_dun04,0,0,0,0	monster	Marse	1144,15,0,0,0
-iz_dun04,0,0,0,0	monster	Penomena	1216,10,300000,150000,1
-iz_dun04,0,0,0,0	monster	Merman	1264,6,0,0,0
+iz_dun04,0,0,0,0	monster	Obeaune	1044,60,0,0,0
+iz_dun04,0,0,0,0	monster	Marc	1045,130,0,0,0
+iz_dun04,0,0,0,0	monster	Sword Fish	1069,80,0,0,0
+iz_dun04,0,0,0,0	monster	Marine Sphere	1142,20,0,0,0
+iz_dun04,0,0,0,0	monster	Marse	1144,30,0,0,0
+iz_dun04,0,0,0,0	monster	Penomena	1216,20,300000,150000,1
+iz_dun04,0,0,0,0	monster	Merman	1264,12,0,0,0
 iz_dun04,103,231,10,10	monster	Merman	1264,1,150000,0,0
 iz_dun04,111,35,0,0	monster	Hydra	1068,1,300000,150000,0
 iz_dun04,111,38,0,0	monster	Hydra	1068,1,303000,150000,0

@@ -4,26 +4,26 @@
 //= eAthena SVN 15267
 //============================================================
 
-ra_san01,0,0,0,0	monster	Vanberk	1771,35,0,0,0
-ra_san01,0,0,0,0	monster	Isilla	1772,25,0,0,0
-ra_san01,0,0,0,0	monster	Hodremlin	1773,10,0,0,0
+ra_san01,0,0,0,0	monster	Vanberk	1771,70,0,0,0
+ra_san01,0,0,0,0	monster	Isilla	1772,50,0,0,0
+ra_san01,0,0,0,0	monster	Hodremlin	1773,20,0,0,0
 
-ra_san02,0,0,0,0	monster	Vanberk	1771,25,0,0,0
-ra_san02,0,0,0,0	monster	Isilla	1772,35,0,0,0
-ra_san02,0,0,0,0	monster	Hodremlin	1773,15,0,0,0
-ra_san02,0,0,0,0	monster	Seeker	1774,5,300000,120000,0
+ra_san02,0,0,0,0	monster	Vanberk	1771,50,0,0,0
+ra_san02,0,0,0,0	monster	Isilla	1772,70,0,0,0
+ra_san02,0,0,0,0	monster	Hodremlin	1773,30,0,0,0
+ra_san02,0,0,0,0	monster	Seeker	1774,10,300000,120000,0
 
-ra_san03,0,0,0,0	monster	Vanberk	1771,25,0,0,0
-ra_san03,0,0,0,0	monster	Isilla	1772,25,0,0,0
-ra_san03,0,0,0,0	monster	Hodremlin	1773,25,0,0,0
-ra_san03,0,0,0,0	monster	Seeker	1774,10,300000,120000,0
+ra_san03,0,0,0,0	monster	Vanberk	1771,50,0,0,0
+ra_san03,0,0,0,0	monster	Isilla	1772,50,0,0,0
+ra_san03,0,0,0,0	monster	Hodremlin	1773,50,0,0,0
+ra_san03,0,0,0,0	monster	Seeker	1774,20,300000,120000,0
 
-ra_san04,0,0,0,0	monster	Agav	1769,20,0,0,0
-ra_san04,0,0,0,0	monster	Echio	1770,20,0,0,0
-ra_san04,0,0,0,0	monster	Hodremlin	1773,20,0,0,0
-ra_san04,0,0,0,0	monster	Seeker	1774,10,300000,120000,0
+ra_san04,0,0,0,0	monster	Agav	1769,40,0,0,0
+ra_san04,0,0,0,0	monster	Echio	1770,40,0,0,0
+ra_san04,0,0,0,0	monster	Hodremlin	1773,40,0,0,0
+ra_san04,0,0,0,0	monster	Seeker	1774,20,300000,120000,0
 
-ra_san05,0,0,0,0	monster	Agav	1769,30,0,0,0
-ra_san05,0,0,0,0	monster	Echio	1770,30,0,0,0
-ra_san05,0,0,0,0	monster	Hodremlin	1773,20,0,0,0
+ra_san05,0,0,0,0	monster	Agav	1769,60,0,0,0
+ra_san05,0,0,0,0	monster	Echio	1770,60,0,0,0
+ra_san05,0,0,0,0	monster	Hodremlin	1773,40,0,0,0
 ra_san05,0,0,0,0	monster	Gloom Under Night	1768,1,18000000,3600000,1

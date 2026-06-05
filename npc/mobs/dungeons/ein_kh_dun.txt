@@ -16,23 +16,23 @@
 //============================================================
 
 // Einbroch Mine + Kiel Robot Factory
-ein_dun01,0,0,0,0	monster	Metaling	1613,35,0,0,0
-ein_dun01,0,0,0,0	monster	Obsidian	1615,30,0,0,0
-ein_dun01,0,0,0,0	monster	Mineral	1614,30,0,0,0
-ein_dun01,0,0,0,0	monster	Pitman	1616,20,0,0,0
+ein_dun01,0,0,0,0	monster	Metaling	1613,70,0,0,0
+ein_dun01,0,0,0,0	monster	Obsidian	1615,60,0,0,0
+ein_dun01,0,0,0,0	monster	Mineral	1614,60,0,0,0
+ein_dun01,0,0,0,0	monster	Pitman	1616,40,0,0,0
 
-ein_dun02,0,0,0,0	monster	Obsidian	1615,35,0,0,0
-ein_dun02,0,0,0,0	monster	Mineral	1614,35,0,0,0
-ein_dun02,0,0,0,0	monster	Pitman	1616,30,0,0,0
+ein_dun02,0,0,0,0	monster	Obsidian	1615,70,0,0,0
+ein_dun02,0,0,0,0	monster	Mineral	1614,70,0,0,0
+ein_dun02,0,0,0,0	monster	Pitman	1616,60,0,0,0
 ein_dun02,0,0,0,0	monster	Ungoliant	1618,1,3600000,1800000,1
 ein_dun02,0,0,0,0	boss_monster	Teddy Bear	1622,1,3600000,1800000,1
 
-kh_dun01,0,0,0,0	monster	Aliza	1737,35,0,0,0
-kh_dun01,0,0,0,0	monster	Alicel	1735,25,0,0,0
-kh_dun01,0,0,0,0	monster	Aliot	1736,25,0,0,0
-kh_dun01,0,0,0,0	monster	Constant	1738,15,300000,120000,0
+kh_dun01,0,0,0,0	monster	Aliza	1737,70,0,0,0
+kh_dun01,0,0,0,0	monster	Alicel	1735,50,0,0,0
+kh_dun01,0,0,0,0	monster	Aliot	1736,50,0,0,0
+kh_dun01,0,0,0,0	monster	Constant	1738,30,300000,120000,0
 
-kh_dun02,0,0,0,0	monster	Alicel	1735,35,0,0,0
-kh_dun02,0,0,0,0	monster	Aliot	1736,35,0,0,0
-kh_dun02,0,0,0,0	monster	Constant	1738,25,300000,120000,0
+kh_dun02,0,0,0,0	monster	Alicel	1735,70,0,0,0
+kh_dun02,0,0,0,0	monster	Aliot	1736,70,0,0,0
+kh_dun02,0,0,0,0	monster	Constant	1738,50,300000,120000,0
 kh_dun02,0,0,0,0	boss_monster	Kiel D-01	1734,1,7200000,3600000,1

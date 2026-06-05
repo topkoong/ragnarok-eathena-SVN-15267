@@ -20,22 +20,22 @@
 //==================================================
 // moc_fild01 - Sograt Desert
 //==================================================
-moc_fild01,0,0,0,0	monster	Condor	1009,20,0,0,0
-moc_fild01,0,0,0,0	monster	Pecopeco	1019,35,0,0,0
-moc_fild01,0,0,0,0	monster	Pecopeco Egg	1047,20,0,0,0
-moc_fild01,0,0,0,0	monster	Picky	1049,45,0,0,0
-moc_fild01,0,0,0,0	monster	Picky Egg	1050,45,0,0,0
-moc_fild01,0,0,0,0	monster	Drops	1113,30,0,0,0
-moc_fild01,194,51,10,10	monster	Yellow Plant	1081,10,900000,450000,1
+moc_fild01,0,0,0,0	monster	Condor	1009,40,0,0,0
+moc_fild01,0,0,0,0	monster	Pecopeco	1019,70,0,0,0
+moc_fild01,0,0,0,0	monster	Pecopeco Egg	1047,40,0,0,0
+moc_fild01,0,0,0,0	monster	Picky	1049,90,0,0,0
+moc_fild01,0,0,0,0	monster	Picky Egg	1050,90,0,0,0
+moc_fild01,0,0,0,0	monster	Drops	1113,60,0,0,0
+moc_fild01,194,51,10,10	monster	Yellow Plant	1081,20,900000,450000,1
 
 //==================================================
 // moc_fild02 - Sograt Desert
 //==================================================
-moc_fild02,0,0,0,0	monster	Condor	1009,25,0,0,0
-moc_fild02,0,0,0,0	monster	Pecopeco Egg	1047,15,0,0,0
-moc_fild02,0,0,0,0	monster	Picky	1049,50,0,0,0
-moc_fild02,0,0,0,0	monster	Picky Egg	1050,50,0,0,0
-moc_fild02,0,0,0,0	monster	Savage Babe	1167,50,0,0,0
+moc_fild02,0,0,0,0	monster	Condor	1009,50,0,0,0
+moc_fild02,0,0,0,0	monster	Pecopeco Egg	1047,30,0,0,0
+moc_fild02,0,0,0,0	monster	Picky	1049,100,0,0,0
+moc_fild02,0,0,0,0	monster	Picky Egg	1050,100,0,0,0
+moc_fild02,0,0,0,0	monster	Savage Babe	1167,100,0,0,0
 moc_fild02,132,307,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild02,139,222,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild02,194,294,0,0	monster	Yellow Plant	1081,1,180000,90000,1
@@ -54,141 +54,141 @@ moc_fild02,99,261,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 //==================================================
 // moc_fild03 - Sograt Desert
 //==================================================
-moc_fild03,0,0,0,0	monster	Poring	1002,70,0,0,0
-moc_fild03,0,0,0,0	monster	Willow	1010,15,0,0,0
-moc_fild03,0,0,0,0	monster	Roda Frog	1012,20,0,0,0
-moc_fild03,0,0,0,0	monster	Snake	1025,25,0,0,0
-moc_fild03,0,0,0,0	monster	Lunatic	1063,15,0,0,0
-moc_fild03,108,199,5,5	monster	Green Plant	1080,2,180000,90000,1
-moc_fild03,200,263,5,5	monster	Green Plant	1080,2,180000,90000,1
-moc_fild03,213,201,5,5	monster	Green Plant	1080,2,180000,90000,1
-moc_fild03,216,69,5,5	monster	Green Plant	1080,2,180000,90000,1
-moc_fild03,261,161,5,5	monster	Green Plant	1080,2,180000,90000,1
-moc_fild03,77,311,5,5	monster	Green Plant	1080,2,180000,90000,1
-moc_fild03,96,65,5,5	monster	Green Plant	1080,2,180000,90000,1
+moc_fild03,0,0,0,0	monster	Poring	1002,140,0,0,0
+moc_fild03,0,0,0,0	monster	Willow	1010,30,0,0,0
+moc_fild03,0,0,0,0	monster	Roda Frog	1012,40,0,0,0
+moc_fild03,0,0,0,0	monster	Snake	1025,50,0,0,0
+moc_fild03,0,0,0,0	monster	Lunatic	1063,30,0,0,0
+moc_fild03,108,199,5,5	monster	Green Plant	1080,4,180000,90000,1
+moc_fild03,200,263,5,5	monster	Green Plant	1080,4,180000,90000,1
+moc_fild03,213,201,5,5	monster	Green Plant	1080,4,180000,90000,1
+moc_fild03,216,69,5,5	monster	Green Plant	1080,4,180000,90000,1
+moc_fild03,261,161,5,5	monster	Green Plant	1080,4,180000,90000,1
+moc_fild03,77,311,5,5	monster	Green Plant	1080,4,180000,90000,1
+moc_fild03,96,65,5,5	monster	Green Plant	1080,4,180000,90000,1
 
 //==================================================
 // moc_fild04 - Sograt Desert
 //==================================================
-moc_fild04,0,0,0,0	monster	Condor	1009,35,0,0,0
-moc_fild04,0,0,0,0	monster	Chonchon	1011,20,0,0,0
-moc_fild04,0,0,0,0	monster	Wolf	1013,20,0,0,0
-moc_fild04,0,0,0,0	monster	Pecopeco	1019,75,0,0,0
-moc_fild04,0,0,0,0	monster	Pecopeco Egg	1047,10,0,0,0
-moc_fild04,0,0,0,0	monster	Picky	1049,15,0,0,0
-moc_fild04,0,0,0,0	monster	Picky Egg	1050,15,0,0,0
-moc_fild04,0,0,0,0	monster	Drops	1113,20,0,0,0
-moc_fild04,313,84,10,10	monster	Yellow Plant	1081,10,900000,450000,1
+moc_fild04,0,0,0,0	monster	Condor	1009,70,0,0,0
+moc_fild04,0,0,0,0	monster	Chonchon	1011,40,0,0,0
+moc_fild04,0,0,0,0	monster	Wolf	1013,40,0,0,0
+moc_fild04,0,0,0,0	monster	Pecopeco	1019,150,0,0,0
+moc_fild04,0,0,0,0	monster	Pecopeco Egg	1047,20,0,0,0
+moc_fild04,0,0,0,0	monster	Picky	1049,30,0,0,0
+moc_fild04,0,0,0,0	monster	Picky Egg	1050,30,0,0,0
+moc_fild04,0,0,0,0	monster	Drops	1113,40,0,0,0
+moc_fild04,313,84,10,10	monster	Yellow Plant	1081,20,900000,450000,1
 
 //==================================================
 // moc_fild05 - Sograt Desert
 //==================================================
-moc_fild05,0,0,0,0	monster	Condor	1009,35,0,0,0
-moc_fild05,0,0,0,0	monster	Chonchon	1011,20,0,0,0
-moc_fild05,0,0,0,0	monster	Wolf	1013,45,0,0,0
-moc_fild05,0,0,0,0	monster	Steel Chonchon	1042,70,0,0,0
-moc_fild05,0,0,0,0	monster	Pecopeco Egg	1047,10,0,0,0
-moc_fild05,0,0,0,0	monster	Picky	1049,15,0,0,0
-moc_fild05,0,0,0,0	monster	Picky Egg	1050,15,0,0,0
-moc_fild05,0,0,0,0	monster	Drops	1113,20,0,0,0
-moc_fild05,208,233,10,10	monster	Yellow Plant	1081,5,360000,180000,1
+moc_fild05,0,0,0,0	monster	Condor	1009,70,0,0,0
+moc_fild05,0,0,0,0	monster	Chonchon	1011,40,0,0,0
+moc_fild05,0,0,0,0	monster	Wolf	1013,90,0,0,0
+moc_fild05,0,0,0,0	monster	Steel Chonchon	1042,140,0,0,0
+moc_fild05,0,0,0,0	monster	Pecopeco Egg	1047,20,0,0,0
+moc_fild05,0,0,0,0	monster	Picky	1049,30,0,0,0
+moc_fild05,0,0,0,0	monster	Picky Egg	1050,30,0,0,0
+moc_fild05,0,0,0,0	monster	Drops	1113,40,0,0,0
+moc_fild05,208,233,10,10	monster	Yellow Plant	1081,10,360000,180000,1
 
 //==================================================
 // moc_fild06 - Sograt Desert
 //==================================================
-moc_fild06,0,0,0,0	monster	Condor	1009,30,0,0,0
-moc_fild06,0,0,0,0	monster	Chonchon	1011,45,0,0,0
-moc_fild06,0,0,0,0	monster	Pecopeco Egg	1047,10,0,0,0
-moc_fild06,0,0,0,0	monster	Picky	1049,30,0,0,0
-moc_fild06,0,0,0,0	monster	Picky Egg	1050,30,0,0,0
-moc_fild06,0,0,0,0	monster	Muka	1055,35,0,0,0
+moc_fild06,0,0,0,0	monster	Condor	1009,60,0,0,0
+moc_fild06,0,0,0,0	monster	Chonchon	1011,90,0,0,0
+moc_fild06,0,0,0,0	monster	Pecopeco Egg	1047,20,0,0,0
+moc_fild06,0,0,0,0	monster	Picky	1049,60,0,0,0
+moc_fild06,0,0,0,0	monster	Picky Egg	1050,60,0,0,0
+moc_fild06,0,0,0,0	monster	Muka	1055,70,0,0,0
 moc_fild06,0,0,0,0	monster	Dragon Fly	1091,1,1800000,200000,0
-moc_fild06,0,0,0,0	monster	Desert Wolf Babe	1107,45,0,0,0
-moc_fild06,0,0,0,0	monster	Drops	1113,25,0,0,0
-moc_fild06,193,203,10,10	monster	Yellow Plant	1081,10,900000,450000,1
+moc_fild06,0,0,0,0	monster	Desert Wolf Babe	1107,90,0,0,0
+moc_fild06,0,0,0,0	monster	Drops	1113,50,0,0,0
+moc_fild06,193,203,10,10	monster	Yellow Plant	1081,20,900000,450000,1
 
 //==================================================
 // moc_fild07 - Sograt Desert
 //==================================================
-moc_fild07,0,0,0,0	monster	Chonchon	1011,30,0,0,0
-moc_fild07,0,0,0,0	monster	Pecopeco Egg	1047,35,0,0,0
-moc_fild07,0,0,0,0	monster	Picky	1049,60,0,0,0
-moc_fild07,0,0,0,0	monster	Picky Egg	1050,60,0,0,0
-moc_fild07,0,0,0,0	monster	Drops	1113,60,0,0,0
-moc_fild07,162,333,12,12	monster	Yellow Plant	1081,5,360000,180000,1
+moc_fild07,0,0,0,0	monster	Chonchon	1011,60,0,0,0
+moc_fild07,0,0,0,0	monster	Pecopeco Egg	1047,70,0,0,0
+moc_fild07,0,0,0,0	monster	Picky	1049,120,0,0,0
+moc_fild07,0,0,0,0	monster	Picky Egg	1050,120,0,0,0
+moc_fild07,0,0,0,0	monster	Drops	1113,120,0,0,0
+moc_fild07,162,333,12,12	monster	Yellow Plant	1081,10,360000,180000,1
 
 //==================================================
 // moc_fild08 - Sograt Desert
 //==================================================
-moc_fild08,0,0,0,0	monster	Scorpion	1001,20,0,0,0
-moc_fild08,0,0,0,0	monster	Golem	1040,40,0,0,0
-moc_fild08,0,0,0,0	monster	Metaller	1058,30,0,0,0
-moc_fild08,0,0,0,0	monster	Desert Wolf Babe	1107,15,0,0,0
+moc_fild08,0,0,0,0	monster	Scorpion	1001,40,0,0,0
+moc_fild08,0,0,0,0	monster	Golem	1040,80,0,0,0
+moc_fild08,0,0,0,0	monster	Metaller	1058,60,0,0,0
+moc_fild08,0,0,0,0	monster	Desert Wolf Babe	1107,30,0,0,0
 
 //==================================================
 // moc_fild09 - Sograt Desert
 //==================================================
-moc_fild09,0,0,0,0	monster	Condor	1009,15,0,0,0
-moc_fild09,0,0,0,0	monster	Pecopeco Egg	1047,10,0,0,0
-moc_fild09,0,0,0,0	monster	Picky	1049,20,0,0,0
-moc_fild09,0,0,0,0	monster	Picky Egg	1050,20,0,0,0
-moc_fild09,0,0,0,0	monster	Muka	1055,35,0,0,0
-moc_fild09,0,0,0,0	monster	Desert Wolf Babe	1107,50,0,0,0
-moc_fild09,240,313,5,5	monster	Yellow Plant	1081,2,180000,90000,1
-moc_fild09,305,62,5,5	monster	Yellow Plant	1081,2,180000,90000,1
-moc_fild09,332,341,5,5	monster	Yellow Plant	1081,2,180000,90000,1
-moc_fild09,54,325,5,5	monster	Yellow Plant	1081,2,180000,90000,1
-moc_fild09,64,78,5,5	monster	Yellow Plant	1081,2,180000,90000,1
+moc_fild09,0,0,0,0	monster	Condor	1009,30,0,0,0
+moc_fild09,0,0,0,0	monster	Pecopeco Egg	1047,20,0,0,0
+moc_fild09,0,0,0,0	monster	Picky	1049,40,0,0,0
+moc_fild09,0,0,0,0	monster	Picky Egg	1050,40,0,0,0
+moc_fild09,0,0,0,0	monster	Muka	1055,70,0,0,0
+moc_fild09,0,0,0,0	monster	Desert Wolf Babe	1107,100,0,0,0
+moc_fild09,240,313,5,5	monster	Yellow Plant	1081,4,180000,90000,1
+moc_fild09,305,62,5,5	monster	Yellow Plant	1081,4,180000,90000,1
+moc_fild09,332,341,5,5	monster	Yellow Plant	1081,4,180000,90000,1
+moc_fild09,54,325,5,5	monster	Yellow Plant	1081,4,180000,90000,1
+moc_fild09,64,78,5,5	monster	Yellow Plant	1081,4,180000,90000,1
 
 //==================================================
 // moc_fild10 - Sograt Desert
 //==================================================
-moc_fild10,0,0,0,0	monster	Condor	1009,30,0,0,0
-moc_fild10,0,0,0,0	monster	Pecopeco	1019,35,0,0,0
-moc_fild10,0,0,0,0	monster	Pecopeco Egg	1047,10,0,0,0
-moc_fild10,0,0,0,0	monster	Picky	1049,45,0,0,0
-moc_fild10,0,0,0,0	monster	Picky Egg	1050,45,0,0,0
-moc_fild10,198,150,40,30	monster	Green Plant	1080,5,180000,90000,1
-moc_fild10,198,150,40,30	monster	Yellow Plant	1081,10,180000,90000,1
+moc_fild10,0,0,0,0	monster	Condor	1009,60,0,0,0
+moc_fild10,0,0,0,0	monster	Pecopeco	1019,70,0,0,0
+moc_fild10,0,0,0,0	monster	Pecopeco Egg	1047,20,0,0,0
+moc_fild10,0,0,0,0	monster	Picky	1049,90,0,0,0
+moc_fild10,0,0,0,0	monster	Picky Egg	1050,90,0,0,0
+moc_fild10,198,150,40,30	monster	Green Plant	1080,10,180000,90000,1
+moc_fild10,198,150,40,30	monster	Yellow Plant	1081,20,180000,90000,1
 
 //==================================================
 // moc_fild11 - Sograt Desert
 //==================================================
-moc_fild11,0,0,0,0	monster	Chonchon	1011,15,0,0,0
-moc_fild11,0,0,0,0	monster	Picky	1049,10,0,0,0
-moc_fild11,0,0,0,0	monster	Picky Egg	1050,10,0,0,0
-moc_fild11,0,0,0,0	monster	Andre	1095,5,60000,30000,0
-moc_fild11,0,0,0,0	monster	Ant Egg	1097,40,0,0,0
-moc_fild11,0,0,0,0	monster	Deniro	1105,5,60000,30000,0
-moc_fild11,0,0,0,0	monster	Drops	1113,75,0,0,0
-moc_fild11,0,0,0,0	monster	Piere	1160,5,60000,30000,0
+moc_fild11,0,0,0,0	monster	Chonchon	1011,30,0,0,0
+moc_fild11,0,0,0,0	monster	Picky	1049,20,0,0,0
+moc_fild11,0,0,0,0	monster	Picky Egg	1050,20,0,0,0
+moc_fild11,0,0,0,0	monster	Andre	1095,10,60000,30000,0
+moc_fild11,0,0,0,0	monster	Ant Egg	1097,80,0,0,0
+moc_fild11,0,0,0,0	monster	Deniro	1105,10,60000,30000,0
+moc_fild11,0,0,0,0	monster	Drops	1113,150,0,0,0
+moc_fild11,0,0,0,0	monster	Piere	1160,10,60000,30000,0
 moc_fild11,197,216,0,0	monster	Shining Plant	1083,1,1800000,900000,1
 
 //==================================================
 // moc_fild12 - Sograt Desert
 //==================================================
-moc_fild12,0,0,0,0	monster	Chonchon	1011,20,0,0,0
-moc_fild12,0,0,0,0	monster	Picky	1049,45,0,0,0
-moc_fild12,0,0,0,0	monster	Picky Egg	1050,45,0,0,0
-moc_fild12,0,0,0,0	monster	Ant Egg	1097,25,0,0,0
-moc_fild12,0,0,0,0	monster	Drops	1113,50,0,0,0
-moc_fild12,181,336,40,20	monster	Yellow Plant	1081,10,180000,90000,1
+moc_fild12,0,0,0,0	monster	Chonchon	1011,40,0,0,0
+moc_fild12,0,0,0,0	monster	Picky	1049,90,0,0,0
+moc_fild12,0,0,0,0	monster	Picky Egg	1050,90,0,0,0
+moc_fild12,0,0,0,0	monster	Ant Egg	1097,50,0,0,0
+moc_fild12,0,0,0,0	monster	Drops	1113,100,0,0,0
+moc_fild12,181,336,40,20	monster	Yellow Plant	1081,20,180000,90000,1
 
 //==================================================
 // moc_fild13 - Sograt Desert
 //==================================================
-moc_fild13,0,0,0,0	monster	Condor	1009,20,0,0,0
-moc_fild13,0,0,0,0	monster	Pecopeco	1019,40,0,0,0
-moc_fild13,0,0,0,0	monster	Snake	1025,65,0,0,0
-moc_fild13,0,0,0,0	monster	Pecopeco Egg	1047,10,0,0,0
-moc_fild13,0,0,0,0	monster	Picky	1049,45,0,0,0
-moc_fild13,0,0,0,0	monster	Picky Egg	1050,35,0,0,0
-moc_fild13,101,185,5,5	monster	Yellow Plant	1081,3,180000,90000,1
+moc_fild13,0,0,0,0	monster	Condor	1009,40,0,0,0
+moc_fild13,0,0,0,0	monster	Pecopeco	1019,80,0,0,0
+moc_fild13,0,0,0,0	monster	Snake	1025,130,0,0,0
+moc_fild13,0,0,0,0	monster	Pecopeco Egg	1047,20,0,0,0
+moc_fild13,0,0,0,0	monster	Picky	1049,90,0,0,0
+moc_fild13,0,0,0,0	monster	Picky Egg	1050,70,0,0,0
+moc_fild13,101,185,5,5	monster	Yellow Plant	1081,6,180000,90000,1
 moc_fild13,101,297,0,0	monster	Yellow Plant	1081,1,180000,90000,1
-moc_fild13,106,258,5,5	monster	Yellow Plant	1081,3,180000,90000,1
+moc_fild13,106,258,5,5	monster	Yellow Plant	1081,6,180000,90000,1
 moc_fild13,108,150,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild13,109,168,0,0	monster	Yellow Plant	1081,1,180000,90000,1
-moc_fild13,161,273,5,5	monster	Yellow Plant	1081,3,180000,90000,1
+moc_fild13,161,273,5,5	monster	Yellow Plant	1081,6,180000,90000,1
 moc_fild13,264,136,0,0	monster	Red Mushroom	1085,1,180000,90000,1
 moc_fild13,264,64,0,0	monster	Red Mushroom	1085,1,180000,90000,1
 moc_fild13,265,197,0,0	monster	Red Mushroom	1085,1,180000,90000,1
@@ -209,11 +209,11 @@ moc_fild13,93,301,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 //==================================================
 // moc_fild14 - Sograt Desert
 //==================================================
-moc_fild14,0,0,0,0	monster	Scorpion	1001,30,0,0,0
-moc_fild14,0,0,0,0	monster	Metaller	1058,20,0,0,0
-moc_fild14,0,0,0,0	monster	Desert Wolf	1106,38,0,0,0
-moc_fild14,0,0,0,0	monster	Desert Wolf Babe	1107,25,0,0,0
-moc_fild14,0,0,0,0	monster	Hode	1127,25,0,0,0
+moc_fild14,0,0,0,0	monster	Scorpion	1001,60,0,0,0
+moc_fild14,0,0,0,0	monster	Metaller	1058,40,0,0,0
+moc_fild14,0,0,0,0	monster	Desert Wolf	1106,76,0,0,0
+moc_fild14,0,0,0,0	monster	Desert Wolf Babe	1107,50,0,0,0
+moc_fild14,0,0,0,0	monster	Hode	1127,50,0,0,0
 moc_fild14,124,93,5,5	monster	Shining Plant	1083,1,1800000,900000,1
 moc_fild14,149,333,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild14,160,366,0,0	monster	Yellow Plant	1081,1,180000,90000,1
@@ -224,11 +224,11 @@ moc_fild14,85,271,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 //==================================================
 // moc_fild15 - Sograt Desert
 //==================================================
-moc_fild15,0,0,0,0	monster	Scorpion	1001,35,0,0,0
-moc_fild15,0,0,0,0	monster	Andre	1095,25,0,0,0
-moc_fild15,0,0,0,0	monster	Ant Egg	1097,20,0,0,0
-moc_fild15,0,0,0,0	monster	Deniro	1105,25,0,0,0
-moc_fild15,0,0,0,0	monster	Piere	1160,25,0,0,0
+moc_fild15,0,0,0,0	monster	Scorpion	1001,70,0,0,0
+moc_fild15,0,0,0,0	monster	Andre	1095,50,0,0,0
+moc_fild15,0,0,0,0	monster	Ant Egg	1097,40,0,0,0
+moc_fild15,0,0,0,0	monster	Deniro	1105,50,0,0,0
+moc_fild15,0,0,0,0	monster	Piere	1160,50,0,0,0
 moc_fild15,104,347,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild15,158,144,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild15,195,373,0,0	monster	Yellow Plant	1081,1,180000,90000,1
@@ -245,22 +245,22 @@ moc_fild15,57,39,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 //==================================================
 // moc_fild16 - Sograt Desert
 //==================================================
-moc_fild16,0,0,0,0	monster	Muka	1055,25,0,0,0
-moc_fild16,0,0,0,0	monster	Metaller	1058,15,0,0,0
-moc_fild16,0,0,0,0	monster	Hode	1127,50,0,0,0
-moc_fild16,0,0,0,0	monster	Sand Man	1165,70,0,0,0
+moc_fild16,0,0,0,0	monster	Muka	1055,50,0,0,0
+moc_fild16,0,0,0,0	monster	Metaller	1058,30,0,0,0
+moc_fild16,0,0,0,0	monster	Hode	1127,100,0,0,0
+moc_fild16,0,0,0,0	monster	Sand Man	1165,140,0,0,0
 
 
 //==================================================
 // moc_fild17 - Sograt Desert
 //==================================================
-moc_fild17,0,0,0,0	monster	Metaller	1058,20,0,0,0
-moc_fild17,0,0,0,0	monster	Andre	1095,30,0,0,0
-moc_fild17,0,0,0,0	monster	Drops	1113,35,0,0,0
-moc_fild17,0,0,0,0	monster	Frilldora	1119,5,60000,30000,0
-moc_fild17,0,0,0,0	monster	Hode	1127,45,0,0,0
-moc_fild17,0,0,0,0	monster	Piere	1160,30,0,0,0
-moc_fild17,0,0,0,0	monster	Sand Man	1165,45,0,0,0
+moc_fild17,0,0,0,0	monster	Metaller	1058,40,0,0,0
+moc_fild17,0,0,0,0	monster	Andre	1095,60,0,0,0
+moc_fild17,0,0,0,0	monster	Drops	1113,70,0,0,0
+moc_fild17,0,0,0,0	monster	Frilldora	1119,10,60000,30000,0
+moc_fild17,0,0,0,0	monster	Hode	1127,90,0,0,0
+moc_fild17,0,0,0,0	monster	Piere	1160,60,0,0,0
+moc_fild17,0,0,0,0	monster	Sand Man	1165,90,0,0,0
 moc_fild17,144,151,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild17,243,138,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild17,270,106,0,0	monster	Blue Plant	1079,1,180000,90000,1
@@ -272,13 +272,13 @@ moc_fild17,40,258,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 //==================================================
 // moc_fild18 - Sograt Desert
 //==================================================
-moc_fild18,0,0,0,0	monster	Chonchon	1011,15,0,0,0
-moc_fild18,0,0,0,0	monster	Muka	1055,70,0,0,0
-moc_fild18,0,0,0,0	monster	Anacondaq	1030,35,0,0,0
-moc_fild18,0,0,0,0	monster	Steel Chonchon	1042,25,0,0,0
-moc_fild18,0,0,0,0	monster	Drops	1113,20,0,0,0
+moc_fild18,0,0,0,0	monster	Chonchon	1011,30,0,0,0
+moc_fild18,0,0,0,0	monster	Muka	1055,140,0,0,0
+moc_fild18,0,0,0,0	monster	Anacondaq	1030,70,0,0,0
+moc_fild18,0,0,0,0	monster	Steel Chonchon	1042,50,0,0,0
+moc_fild18,0,0,0,0	monster	Drops	1113,40,0,0,0
 moc_fild18,0,0,0,0	monster	Dragon Fly	1091,1,180000,0,1
-moc_fild18,0,0,0,0	monster	Hode	1127,75,0,0,0
+moc_fild18,0,0,0,0	monster	Hode	1127,150,0,0,0
 moc_fild18,119,285,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild18,135,119,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 moc_fild18,143,352,0,0	monster	Yellow Plant	1081,1,180000,90000,1
@@ -291,15 +291,15 @@ moc_fild18,72,333,0,0	monster	Yellow Plant	1081,1,180000,90000,1
 //==================================================
 // moc_fild20 - Dimensional Gorge
 //==================================================
-moc_fild20,0,0,0,0	monster	Ant Egg	1097,10,0,0,0
-moc_fild20,0,0,0,0	monster	Andre	1095,20,0,0,0
-moc_fild20,0,0,0,0	monster	Deniro	1105,20,0,0,0
-moc_fild20,0,0,0,0	monster	Piere	1160,20,0,0,0
-moc_fild20,0,0,0,0	monster	Metaller	1058,20,0,0,0
-moc_fild20,0,0,0,0	monster	Drops	1113,30,0,0,0
-moc_fild20,0,0,0,0	monster	Scorpion	1001,70,0,0,0
-moc_fild20,0,0,0,0	monster	Picky	1050,50,0,0,0
-moc_fild20,0,0,0,0	monster	Picky	1049,50,0,0,0
+moc_fild20,0,0,0,0	monster	Ant Egg	1097,20,0,0,0
+moc_fild20,0,0,0,0	monster	Andre	1095,40,0,0,0
+moc_fild20,0,0,0,0	monster	Deniro	1105,40,0,0,0
+moc_fild20,0,0,0,0	monster	Piere	1160,40,0,0,0
+moc_fild20,0,0,0,0	monster	Metaller	1058,40,0,0,0
+moc_fild20,0,0,0,0	monster	Drops	1113,60,0,0,0
+moc_fild20,0,0,0,0	monster	Scorpion	1001,140,0,0,0
+moc_fild20,0,0,0,0	monster	Picky	1050,100,0,0,0
+moc_fild20,0,0,0,0	monster	Picky	1049,100,0,0,0
 moc_fild20,0,0,0,0	monster	Morroc's Shadow	1918,1,30000,0,0
 moc_fild20,0,0,0,0	monster	Morroc's Shadow	1919,1,30000,0,0
 moc_fild20,0,0,0,0	monster	Morroc's Shadow	1920,1,30000,0,0
@@ -308,19 +308,19 @@ moc_fild20,0,0,0,0	monster	Morroc's Shadow	1921,1,30000,0,0
 //==================================================
 // moc_fild21 - Dimensional Gorge
 //==================================================
-moc_fild21,0,0,0,0	monster	Golem	1040,61,0,0,0
-moc_fild21,0,0,0,0	monster	Stalactic Golem	1278,46,0,0,0
-moc_fild21,0,0,0,0	monster	Lava Golem	1366,46,0,0,0
-moc_fild21,0,0,0,0	monster	Morroc's Shadow	1918,46,30000,0,0
-moc_fild21,0,0,0,0	monster	Morroc's Shadow	1919,46,30000,0,0
-moc_fild21,0,0,0,0	monster	Morroc's Shadow	1920,46,30000,0,0
-moc_fild21,0,0,0,0	monster	Morroc's Shadow	1921,34,30000,0,0
+moc_fild21,0,0,0,0	monster	Golem	1040,122,0,0,0
+moc_fild21,0,0,0,0	monster	Stalactic Golem	1278,92,0,0,0
+moc_fild21,0,0,0,0	monster	Lava Golem	1366,92,0,0,0
+moc_fild21,0,0,0,0	monster	Morroc's Shadow	1918,92,30000,0,0
+moc_fild21,0,0,0,0	monster	Morroc's Shadow	1919,92,30000,0,0
+moc_fild21,0,0,0,0	monster	Morroc's Shadow	1920,92,30000,0,0
+moc_fild21,0,0,0,0	monster	Morroc's Shadow	1921,68,30000,0,0
 
 //==================================================
 // moc_fild22 - Dimensional Gorge
 //==================================================
-moc_fild22,0,0,0,0	monster	Morroc's Shadow	1918,60,30000,0,0
-moc_fild22,0,0,0,0	monster	Morroc's Shadow	1919,60,30000,0,0
-moc_fild22,0,0,0,0	monster	Morroc's Shadow	1920,60,30000,0,0
-moc_fild22,0,0,0,0	monster	Morroc's Shadow	1921,25,30000,0,0
+moc_fild22,0,0,0,0	monster	Morroc's Shadow	1918,120,30000,0,0
+moc_fild22,0,0,0,0	monster	Morroc's Shadow	1919,120,30000,0,0
+moc_fild22,0,0,0,0	monster	Morroc's Shadow	1920,120,30000,0,0
+moc_fild22,0,0,0,0	monster	Morroc's Shadow	1921,50,30000,0,0
 moc_fild22,0,0,0,0	monster	Wounded Satan Morroc	1917,1,43200000,3600000,1
