@@ -1500,20 +1500,27 @@ int send_users_tochar(void)
 
 	chrif_check(-1);
 
+	// Over-allocate from the gross count; fake players are filtered out below
+	// so the packet we actually send stays small enough for the 16-bit length.
 	users = map_usercount();
 	WFIFOHEAD(char_fd, 6+8*users);
 	WFIFOW(char_fd,0) = 0x2aff;
 	iter = mapit_getallusers();
 	for( sd = (TBL_PC*)mapit_first(iter); mapit_exists(iter); sd = (TBL_PC*)mapit_next(iter) )
 	{
+		// Fake players have no char-server record; never report them. With many
+		// thousands of fakes this also keeps packet 0x2aff under the 64KB cap.
+		if( sd->state.fakeplayer )
+			continue;
 		WFIFOL(char_fd,6+8*i) = sd->status.account_id;
 		WFIFOL(char_fd,6+8*i+4) = sd->status.char_id;
 		i++;
 	}
 	mapit_free(iter);
-	WFIFOW(char_fd,2) = 6 + 8*users;
-	WFIFOW(char_fd,4) = users;
-	WFIFOSET(char_fd, 6+8*users);
+	// i = real users actually written; size and count the packet from it.
+	WFIFOW(char_fd,2) = 6 + 8*i;
+	WFIFOW(char_fd,4) = i;
+	WFIFOSET(char_fd, 6 + 8*i);
 
 	return 0;
 }
