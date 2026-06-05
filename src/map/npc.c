@@ -856,6 +856,15 @@ int npc_touch_areanpc(struct map_session_data* sd, int m, int x, int y)
 
 	nullpo_retr(1, sd);
 
+	// Fake players must never trigger warps or OnTouch scripts: they have no
+	// real client to follow a warp, and being relocated via pc_setpos breaks
+	// per-map user accounting (warp out decrements map users, but there is no
+	// LoadEndAck to re-increment on the destination), which later floods
+	// unit_remove_map "unexpected state ... (users=0)" debug spam. Keeping them
+	// on their assigned map is also the intended behaviour.
+	if( sd->state.fakeplayer )
+		return 1;
+
 	// Why not enqueue it? [Inkfish]
 	//if(sd->npc_id)
 	//	return 1;

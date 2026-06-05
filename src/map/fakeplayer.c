@@ -382,6 +382,17 @@ int fakeplayer_create(const char* name, int class_, int m, int x, int y, int fla
 		aFree(sd);
 		return 0;
 	}
+
+	// Mirror the bookkeeping a real player gets in clif_parse_LoadEndAck:
+	// bump the per-map user count (spawning dynamic mobs on the 0->1 edge) and
+	// clear debug_remove_map. Without this, map[m].users stays 0 while fakes
+	// stand on the map, so unit_remove_map() later sees users<=0 and floods
+	// "unexpected state when removing player ... (users=0)" debug spam. It also
+	// means dynamic-mob maps actually populate once fakes arrive.
+	sd->state.debug_remove_map = 0;
+	if (map[sd->bl.m].users++ == 0 && battle_config.dynamic_mobs)
+		map_spawnmobs(sd->bl.m);
+
 	clif_spawn(&sd->bl);
 	if (sd->status.option)
 		clif_changeoption(&sd->bl);   // make riding/cart visible to viewers
@@ -699,6 +710,12 @@ static void fp_destroy(struct map_session_data* sd)
 	unit_stop_walking(&sd->bl, 1);
 	unit_stop_attack(&sd->bl);
 	clif_clearunit_area(&sd->bl, CLR_OUTSIGHT);
+	// Balance the per-map user count we bumped in fakeplayer_create (we tear
+	// down manually instead of via unit_remove_map, so do its accounting here).
+	if (sd->bl.m >= 0 && sd->bl.m < map_num && map[sd->bl.m].users > 0) {
+		if (--map[sd->bl.m].users == 0 && battle_config.dynamic_mobs)
+			map_removemobs(sd->bl.m);
+	}
 	map_delblock(&sd->bl);
 	map_deliddb(&sd->bl);
 	aFree(sd);
