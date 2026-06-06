@@ -15,6 +15,7 @@
 #include "clif.h"
 #include "itemdb.h"
 #include "map.h"
+#include "path.h"
 #include "pc.h"
 #include "skill.h"
 #include "status.h"
@@ -32,7 +33,7 @@
 #define FP_TICK 1000         // driver scan interval (ms); each fake acts on its
                              // own schedule, the scan just checks who is "due"
 #define FP_WANDER_RANGE 7    // cells a wanderer may step from its anchor
-#define FP_FIGHT_RANGE 9     // search radius for a fight target
+#define FP_FIGHT_RANGE 14     // search radius for a fight target
 
 // Per-fake action cadence (ms). Each fake gets a randomised gap in this window
 // between actions, so the crowd never walks/sits/emotes all on the same beat.
@@ -48,7 +49,7 @@
 // population from spiking the main thread and lagging real players. When the
 // budget is spent, a fake simply defers its move a little and tries next tick.
 // Tune up for livelier movement, down if the box still struggles.
-#define FP_MOVE_BUDGET 250
+#define FP_MOVE_BUDGET 350
 
 // A registry entry. We keep the behaviour flag, the home/anchor cell (so
 // wanderers drift around a fixed spot instead of crossing the whole map) and a
@@ -56,6 +57,7 @@
 struct fp_node {
 	struct map_session_data* sd;
 	int flag;
+	int master_id;           // player GID to follow/buff (0 = none)
 	short ax, ay;            // anchor cell, so wanderers stay near home
 	unsigned int next_tick;  // gettick() value before which this fake stays idle
 };
@@ -63,6 +65,8 @@ struct fp_node {
 static struct fp_node fp_list[FP_MAX];
 static int fp_count = 0;
 static int fp_timer_id = INVALID_TIMER;
+
+static int fakeplayer_create_ex(const char* name, int class_, int m, int x, int y, int flag, int master_id);
 
 // A small spread of player classes (no baby/wedding/mounted-only sprites here;
 // mounted look is applied via OPTION_RIDING on the base 2nd-job below).
@@ -281,6 +285,167 @@ static void fp_apply_look(struct map_session_data* sd, int class_)
 		sd->status.head_bottom = (short)look;
 		sd->vd.head_bottom = (unsigned short)look;
 	}
+	sd->status.weapon = (short)sd->vd.weapon;
+	sd->status.shield = (short)sd->vd.shield;
+}
+
+// Grant one skill into the fake's tree (used for combat/buff demos).
+static void fp_give_skill(struct map_session_data* sd, int skill_id, int lv)
+{
+	if (skill_id <= 0 || skill_id >= MAX_SKILL || lv < 1)
+		return;
+	sd->status.skill[skill_id].id = (short)skill_id;
+	sd->status.skill[skill_id].lv = (unsigned char)lv;
+}
+
+static int fp_is_priest_line(int class_)
+{
+	switch (class_) {
+	case JOB_ACOLYTE: case JOB_PRIEST: case JOB_HIGH_PRIEST:
+		return 1;
+	default:
+		return 0;
+	}
+}
+
+static int fp_is_mage_line(int class_)
+{
+	switch (class_) {
+	case JOB_MAGE: case JOB_WIZARD: case JOB_HIGH_WIZARD:
+	case JOB_SAGE: case JOB_PROFESSOR:
+		return 1;
+	default:
+		return 0;
+	}
+}
+
+static int fp_is_archer_line(int class_)
+{
+	switch (class_) {
+	case JOB_ARCHER: case JOB_HUNTER: case JOB_SNIPER:
+		return 1;
+	default:
+		return 0;
+	}
+}
+
+// Combat skills so field fakes cast visible bolts/arrows instead of silent melee.
+static void fp_grant_combat_skills(struct map_session_data* sd, int class_)
+{
+	switch (class_) {
+	case JOB_MAGE: case JOB_WIZARD: case JOB_HIGH_WIZARD:
+		fp_give_skill(sd, MG_FIREBOLT, 10);
+		fp_give_skill(sd, MG_COLDBOLT, 10);
+		fp_give_skill(sd, MG_LIGHTNINGBOLT, 10);
+		fp_give_skill(sd, MG_SOULSTRIKE, 10);
+		fp_give_skill(sd, MG_ENERGYCOAT, 1);
+		break;
+	case JOB_SAGE: case JOB_PROFESSOR:
+		fp_give_skill(sd, MG_LIGHTNINGBOLT, 10);
+		fp_give_skill(sd, WZ_EARTHSPIKE, 5);
+		fp_give_skill(sd, WZ_HEAVENDRIVE, 5);
+		break;
+	case JOB_ARCHER: case JOB_HUNTER: case JOB_SNIPER:
+		fp_give_skill(sd, AC_DOUBLE, 10);
+		fp_give_skill(sd, AC_SHOWER, 10);
+		break;
+	case JOB_KNIGHT: case JOB_LORD_KNIGHT:
+		fp_give_skill(sd, KN_BOWLINGBASH, 10);
+		fp_give_skill(sd, KN_PIERCE, 10);
+		break;
+	case JOB_CRUSADER: case JOB_PALADIN:
+		fp_give_skill(sd, CR_HOLYCROSS, 10);
+		fp_give_skill(sd, CR_GRANDCROSS, 10);
+		break;
+	case JOB_ASSASSIN: case JOB_ASSASSIN_CROSS:
+		fp_give_skill(sd, AS_SONICBLOW, 10);
+		fp_give_skill(sd, TF_POISON, 10);
+		break;
+	case JOB_MONK: case JOB_CHAMPION:
+		fp_give_skill(sd, MO_FINGEROFFENSIVE, 5);
+		fp_give_skill(sd, MO_INVESTIGATE, 5);
+		break;
+	case JOB_THIEF: case JOB_ROGUE: case JOB_STALKER:
+		fp_give_skill(sd, TF_POISON, 10);
+		break;
+	case JOB_BLACKSMITH: case JOB_WHITESMITH:
+		fp_give_skill(sd, MC_MAMMONITE, 10);
+		break;
+	case JOB_ACOLYTE: case JOB_PRIEST: case JOB_HIGH_PRIEST:
+		fp_give_skill(sd, AL_HEAL, 10);
+		fp_give_skill(sd, AL_HOLYLIGHT, 10);
+		break;
+	default:
+		break;
+	}
+}
+
+// Full support kit for personal follower bots.
+static void fp_grant_support_skills(struct map_session_data* sd, int class_)
+{
+	fp_give_skill(sd, AL_HEAL, 10);
+	fp_give_skill(sd, AL_INCAGI, 10);
+	fp_give_skill(sd, AL_BLESSING, 10);
+	fp_give_skill(sd, AL_CURE, 10);
+	fp_give_skill(sd, AL_RUWACH, 1);
+	if (class_ >= JOB_PRIEST) {
+		fp_give_skill(sd, PR_IMPOSITIO, 5);
+		fp_give_skill(sd, PR_SUFFRAGIUM, 3);
+		fp_give_skill(sd, PR_ASPERSIO, 5);
+		fp_give_skill(sd, PR_KYRIE, 10);
+		fp_give_skill(sd, PR_STRECOVERY, 1);
+	}
+	if (class_ >= JOB_HIGH_PRIEST) {
+		fp_give_skill(sd, PR_MAGNIFICAT, 5);
+		fp_give_skill(sd, PR_GLORIA, 5);
+		fp_give_skill(sd, PR_SANCTUARY, 10);
+	}
+}
+
+// Priest-line cosmetic: always carry a staff.
+static void fp_apply_support_look(struct map_session_data* sd, int class_)
+{
+	int staff = fp_item_look(1504); // Rod/staff view
+	if (staff <= 0) staff = 1504;
+	sd->vd.weapon = (unsigned short)staff;
+	sd->status.weapon = (short)staff;
+	sd->vd.shield = 0;
+	sd->status.shield = 0;
+	fp_apply_look(sd, class_); // headgear etc. on top
+	sd->vd.weapon = (unsigned short)staff;
+	sd->status.weapon = (short)staff;
+}
+
+static int fp_pick_fight_skill(int class_, int* out_lv)
+{
+	*out_lv = 10;
+	switch (class_) {
+	case JOB_MAGE: case JOB_WIZARD: case JOB_HIGH_WIZARD:
+		switch (rnd() % 3) {
+		case 0: return MG_FIREBOLT;
+		case 1: return MG_COLDBOLT;
+		default: return MG_LIGHTNINGBOLT;
+		}
+	case JOB_SAGE: case JOB_PROFESSOR:
+		return (rnd() % 2) ? MG_LIGHTNINGBOLT : WZ_EARTHSPIKE;
+	case JOB_ARCHER: case JOB_HUNTER: case JOB_SNIPER:
+		return (rnd() % 2) ? AC_DOUBLE : AC_SHOWER;
+	case JOB_KNIGHT: case JOB_LORD_KNIGHT:
+		return KN_BOWLINGBASH;
+	case JOB_CRUSADER: case JOB_PALADIN:
+		return CR_HOLYCROSS;
+	case JOB_ASSASSIN: case JOB_ASSASSIN_CROSS:
+		return AS_SONICBLOW;
+	case JOB_MONK: case JOB_CHAMPION:
+		return MO_FINGEROFFENSIVE;
+	case JOB_BLACKSMITH: case JOB_WHITESMITH:
+		return MC_MAMMONITE;
+	case JOB_ACOLYTE: case JOB_PRIEST: case JOB_HIGH_PRIEST:
+		*out_lv = 10;
+		return AL_HOLYLIGHT;
+	default:
+		return 0;
+	}
 }
 
 static struct map_session_data* fp_find(int gid)
@@ -299,6 +464,11 @@ static struct map_session_data* fp_find(int gid)
 //   clif_spawn.  The one deliberate difference is sd->fd = 0 (no socket).
 // ---------------------------------------------------------------------------
 int fakeplayer_create(const char* name, int class_, int m, int x, int y, int flag)
+{
+	return fakeplayer_create_ex(name, class_, m, x, y, flag, 0);
+}
+
+static int fakeplayer_create_ex(const char* name, int class_, int m, int x, int y, int flag, int master_id)
 {
 	struct map_session_data* sd;
 
@@ -390,9 +560,17 @@ int fakeplayer_create(const char* name, int class_, int m, int x, int y, int fla
 
 	// Dress it up so nearby clients see a believable, fully-equipped player.
 	// Done after status_set_viewdata/status_calc_pc so nothing overwrites vd.
-	fp_apply_look(sd, class_);
+	if (flag & FP_SUPPORT)
+		fp_apply_support_look(sd, class_);
+	else
+		fp_apply_look(sd, class_);
 
-	// Never die / never look injured.
+	if (flag & (FP_FIGHT | FP_SKILL_DEMO))
+		fp_grant_combat_skills(sd, class_);
+	if (flag & FP_SUPPORT)
+		fp_grant_support_skills(sd, class_);
+
+	// Never die / never look injured; infinite SP for skill demos.
 	sd->battle_status.hp = sd->battle_status.max_hp;
 	sd->battle_status.sp = sd->battle_status.max_sp;
 
@@ -415,9 +593,16 @@ int fakeplayer_create(const char* name, int class_, int m, int x, int y, int fla
 	clif_spawn(&sd->bl);
 	if (sd->status.option)
 		clif_changeoption(&sd->bl);   // make riding/cart visible to viewers
+	// Push cosmetic weapon/shield/headgear to viewers (inventory is empty on fakes).
+	clif_changelook(&sd->bl, LOOK_WEAPON, sd->vd.weapon);
+	clif_changelook(&sd->bl, LOOK_SHIELD, sd->vd.shield);
+	clif_changelook(&sd->bl, LOOK_HEAD_TOP, sd->vd.head_top);
+	clif_changelook(&sd->bl, LOOK_HEAD_MID, sd->vd.head_mid);
+	clif_changelook(&sd->bl, LOOK_HEAD_BOTTOM, sd->vd.head_bottom);
 
 	fp_list[fp_count].sd = sd;
 	fp_list[fp_count].flag = flag;
+	fp_list[fp_count].master_id = master_id;
 	fp_list[fp_count].ax = (short)x;
 	fp_list[fp_count].ay = (short)y;
 	// Stagger the first action so a freshly populated map doesn't move in unison.
@@ -510,13 +695,43 @@ int fakeplayer_openchat(int gid, const char* title, int limit)
 //   - wanderers    : stroll near home, sit to rest, emote, or chat.
 // ---------------------------------------------------------------------------
 
-// map_foreachinrange callback: remember the first live monster found.
+// map_foreachinrange callback: remember the closest live monster.
 static int fp_pick_target(struct block_list* bl, va_list ap)
 {
-	int* out = va_arg(ap, int*);
-	if (bl->type == BL_MOB && !status_isdead(bl) && *out == 0)
-		*out = bl->id;
+	struct block_list* src = va_arg(ap, struct block_list*);
+	int* best_id = va_arg(ap, int*);
+	int* best_dist = va_arg(ap, int*);
+	int d;
+
+	if (bl->type != BL_MOB || status_isdead(bl))
+		return 0;
+	d = distance_bl(src, bl);
+	if (*best_id == 0 || d < *best_dist) {
+		*best_id = bl->id;
+		*best_dist = d;
+	}
 	return 0;
+}
+
+// map_foreachinrange callback: nearest BL_PC missing a buff (for city demos).
+static int fp_pick_buff_target(struct block_list* bl, va_list ap)
+{
+	struct block_list* src = va_arg(ap, struct block_list*);
+	int* out = va_arg(ap, int*);
+	int sc_type = va_arg(ap, int);
+	struct map_session_data* tsd = (struct map_session_data*)bl;
+	struct status_change* tsc;
+
+	if (bl->type != BL_PC || bl->id == src->id)
+		return 0;
+	tsd = (struct map_session_data*)bl;
+	if (tsd->state.fakeplayer && !(tsd->sc.option & OPTION_INVISIBLE))
+		; // ok to buff other fakes for show
+	tsc = status_get_sc(bl);
+	if (tsc && tsc->data[sc_type])
+		return 0;
+	*out = bl->id;
+	return 1; // stop at first
 }
 
 // Make a fake "say" a random idle line as a real overhead chat bubble. The
@@ -535,9 +750,163 @@ static void fp_emote(struct map_session_data* sd)
 	clif_emotion(&sd->bl, FP_EMOTES[rnd() % FP_NEMOTE]);
 }
 
+// Ensure enough SP before casting; fakes never run dry for demos/support.
+static void fp_refill_sp(struct map_session_data* sd)
+{
+	if (sd->battle_status.sp < sd->battle_status.max_sp / 4)
+		sd->battle_status.sp = sd->battle_status.max_sp;
+}
+
+// Cast a skill on a target; returns 1 if the cast was started.
+static int fp_cast_on(struct map_session_data* sd, int target_id, int skill, int lv)
+{
+	if (skill <= 0 || lv < 1)
+		return 0;
+	fp_refill_sp(sd);
+	return unit_skilluse_id(&sd->bl, target_id, (short)skill, (short)lv) ? 1 : 0;
+}
+
+// Engage with class-appropriate skill when possible, else basic attack.
+static void fp_try_attack(struct map_session_data* sd, int target_id, int class_)
+{
+	int sk, sklv;
+
+	if (sd->ud.skilltimer != INVALID_TIMER)
+		return;
+	sk = fp_pick_fight_skill(class_, &sklv);
+	if (sk && pc_checkskill(sd, sk) > 0 && rnd() % 100 < 75) {
+		if (fp_cast_on(sd, target_id, sk, sklv))
+			return;
+	}
+	unit_attack(&sd->bl, target_id, 1);
+}
+
+// Follow `master`, staying 1-2 cells behind.
+static void fp_follow_master(struct map_session_data* sd, struct block_list* master, int* budget)
+{
+	int dx, dy, tx, ty;
+
+	if (master == NULL || sd->bl.m != master->m)
+		return;
+	dx = sd->bl.x - master->x;
+	dy = sd->bl.y - master->y;
+	if (dx >= -2 && dx <= 2 && dy >= -2 && dy <= 2)
+		return;
+	if (*budget <= 0)
+		return;
+	(*budget)--;
+	tx = master->x + (dx > 0 ? 1 : (dx < 0 ? -1 : 0));
+	ty = master->y + (dy > 0 ? 1 : (dy < 0 ? -1 : 0));
+	unit_walktoxy(&sd->bl, (short)tx, (short)ty, 0);
+}
+
+// Cast the next missing buff on `target` according to bot class tier.
+static int fp_support_buff(struct map_session_data* sd, struct block_list* target, int class_)
+{
+	struct status_change* tsc = status_get_sc(target);
+	struct {
+		int skill, lv, sc;
+	} list[] = {
+		{ AL_BLESSING,   10, SC_BLESSING     },
+		{ AL_INCAGI,     10, SC_INCREASEAGI  },
+		{ PR_IMPOSITIO,   5, SC_IMPOSITIO    },
+		{ PR_KYRIE,      10, SC_KYRIE        },
+		{ PR_MAGNIFICAT,  5, SC_MAGNIFICAT   },
+		{ PR_GLORIA,      5, SC_GLORIA       },
+		{ PR_ASPERSIO,    5, SC_ASPERSIO     },
+		{ PR_SUFFRAGIUM,  3, SC_SUFFRAGIUM   },
+	};
+	int i, n = 2; // bless + agi for acolyte
+
+	if (class_ >= JOB_PRIEST) n = 5;
+	if (class_ >= JOB_HIGH_PRIEST) n = 8;
+
+	for (i = 0; i < n; i++) {
+		if (pc_checkskill(sd, list[i].skill) <= 0)
+			continue;
+		if (tsc && tsc->data[list[i].sc])
+			continue;
+		return fp_cast_on(sd, target->id, list[i].skill, list[i].lv);
+	}
+	return 0;
+}
+
+// Personal support-bot step: follow master, heal, buff.
+static int fp_act_support(struct fp_node* node, int* budget)
+{
+	struct map_session_data* sd = node->sd;
+	struct map_session_data* master;
+	struct block_list* mbl;
+	int hp_pct;
+
+	master = map_id2sd(node->master_id);
+	if (master == NULL || master->state.fakeplayer || master->bl.m != sd->bl.m) {
+		if (rnd() % 100 < 20) fp_emote(sd);
+		return FP_ACT_MIN + (int)(rnd() % (FP_ACT_MAX - FP_ACT_MIN));
+	}
+	mbl = &master->bl;
+
+	if (sd->ud.skilltimer != INVALID_TIMER || sd->ud.walktimer != INVALID_TIMER)
+		return 1200 + (int)(rnd() % 800);
+
+	fp_follow_master(sd, mbl, budget);
+
+	hp_pct = (master->battle_status.max_hp > 0)
+		? master->battle_status.hp * 100 / master->battle_status.max_hp : 100;
+	if (hp_pct < 85 && pc_checkskill(sd, AL_HEAL) > 0) {
+		if (fp_cast_on(sd, mbl->id, AL_HEAL, 10))
+			return 2500 + (int)(rnd() % 1500);
+	}
+	if (fp_support_buff(sd, mbl, sd->class_))
+		return 3000 + (int)(rnd() % 2000);
+
+	if (rnd() % 100 < 10)
+		fp_emote(sd);
+	return FP_ACT_MIN + (int)(rnd() % (FP_ACT_MAX - FP_ACT_MIN));
+}
+
 // Short, jittered "try again soon" delay used when a fake wants to do an
 // expensive action (walk/fight-scan) but the per-tick budget is already spent.
 static int fp_defer(void) { return 700 + (int)(rnd() % 1500); }
+
+// Visible class skill in towns (priests buff, mages bolt, archers double).
+static int fp_act_skill_demo(struct map_session_data* sd, int* budget)
+{
+	int class_ = sd->class_;
+	int target = 0, dist = 999;
+
+	if (sd->ud.skilltimer != INVALID_TIMER)
+		return 1500 + (int)(rnd() % 1500);
+
+	fp_refill_sp(sd);
+
+	if (fp_is_priest_line(class_)) {
+		target = 0;
+		map_foreachinrange(fp_pick_buff_target, &sd->bl, 5, BL_PC, &sd->bl, &target, SC_BLESSING);
+		if (target && fp_cast_on(sd, target, AL_BLESSING, 10))
+			return FP_ACT_MIN + (int)(rnd() % FP_ACT_MAX);
+		if (!sd->sc.data[SC_BLESSING] && fp_cast_on(sd, sd->bl.id, AL_BLESSING, 10))
+			return FP_ACT_MIN + (int)(rnd() % FP_ACT_MAX);
+		if (fp_cast_on(sd, sd->bl.id, AL_RUWACH, 1))
+			return FP_ACT_MIN + (int)(rnd() % FP_ACT_MAX);
+	}
+	if (fp_is_mage_line(class_)) {
+		if (*budget <= 0) return fp_defer();
+		(*budget)--;
+		map_foreachinrange(fp_pick_target, &sd->bl, 9, BL_MOB, &sd->bl, &target, &dist);
+		if (target && fp_cast_on(sd, target, MG_FIREBOLT, 10))
+			return FP_ACT_MIN / 2 + (int)(rnd() % FP_ACT_MIN);
+		if (fp_cast_on(sd, sd->bl.id, MG_ENERGYCOAT, 1))
+			return FP_ACT_MIN + (int)(rnd() % FP_ACT_MAX);
+	}
+	if (fp_is_archer_line(class_) && *budget > 0) {
+		(*budget)--;
+		map_foreachinrange(fp_pick_target, &sd->bl, 9, BL_MOB, &sd->bl, &target, &dist);
+		if (target && fp_cast_on(sd, target, AC_DOUBLE, 10))
+			return FP_ACT_MIN / 2 + (int)(rnd() % FP_ACT_MIN);
+	}
+	return 0; // nothing cast; caller continues normal wander
+}
 
 // Run one behaviour step for a single fake; returns the delay (ms) until it
 // should act again. `budget` points at the driver's per-tick allowance for
@@ -547,7 +916,11 @@ static int fp_act(struct fp_node* node, int* budget)
 {
 	struct map_session_data* sd = node->sd;
 	int flag = node->flag;
-	int r;
+	int r, target = 0, dist = 999;
+
+	// Personal support follower: only buff/heal/follow master_id.
+	if (flag & FP_SUPPORT)
+		return fp_act_support(node, budget);
 
 	// Vendors keep their shop anchored; just look alive once in a while. (cheap)
 	if (sd->state.vending) {
@@ -563,21 +936,26 @@ static int fp_act(struct fp_node* node, int* budget)
 		return FP_ACT_MIN + (int)(rnd() % (FP_ACT_MAX - FP_ACT_MIN));
 	}
 
-	// Still mid-walk or mid-swing: let the action finish, re-check shortly. (cheap)
-	if (sd->ud.walktimer != INVALID_TIMER || sd->ud.attacktimer != INVALID_TIMER)
+	// Still mid-walk, mid-swing, or mid-cast: let it finish. (cheap)
+	if (sd->ud.walktimer != INVALID_TIMER || sd->ud.attacktimer != INVALID_TIMER
+		|| sd->ud.skilltimer != INVALID_TIMER)
 		return 1500 + (int)(rnd() % 1500);
 
-	// Fighters: engage the nearest monster if one is in range. The range scan
-	// is expensive, so it is budgeted; when we're out of budget, just retry soon.
+	// Town skill demos (priest bless, mage bolt, etc.).
+	if ((flag & FP_SKILL_DEMO) && rnd() % 100 < 35) {
+		r = fp_act_skill_demo(sd, budget);
+		if (r > 0) return r;
+	}
+
+	// Fighters: engage the nearest monster with skills + weapon attacks.
 	if (flag & FP_FIGHT) {
-		int target = 0;
 		if (*budget <= 0)
 			return fp_defer();
 		(*budget)--;
-		map_foreachinrange(fp_pick_target, &sd->bl, FP_FIGHT_RANGE, BL_MOB, &target);
+		map_foreachinrange(fp_pick_target, &sd->bl, FP_FIGHT_RANGE, BL_MOB, &sd->bl, &target, &dist);
 		if (target) {
 			if (sd->vd.dead_sit) { pc_setstand(sd); clif_standing(&sd->bl); }
-			unit_attack(&sd->bl, target, 1);   // 1 == continuous melee
+			fp_try_attack(sd, target, sd->class_);
 			return FP_ACT_MIN / 2 + (int)(rnd() % FP_ACT_MIN);
 		}
 		// nothing to hit: drift around like a player looking for mobs
@@ -741,7 +1119,11 @@ int fakeplayer_populate_city(int m, int count)
 			fakeplayer_openchat(gid, FP_CITY_CHAT_TITLES[rnd() % FP_NCITYCHAT], 12);
 		}
 		else {                     // ordinary wanderer
-			gid = fakeplayer_create(name, class_, m, x, y, FP_WANDER);
+			int f = FP_WANDER;
+			// Priest/mage/archer wanderers occasionally cast visible skills in town.
+			if (fp_is_priest_line(class_) || fp_is_mage_line(class_) || fp_is_archer_line(class_))
+				f |= FP_SKILL_DEMO;
+			gid = fakeplayer_create(name, class_, m, x, y, f);
 			if (!gid) continue;
 		}
 		made++;
@@ -823,6 +1205,68 @@ static void fp_destroy(struct map_session_data* sd)
 int fakeplayer_count(void)
 {
 	return fp_count;
+}
+
+int fakeplayer_count_on_map(int m)
+{
+	int i, n = 0;
+	if (m < 0)
+		return fp_count;
+	for (i = 0; i < fp_count; i++)
+		if (fp_list[i].sd && fp_list[i].sd->bl.m == m)
+			n++;
+	return n;
+}
+
+int fakeplayer_create_support(struct map_session_data* master, int class_, const char* name)
+{
+	int gid;
+
+	if (master == NULL || master->state.fakeplayer)
+		return 0;
+	if (!pcdb_checkid(class_) || !fp_is_priest_line(class_))
+		class_ = JOB_HIGH_PRIEST;
+
+	fakeplayer_remove_support(master->bl.id);
+
+	gid = fakeplayer_create_ex(
+		name, class_, master->bl.m, master->bl.x, master->bl.y,
+		FP_STILL | FP_SUPPORT | FP_FOLLOW, master->bl.id);
+
+	if (gid)
+		ShowInfo("fakeplayer: support bot '%s' (class %d) assigned to %s.\n",
+			name, class_, master->status.name);
+	return gid;
+}
+
+int fakeplayer_remove_support(int master_id)
+{
+	int i, removed = 0;
+
+	for (i = fp_count - 1; i >= 0; i--) {
+		if (fp_list[i].sd && fp_list[i].master_id == master_id
+			&& (fp_list[i].flag & FP_SUPPORT)) {
+			fp_destroy(fp_list[i].sd);
+			fp_list[i] = fp_list[--fp_count];
+			removed++;
+		}
+	}
+	return removed;
+}
+
+int fakeplayer_create_at(struct map_session_data* sd, int class_, const char* name, int flag)
+{
+	char buf[NAME_LENGTH];
+
+	if (sd == NULL)
+		return 0;
+	if (!pcdb_checkid(class_))
+		class_ = JOB_SWORDMAN;
+	if (name == NULL || name[0] == '\0') {
+		safesnprintf(buf, sizeof(buf), "Fake%d", rnd() % 10000);
+		name = buf;
+	}
+	return fakeplayer_create_ex(name, class_, sd->bl.m, sd->bl.x, sd->bl.y, flag, 0);
 }
 
 int fakeplayer_remove(int gid)

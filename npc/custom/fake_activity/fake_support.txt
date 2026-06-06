@@ -1,0 +1,56 @@
+//===== eAthena Script ===========================================
+//= Personal Support Bot (fake player healer/buffer)
+//================================================================
+//= Spawns a real BL_PC follower (Acolyte/Priest/High Priest) that
+//= stays with you, heals when hurt, and keeps your buffs up.
+//=
+//= Script commands (see src/map/fakeplayer.c):
+//=   fakesupport  <job>{,"<name>"};   -> GID (replaces old support)
+//=   fakesupportoff;                    -> dismiss your support bot
+//=
+//= GM @commands (see conf/atcommand_athena.conf):
+//=   @fakesupport [acolyte|priest|highpriest] [name]
+//=   @fakesupportoff
+//=   @fakehere <job_id> [name]     spawn fighter at your feet
+//=   @fakecount                    fakes on map / world total
+//=   @fakemapclear                 remove all fakes on this map (GM)
+//================================================================
+
+prontera,155,178,5	script	Support Sister	4_F_02,{
+	mes "[Support Sister]";
+	mes "I can call a sister to follow you,";
+	mes "heal you, and keep your buffs up.";
+	mes "Only one support companion at a time.";
+	next;
+	switch(select("High Priest","Priest","Acolyte","Dismiss my support","Cancel")) {
+	case 1:
+		if (fakesupport(JOB_HIGH_PRIEST, "Holy Support"))
+			mes "A High Priest will stay by your side.";
+		else
+			mes "Could not summon support (try again later).";
+		close;
+	case 2:
+		if (fakesupport(JOB_PRIEST, "Priest Support"))
+			mes "A Priest will stay by your side.";
+		else
+			mes "Could not summon support (try again later).";
+		close;
+	case 3:
+		if (fakesupport(JOB_ACOLYTE, "Acolyte Support"))
+			mes "An Acolyte will stay by your side.";
+		else
+			mes "Could not summon support (try again later).";
+		close;
+	case 4:
+		fakesupportoff;
+		mes "Your support companion has been dismissed.";
+		close;
+	case 5:
+		close;
+	}
+}
+
+// Same service in other hub towns.
+geffen,120,62,5	duplicate(Support Sister)	Support Sister#gef	4_F_02
+payon,159,96,5	duplicate(Support Sister)	Support Sister#pay	4_F_02
+morocc,159,97,5	duplicate(Support Sister)	Support Sister#moc	4_F_02

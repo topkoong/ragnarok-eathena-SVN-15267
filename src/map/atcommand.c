@@ -6,6 +6,7 @@
 #include "../common/timer.h"
 #include "../common/nullpo.h"
 #include "../common/core.h"
+#include "../common/random.h"
 #include "../common/showmsg.h"
 #include "../common/malloc.h"
 #include "../common/socket.h"
@@ -36,6 +37,7 @@
 #include "storage.h"
 #include "trade.h"
 #include "unit.h"
+#include "fakeplayer.h"
 
 #ifndef TXT_ONLY
 #include "mail.h"
@@ -8849,6 +8851,111 @@ ACMD_FUNC(font)
 
 
 /*==========================================
+ * Fake player GM helpers (@fakesupport, @fakehere, ...)
+ *------------------------------------------*/
+static int atcommand_parse_priest_job(const char* word)
+{
+	if (word == NULL || !*word)
+		return JOB_HIGH_PRIEST;
+	if (!strcmpi(word, "acolyte") || !strcmpi(word, "aco"))
+		return JOB_ACOLYTE;
+	if (!strcmpi(word, "priest") || !strcmpi(word, "pri"))
+		return JOB_PRIEST;
+	if (!strcmpi(word, "highpriest") || !strcmpi(word, "hp") || !strcmpi(word, "high"))
+		return JOB_HIGH_PRIEST;
+	return atoi(word);
+}
+
+ACMD_FUNC(fakesupport)
+{
+	int class_ = JOB_HIGH_PRIEST;
+	char name[NAME_LENGTH];
+	char jobword[32];
+	int gid;
+
+	nullpo_retr(-1, sd);
+	name[0] = '\0';
+	jobword[0] = '\0';
+
+	if (message && *message) {
+		if (sscanf(message, "%31s %23s", jobword, name) >= 1)
+			class_ = atcommand_parse_priest_job(jobword);
+	}
+	if (name[0] == '\0')
+		safestrncpy(name, "Support", sizeof(name));
+
+	gid = fakeplayer_create_support(sd, class_, name);
+	if (gid)
+		clif_displaymessage(fd, "Support bot summoned. It will follow you and keep you buffed.");
+	else
+		clif_displaymessage(fd, "Failed to summon support bot (registry full or invalid job).");
+	return 0;
+}
+
+ACMD_FUNC(fakesupportoff)
+{
+	int n;
+	nullpo_retr(-1, sd);
+	n = fakeplayer_remove_support(sd->bl.id);
+	if (n > 0)
+		clif_displaymessage(fd, "Support bot dismissed.");
+	else
+		clif_displaymessage(fd, "You have no active support bot.");
+	return 0;
+}
+
+ACMD_FUNC(fakehere)
+{
+	int class_ = JOB_SWORDMAN;
+	int flag = FP_WANDER | FP_FIGHT;
+	char jobword[32];
+	char name[NAME_LENGTH];
+	int gid;
+
+	nullpo_retr(-1, sd);
+	jobword[0] = '\0';
+	name[0] = '\0';
+
+	if (message && *message) {
+		if (sscanf(message, "%31s %23s", jobword, name) >= 1)
+			class_ = atoi(jobword);
+	}
+	if (name[0] == '\0')
+		safesnprintf(name, sizeof(name), "Fake%d", rnd() % 10000);
+
+	gid = fakeplayer_create_at(sd, class_, name, flag);
+	if (gid)
+		clif_displaymessage(fd, "Fake player spawned at your location.");
+	else
+		clif_displaymessage(fd, "Failed to spawn fake player.");
+	return 0;
+}
+
+ACMD_FUNC(fakecount)
+{
+	char buf[128];
+
+	nullpo_retr(-1, sd);
+	safesnprintf(buf, sizeof(buf), "Fake players on this map: %d (world total: %d)",
+		fakeplayer_count_on_map(sd->bl.m), fakeplayer_count());
+	clif_displaymessage(fd, buf);
+	return 0;
+}
+
+ACMD_FUNC(fakemapclear)
+{
+	int removed;
+	char buf[64];
+
+	nullpo_retr(-1, sd);
+	removed = fakeplayer_remove_all(sd->bl.m);
+	safesnprintf(buf, sizeof(buf), "Removed %d fake player(s) from this map.", removed);
+	clif_displaymessage(fd, buf);
+	return 0;
+}
+
+
+/*==========================================
  * atcommand_info[] structure definition
  *------------------------------------------*/
 
@@ -9150,6 +9257,11 @@ AtCommandInfo atcommand_info[] = {
 	{ "delitem",           60,60,     atcommand_delitem },
 	{ "charcommands",       1,1,      atcommand_commands },
 	{ "font",               1,1,      atcommand_font },
+	{ "fakesupport",       20,20,     atcommand_fakesupport },
+	{ "fakesupportoff",    20,20,     atcommand_fakesupportoff },
+	{ "fakehere",          40,40,     atcommand_fakehere },
+	{ "fakecount",         20,20,     atcommand_fakecount },
+	{ "fakemapclear",      60,60,     atcommand_fakemapclear },
 };
 
 

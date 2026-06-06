@@ -785,7 +785,7 @@ static void add_scriptl(int l)
 		break;
 	case C_NOP:
 	case C_USERFUNC:
-		// ???x????”\??????????backpatch?p?f?[?^???????
+		// ???x?????\??????????backpatch?p?f?[?^???????
 		add_scriptc(C_NAME);
 		str_data[l].backpatch = script_pos;
 		add_scriptb(backpatch);
@@ -1198,7 +1198,7 @@ const char* parse_line(const char* p)
 
 	p=skip_space(p);
 	if(*p==';') {
-		// if(); for(); while(); ??????‚?????
+		// if(); for(); while(); ????????????
 		p = parse_syntax_close(p + 1);
 		return p;
 	}
@@ -1232,13 +1232,13 @@ const char* parse_line(const char* p)
 			disp_error_message("parse_line: need ';'",p);
 	}
 
-	// if, for , while ??‚?????
+	// if, for , while ????????
 	p = parse_syntax_close(p+1);
 
 	return p;
 }
 
-// { ... } ??‚?????
+// { ... } ????????
 const char* parse_curly_close(const char* p)
 {
 	if(syntax.curly_count <= 0) {
@@ -1246,11 +1246,11 @@ const char* parse_curly_close(const char* p)
 		return p + 1;
 	} else if(syntax.curly[syntax.curly_count-1].type == TYPE_NULL) {
 		syntax.curly_count--;
-		// if, for , while ??‚?????
+		// if, for , while ????????
 		p = parse_syntax_close(p + 1);
 		return p;
 	} else if(syntax.curly[syntax.curly_count-1].type == TYPE_SWITCH) {
-		// switch() ?‚?????
+		// switch() ???????
 		int pos = syntax.curly_count-1;
 		char label[256];
 		int l;
@@ -1285,7 +1285,7 @@ const char* parse_curly_close(const char* p)
 		set_label(l,script_pos, p);
 		linkdb_final(&syntax.curly[pos].case_label);	// free the list of case label
 		syntax.curly_count--;
-		// if, for , while ??‚?????
+		// if, for , while ????????
 		p = parse_syntax_close(p + 1);
 		return p;
 	} else {
@@ -1334,7 +1334,7 @@ const char* parse_syntax(const char* p)
 			p = skip_space(p2);
 			if(*p != ';')
 				disp_error_message("parse_syntax: need ';'",p);
-			// if, for , while ??‚?????
+			// if, for , while ????????
 			p = parse_syntax_close(p + 1);
 			return p;
 		}
@@ -1442,7 +1442,7 @@ const char* parse_syntax(const char* p)
 			p = skip_space(p2);
 			if(*p != ';')
 				disp_error_message("parse_syntax: need ';'",p);
-			// if, for , while ??‚?????
+			// if, for , while ????????
 			p = parse_syntax_close(p + 1);
 			return p;
 		}
@@ -1598,7 +1598,7 @@ const char* parse_syntax(const char* p)
 				else
 					disp_error_message("parse_syntax:function: function name is invalid", func_name);
 
-				// if, for , while ??‚?????
+				// if, for , while ????????
 				p = parse_syntax_close(p2 + 1);
 				return p;
 			}
@@ -1726,7 +1726,7 @@ const char* parse_syntax(const char* p)
 }
 
 const char* parse_syntax_close(const char *p) {
-	// if(...) for(...) hoge(); ?????A?P?x?‚???????x?‚??????m?F????
+	// if(...) for(...) hoge(); ?????A?P?x?????????x????????m?F????
 	int flag;
 
 	do {
@@ -1735,9 +1735,9 @@ const char* parse_syntax_close(const char *p) {
 	return p;
 }
 
-// if, for , while , do ??‚?????
-//	 flag == 1 : ?‚????
-//	 flag == 0 : ?‚??????
+// if, for , while , do ????????
+//	 flag == 1 : ??????
+//	 flag == 0 : ????????
 const char* parse_syntax_close_sub(const char* p,int* flag)
 {
 	char label[256];
@@ -1797,7 +1797,7 @@ const char* parse_syntax_close_sub(const char* p,int* flag)
 				}
 			}
 		}
-		// if ?‚?
+		// if ???
 		syntax.curly_count--;
 		// ??I?n????x????t????
 		sprintf(label,"__IF%x_FIN",syntax.curly[pos].index);
@@ -6785,7 +6785,7 @@ BUILDIN_FUNC(getequipisequiped)
 }
 
 /*==========================================
- * ?????i???B?”\?`?F?b?N
+ * ?????i???B??\?`?F?b?N
  *------------------------------------------*/
 BUILDIN_FUNC(getequipisenableref)
 {
@@ -15491,6 +15491,24 @@ BUILDIN_FUNC(fakeplayerremoveall)
 	return 0;
 }
 
+BUILDIN_FUNC(fakesupport)
+{
+	struct map_session_data* sd = script_rid2sd(st);
+	int class_ = script_hasdata(st, 2) ? script_getnum(st, 2) : JOB_HIGH_PRIEST;
+	const char* name = script_hasdata(st, 3) ? script_getstr(st, 3) : "Support";
+	if (sd == NULL) { script_pushint(st, 0); return 0; }
+	script_pushint(st, fakeplayer_create_support(sd, class_, name));
+	return 0;
+}
+
+BUILDIN_FUNC(fakesupportoff)
+{
+	struct map_session_data* sd = script_rid2sd(st);
+	if (sd == NULL) { script_pushint(st, 0); return 0; }
+	script_pushint(st, fakeplayer_remove_support(sd->bl.id));
+	return 0;
+}
+
 
 // declarations that were supposed to be exported from npc_chat.c
 #ifdef PCRE_SUPPORT
@@ -15915,5 +15933,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(fakechat, "is?"),
 	BUILDIN_DEF(fakeplayerremove, "i"),
 	BUILDIN_DEF(fakeplayerremoveall, "?"),
+	BUILDIN_DEF(fakesupport, "i?"),
+	BUILDIN_DEF(fakesupportoff, ""),
 	{NULL,NULL,NULL},
 };

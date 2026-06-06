@@ -24,6 +24,14 @@
 //=   fakechat <gid>,"<title>"{,<limit>};
 //=   fakeplayerremove <gid>;
 //=   fakeplayerremoveall {"<map>"};
+//=   fakesupport {<job>{,"<name>"}};  // personal healer/buffer follower
+//=   fakesupportoff;                   // dismiss your support bot
+//=
+//= GM @commands: @fakesupport, @fakesupportoff, @fakehere, @fakecount,
+//=               @fakemapclear
+//=
+//= Support NPC: npc/custom/fake_activity/fake_support.txt (Prontera/Geffen/
+//=               Payon/Morocc) - spawns Acolyte/Priest/High Priest follower.
 //=
 //= TUNING / PERFORMANCE NOTES
 //=   * Total fake players is capped at FP_MAX (20000) in fakeplayer.c.

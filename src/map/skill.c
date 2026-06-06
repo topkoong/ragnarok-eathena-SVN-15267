@@ -379,6 +379,22 @@ int skillnotok(int skillid, struct map_session_data *sd)
 	if (i == 0)
 		return 1; // invalid skill id
 
+	// Synthetic crowd/support bots: allow casting on noskill maps (towns) so
+	// acolytes can demo Bless/Heal and mages can show bolts. Still block warps.
+	if (sd->state.fakeplayer) {
+		switch (skillid) {
+		case AL_WARP:
+		case AL_TELEPORT:
+		case WE_CALLPARTNER:
+		case WE_CALLPARENT:
+		case WE_CALLBABY:
+			return 1;
+		}
+		if (sd->blockskill[i] > 0)
+			return 1;
+		return 0;
+	}
+
 	if (battle_config.gm_skilluncond && pc_isGM(sd) >= battle_config.gm_skilluncond)
 		return 0; // GMs can do any damn thing they want
 

@@ -196,7 +196,7 @@ int map_fd;
 static int clif_parse (int fd);
 
 /*==========================================
- * mapŽI‚ÌipÝ’è
+ * mapŽI‚ÌipÝ’è
  *------------------------------------------*/
 int clif_setip(const char* ip)
 {
@@ -224,7 +224,7 @@ void clif_setbindip(const char* ip)
 }
 
 /*==========================================
- * mapŽI‚ÌportÝ’è
+ * mapŽI‚ÌportÝ’è
  *------------------------------------------*/
 void clif_setport(uint16 port)
 {
@@ -232,7 +232,7 @@ void clif_setport(uint16 port)
 }
 
 /*==========================================
- * mapŽI‚Ìip“Ç‚Ýo‚µ
+ * mapŽI‚Ìip“Ç‚Ýo‚µ
  *------------------------------------------*/
 uint32 clif_getip(void)
 {
@@ -254,7 +254,7 @@ uint32 clif_refresh_ip(void)
 }
 
 /*==========================================
- * mapŽI‚Ìport“Ç‚Ýo‚µ
+ * mapŽI‚Ìport“Ç‚Ýo‚µ
  *------------------------------------------*/
 uint16 clif_getport(void)
 {
@@ -846,6 +846,13 @@ void clif_get_weapon_view(struct map_session_data* sd, unsigned short *rhand, un
 	if(sd->sc.option&(OPTION_WEDDING|OPTION_XMAS|OPTION_SUMMER))
 	{
 		*rhand = *lhand = 0;
+		return;
+	}
+
+	// Fakes have no inventory; use the cosmetic view we assigned at spawn.
+	if (sd->state.fakeplayer) {
+		*rhand = sd->vd.weapon;
+		*lhand = sd->vd.shield;
 		return;
 	}
 
@@ -4222,7 +4229,7 @@ static void clif_getareachar_skillunit(struct map_session_data *sd, struct skill
 
 
 /*==========================================
- * êŠƒXƒLƒ‹ƒGƒtƒFƒNƒg‚ªŽ‹ŠE‚©‚çÁ‚¦‚é
+ * êŠƒXƒLƒ‹ƒGƒtƒFƒNƒg‚ªŽ‹ŠE‚©‚çÁ‚¦‚é
  *------------------------------------------*/
 static void clif_clearchar_skillunit(struct skill_unit *unit, int fd)
 {
@@ -4850,7 +4857,7 @@ void clif_skill_poseffect(struct block_list *src,int skill_id,int val,int x,int 
 
 
 /*==========================================
- * êŠƒXƒLƒ‹ƒGƒtƒFƒNƒg•\Ž¦
+ * êŠƒXƒLƒ‹ƒGƒtƒFƒNƒg•\Ž¦
  *------------------------------------------*/
 //FIXME: this is just an AREA version of clif_getareachar_skillunit()
 void clif_skill_setunit(struct skill_unit *unit)
@@ -5278,7 +5285,7 @@ void clif_broadcast(struct block_list* bl, const char* mes, int len, int type, e
 
 
 /*==========================================
- * ƒOƒ[ƒoƒ‹ƒƒbƒZ[ƒW
+ * ƒOƒ[ƒoƒ‹ƒƒbƒZ[ƒW
  *------------------------------------------*/
 void clif_GlobalMessage(struct block_list* bl, const char* message)
 {
@@ -6480,7 +6487,7 @@ int clif_hpmeter_sub(struct block_list *bl, va_list ap)
 }
 
 /*==========================================
- * GM‚ÖêŠ‚ÆHP’Ê’m
+ * GM‚ÖêŠ‚ÆHP’Ê’m
  *------------------------------------------*/
 int clif_hpmeter(struct map_session_data *sd)
 {
@@ -7521,7 +7528,7 @@ void clif_guild_message(struct guild *g,int account_id,const char *mes,int len)
 
 
 /*==========================================
- * ƒMƒ‹ƒhƒXƒLƒ‹Š„‚èU‚è’Ê’m
+ * ƒMƒ‹ƒhƒXƒLƒ‹Š„‚èU‚è’Ê’m
  *------------------------------------------*/
 int clif_guild_skillup(struct map_session_data *sd,int skill_num,int lv)
 {// TODO: Merge with clif_skillup (same packet).
@@ -8842,7 +8849,7 @@ static int clif_guess_PacketVer(int fd, int get_previous, int *error)
 // ------------
 // clif_parse_*
 // ------------
-// ƒpƒPƒbƒg“Ç‚ÝŽæ‚Á‚ÄFX‘€ì
+// ƒpƒPƒbƒg“Ç‚ÝŽæ‚Á‚ÄFX‘€ì
 
 
 /// Request to connect to map-server.
@@ -10663,7 +10670,7 @@ void clif_parse_UseSkillToId(int fd, struct map_session_data *sd)
 }
 
 /*==========================================
- * ƒXƒLƒ‹Žg—piêŠŽw’èj
+ * ƒXƒLƒ‹Žg—piêŠŽw’èj
  *------------------------------------------*/
 static void clif_parse_UseSkillToPosSub(int fd, struct map_session_data *sd, short skilllv, short skillnum, short x, short y, int skillmoreinfo)
 {
@@ -11745,15 +11752,15 @@ void clif_parse_GuildRequestInfo(int fd, struct map_session_data *sd)
 
 	switch( RFIFOL(fd,2) )
 	{
-	case 0:	// ƒMƒ‹ƒhŠî–{î•ñA“¯–¿“G‘Îî•ñ
+	case 0:	// ƒMƒ‹ƒhŠî–{î•ñA“¯–¿“G‘Îî•ñ
 		clif_guild_basicinfo(sd);
 		clif_guild_allianceinfo(sd);
 		break;
-	case 1:	// ƒƒ“ƒo[ƒŠƒXƒgA–ðE–¼ƒŠƒXƒg
+	case 1:	// ƒƒ“ƒo[ƒŠƒXƒgA–ðE–¼ƒŠƒXƒg
 		clif_guild_positionnamelist(sd);
 		clif_guild_memberlist(sd);
 		break;
-	case 2:	// –ðE–¼ƒŠƒXƒgA–ðEî•ñƒŠƒXƒg
+	case 2:	// –ðE–¼ƒŠƒXƒgA–ðEî•ñƒŠƒXƒg
 		clif_guild_positionnamelist(sd);
 		clif_guild_positioninfolist(sd);
 		break;
@@ -15991,7 +15998,7 @@ static int clif_parse(int fd)
 }
 
 /*==========================================
- * ƒpƒPƒbƒgƒf[ƒ^ƒx[ƒX“Ç‚Ýž‚Ý
+ * ƒpƒPƒbƒgƒf[ƒ^ƒx[ƒX“Ç‚Ýž‚Ý
  *------------------------------------------*/
 static int packetdb_readdb(void)
 {
@@ -16018,7 +16025,7 @@ static int packetdb_readdb(void)
 #endif
 #if PACKETVER < 2
 	    3, 28, 19, 11,  3, -1,  9,  5, 52, 51, 56, 58, 41,  2,  6,  6,
-#elif PACKETVER < 20071106	// 78-7b ‹T“‡ˆÈ~ lv99ƒGƒtƒFƒNƒg—p
+#elif PACKETVER < 20071106	// 78-7b ‹T“‡ˆÈ~ lv99ƒGƒtƒFƒNƒg—p
 	    3, 28, 19, 11,  3, -1,  9,  5, 54, 53, 58, 60, 41,  2,  6,  6,
 #elif PACKETVER <= 20081217 // change in 0x78 and 0x7c
 	    3, 28, 19, 11,  3, -1,  9,  5, 55, 53, 58, 60, 42,  2,  6,  6,
@@ -16053,7 +16060,7 @@ static int packetdb_readdb(void)
 	    6,  3,106, 10, 10, 34,  0,  6,  8,  4,  4,  4, 29, -1, 10,  6,
 #if PACKETVER < 1
 	   90, 86, 24,  6, 30,102,  8,  4,  8,  4, 14, 10, -1,  6,  2,  6,
-#else	// 196 comodoˆÈ~ ó‘Ô•\Ž¦ƒAƒCƒRƒ“—p
+#else	// 196 comodoˆÈ~ ó‘Ô•\Ž¦ƒAƒCƒRƒ“—p
 	   90, 86, 24,  6, 30,102,  9,  4,  8,  4, 14, 10, -1,  6,  2,  6,
 #endif
 #if PACKETVER < 20081126

@@ -19,9 +19,12 @@ struct map_session_data;
 
 // Behaviour flags (bitmask) passed to fakeplayer_create / script command.
 enum fakeplayer_flag {
-	FP_STILL   = 0x0, // stand in place
-	FP_WANDER  = 0x1, // periodically walk to a nearby random cell
-	FP_FIGHT   = 0x2, // seek and attack the nearest monster in range
+	FP_STILL      = 0x0, // stand in place
+	FP_WANDER     = 0x1, // periodically walk to a nearby random cell
+	FP_FIGHT      = 0x2, // seek and attack the nearest monster in range
+	FP_SUPPORT    = 0x4, // heal/buff master_id only (see fakeplayer_create_support)
+	FP_FOLLOW     = 0x8, // walk behind master_id
+	FP_SKILL_DEMO = 0x10,// occasionally cast visible class skills (town crowd)
 };
 
 // Create one fake player. Returns the new GID (bl.id) or 0 on failure.
@@ -46,6 +49,20 @@ int  fakeplayer_populate_field(int m, int count);
 
 // Number of live fake players (used to keep them out of autosave math).
 int  fakeplayer_count(void);
+
+// Count fakes on one map index (`m` < 0 = world total, same as fakeplayer_count).
+int  fakeplayer_count_on_map(int m);
+
+// Spawn a personal support bot (Acolyte/Priest/High Priest) that follows `master`
+// and keeps them buffed/healed. Removes any prior support bots owned by master.
+// Returns new GID or 0.
+int  fakeplayer_create_support(struct map_session_data* master, int class_, const char* name);
+
+// Remove all support bots tied to `master_id` (player GID). Returns count removed.
+int  fakeplayer_remove_support(int master_id);
+
+// Spawn one fake at the caller's feet (GM helper). Returns GID or 0.
+int  fakeplayer_create_at(struct map_session_data* sd, int class_, const char* name, int flag);
 
 // Remove a single fake player, or all fake players (optionally on one map).
 int  fakeplayer_remove(int gid);
